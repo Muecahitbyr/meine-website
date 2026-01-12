@@ -32,9 +32,9 @@ export const projects = [
     note: "(Bald im App Store)",
     tags: ["SwiftUI", "Game Logic", "Animations"],
     screenshots: [
-      `/screenshots/Guess1.${EXT}`,
-      `/screenshots/Guess2.${EXT}`,
-      `/screenshots/Guess3.${EXT}`,
+      `/screenshots/GTCC1.${EXT}`,
+      `/screenshots/GTCC2.${EXT}`,
+      `/screenshots/GTCC3.${EXT}`,
     ],
   },
 ];
