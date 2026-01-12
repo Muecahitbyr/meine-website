@@ -44,7 +44,7 @@ export default function App() {
         <Section
           id="apps"
           title="Apps"
-          subtitle="halter-Projekte – ersetze sie durch deine echten Apps und ScreenshotsPlatz."
+          subtitle="Von mir entwickelte Apps die schon im App Store verfügbar sind oder demnänchst noch kommen."
         >
           <Apps projects={projects} />
         </Section>

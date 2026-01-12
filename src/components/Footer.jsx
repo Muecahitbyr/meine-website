@@ -8,9 +8,6 @@ export default function Footer() {
         <Typography color="text.secondary" variant="body2">
           © {year} – iOS Developer
         </Typography>
-        <Typography color="text.secondary" variant="body2">
-          Built with React + MUI
-        </Typography>
       </Container>
     </Box>
   );

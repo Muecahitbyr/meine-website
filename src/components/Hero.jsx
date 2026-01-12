@@ -1,4 +1,5 @@
-import { Box, Button, Container, Paper, Stack, Typography } from "@mui/material";
+import { Box, Button, Container, Stack, Typography } from "@mui/material";
+import { alpha } from "@mui/material/styles";
 import Reveal from "./Reveal.jsx";
 
 export default function Hero() {
@@ -10,7 +11,6 @@ export default function Hero() {
         display: "flex",
         alignItems: "center",
         py: { xs: 8, md: 10 },
-        // EIN Hintergrund-Layer -> kein “Farbstreifen”
         background:
           t.palette.mode === "dark"
             ? "radial-gradient(1200px 800px at 20% 10%, rgba(154,230,255,0.14), transparent 55%), radial-gradient(900px 600px at 80% 20%, rgba(255,255,255,0.06), transparent 60%)"
@@ -21,34 +21,118 @@ export default function Hero() {
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: { xs: "1fr", md: "1.1fr 0.9fr" },
-            gap: 2.5,
-            alignItems: "start",
+            gridTemplateColumns: { xs: "1fr", md: "1.15fr 0.85fr" },
+            gap: { xs: 5, md: 3 },
+            alignItems: "center",
           }}
         >
+          {/* LINKS: Text */}
           <Reveal>
             <Box>
               <Typography
                 variant="overline"
-                color="text.secondary"
-                sx={{ fontWeight: 800, letterSpacing: 1.2 }}
+                sx={{
+                  color: "text.secondary",
+                  fontWeight: 800,
+                  letterSpacing: 1.8,
+                }}
               >
                 iOS / Swift Developer
               </Typography>
 
-              <Typography variant="h1" sx={{ mt: 1, fontSize: { xs: 38, md: 56 }, lineHeight: 1.05 }}>
-                Ich entwickle <Box component="span" sx={{ color: "primary.main" }}>Apple Apps</Box>{" "}
+              <Typography
+                variant="h1"
+                sx={{
+                  mt: 1,
+                  fontSize: { xs: 38, md: 60 },
+                  lineHeight: 1.05,
+                  letterSpacing: -1,
+                }}
+              >
+                Ich entwickle{" "}
+                <Box component="span" sx={{ color: "primary.main" }}>
+                  Apple Apps
+                </Box>{" "}
+                <br />
                 mit moderner UI & sauberem Code.
               </Typography>
 
               <Typography color="text.secondary" sx={{ mt: 2, maxWidth: 720 }}>
-                Swift, SwiftUI, Xcode — Fokus auf klare Architektur, Performance und ein hochwertiges Nutzererlebnis.
+                Swift, SwiftUI, Xcode — Fokus auf klare Architektur, Performance und ein
+                hochwertiges Nutzererlebnis.
               </Typography>
 
               <Stack direction="row" spacing={1.5} sx={{ mt: 3, flexWrap: "wrap" }}>
-                <Button variant="contained" href="#apps">Meine Apps</Button>
-                <Button variant="outlined" href="#contact">Kontakt</Button>
+                <Button variant="contained" href="#apps">
+                  Meine Apps
+                </Button>
+                <Button variant="outlined" href="#contact">
+                  Kontakt
+                </Button>
               </Stack>
+            </Box>
+          </Reveal>
+
+          {/* RECHTS: Apple Logo + Portrait + Name */}
+          <Reveal delay={120} y={22}>
+            <Box
+              sx={{
+                position: "relative",
+                display: "grid",
+                placeItems: "center",
+              }}
+            >             
+              {/* Portrait (ohne Paper/Kasten) */}
+              <Box
+                component="img"
+                src="/PB.png"
+                alt="Portrait"
+                sx={{
+                  width: "min(420px, 92%)",
+                  height: "auto",
+                  borderRadius: 6,
+                  objectFit: "cover",
+                  boxShadow: (t) =>
+                    t.palette.mode === "dark"
+                      ? "0 30px 70px rgba(0,0,0,0.55)"
+                      : "0 30px 70px rgba(0,0,0,0.20)",
+                  border: (t) =>
+                    `1px solid ${
+                      t.palette.mode === "dark"
+                        ? alpha("#fff", 0.14)
+                        : alpha("#000", 0.08)
+                    }`,
+                }}
+              />
+
+              {/* Name + Job unten links im rechten Block */}
+              <Box
+                sx={{
+                  position: "absolute",
+                  left: { xs: "8%", md: "15%" },
+                  bottom: { xs: "8%", md: "4%" },
+                  textAlign: "left",
+                }}
+              >
+                <Typography
+                  sx={{
+                    fontSize: { xs: 22, md: 34 },
+                    fontWeight: 900,
+                    letterSpacing: -0.5,
+                  }}
+                >
+                  Mücahit Bayar
+                </Typography>
+                <Typography
+                  sx={{
+                    mt: 0.1,
+                    fontSize: { xs: 14, md: 18 },
+                    color: "text.secondary",
+                  }}
+                >
+                  App Entwickler
+                </Typography>
+              </Box>
             </Box>
           </Reveal>
         </Box>
