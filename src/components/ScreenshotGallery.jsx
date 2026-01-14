@@ -1,8 +1,9 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { Box, Dialog, IconButton, Typography, useMediaQuery } from "@mui/material";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
+import { useSwipeable } from "react-swipeable";
 
 export default function ScreenshotGallery({ title, screenshots = [] }) {
   const [open, setOpen] = useState(false);
@@ -20,6 +21,34 @@ export default function ScreenshotGallery({ title, screenshots = [] }) {
 
   const prev = () => setIdx((v) => (v - 1 + screenshots.length) % screenshots.length);
   const next = () => setIdx((v) => (v + 1) % screenshots.length);
+
+  // ✅ Optional: Keyboard Support (←/→/Esc)
+  useEffect(() => {
+    if (!open) return;
+
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") setOpen(false);
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open, screenshots.length]);
+
+  // ✅ Swipe Handlers
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: () => {
+      if (screenshots.length > 1) next();
+    },
+    onSwipedRight: () => {
+      if (screenshots.length > 1) prev();
+    },
+    trackMouse: true, // auch mit Maus ziehen am Desktop möglich
+    preventScrollOnSwipe: true,
+    delta: 10, // wie empfindlich
+  });
 
   // Fallback wenn keine Screenshots vorhanden
   if (!hasShots) {
@@ -46,12 +75,12 @@ export default function ScreenshotGallery({ title, screenshots = [] }) {
     );
   }
 
-  // ✅ Nur 1 Bild: immer das erste
+  // ✅ In der Card nur 1 Bild zeigen (wie du wolltest)
   const previewSrc = screenshots[0];
 
   return (
     <>
-      {/* Preview Bild (ein Screenshot) */}
+      {/* Preview Bild */}
       <Box
         component="button"
         type="button"
@@ -83,8 +112,6 @@ export default function ScreenshotGallery({ title, screenshots = [] }) {
             "&:hover": { transform: "translateY(-2px)", opacity: 0.98 },
           }}
         />
-
-        {/* kleiner Hinweis */}
       </Box>
 
       {/* Lightbox */}
@@ -96,7 +123,9 @@ export default function ScreenshotGallery({ title, screenshots = [] }) {
         PaperProps={{
           sx: {
             backgroundColor: (t) =>
-              t.palette.mode === "dark" ? "rgba(10,12,16,0.92)" : "rgba(255,255,255,0.92)",
+              t.palette.mode === "dark"
+                ? "rgba(10,12,16,0.92)"
+                : "rgba(255,255,255,0.92)",
             backdropFilter: "blur(10px)",
             borderRadius: fullScreen ? 0 : 4,
           },
@@ -145,11 +174,23 @@ export default function ScreenshotGallery({ title, screenshots = [] }) {
             </>
           )}
 
-          <Box sx={{ display: "grid", placeItems: "center", px: { xs: 2, md: 6 }, pb: 1 }}>
+          {/* ✅ Swipe-Zone (um das Bild) */}
+          <Box
+            {...swipeHandlers}
+            sx={{
+              display: "grid",
+              placeItems: "center",
+              px: { xs: 2, md: 6 },
+              pb: 1,
+              userSelect: "none",
+              touchAction: "pan-y", // vertikales Scrollen bleibt möglich
+            }}
+          >
             <Box
               component="img"
               src={currentSrc}
               alt={`${title} Screenshot ${idx + 1}`}
+              draggable={false}
               sx={{
                 width: "min(420px, 90vw)",
                 aspectRatio: "9 / 19.5",
@@ -160,7 +201,7 @@ export default function ScreenshotGallery({ title, screenshots = [] }) {
                     ? "rgba(255,255,255,0.04)"
                     : "rgba(0,0,0,0.03)",
                 border: (t) =>
-                  `1px solid ${
+                  `1px solid 
                     t.palette.mode === "dark"
                       ? "rgba(255,255,255,0.14)"
                       : "rgba(0,0,0,0.12)"
