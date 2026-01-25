@@ -13,10 +13,27 @@ function Stat({ label, value }) {
         border: `1px solid ${t.palette.mode === "dark" ? alpha("#fff", 0.1) : alpha("#000", 0.08)}`,
       })}
     >
-      <Typography sx={{ fontWeight: 900, fontSize: 22 }}>{value}</Typography>
-      <Typography color="text.secondary" variant="body2" sx={{ mt: 0.5 }}>
-        {label}
-      </Typography>
+     <Typography
+  sx={{
+    fontWeight: 900,
+    fontSize: 22,
+    textAlign: { xs: "center", md: "left" },
+  }}
+>
+  {value}
+</Typography>
+
+<Typography
+  color="text.secondary"
+  variant="body2"
+  sx={{
+    mt: 0.5,
+    textAlign: { xs: "center", md: "left" },
+  }}
+>
+  {label}
+</Typography>
+
     </Paper>
   );
 }

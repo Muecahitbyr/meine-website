@@ -118,13 +118,17 @@ export default function Hero() {
 
               {/* Name/Job */}
               <Box
-                sx={{
-                  position: "absolute",
-                  left: { xs: "8%", md: "6%" },
-                  bottom: { xs: "8%", md: "10%" },
-                  textAlign: "left",
-                }}
-              >
+  sx={{
+    position: "absolute",
+    left: { xs: "50%", md: "6%" },
+    bottom: { xs: "6%", md: "10%" },
+    transform: { xs: "translateX(-50%)", md: "none" },
+    textAlign: { xs: "center", md: "left" },
+    width: { xs: "100%", md: "auto" },
+    px: { xs: 2, md: 0 },
+  }}
+>
+
                 <Typography
                   sx={{
                     fontSize: { xs: 20, sm: 24, md: 34 },
