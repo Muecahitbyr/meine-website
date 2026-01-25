@@ -18,7 +18,11 @@ export default function Section({ id, title, subtitle, children }) {
             {title}
           </Typography>
           {subtitle ? (
-            <Typography variant="body1" color="text.secondary" sx={{ mt: 1, maxWidth: 720 }}>
+            <Typography
+              variant="body1"
+              color="text.secondary"
+              sx={{ mt: 1, maxWidth: 720 }}
+            >
               {subtitle}
             </Typography>
           ) : null}

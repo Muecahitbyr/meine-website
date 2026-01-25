@@ -1,4 +1,13 @@
-import { Box, Button, Paper, Typography, Stack, Divider, IconButton, Tooltip } from "@mui/material";
+import {
+  Box,
+  Button,
+  Paper,
+  Typography,
+  Stack,
+  Divider,
+  IconButton,
+  Tooltip,
+} from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import ContentCopyRoundedIcon from "@mui/icons-material/ContentCopyRounded";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
@@ -7,7 +16,8 @@ import Reveal from "./Reveal.jsx";
 
 const EMAIL = "mucahitbayar@outlook.de";
 const SUBJECT = "Kontakt über deine Webseite";
-const BODY = "Hi! Ich habe deine Webseite gesehen und würde gerne Kontakt aufnehmen.";
+const BODY =
+  "Hi! Ich habe deine Webseite gesehen und würde gerne Kontakt aufnehmen.";
 
 export default function Contact() {
   const mailto = `mailto:${EMAIL}?subject=${encodeURIComponent(SUBJECT)}&body=${encodeURIComponent(BODY)}`;
@@ -57,7 +67,10 @@ export default function Contact() {
                 borderRadius: 3,
                 display: "grid",
                 placeItems: "center",
-                backgroundColor: alpha(t.palette.primary.main, t.palette.mode === "dark" ? 0.16 : 0.10),
+                backgroundColor: alpha(
+                  t.palette.primary.main,
+                  t.palette.mode === "dark" ? 0.16 : 0.1,
+                ),
                 border: `1px solid ${alpha(t.palette.primary.main, 0.25)}`,
               })}
             >
@@ -65,7 +78,9 @@ export default function Contact() {
             </Box>
 
             <Box>
-              <Typography sx={{ fontWeight: 900, fontSize: 18 }}>Schreib mir</Typography>
+              <Typography sx={{ fontWeight: 900, fontSize: 18 }}>
+                Schreib mir
+              </Typography>
               <Typography color="text.secondary" variant="body2">
                 Schnell per Mail – oder scanne den QR-Code.
               </Typography>
@@ -75,10 +90,15 @@ export default function Contact() {
           <Divider sx={{ my: 2.2, opacity: 0.25 }} />
 
           <Typography color="text.secondary">
-            Ich freue mich über Nachrichten zu App-Ideen, Projekten oder Fragen rund um iOS & SwiftUI.
+            Ich freue mich über Nachrichten zu App-Ideen, Projekten oder Fragen
+            rund um iOS & SwiftUI.
           </Typography>
 
-          <Stack direction={{ xs: "column", sm: "row" }} spacing={1.2} sx={{ mt: 2 }}>
+          <Stack
+            direction={{ xs: "column", sm: "row" }}
+            spacing={1.2}
+            sx={{ mt: 2 }}
+          >
             <Button
               variant="contained"
               href={mailto}
@@ -87,11 +107,7 @@ export default function Contact() {
             >
               E-Mail senden
             </Button>
-            <Button
-              variant="outlined"
-              href="#apps"
-              sx={{ fontWeight: 900 }}
-            >
+            <Button variant="outlined" href="#apps" sx={{ fontWeight: 900 }}>
               Zu den Apps
             </Button>
           </Stack>
@@ -106,15 +122,24 @@ export default function Contact() {
               alignItems: "center",
               justifyContent: "space-between",
               gap: 1.5,
-              backgroundColor: t.palette.mode === "dark" ? alpha("#fff", 0.05) : alpha("#000", 0.03),
-              border: `1px solid ${t.palette.mode === "dark" ? alpha("#fff", 0.10) : alpha("#000", 0.08)}`,
+              backgroundColor:
+                t.palette.mode === "dark"
+                  ? alpha("#fff", 0.05)
+                  : alpha("#000", 0.03),
+              border: `1px solid ${t.palette.mode === "dark" ? alpha("#fff", 0.1) : alpha("#000", 0.08)}`,
             })}
           >
             <Box>
-              <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 800, letterSpacing: 0.8 }}>
+              <Typography
+                variant="caption"
+                color="text.secondary"
+                sx={{ fontWeight: 800, letterSpacing: 0.8 }}
+              >
                 E-MAIL
               </Typography>
-              <Typography sx={{ fontFamily: "monospace", fontWeight: 800 }}>{EMAIL}</Typography>
+              <Typography sx={{ fontFamily: "monospace", fontWeight: 800 }}>
+                {EMAIL}
+              </Typography>
             </Box>
 
             <Tooltip title="E-Mail kopieren">
@@ -124,7 +149,11 @@ export default function Contact() {
             </Tooltip>
           </Paper>
 
-          <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1.2 }}>
+          <Typography
+            variant="caption"
+            color="text.secondary"
+            sx={{ display: "block", mt: 1.2 }}
+          >
             Tipp: Kurze Nachricht + Ziel/Idee reicht völlig – ich melde mich.
           </Typography>
         </Paper>
@@ -153,25 +182,33 @@ export default function Contact() {
           })}
         >
           <Box sx={{ width: "100%", display: "grid", placeItems: "center" }}>
-            <Typography sx={{ fontWeight: 900, fontSize: 18, mb: 1 }} align="center">
+            <Typography
+              sx={{ fontWeight: 900, fontSize: 18, mb: 1 }}
+              align="center"
+            >
               QR-Code
             </Typography>
-            <Typography color="text.secondary" variant="body2" sx={{ mb: 2 }} align="center">
+            <Typography
+              color="text.secondary"
+              variant="body2"
+              sx={{ mb: 2 }}
+              align="center"
+            >
               Scanne für eine Mail an mich.
             </Typography>
-           
-              <Box
-                component="img"
-                src="/QrEmail.jpg"
-                alt="QR Code E-Mail"
-                sx={{
-                  width: "60%",
-                  height: "90%",
-                  objectFit: "contain",
-                  borderRadius: 2,
-                  backgroundColor: "#fff", // QR bleibt sauber lesbar
-                }}
-              />
+
+            <Box
+              component="img"
+              src="/QrEmail.jpg"
+              alt="QR Code E-Mail"
+              sx={{
+                width: "60%",
+                height: "90%",
+                objectFit: "contain",
+                borderRadius: 2,
+                backgroundColor: "#fff", // QR bleibt sauber lesbar
+              }}
+            />
           </Box>
         </Paper>
       </Reveal>

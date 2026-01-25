@@ -7,7 +7,11 @@ export default function Apps({ projects }) {
     <Box
       sx={{
         display: "grid",
-        gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)", md: "repeat(3, 1fr)" },
+        gridTemplateColumns: {
+          xs: "1fr",
+          sm: "repeat(2, 1fr)",
+          md: "repeat(3, 1fr)",
+        },
         gap: 2,
       }}
     >
@@ -36,7 +40,10 @@ export default function Apps({ projects }) {
               </Typography>
             )}
 
-            <ScreenshotGallery title={p.title} screenshots={p.screenshots || []} />
+            <ScreenshotGallery
+              title={p.title}
+              screenshots={p.screenshots || []}
+            />
 
             <Stack direction="row" spacing={1} sx={{ mt: 2, flexWrap: "wrap" }}>
               {(p.tags || []).map((t) => (

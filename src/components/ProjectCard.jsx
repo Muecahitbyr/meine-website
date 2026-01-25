@@ -4,7 +4,12 @@ export default function ProjectCard({ project }) {
       <div className="projectTop">
         <h3>{project.title}</h3>
         {project.link ? (
-          <a className="link" href={project.link} target="_blank" rel="noreferrer">
+          <a
+            className="link"
+            href={project.link}
+            target="_blank"
+            rel="noreferrer"
+          >
             Öffnen →
           </a>
         ) : null}

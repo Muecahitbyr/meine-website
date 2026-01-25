@@ -133,7 +133,10 @@ export default function Header({ mode, onToggleMode }) {
             }}
           >
             <Typography sx={{ fontWeight: 900 }}>Menü</Typography>
-            <IconButton onClick={() => setOpen(false)} aria-label="Menü schließen">
+            <IconButton
+              onClick={() => setOpen(false)}
+              aria-label="Menü schließen"
+            >
               <CloseRoundedIcon />
             </IconButton>
           </Box>

@@ -17,7 +17,7 @@ export const projects = [
     title: "Get A Taxi",
     description:
       "iOS-App zum Rufen eines Taxis: Start wird übernommen/gewählt, Ziel eingeben und die Anfrage schnell abschicken.",
-    note: "(Bald im App Store)" ,
+    note: "(Bald im App Store)",
     tags: ["SwiftUI", "REST", "Async/Await", "Firebase"],
     screenshots: [
       `/screenshots/GetATaxi1.${EXT}`,

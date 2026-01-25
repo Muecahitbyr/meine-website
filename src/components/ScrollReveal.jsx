@@ -20,7 +20,7 @@ export default function ScrollReveal({
           obs.disconnect(); // nur einmal animieren
         }
       },
-      { threshold: 0.12 }
+      { threshold: 0.12 },
     );
 
     obs.observe(el);

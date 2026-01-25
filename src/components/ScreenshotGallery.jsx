@@ -1,5 +1,11 @@
 import { useMemo, useState, useEffect } from "react";
-import { Box, Dialog, IconButton, Typography, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  Dialog,
+  IconButton,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
@@ -19,7 +25,8 @@ export default function ScreenshotGallery({ title, screenshots = [] }) {
     setOpen(true);
   };
 
-  const prev = () => setIdx((v) => (v - 1 + screenshots.length) % screenshots.length);
+  const prev = () =>
+    setIdx((v) => (v - 1 + screenshots.length) % screenshots.length);
   const next = () => setIdx((v) => (v + 1) % screenshots.length);
 
   // ✅ Optional: Keyboard Support (←/→/Esc)

@@ -16,7 +16,7 @@ export default function Reveal({ children, delay = 0, y = 18 }) {
           obs.disconnect();
         }
       },
-      { threshold: 0.12 }
+      { threshold: 0.12 },
     );
 
     obs.observe(el);

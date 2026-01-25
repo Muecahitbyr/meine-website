@@ -24,7 +24,7 @@ export function createAppTheme(mode) {
     components: {
       MuiCssBaseline: {
         styleOverrides: {
-          html: { scrollBehavior: "smooth" }, 
+          html: { scrollBehavior: "smooth" },
           body: {
             backgroundAttachment: "fixed",
           },

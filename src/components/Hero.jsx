@@ -58,11 +58,15 @@ export default function Hero() {
               </Typography>
 
               <Typography color="text.secondary" sx={{ mt: 2, maxWidth: 720 }}>
-                Swift, SwiftUI, Xcode — Fokus auf klare Architektur, Performance und ein
-                hochwertiges Nutzererlebnis.
+                Swift, SwiftUI, Xcode — Fokus auf klare Architektur, Performance
+                und ein hochwertiges Nutzererlebnis.
               </Typography>
 
-              <Stack direction="row" spacing={1.5} sx={{ mt: 3, flexWrap: "wrap" }}>
+              <Stack
+                direction="row"
+                spacing={1.5}
+                sx={{ mt: 3, flexWrap: "wrap" }}
+              >
                 <Button variant="contained" href="#apps">
                   Meine Apps
                 </Button>
@@ -75,25 +79,13 @@ export default function Hero() {
 
           {/* RECHTS */}
           <Reveal delay={120} y={22}>
-            <Box sx={{ position: "relative", display: "grid", placeItems: "center" }}>
-              {/* Apple Logo links vom Portrait */}
-              <Box
-                component="img"
-                src="/AppleLM.png"
-                alt="Apple Logo"
-                sx={{
-                  position: "absolute",
-                  left: { xs: "6%", md: "-10%" },
-                  top: { xs: "6%", md: "10%" },
-                  width: { xs: 64, md: 110 },
-                  height: "auto",
-                  opacity: 0.95,
-                  filter: "drop-shadow(0 18px 40px rgba(0,0,0,0.35))",
-                  display: { xs: "none", sm: "block" }, // ✅ auf ganz klein aus, wirkt sonst eng
-                }}
-              />
-
-              {/* Portrait */}
+            <Box
+              sx={{
+                position: "relative",
+                display: "grid",
+                placeItems: "center",
+              }}
+            >
               <Box
                 component="img"
                 src="/PB.png"
@@ -116,19 +108,17 @@ export default function Hero() {
                 }}
               />
 
-              {/* Name/Job */}
               <Box
-  sx={{
-    position: "absolute",
-    left: { xs: "50%", md: "6%" },
-    bottom: { xs: "6%", md: "10%" },
-    transform: { xs: "translateX(-50%)", md: "none" },
-    textAlign: { xs: "center", md: "left" },
-    width: { xs: "100%", md: "auto" },
-    px: { xs: 2, md: 0 },
-  }}
->
-
+                sx={{
+                  position: "absolute",
+                  left: { xs: "50%", md: "6%" },
+                  bottom: { xs: "6%", md: "10%" },
+                  transform: { xs: "translateX(-50%)", md: "none" },
+                  textAlign: { xs: "center", md: "left" },
+                  width: { xs: "100%", md: "auto" },
+                  px: { xs: 2, md: 0 },
+                }}
+              >
                 <Typography
                   sx={{
                     fontSize: { xs: 20, sm: 24, md: 34 },
