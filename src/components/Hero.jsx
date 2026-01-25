@@ -10,7 +10,7 @@ export default function Hero() {
         minHeight: "100vh",
         display: "flex",
         alignItems: "center",
-        py: { xs: 8, md: 10 },
+        py: { xs: 7, md: 10 },
         background:
           t.palette.mode === "dark"
             ? "radial-gradient(1200px 800px at 20% 10%, rgba(154,230,255,0.14), transparent 55%), radial-gradient(900px 600px at 80% 20%, rgba(255,255,255,0.06), transparent 60%)"
@@ -26,7 +26,7 @@ export default function Hero() {
             alignItems: "center",
           }}
         >
-          {/* LINKS: Text */}
+          {/* LINKS */}
           <Reveal>
             <Box>
               <Typography
@@ -44,7 +44,7 @@ export default function Hero() {
                 variant="h1"
                 sx={{
                   mt: 1,
-                  fontSize: { xs: 38, md: 60 },
+                  fontSize: { xs: 36, sm: 42, md: 60 },
                   lineHeight: 1.05,
                   letterSpacing: -1,
                 }}
@@ -73,16 +73,27 @@ export default function Hero() {
             </Box>
           </Reveal>
 
-          {/* RECHTS: Apple Logo + Portrait + Name */}
+          {/* RECHTS */}
           <Reveal delay={120} y={22}>
-            <Box
-              sx={{
-                position: "relative",
-                display: "grid",
-                placeItems: "center",
-              }}
-            >             
-              {/* Portrait (ohne Paper/Kasten) */}
+            <Box sx={{ position: "relative", display: "grid", placeItems: "center" }}>
+              {/* Apple Logo links vom Portrait */}
+              <Box
+                component="img"
+                src="/AppleLM.png"
+                alt="Apple Logo"
+                sx={{
+                  position: "absolute",
+                  left: { xs: "6%", md: "-10%" },
+                  top: { xs: "6%", md: "10%" },
+                  width: { xs: 64, md: 110 },
+                  height: "auto",
+                  opacity: 0.95,
+                  filter: "drop-shadow(0 18px 40px rgba(0,0,0,0.35))",
+                  display: { xs: "none", sm: "block" }, // ✅ auf ganz klein aus, wirkt sonst eng
+                }}
+              />
+
+              {/* Portrait */}
               <Box
                 component="img"
                 src="/PB.png"
@@ -105,28 +116,28 @@ export default function Hero() {
                 }}
               />
 
-              {/* Name + Job unten links im rechten Block */}
+              {/* Name/Job */}
               <Box
                 sx={{
                   position: "absolute",
-                  left: { xs: "8%", md: "15%" },
-                  bottom: { xs: "8%", md: "4%" },
+                  left: { xs: "8%", md: "6%" },
+                  bottom: { xs: "8%", md: "10%" },
                   textAlign: "left",
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: { xs: 22, md: 34 },
+                    fontSize: { xs: 20, sm: 24, md: 34 },
                     fontWeight: 900,
-                    letterSpacing: -0.5,
+                    letterSpacing: -0.4,
                   }}
                 >
                   Mücahit Bayar
                 </Typography>
                 <Typography
                   sx={{
-                    mt: 0.1,
-                    fontSize: { xs: 14, md: 18 },
+                    mt: 0.5,
+                    fontSize: { xs: 13, sm: 14, md: 18 },
                     color: "text.secondary",
                   }}
                 >

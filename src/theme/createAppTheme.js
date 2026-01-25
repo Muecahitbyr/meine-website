@@ -8,7 +8,7 @@ export function createAppTheme(mode) {
       mode,
       primary: { main: isDark ? "#9AE6FF" : "#1565C0" },
       background: {
-        default: isDark ? "#0B0D12" : "#F6F7FB",
+        default: isDark ? "#0B0D12" : "#F2F4F8",
         paper: isDark ? alpha("#FFFFFF", 0.06) : "#FFFFFF",
       },
     },
@@ -24,6 +24,7 @@ export function createAppTheme(mode) {
     components: {
       MuiCssBaseline: {
         styleOverrides: {
+          html: { scrollBehavior: "smooth" }, 
           body: {
             backgroundAttachment: "fixed",
           },
