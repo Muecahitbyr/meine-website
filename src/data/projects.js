@@ -2,10 +2,10 @@ const EXT = "png"; // <-- falls jpg: "jpg"
 
 export const projects = [
   {
-    title: "M5NATION ",
+    title: "DriveConnect ",
     description:
       "Personalisierte iOS-App zur Auswertung und Anzeige von Fahrzeugdaten – übersichtlich, modern und auf den Nutzer zugeschnitten.",
-    note: "(Im App Store verfügbar)",
+    note: "(Bald im App Store)",
     tags: ["SwiftUI", "Vehicle Data", "UX", "Firebase"],
     screenshots: [
       `/screenshots/M51.${EXT}`,
@@ -30,7 +30,7 @@ export const projects = [
     description:
       "Quiz-Spiel: Flagge erkennen und die passende Hauptstadt erraten – mit sauberer Logik und SwiftUI-Animationen.",
     note: "(Bald im App Store)",
-    tags: ["SwiftUI", "Game Logic", "Animations"],
+    tags: ["SwiftUI", "Game Logic", "Animations", "API"],
     screenshots: [
       `/screenshots/GTCC1.${EXT}`,
       `/screenshots/GTCC2.${EXT}`,
