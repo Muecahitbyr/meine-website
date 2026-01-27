@@ -121,6 +121,9 @@
     "note": "(Bald im App Store)"
   }
 },
+  "language": { 
+    "label": "Sprachen" 
+},
 "sections": {
   "about": {
     "title": "Über mich",
