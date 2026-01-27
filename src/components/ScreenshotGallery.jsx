@@ -1,17 +1,14 @@
 import { useMemo, useState, useEffect } from "react";
-import {
-  Box,
-  Dialog,
-  IconButton,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
+import { Box, Dialog, IconButton, Typography, useMediaQuery } from "@mui/material";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import { useSwipeable } from "react-swipeable";
+import { useTranslation } from "react-i18next";
 
 export default function ScreenshotGallery({ title, screenshots = [] }) {
+  const { t } = useTranslation("common");
+
   const [open, setOpen] = useState(false);
   const [idx, setIdx] = useState(0);
 
@@ -25,11 +22,9 @@ export default function ScreenshotGallery({ title, screenshots = [] }) {
     setOpen(true);
   };
 
-  const prev = () =>
-    setIdx((v) => (v - 1 + screenshots.length) % screenshots.length);
+  const prev = () => setIdx((v) => (v - 1 + screenshots.length) % screenshots.length);
   const next = () => setIdx((v) => (v + 1) % screenshots.length);
 
-  // ✅ Optional: Keyboard Support (←/→/Esc)
   useEffect(() => {
     if (!open) return;
 
@@ -44,7 +39,6 @@ export default function ScreenshotGallery({ title, screenshots = [] }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open, screenshots.length]);
 
-  // ✅ Swipe Handlers
   const swipeHandlers = useSwipeable({
     onSwipedLeft: () => {
       if (screenshots.length > 1) next();
@@ -52,12 +46,11 @@ export default function ScreenshotGallery({ title, screenshots = [] }) {
     onSwipedRight: () => {
       if (screenshots.length > 1) prev();
     },
-    trackMouse: true, // auch mit Maus ziehen am Desktop möglich
+    trackMouse: true,
     preventScrollOnSwipe: true,
-    delta: 10, // wie empfindlich
+    delta: 10,
   });
 
-  // Fallback wenn keine Screenshots vorhanden
   if (!hasShots) {
     return (
       <Box
@@ -67,8 +60,8 @@ export default function ScreenshotGallery({ title, screenshots = [] }) {
           aspectRatio: "9 / 19.5",
           borderRadius: 4,
           overflow: "hidden",
-          backgroundColor: (t) =>
-            t.palette.mode === "dark"
+          backgroundColor: (tt) =>
+            tt.palette.mode === "dark"
               ? "rgba(255,255,255,0.06)"
               : "rgba(0,0,0,0.04)",
           display: "grid",
@@ -76,13 +69,12 @@ export default function ScreenshotGallery({ title, screenshots = [] }) {
         }}
       >
         <Typography variant="caption" color="text.secondary">
-          iOS Screenshot Platzhalter
+          {t("screenshots.placeholder")}
         </Typography>
       </Box>
     );
   }
 
-  // ✅ In der Card nur 1 Bild zeigen (wie du wolltest)
   const previewSrc = screenshots[0];
 
   return (
@@ -92,27 +84,27 @@ export default function ScreenshotGallery({ title, screenshots = [] }) {
         component="button"
         type="button"
         onClick={() => openAt(0)}
-        aria-label={`${title} Screenshots öffnen`}
+        aria-label={t("screenshots.openAria", { title })}
         style={{ all: "unset", cursor: "pointer", width: "100%" }}
       >
         <Box
           component="img"
           src={previewSrc}
-          alt={`${title} Screenshot Vorschau`}
+          alt={t("screenshots.previewAlt", { title })}
           sx={{
             mt: 2,
             width: "100%",
             aspectRatio: "9 / 19.5",
             objectFit: "cover",
             borderRadius: 4,
-            border: (t) =>
+            border: (tt) =>
               `1px solid ${
-                t.palette.mode === "dark"
+                tt.palette.mode === "dark"
                   ? "rgba(255,255,255,0.12)"
                   : "rgba(0,0,0,0.12)"
               }`,
-            boxShadow: (t) =>
-              t.palette.mode === "dark"
+            boxShadow: (tt) =>
+              tt.palette.mode === "dark"
                 ? "0 18px 36px rgba(0,0,0,0.38)"
                 : "0 18px 36px rgba(0,0,0,0.14)",
             transition: "transform 200ms ease, opacity 200ms ease",
@@ -129,8 +121,8 @@ export default function ScreenshotGallery({ title, screenshots = [] }) {
         maxWidth="md"
         PaperProps={{
           sx: {
-            backgroundColor: (t) =>
-              t.palette.mode === "dark"
+            backgroundColor: (tt) =>
+              tt.palette.mode === "dark"
                 ? "rgba(10,12,16,0.92)"
                 : "rgba(255,255,255,0.92)",
             backdropFilter: "blur(10px)",
@@ -145,7 +137,7 @@ export default function ScreenshotGallery({ title, screenshots = [] }) {
 
           <IconButton
             onClick={() => setOpen(false)}
-            aria-label="Schließen"
+            aria-label={t("screenshots.dialogClose")}
             sx={{ position: "absolute", top: 10, right: 10 }}
           >
             <CloseRoundedIcon />
@@ -155,33 +147,22 @@ export default function ScreenshotGallery({ title, screenshots = [] }) {
             <>
               <IconButton
                 onClick={prev}
-                aria-label="Vorheriges Bild"
-                sx={{
-                  position: "absolute",
-                  top: "50%",
-                  left: 10,
-                  transform: "translateY(-50%)",
-                }}
+                aria-label={t("screenshots.prev")}
+                sx={{ position: "absolute", top: "50%", left: 10, transform: "translateY(-50%)" }}
               >
                 <ChevronLeftRoundedIcon />
               </IconButton>
 
               <IconButton
                 onClick={next}
-                aria-label="Nächstes Bild"
-                sx={{
-                  position: "absolute",
-                  top: "50%",
-                  right: 10,
-                  transform: "translateY(-50%)",
-                }}
+                aria-label={t("screenshots.next")}
+                sx={{ position: "absolute", top: "50%", right: 10, transform: "translateY(-50%)" }}
               >
                 <ChevronRightRoundedIcon />
               </IconButton>
             </>
           )}
 
-          {/* ✅ Swipe-Zone (um das Bild) */}
           <Box
             {...swipeHandlers}
             sx={{
@@ -190,7 +171,7 @@ export default function ScreenshotGallery({ title, screenshots = [] }) {
               px: { xs: 2, md: 6 },
               pb: 1,
               userSelect: "none",
-              touchAction: "pan-y", // vertikales Scrollen bleibt möglich
+              touchAction: "pan-y",
             }}
           >
             <Box
@@ -203,13 +184,13 @@ export default function ScreenshotGallery({ title, screenshots = [] }) {
                 aspectRatio: "9 / 19.5",
                 objectFit: "contain",
                 borderRadius: 4,
-                backgroundColor: (t) =>
-                  t.palette.mode === "dark"
+                backgroundColor: (tt) =>
+                  tt.palette.mode === "dark"
                     ? "rgba(255,255,255,0.04)"
                     : "rgba(0,0,0,0.03)",
-                border: (t) =>
-                  `1px solid 
-                    t.palette.mode === "dark"
+                border: (tt) =>
+                  `1px solid ${
+                    tt.palette.mode === "dark"
                       ? "rgba(255,255,255,0.14)"
                       : "rgba(0,0,0,0.12)"
                   }`,

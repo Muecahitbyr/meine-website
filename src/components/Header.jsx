@@ -19,14 +19,17 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import { useTranslation } from "react-i18next";
+import LanguageSelect from "./LanguageSelect.jsx";
 
 export default function Header({ mode, onToggleMode }) {
   const [open, setOpen] = useState(false);
+  const { t } = useTranslation("common");
 
   const navItems = [
-    { label: "Über mich", href: "#about" },
-    { label: "Apps", href: "#apps" },
-    { label: "Kontakt", href: "#contact" },
+    { label: t("header.nav.about"), href: "#about" },
+    { label: t("header.nav.apps"), href: "#apps" },
+    { label: t("header.nav.contact"), href: "#contact" },
   ];
 
   return (
@@ -35,15 +38,15 @@ export default function Header({ mode, onToggleMode }) {
         position="sticky"
         elevation={0}
         color="transparent"
-        sx={(t) => ({
-          color: t.palette.text.primary,
+        sx={(tt) => ({
+          color: tt.palette.text.primary,
           backgroundColor:
-            t.palette.mode === "dark"
+            tt.palette.mode === "dark"
               ? alpha("#0B0D12", 0.65)
               : alpha("#FFFFFF", 0.78),
           backdropFilter: "blur(12px)",
           borderBottom: `1px solid ${
-            t.palette.mode === "dark"
+            tt.palette.mode === "dark"
               ? alpha("#fff", 0.12)
               : alpha("#000", 0.08)
           }`,
@@ -54,15 +57,11 @@ export default function Header({ mode, onToggleMode }) {
             maxWidth="lg"
             sx={{ display: "flex", alignItems: "center", gap: 2 }}
           >
-            {/* 🍎 Apple MUI Icon + Text */}
+            {/* 🍎 Icon + Brand */}
             <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
               <SvgIcon
                 viewBox="0 0 384 512"
-                sx={{
-                  fontSize: 22,
-                  color: "text.primary",
-                  lineHeight: 1,
-                }}
+                sx={{ fontSize: 22, color: "text.primary", lineHeight: 1 }}
               >
                 <path
                   fill="currentColor"
@@ -74,14 +73,20 @@ export default function Header({ mode, onToggleMode }) {
                 variant="h6"
                 sx={{ fontWeight: 900, letterSpacing: -0.3 }}
               >
-                iOS Dev
+                {t("header.brand")}
               </Typography>
             </Box>
 
             <Box sx={{ flex: 1 }} />
 
-            {/* Desktop Navigation (ab md) */}
-            <Box sx={{ display: { xs: "none", md: "flex" }, gap: 1 }}>
+            {/* Desktop Nav + Language Dropdown */}
+            <Box
+              sx={{
+                display: { xs: "none", md: "flex" },
+                gap: 1,
+                alignItems: "center",
+              }}
+            >
               {navItems.map((item) => (
                 <Button
                   key={item.href}
@@ -91,12 +96,15 @@ export default function Header({ mode, onToggleMode }) {
                   {item.label}
                 </Button>
               ))}
+
+              {/* 🌍 Language Dropdown */}
+              <LanguageSelect />
             </Box>
 
-            {/* Theme Toggle bleibt immer sichtbar */}
+            {/* Theme Toggle */}
             <IconButton
               onClick={onToggleMode}
-              aria-label="Theme umschalten"
+              aria-label={t("header.aria.toggleTheme")}
               sx={{ color: "text.primary" }}
             >
               {mode === "dark" ? (
@@ -106,10 +114,10 @@ export default function Header({ mode, onToggleMode }) {
               )}
             </IconButton>
 
-            {/* Mobile Menü Button (nur xs/sm) */}
+            {/* Mobile Menu Button */}
             <IconButton
               onClick={() => setOpen(true)}
-              aria-label="Menü öffnen"
+              aria-label={t("header.aria.openMenu")}
               sx={{
                 display: { xs: "inline-flex", md: "none" },
                 color: "text.primary",
@@ -121,7 +129,7 @@ export default function Header({ mode, onToggleMode }) {
         </Toolbar>
       </AppBar>
 
-      {/* Mobile Drawer Menü */}
+      {/* Mobile Drawer */}
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
         <Box sx={{ width: 280, p: 2 }}>
           <Box
@@ -132,10 +140,12 @@ export default function Header({ mode, onToggleMode }) {
               gap: 2,
             }}
           >
-            <Typography sx={{ fontWeight: 900 }}>Menü</Typography>
+            <Typography sx={{ fontWeight: 900 }}>
+              {t("header.mobileMenuTitle")}
+            </Typography>
             <IconButton
               onClick={() => setOpen(false)}
-              aria-label="Menü schließen"
+              aria-label={t("header.aria.closeMenu")}
             >
               <CloseRoundedIcon />
             </IconButton>
@@ -156,6 +166,10 @@ export default function Header({ mode, onToggleMode }) {
               </ListItemButton>
             ))}
           </List>
+
+          {/* 🌍 Language Dropdown im Mobile Drawer */}
+          <Divider sx={{ my: 1.5 }} />
+          <LanguageSelect size="medium" />
         </Box>
       </Drawer>
     </>

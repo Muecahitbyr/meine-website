@@ -1,11 +1,11 @@
-const EXT = "png"; // <-- falls jpg: "jpg"
+const EXT = "png";
 
 export const projects = [
   {
-    title: "DriveConnect ",
-    description:
-      "Personalisierte iOS-App zur Auswertung und Anzeige von Fahrzeugdaten – übersichtlich, modern und auf den Nutzer zugeschnitten.",
-    note: "(Bald im App Store)",
+    id: "driveconnect",
+    titleKey: "projects.driveconnect.title",
+    descriptionKey: "projects.driveconnect.description",
+    noteKey: "projects.driveconnect.note",
     tags: ["SwiftUI", "Vehicle Data", "UX", "Firebase"],
     screenshots: [
       `/screenshots/M51.${EXT}`,
@@ -14,10 +14,10 @@ export const projects = [
     ],
   },
   {
-    title: "Get A Taxi",
-    description:
-      "iOS-App zum Rufen eines Taxis: Start wird übernommen/gewählt, Ziel eingeben und die Anfrage schnell abschicken.",
-    note: "(Bald im App Store)",
+    id: "getataxi",
+    titleKey: "projects.getataxi.title",
+    descriptionKey: "projects.getataxi.description",
+    noteKey: "projects.getataxi.note",
     tags: ["SwiftUI", "REST", "Async/Await", "Firebase"],
     screenshots: [
       `/screenshots/GetATaxi1.${EXT}`,
@@ -26,10 +26,10 @@ export const projects = [
     ],
   },
   {
-    title: "Guess The Capital City",
-    description:
-      "Quiz-Spiel: Flagge erkennen und die passende Hauptstadt erraten – mit sauberer Logik und SwiftUI-Animationen.",
-    note: "(Bald im App Store)",
+    id: "gtcc",
+    titleKey: "projects.gtcc.title",
+    descriptionKey: "projects.gtcc.description",
+    noteKey: "projects.gtcc.note",
     tags: ["SwiftUI", "Game Logic", "Animations", "API"],
     screenshots: [
       `/screenshots/GTCC1.${EXT}`,

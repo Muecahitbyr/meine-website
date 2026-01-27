@@ -1,8 +1,11 @@
-import { Box, Button, Container, Stack, Typography } from "@mui/material";
+import { Box, Button, Container, Stack, Typography, Paper } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import Reveal from "./Reveal.jsx";
+import { useTranslation } from "react-i18next";
 
 export default function Hero() {
+  const { t } = useTranslation("common");
+
   return (
     <Box
       id="top"
@@ -26,7 +29,7 @@ export default function Hero() {
             alignItems: "center",
           }}
         >
-          {/* LINKS */}
+          {/* LEFT */}
           <Reveal>
             <Box>
               <Typography
@@ -37,7 +40,7 @@ export default function Hero() {
                   letterSpacing: 1.8,
                 }}
               >
-                iOS / Swift Developer
+                {t("hero.overline")}
               </Typography>
 
               <Typography
@@ -49,47 +52,37 @@ export default function Hero() {
                   letterSpacing: -1,
                 }}
               >
-                Ich entwickle{" "}
+                {t("hero.titleLine1")}{" "}
                 <Box component="span" sx={{ color: "primary.main" }}>
-                  Apple Apps
-                </Box>{" "}
+                  {t("hero.highlight")}
+                </Box>
                 <br />
-                mit moderner UI & sauberem Code.
+                {t("hero.titleLine2")}
               </Typography>
 
               <Typography color="text.secondary" sx={{ mt: 2, maxWidth: 720 }}>
-                Swift, SwiftUI, Xcode — Fokus auf klare Architektur, Performance
-                und ein hochwertiges Nutzererlebnis.
+                {t("hero.subtitle")}
               </Typography>
 
-              <Stack
-                direction="row"
-                spacing={1.5}
-                sx={{ mt: 3, flexWrap: "wrap" }}
-              >
+              <Stack direction="row" spacing={1.5} sx={{ mt: 3, flexWrap: "wrap" }}>
                 <Button variant="contained" href="#apps">
-                  Meine Apps
+                  {t("hero.ctaApps")}
                 </Button>
                 <Button variant="outlined" href="#contact">
-                  Kontakt
+                  {t("hero.ctaContact")}
                 </Button>
               </Stack>
             </Box>
           </Reveal>
 
-          {/* RECHTS */}
+          {/* RIGHT */}
           <Reveal delay={120} y={22}>
-            <Box
-              sx={{
-                position: "relative",
-                display: "grid",
-                placeItems: "center",
-              }}
-            >
+            <Box sx={{ display: "grid", justifyItems: "center", gap: 1.5 }}>
+              {/* IMAGE */}
               <Box
                 component="img"
                 src="/PB.png"
-                alt="Portrait"
+                alt={t("hero.portraitAlt")}
                 sx={{
                   width: "min(420px, 92%)",
                   height: "auto",
@@ -98,46 +91,82 @@ export default function Hero() {
                   boxShadow: (t) =>
                     t.palette.mode === "dark"
                       ? "0 30px 70px rgba(0,0,0,0.55)"
-                      : "0 30px 70px rgba(0,0,0,0.20)",
+                      : "0 30px 70px rgba(0,0,0,0.18)",
                   border: (t) =>
                     `1px solid ${
                       t.palette.mode === "dark"
-                        ? alpha("#fff", 0.14)
+                        ? alpha("#fff", 0.12)
                         : alpha("#000", 0.08)
                     }`,
                 }}
               />
 
-              <Box
-                sx={{
-                  position: "absolute",
-                  left: { xs: "50%", md: "6%" },
-                  bottom: { xs: "6%", md: "10%" },
-                  transform: { xs: "translateX(-50%)", md: "none" },
-                  textAlign: { xs: "center", md: "left" },
-                  width: { xs: "100%", md: "auto" },
-                  px: { xs: 2, md: 0 },
-                }}
+              {/* INFO CARD (Premium, immer lesbar) */}
+              <Paper
+                elevation={0}
+                sx={(t) => ({
+                  width: "min(420px, 92%)",
+                  borderRadius: 4,
+                  px: 2,
+                  py: 1.4,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  gap: 2,
+                  backgroundColor:
+                    t.palette.mode === "dark"
+                      ? alpha("#fff", 0.06)
+                      : alpha("#000", 0.03),
+                  border: `1px solid ${
+                    t.palette.mode === "dark"
+                      ? alpha("#fff", 0.10)
+                      : alpha("#000", 0.08)
+                  }`,
+                })}
               >
-                <Typography
-                  sx={{
-                    fontSize: { xs: 20, sm: 24, md: 34 },
-                    fontWeight: 900,
-                    letterSpacing: -0.4,
-                  }}
+                <Box sx={{ minWidth: 0 }}>
+                  <Typography
+                    sx={{
+                      fontWeight: 900,
+                      letterSpacing: -0.3,
+                      lineHeight: 1.1,
+                      fontSize: { xs: 16, sm: 18 },
+                    }}
+                  >
+                    Mücahit Bayar
+                  </Typography>
+                  <Typography
+                    sx={{
+                      mt: 0.2,
+                      color: "text.secondary",
+                      fontSize: { xs: 12.5, sm: 13.5 },
+                      lineHeight: 1.2,
+                    }}
+                  >
+                    {t("hero.nameRole")}
+                  </Typography>
+                </Box>
+
+                {/* optional kleines "Status" / Tag rechts */}
+                <Box
+                  sx={(t) => ({
+                    flexShrink: 0,
+                    px: 1.2,
+                    py: 0.6,
+                    borderRadius: 999,
+                    fontSize: 12,
+                    fontWeight: 800,
+                    color: "text.primary",
+                    backgroundColor:
+                      t.palette.mode === "dark"
+                        ? alpha(t.palette.primary.main, 0.18)
+                        : alpha(t.palette.primary.main, 0.12),
+                    border: `1px solid ${alpha(t.palette.primary.main, 0.25)}`,
+                  })}
                 >
-                  Mücahit Bayar
-                </Typography>
-                <Typography
-                  sx={{
-                    mt: 0.5,
-                    fontSize: { xs: 13, sm: 14, md: 18 },
-                    color: "text.secondary",
-                  }}
-                >
-                  App Entwickler
-                </Typography>
-              </Box>
+                  iOS
+                </Box>
+              </Paper>
             </Box>
           </Reveal>
         </Box>

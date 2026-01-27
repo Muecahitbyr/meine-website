@@ -11,20 +11,23 @@ import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 
 import { projects } from "./data/projects.js";
+import { useTranslation } from "react-i18next";
 
 export default function App() {
   const [mode, setMode] = useState("dark");
   const theme = useMemo(() => createAppTheme(mode), [mode]);
 
+  const { t } = useTranslation("common");
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box
-        sx={(t) => ({
+        sx={{
           minHeight: "100vh",
           bgcolor: "background.default",
           color: "text.primary",
-        })}
+        }}
       >
         <Header
           mode={mode}
@@ -35,24 +38,24 @@ export default function App() {
 
         <Section
           id="about"
-          title="Über mich"
-          subtitle="Ich entwickle Apple Apps mit Swift & SwiftUI – clean, schnell, modern."
+          title={t("sections.about.title")}
+          subtitle={t("sections.about.subtitle")}
         >
           <About />
         </Section>
 
         <Section
           id="apps"
-          title="Apps"
-          subtitle="Von mir entwickelte Apps die schon im App Store verfügbar sind oder demnänchst noch kommen."
+          title={t("sections.apps.title")}
+          subtitle={t("sections.apps.subtitle")}
         >
           <Apps projects={projects} />
         </Section>
 
         <Section
           id="contact"
-          title="Kontakt"
-          subtitle="Schreib mir direkt per E-Mail."
+          title={t("sections.contact.title")}
+          subtitle={t("sections.contact.subtitle")}
         >
           <Contact />
         </Section>

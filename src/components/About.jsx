@@ -1,6 +1,7 @@
 import { Box, Paper, Stack, Typography, Chip, Divider } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import Reveal from "./Reveal.jsx";
+import { useTranslation } from "react-i18next";
 
 function Stat({ label, value }) {
   return (
@@ -9,28 +10,17 @@ function Stat({ label, value }) {
       sx={(t) => ({
         p: 2,
         borderRadius: 4,
-        background:
-          t.palette.mode === "dark" ? alpha("#fff", 0.05) : alpha("#000", 0.03),
+        background: t.palette.mode === "dark" ? alpha("#fff", 0.05) : alpha("#000", 0.03),
         border: `1px solid ${t.palette.mode === "dark" ? alpha("#fff", 0.1) : alpha("#000", 0.08)}`,
       })}
     >
-      <Typography
-        sx={{
-          fontWeight: 900,
-          fontSize: 22,
-          textAlign: { xs: "center", md: "left" },
-        }}
-      >
+      <Typography sx={{ fontWeight: 900, fontSize: 22, textAlign: { xs: "center", md: "left" } }}>
         {value}
       </Typography>
-
       <Typography
         color="text.secondary"
         variant="body2"
-        sx={{
-          mt: 0.5,
-          textAlign: { xs: "center", md: "left" },
-        }}
+        sx={{ mt: 0.5, textAlign: { xs: "center", md: "left" } }}
       >
         {label}
       </Typography>
@@ -50,10 +40,7 @@ function GlassCard({ title, subtitle, children }) {
             ? `linear-gradient(180deg, ${alpha("#fff", 0.07)}, ${alpha("#fff", 0.03)})`
             : `linear-gradient(180deg, ${alpha("#fff", 1)}, ${alpha("#fff", 0.92)})`,
         border: `1px solid ${t.palette.mode === "dark" ? alpha("#fff", 0.12) : alpha("#000", 0.08)}`,
-        boxShadow:
-          t.palette.mode === "dark"
-            ? "0 24px 60px rgba(0,0,0,0.35)"
-            : "0 24px 60px rgba(0,0,0,0.10)",
+        boxShadow: t.palette.mode === "dark" ? "0 24px 60px rgba(0,0,0,0.35)" : "0 24px 60px rgba(0,0,0,0.10)",
         backdropFilter: "blur(10px)",
       })}
     >
@@ -69,65 +56,63 @@ function GlassCard({ title, subtitle, children }) {
 }
 
 function DeviceMock() {
+  const { t } = useTranslation("common");
+
+  const tiles = [
+    { key: "speed", value: "120 km/h" },
+    { key: "range", value: "410 km" },
+    { key: "temp", value: "92°C" },
+    { key: "battery", value: "86%" },
+  ];
+
   return (
     <Paper
       elevation={0}
-      sx={(t) => ({
+      sx={(tt) => ({
         borderRadius: 2,
         p: 2.5,
-        border: `1px solid ${t.palette.mode === "dark" ? alpha("#fff", 0.12) : alpha("#000", 0.08)}`,
-        background:
-          t.palette.mode === "dark" ? alpha("#fff", 0.05) : alpha("#000", 0.02),
+        border: `1px solid ${tt.palette.mode === "dark" ? alpha("#fff", 0.12) : alpha("#000", 0.08)}`,
+        background: tt.palette.mode === "dark" ? alpha("#fff", 0.05) : alpha("#000", 0.02),
         overflow: "hidden",
       })}
     >
       <Box sx={{ display: "grid", gridTemplateColumns: "1fr", gap: 1.3 }}>
         <Typography sx={{ fontWeight: 900, fontSize: 22, letterSpacing: -0.4 }}>
-          Dashboard
+          {t("about.deviceMock.dashboard")}
         </Typography>
 
         <Paper
           elevation={0}
-          sx={(t) => ({
+          sx={(tt) => ({
             p: 2,
             borderRadius: 4,
-            background: alpha(
-              t.palette.primary.main,
-              t.palette.mode === "dark" ? 0.12 : 0.08,
-            ),
-            border: `1px solid ${alpha(t.palette.primary.main, 0.25)}`,
+            background: alpha(tt.palette.primary.main, tt.palette.mode === "dark" ? 0.12 : 0.08),
+            border: `1px solid ${alpha(tt.palette.primary.main, 0.25)}`,
           })}
         >
-          <Typography sx={{ fontWeight: 900 }}>Vehicle Data</Typography>
+          <Typography sx={{ fontWeight: 900 }}>{t("about.deviceMock.vehicleDataTitle")}</Typography>
           <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
-            Live Werte • History • Profile
+            {t("about.deviceMock.vehicleDataSubtitle")}
           </Typography>
         </Paper>
 
         <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1.3 }}>
-          {["Speed", "Range", "Temp", "Battery"].map((k) => (
+          {tiles.map((tile) => (
             <Paper
-              key={k}
+              key={tile.key}
               elevation={0}
-              sx={(t) => ({
+              sx={(tt) => ({
                 p: 2,
                 borderRadius: 4,
-                background:
-                  t.palette.mode === "dark"
-                    ? alpha("#fff", 0.05)
-                    : alpha("#000", 0.02),
-                border: `1px solid ${t.palette.mode === "dark" ? alpha("#fff", 0.1) : alpha("#000", 0.08)}`,
+                background: tt.palette.mode === "dark" ? alpha("#fff", 0.05) : alpha("#000", 0.02),
+                border: `1px solid ${tt.palette.mode === "dark" ? alpha("#fff", 0.1) : alpha("#000", 0.08)}`,
               })}
             >
-              <Typography sx={{ fontWeight: 900 }}>{k}</Typography>
+              <Typography sx={{ fontWeight: 900 }}>
+                {t(`about.deviceMock.tiles.${tile.key}`)}
+              </Typography>
               <Typography variant="body2" color="text.secondary">
-                {k === "Speed"
-                  ? "120 km/h"
-                  : k === "Range"
-                    ? "410 km"
-                    : k === "Temp"
-                      ? "92°C"
-                      : "86%"}
+                {tile.value}
               </Typography>
             </Paper>
           ))}
@@ -135,19 +120,16 @@ function DeviceMock() {
 
         <Paper
           elevation={0}
-          sx={(t) => ({
+          sx={(tt) => ({
             p: 2,
             borderRadius: 4,
-            background:
-              t.palette.mode === "dark"
-                ? alpha("#fff", 0.05)
-                : alpha("#000", 0.02),
-            border: `1px solid ${t.palette.mode === "dark" ? alpha("#fff", 0.1) : alpha("#000", 0.08)}`,
+            background: tt.palette.mode === "dark" ? alpha("#fff", 0.05) : alpha("#000", 0.02),
+            border: `1px solid ${tt.palette.mode === "dark" ? alpha("#fff", 0.1) : alpha("#000", 0.08)}`,
           })}
         >
-          <Typography sx={{ fontWeight: 900 }}>Clean UI</Typography>
+          <Typography sx={{ fontWeight: 900 }}>{t("about.deviceMock.cleanUiTitle")}</Typography>
           <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
-            Components • Animations • Accessibility
+            {t("about.deviceMock.cleanUiSubtitle")}
           </Typography>
         </Paper>
       </Box>
@@ -156,6 +138,10 @@ function DeviceMock() {
 }
 
 export default function About() {
+  const { t } = useTranslation("common");
+
+  const featureItems = t("about.whatIBuild.items", { returnObjects: true });
+
   return (
     <Box
       sx={{
@@ -169,25 +155,16 @@ export default function About() {
       <Box sx={{ display: "grid", gap: 2 }}>
         <Reveal>
           <GlassCard
-            title="Profil"
-            subtitle="Ich entwickle iOS-Apps mit Swift & SwiftUI – clean, schnell und modern."
+            title={t("about.profileTitle")}
+            subtitle={t("about.profileSubtitle")}
           >
             <Typography color="text.secondary">
-              Mein Fokus liegt auf sauberer Architektur (z.B. MVVM),
-              performanten Apps und einer Benutzeroberfläche, die sich „native“
-              anfühlt.
+              {t("about.profileBody")}
             </Typography>
 
             <Stack direction="row" spacing={1} sx={{ mt: 2, flexWrap: "wrap" }}>
-              {[
-                "Swift",
-                "SwiftUI",
-                "Xcode",
-                "MVVM",
-                "Async/Await",
-                "REST APIs",
-              ].map((t) => (
-                <Chip key={t} label={t} variant="outlined" />
+              {["Swift", "SwiftUI", "Xcode", "MVVM", "Async/Await", "REST APIs"].map((chip) => (
+                <Chip key={chip} label={chip} variant="outlined" />
               ))}
             </Stack>
           </GlassCard>
@@ -201,28 +178,24 @@ export default function About() {
               gap: 2,
             }}
           >
-            <Stat label="Fokus" value="iOS & SwiftUI" />
-            <Stat label="Stil" value="Clean & Modern" />
+            <Stat label={t("about.stats.focusLabel")} value={t("about.stats.focusValue")} />
+            <Stat label={t("about.stats.styleLabel")} value={t("about.stats.styleValue")} />
           </Box>
         </Reveal>
 
         <Reveal delay={140} y={22}>
           <GlassCard
-            title="Was ich baue"
-            subtitle="Typische Features, die ich umsetze"
+            title={t("about.whatIBuild.title")}
+            subtitle={t("about.whatIBuild.subtitle")}
           >
             <Box sx={{ display: "grid", gap: 1.2 }}>
-              {[
-                "Moderne SwiftUI Screens (Listen, Cards, Detail Views)",
-                "API Integration + Loading/Empty/Error States",
-                "State Management, Navigation, Routing",
-                "Animationen, Micro-Interactions & Dark Mode",
-                "Saubere Struktur, Komponenten & Wiederverwendbarkeit",
-              ].map((item) => (
-                <Typography key={item} color="text.secondary">
-                  • {item}
-                </Typography>
-              ))}
+              {Array.isArray(featureItems)
+                ? featureItems.map((item) => (
+                    <Typography key={item} color="text.secondary">
+                      • {item}
+                    </Typography>
+                  ))
+                : null}
             </Box>
           </GlassCard>
         </Reveal>
@@ -232,38 +205,38 @@ export default function About() {
       <Box sx={{ display: "grid", gap: 2 }}>
         <Reveal delay={120} y={22}>
           <GlassCard
-            title="UI Preview"
-            subtitle="Eine kleine Visual-Preview (ohne echtes Foto)"
+            title={t("about.uiPreview.title")}
+            subtitle={t("about.uiPreview.subtitle")}
           >
             <DeviceMock />
           </GlassCard>
         </Reveal>
 
         <Reveal delay={200} y={22}>
-          <GlassCard title="Highlights" subtitle="So arbeite ich">
+          <GlassCard title={t("about.highlights.title")} subtitle={t("about.highlights.subtitle")}>
             <Box sx={{ display: "grid", gap: 1.3 }}>
               <Box>
-                <Typography sx={{ fontWeight: 900 }}>1) Planung</Typography>
+                <Typography sx={{ fontWeight: 900 }}>{t("about.highlights.planTitle")}</Typography>
                 <Typography color="text.secondary" variant="body2">
-                  Klarer Scope, Screens & Datenflüsse, bevor ich Code schreibe.
+                  {t("about.highlights.planBody")}
                 </Typography>
               </Box>
 
               <Divider sx={{ opacity: 0.25 }} />
 
               <Box>
-                <Typography sx={{ fontWeight: 900 }}>2) Umsetzung</Typography>
+                <Typography sx={{ fontWeight: 900 }}>{t("about.highlights.buildTitle")}</Typography>
                 <Typography color="text.secondary" variant="body2">
-                  Komponenten sauber bauen, UI polishen, Edge-Cases abfangen.
+                  {t("about.highlights.buildBody")}
                 </Typography>
               </Box>
 
               <Divider sx={{ opacity: 0.25 }} />
 
               <Box>
-                <Typography sx={{ fontWeight: 900 }}>3) Feinschliff</Typography>
+                <Typography sx={{ fontWeight: 900 }}>{t("about.highlights.finishTitle")}</Typography>
                 <Typography color="text.secondary" variant="body2">
-                  Performance, Accessibility, Details – damit es „fertig“ wirkt.
+                  {t("about.highlights.finishBody")}
                 </Typography>
               </Box>
             </Box>

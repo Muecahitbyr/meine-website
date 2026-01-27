@@ -1,0 +1,141 @@
+{
+  "header": {
+    "brand": "iOS Dev",
+    "nav": {
+      "about": "Hakkımda",
+      "apps": "Uygulamalar",
+      "contact": "İletişim"
+    },
+    "aria": {
+      "toggleTheme": "Temayı değiştir",
+      "openMenu": "Menüyü aç",
+      "closeMenu": "Menüyü kapat"
+    },
+    "mobileMenuTitle": "Menü"
+  },
+  "about": {
+    "profileTitle": "Profil",
+    "profileSubtitle": "Swift & SwiftUI ile iOS uygulamaları geliştiriyorum — temiz, hızlı ve modern.",
+    "profileBody": "Odak noktam temiz mimari (örn. MVVM), yüksek performanslı uygulamalar ve gerçekten “native” hissi veren bir arayüz.",
+    "stats": {
+      "focusLabel": "Odak",
+      "focusValue": "iOS & SwiftUI",
+      "styleLabel": "Stil",
+      "styleValue": "Temiz & Modern"
+    },
+    "whatIBuild": {
+      "title": "Neler yapıyorum",
+      "subtitle": "Sık yaptığım özellikler",
+      "items": [
+        "Modern SwiftUI ekranları (liste, kart, detay ekranları)",
+        "API entegrasyonu + yükleniyor/boş/hata durumları",
+        "State yönetimi, navigation, routing",
+        "Animasyonlar, mikro etkileşimler & dark mode",
+        "Temiz yapı, bileşenler & tekrar kullanılabilirlik"
+      ]
+    },
+    "uiPreview": {
+      "title": "UI Önizleme",
+      "subtitle": "Küçük bir görsel önizleme (gerçek fotoğraf değil)"
+    },
+    "highlights": {
+      "title": "Öne çıkanlar",
+      "subtitle": "Nasıl çalışıyorum",
+      "planTitle": "1) Planlama",
+      "planBody": "Kod yazmadan önce net kapsam, ekranlar ve veri akışları.",
+      "buildTitle": "2) Uygulama",
+      "buildBody": "Bileşenleri temiz kurmak, UI’ı parlatmak, edge-case’leri yakalamak.",
+      "finishTitle": "3) Son dokunuş",
+      "finishBody": "Performans, erişilebilirlik, detaylar — gerçekten bitmiş hissetsin diye."
+    },
+    "deviceMock": {
+      "dashboard": "Panel",
+      "vehicleDataTitle": "Araç Verileri",
+      "vehicleDataSubtitle": "Canlı değerler • Geçmiş • Profil",
+      "tiles": {
+        "speed": "Hız",
+        "range": "Menzil",
+        "temp": "Sıcaklık",
+        "battery": "Batarya"
+      },
+      "cleanUiTitle": "Temiz UI",
+      "cleanUiSubtitle": "Bileşenler • Animasyonlar • Erişilebilirlik"
+    }
+  },
+  "contact": {
+    "emailSubject": "Web siten üzerinden iletişim",
+    "emailBody": "Merhaba! Web siteni gördüm ve iletişime geçmek istiyorum.",
+    "card": {
+      "title": "Bana yaz",
+      "subtitle": "Hızlıca e-posta ile — ya da QR kodu tara.",
+      "body": "Uygulama fikirleri, projeler veya iOS & SwiftUI hakkında sorular için mesajlarını beklerim.",
+      "sendEmail": "E-posta gönder",
+      "toApps": "Uygulamalara git",
+      "emailLabel": "E-POSTA",
+      "copyTooltip": "E-postayı kopyala",
+      "copyAria": "E-postayı kopyala",
+      "tip": "İpucu: Kısa bir mesaj + hedefin/fikrin yeter — dönüş yaparım."
+    },
+    "qr": {
+      "title": "QR kod",
+      "subtitle": "Bana e-posta atmak için tara.",
+      "alt": "QR Kod E-posta"
+    }
+  },
+  "hero": {
+    "overline": "iOS / Swift Geliştirici",
+    "titleLine1": "Ben",
+    "highlight": "Apple uygulamaları",
+    "titleLine2": "modern UI ve temiz kod ile geliştiriyorum.",
+    "subtitle": "Swift, SwiftUI, Xcode — temiz mimari, performans ve yüksek kalite kullanıcı deneyimine odaklanıyorum.",
+    "ctaApps": "Uygulamalarım",
+    "ctaContact": "İletişim",
+    "nameRole": "Uygulama geliştirici",
+    "portraitAlt": "Portre"
+  },
+  "projectCard": {
+    "open": "Aç →"
+  },
+  "screenshots": {
+    "placeholder": "iOS ekran görüntüsü (yer tutucu)",
+    "openAria": "{{title}} ekran görüntülerini aç",
+    "previewAlt": "{{title}} ekran görüntüsü önizleme",
+    "dialogClose": "Kapat",
+    "prev": "Önceki görsel",
+    "next": "Sonraki görsel"
+  },
+"projects": {
+  "driveconnect": {
+    "title": "DriveConnect",
+    "description": "Araç verilerini analiz eden ve gösteren kişiselleştirilmiş iOS uygulaması — sade, modern ve kullanıcıya özel.",
+    "note": "(Yakında App Store'da)"
+  },
+  "getataxi": {
+    "title": "Get A Taxi",
+    "description": "Taksi çağırmak için iOS uygulaması: başlangıç konumu seç, hedefi gir ve isteği hızlıca gönder.",
+    "note": "(Yakında App Store'da)"
+  },
+  "gtcc": {
+    "title": "Guess The Capital City",
+    "description": "Bilgi oyunu: bayrağı tanı ve doğru başkenti tahmin et — temiz mantık ve SwiftUI animasyonlarıyla.",
+    "note": "(Yakında App Store'da)"
+  }
+  },
+  "language": { 
+    "label": "Dil" 
+},
+"sections": {
+  "about": {
+    "title": "Hakkımda",
+    "subtitle": "Swift & SwiftUI ile Apple uygulamaları geliştiriyorum — temiz, hızlı ve modern."
+  },
+  "apps": {
+    "title": "Uygulamalar",
+    "subtitle": "Geliştirdiğim ve App Store’da olan veya yakında gelecek uygulamalar."
+  },
+  "contact": {
+    "title": "İletişim",
+    "subtitle": "Bana doğrudan e-posta ile yaz."
+  }
+}
+}

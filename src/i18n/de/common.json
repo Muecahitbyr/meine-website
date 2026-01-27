@@ -1,0 +1,139 @@
+{
+  "header": {
+    "brand": "iOS Dev",
+    "nav": {
+      "about": "Über mich",
+      "apps": "Apps",
+      "contact": "Kontakt"
+    },
+    "aria": {
+      "toggleTheme": "Theme umschalten",
+      "openMenu": "Menü öffnen",
+      "closeMenu": "Menü schließen"
+    },
+    "mobileMenuTitle": "Menü"
+  },
+  "about": {
+    "profileTitle": "Profil",
+    "profileSubtitle": "Ich entwickle iOS-Apps mit Swift & SwiftUI – clean, schnell und modern.",
+    "profileBody": "Mein Fokus liegt auf sauberer Architektur (z.B. MVVM), performanten Apps und einer Benutzeroberfläche, die sich „native“ anfühlt.",
+    "stats": {
+      "focusLabel": "Fokus",
+      "focusValue": "iOS & SwiftUI",
+      "styleLabel": "Stil",
+      "styleValue": "Clean & Modern"
+    },
+    "whatIBuild": {
+      "title": "Was ich baue",
+      "subtitle": "Typische Features, die ich umsetze",
+      "items": [
+        "Moderne SwiftUI Screens (Listen, Cards, Detail Views)",
+        "API Integration + Loading/Empty/Error States",
+        "State Management, Navigation, Routing",
+        "Animationen, Micro-Interactions & Dark Mode",
+        "Saubere Struktur, Komponenten & Wiederverwendbarkeit"
+      ]
+    },
+    "uiPreview": {
+      "title": "UI Preview",
+      "subtitle": "Eine kleine Visual-Preview (ohne echtes Foto)"
+    },
+    "highlights": {
+      "title": "Highlights",
+      "subtitle": "So arbeite ich",
+      "planTitle": "1) Planung",
+      "planBody": "Klarer Scope, Screens & Datenflüsse, bevor ich Code schreibe.",
+      "buildTitle": "2) Umsetzung",
+      "buildBody": "Komponenten sauber bauen, UI polishen, Edge-Cases abfangen.",
+      "finishTitle": "3) Feinschliff",
+      "finishBody": "Performance, Accessibility, Details – damit es „fertig“ wirkt."
+    },
+    "deviceMock": {
+      "dashboard": "Dashboard",
+      "vehicleDataTitle": "Vehicle Data",
+      "vehicleDataSubtitle": "Live Werte • History • Profile",
+      "tiles": {
+        "speed": "Speed",
+        "range": "Range",
+        "temp": "Temp",
+        "battery": "Battery"
+      },
+      "cleanUiTitle": "Clean UI",
+      "cleanUiSubtitle": "Components • Animations • Accessibility"
+    }
+  },
+  "contact": {
+    "emailSubject": "Kontakt über deine Webseite",
+    "emailBody": "Hi! Ich habe deine Webseite gesehen und würde gerne Kontakt aufnehmen.",
+    "card": {
+      "title": "Schreib mir",
+      "subtitle": "Schnell per Mail – oder scanne den QR-Code.",
+      "body": "Ich freue mich über Nachrichten zu App-Ideen, Projekten oder Fragen rund um iOS & SwiftUI.",
+      "sendEmail": "E-Mail senden",
+      "toApps": "Zu den Apps",
+      "emailLabel": "E-MAIL",
+      "copyTooltip": "E-Mail kopieren",
+      "copyAria": "E-Mail kopieren",
+      "tip": "Tipp: Kurze Nachricht + Ziel/Idee reicht völlig – ich melde mich."
+    },
+    "qr": {
+      "title": "QR-Code",
+      "subtitle": "Scanne für eine Mail an mich.",
+      "alt": "QR Code E-Mail"
+  }
+  },
+  "hero": {
+    "overline": "iOS / Swift Developer",
+    "titleLine1": "Ich entwickle",
+    "highlight": "Apple Apps",
+    "titleLine2": "mit moderner UI & sauberem Code.",
+    "subtitle": "Swift, SwiftUI, Xcode — Fokus auf klare Architektur, Performance und ein hochwertiges Nutzererlebnis.",
+    "ctaApps": "Meine Apps",
+    "ctaContact": "Kontakt",
+    "nameRole": "App Entwickler",
+    "portraitAlt": "Portrait"
+  },
+  "projectCard": {
+    "open": "Öffnen →"
+  },
+  "screenshots": {
+    "placeholder": "iOS Screenshot Platzhalter",
+    "openAria": "{{title}} Screenshots öffnen",
+    "previewAlt": "{{title}} Screenshot Vorschau",
+    "dialogClose": "Schließen",
+    "prev": "Vorheriges Bild",
+    "next": "Nächstes Bild"
+  },
+"projects": {
+  "driveconnect": {
+    "title": "DriveConnect",
+    "description": "Personalisierte iOS-App zur Auswertung und Anzeige von Fahrzeugdaten – übersichtlich, modern und auf den Nutzer zugeschnitten.",
+    "note": "(Bald im App Store)"
+  },
+  "getataxi": {
+    "title": "Get A Taxi",
+    "description": "iOS-App zum Rufen eines Taxis: Start wird übernommen oder gewählt, Ziel eingeben und die Anfrage schnell abschicken.",
+    "note": "(Bald im App Store)"
+  },
+  "gtcc": {
+    "title": "Guess The Capital City",
+    "description": "Quiz-Spiel: Flagge erkennen und die passende Hauptstadt erraten – mit sauberer Logik und SwiftUI-Animationen.",
+    "note": "(Bald im App Store)"
+  }
+},
+"sections": {
+  "about": {
+    "title": "Über mich",
+    "subtitle": "Ich entwickle Apple Apps mit Swift & SwiftUI – clean, schnell, modern."
+  },
+  "apps": {
+    "title": "Apps",
+    "subtitle": "Von mir entwickelte Apps, die schon im App Store verfügbar sind oder demnächst noch kommen."
+  },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Schreib mir direkt per E-Mail."
+  }
+}
+
+}
