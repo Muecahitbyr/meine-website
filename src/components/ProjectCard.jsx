@@ -18,6 +18,18 @@ export default function ProjectCard({ project }) {
 
       <p className="muted">{project.description}</p>
 
+      {project.noteKey ? (
+        href ? (
+          <p className="muted small">
+            <a href={href} target="_blank" rel="noopener noreferrer">
+              {t(project.noteKey)}
+            </a>
+          </p>
+        ) : (
+          <p className="muted small">{t(project.noteKey)}</p>
+        )
+      ) : null}
+
       <div className="pillRow">
         {project.tags.map((tag) => (
           <span key={tag} className="pill">
