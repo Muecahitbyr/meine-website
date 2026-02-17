@@ -3,12 +3,14 @@ import { useTranslation } from "react-i18next";
 export default function ProjectCard({ project }) {
   const { t } = useTranslation("common");
 
+  const href = project.storeUrl || project.link;
+
   return (
     <article className="card projectCard">
       <div className="projectTop">
         <h3>{project.title}</h3>
-        {project.link ? (
-          <a className="link" href={project.link} target="_blank" rel="noreferrer">
+        {href ? (
+          <a className="link" href={href} target="_blank" rel="noopener noreferrer">
             {t("projectCard.open")}
           </a>
         ) : null}

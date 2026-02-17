@@ -12,6 +12,8 @@ export const projects = [
       `/screenshots/M52.${EXT}`,
       `/screenshots/M53.${EXT}`,
     ],
+        storeUrl: "https://apps.apple.com/de/app/driveconnect/id6758020999"
+
   },
   {
     id: "getataxi",
