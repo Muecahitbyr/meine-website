@@ -8,9 +8,11 @@ export const projects = [
     noteKey: "projects.driveconnect.note",
     tags: ["SwiftUI", "Vehicle Data", "UX", "Firebase"],
     screenshots: [
-      `/screenshots/M51.${EXT}`,
-      `/screenshots/M52.${EXT}`,
-      `/screenshots/M53.${EXT}`,
+      `/screenshots/DC1.${EXT}`,
+      `/screenshots/DC2.${EXT}`,
+      `/screenshots/DC3.${EXT}`,
+      `/screenshots/DC4.${EXT}`,
+      `/screenshots/DC5.${EXT}`,
     ],
         storeUrl: "https://apps.apple.com/de/app/driveconnect/id6758020999"
 
