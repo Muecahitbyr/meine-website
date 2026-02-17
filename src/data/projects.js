@@ -11,7 +11,6 @@ export const projects = [
       `/screenshots/DC1.${EXT}`,
       `/screenshots/DC2.${EXT}`,
       `/screenshots/DC3.${EXT}`,
-      `/screenshots/DC4.${EXT}`,
       `/screenshots/DC5.${EXT}`,
     ],
         storeUrl: "https://apps.apple.com/de/app/driveconnect/id6758020999"
