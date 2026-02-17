@@ -19,6 +19,19 @@ export default function App() {
 
   const { t } = useTranslation("common");
 
+  const openInAppStore = (url) => {
+    if (!url) return;
+    try {
+      const scheme = url.replace(/^https?:\/\//, "itms-apps://");
+      window.location.href = scheme;
+      setTimeout(() => {
+        window.open(url, "_blank", "noopener,noreferrer");
+      }, 600);
+    } catch {
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -49,7 +62,7 @@ export default function App() {
           title={t("sections.apps.title")}
           subtitle={t("sections.apps.subtitle")}
         >
-          <Apps projects={projects} />
+          <Apps projects={projects} onOpenStore={openInAppStore} />
         </Section>
 
         <Section
