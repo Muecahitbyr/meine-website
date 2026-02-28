@@ -12,7 +12,7 @@ export default function Section({ id, title, subtitle, children }) {
       ([e]) => {
         if (e.isIntersecting) setOn(true);
       },
-      { threshold: 0.45 }
+      { threshold: 0.45 },
     );
 
     obs.observe(el);
@@ -24,11 +24,11 @@ export default function Section({ id, title, subtitle, children }) {
       component="section"
       id={id}
       sx={{
-        height: "100svh",
         minHeight: "100svh",
-        scrollSnapAlign: "start",
         display: "flex",
-        alignItems: "center",
+        alignItems: { xs: "flex-start", md: "center" },
+        justifyContent: "center",
+        py: { xs: 10, md: 14 },
       }}
     >
       <Container maxWidth="lg" sx={{ width: "100%", py: { xs: 7, md: 10 } }}>
@@ -37,7 +37,11 @@ export default function Section({ id, title, subtitle, children }) {
             {title ? (
               <Typography
                 variant="h2"
-                sx={{ fontSize: { xs: 34, md: 44 }, letterSpacing: -0.8, fontWeight: 950 }}
+                sx={{
+                  fontSize: { xs: 34, md: 44 },
+                  letterSpacing: -0.8,
+                  fontWeight: 950,
+                }}
               >
                 <span className={`sectionTitleUnderline ${on ? "isOn" : ""}`}>
                   {title}
@@ -46,7 +50,10 @@ export default function Section({ id, title, subtitle, children }) {
             ) : null}
 
             {subtitle ? (
-              <Typography color="text.secondary" sx={{ mt: 1, maxWidth: 760, fontSize: 15.5 }}>
+              <Typography
+                color="text.secondary"
+                sx={{ mt: 1, maxWidth: 760, fontSize: 15.5 }}
+              >
                 {subtitle}
               </Typography>
             ) : null}

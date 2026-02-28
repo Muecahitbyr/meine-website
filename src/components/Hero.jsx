@@ -1,4 +1,11 @@
-import { Box, Button, Container, Stack, Typography, Paper } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Stack,
+  Typography,
+  Paper,
+} from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import Reveal from "./Reveal.jsx";
 import { useTranslation } from "react-i18next";
@@ -106,7 +113,7 @@ export default function Hero() {
                       : alpha("#000", 0.03),
                   border: `1px solid ${
                     t.palette.mode === "dark"
-                      ? alpha("#fff", 0.10)
+                      ? alpha("#fff", 0.1)
                       : alpha("#000", 0.08)
                   }`,
                 })}
@@ -150,7 +157,7 @@ export default function Hero() {
                     border: `1px solid ${alpha(t.palette.primary.main, 0.25)}`,
                   })}
                 >
-                  Full-Stack & iOS 
+                  Full-Stack & iOS
                 </Box>
               </Paper>
             </Box>

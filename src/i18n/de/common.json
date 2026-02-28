@@ -15,15 +15,15 @@
     "mobileMenuTitle": "Menü"
   },
 
-"hero": {
-  "overline": "Full-Stack & iOS Entwickler",
-  "titleLine1": "Ich entwickle",
-  "highlight": "moderne Web- und Apple Apps",
-  "titleLine2": "mit klarem UI und sauberer Architektur.",
-  "subtitle": "Von Frontend bis Backend — mit besonderem Fokus auf JavaScript, TypeScript und hochwertige iOS Anwendungen.",
-  "nameRole": "Full-Stack Entwickler mit iOS Schwerpunkt",
-  "portraitAlt": "Porträt"
-},
+  "hero": {
+    "overline": "Full-Stack & iOS Entwickler",
+    "titleLine1": "Ich entwickle",
+    "highlight": "moderne Web- und Apple Apps",
+    "titleLine2": "mit klarem UI und sauberer Architektur.",
+    "subtitle": "Von Frontend bis Backend — mit besonderem Fokus auf JavaScript, TypeScript und hochwertige iOS Anwendungen.",
+    "nameRole": "Full-Stack Entwickler mit iOS Schwerpunkt",
+    "portraitAlt": "Porträt"
+  },
 
   "language": {
     "label": "Sprache"
@@ -47,9 +47,9 @@
       "subtitle": "Schreib mir direkt per E-Mail."
     }
   },
-"footer": {
-  "role": "Full-Stack Entwickler & iOS Entwickler"
-},
+  "footer": {
+    "role": "Full-Stack Entwickler & iOS Entwickler"
+  },
 
   "about": {
     "sectionTitle": "Über mich",

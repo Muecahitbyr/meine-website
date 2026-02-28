@@ -15,18 +15,18 @@
     "mobileMenuTitle": "Menü"
   },
 
-"hero": {
-  "overline": "Full-Stack & iOS Geliştirici",
-  "titleLine1": "Modern",
-  "highlight": "web ve Apple uygulamaları",
-  "titleLine2": "temiz UI ve sağlam mimari ile geliştiriyorum.",
-  "subtitle": "Frontend’den backend’e kadar — özellikle JavaScript, TypeScript ve premium iOS deneyimlerine odaklanıyorum.",
-  "nameRole": "iOS Odaklı Full-Stack Geliştirici",
-  "portraitAlt": "Portre"
-},
-"footer": {
-  "role": "Full-Stack Geliştirici & iOS Geliştirici"
-},  
+  "hero": {
+    "overline": "Full-Stack & iOS Geliştirici",
+    "titleLine1": "Modern",
+    "highlight": "web ve Apple uygulamaları",
+    "titleLine2": "temiz UI ve sağlam mimari ile geliştiriyorum.",
+    "subtitle": "Frontend’den backend’e kadar — özellikle JavaScript, TypeScript ve premium iOS deneyimlerine odaklanıyorum.",
+    "nameRole": "iOS Odaklı Full-Stack Geliştirici",
+    "portraitAlt": "Portre"
+  },
+  "footer": {
+    "role": "Full-Stack Geliştirici & iOS Geliştirici"
+  },
   "language": {
     "label": "Dil"
   },

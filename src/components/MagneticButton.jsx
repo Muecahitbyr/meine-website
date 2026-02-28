@@ -1,7 +1,12 @@
 import { useMemo, useRef, useState } from "react";
 import { Button, useMediaQuery } from "@mui/material";
 
-export default function MagneticButton({ children, className = "", sx, ...props }) {
+export default function MagneticButton({
+  children,
+  className = "",
+  sx,
+  ...props
+}) {
   const ref = useRef(null);
   const isFine = useMediaQuery("(pointer: fine)");
   const isDesktop = useMediaQuery("(min-width:900px)");
@@ -15,7 +20,7 @@ export default function MagneticButton({ children, className = "", sx, ...props 
       transition: enabled ? "transform 120ms ease" : "none",
       willChange: enabled ? "transform" : "auto",
     }),
-    [enabled, t.x, t.y]
+    [enabled, t.x, t.y],
   );
 
   const onMove = (e) => {
@@ -34,7 +39,12 @@ export default function MagneticButton({ children, className = "", sx, ...props 
   };
 
   return (
-    <span ref={ref} onMouseMove={onMove} onMouseLeave={onLeave} style={{ display: "inline-block" }}>
+    <span
+      ref={ref}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+      style={{ display: "inline-block" }}
+    >
       <Button
         {...props}
         className={`shineBtn ${className}`}

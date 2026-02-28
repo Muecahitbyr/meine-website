@@ -34,7 +34,7 @@ export default function Header({ mode, onToggleMode }) {
       { id: "apps", label: t("header.nav.apps"), href: "#apps" },
       { id: "contact", label: t("header.nav.contact"), href: "#contact" },
     ],
-    [t]
+    [t],
   );
 
   const active = useActiveSection(navItems.map((n) => n.id));
@@ -60,7 +60,7 @@ export default function Header({ mode, onToggleMode }) {
         sx={() => ({
           backgroundColor: alpha("#0B0D12", 0.72),
           backdropFilter: "blur(14px)",
-          borderBottom: `1px solid ${alpha("#fff", 0.10)}`,
+          borderBottom: `1px solid ${alpha("#fff", 0.1)}`,
         })}
       >
         {/* Progress Bar */}
@@ -75,7 +75,8 @@ export default function Header({ mode, onToggleMode }) {
             sx={{
               height: "100%",
               width: `${progress}%`,
-              background: "linear-gradient(90deg, rgba(154,230,255,0.95), rgba(154,230,255,0.15))",
+              background:
+                "linear-gradient(90deg, rgba(154,230,255,0.95), rgba(154,230,255,0.15))",
               boxShadow: "0 0 18px rgba(154,230,255,0.20)",
               transition: "width 120ms linear",
             }}
@@ -83,14 +84,23 @@ export default function Header({ mode, onToggleMode }) {
         </Box>
 
         <Toolbar disableGutters sx={{ minHeight: 64 }}>
-          <Container maxWidth="lg" sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+          <Container
+            maxWidth="lg"
+            sx={{ display: "flex", alignItems: "center", gap: 2 }}
+          >
             <Typography sx={{ fontWeight: 950, letterSpacing: -0.3 }}>
                {t("header.brand")}
             </Typography>
 
             <Box sx={{ flex: 1 }} />
 
-            <Box sx={{ display: { xs: "none", md: "flex" }, gap: 0.5, alignItems: "center" }}>
+            <Box
+              sx={{
+                display: { xs: "none", md: "flex" },
+                gap: 0.5,
+                alignItems: "center",
+              }}
+            >
               {navItems.map((item) => {
                 const isActive = active === item.id;
                 return (
@@ -121,7 +131,9 @@ export default function Header({ mode, onToggleMode }) {
                         transition: "transform 220ms ease",
                         background:
                           "linear-gradient(90deg, rgba(154,230,255,0.95), rgba(154,230,255,0.15))",
-                        boxShadow: isActive ? "0 0 18px rgba(154,230,255,0.25)" : "none",
+                        boxShadow: isActive
+                          ? "0 0 18px rgba(154,230,255,0.25)"
+                          : "none",
                       },
                     }}
                   >
@@ -138,13 +150,20 @@ export default function Header({ mode, onToggleMode }) {
               aria-label={t("header.aria.toggleTheme")}
               sx={{ color: "rgba(255,255,255,0.86)" }}
             >
-              {mode === "dark" ? <LightModeOutlinedIcon /> : <DarkModeOutlinedIcon />}
+              {mode === "dark" ? (
+                <LightModeOutlinedIcon />
+              ) : (
+                <DarkModeOutlinedIcon />
+              )}
             </IconButton>
 
             <IconButton
               onClick={() => setOpen(true)}
               aria-label={t("header.aria.openMenu")}
-              sx={{ display: { xs: "inline-flex", md: "none" }, color: "rgba(255,255,255,0.86)" }}
+              sx={{
+                display: { xs: "inline-flex", md: "none" },
+                color: "rgba(255,255,255,0.86)",
+              }}
             >
               <MenuRoundedIcon />
             </IconButton>
@@ -154,9 +173,20 @@ export default function Header({ mode, onToggleMode }) {
 
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
         <Box sx={{ width: 290, p: 2 }}>
-          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-            <Typography sx={{ fontWeight: 950 }}>{t("header.mobileMenuTitle")}</Typography>
-            <IconButton onClick={() => setOpen(false)} aria-label={t("header.aria.closeMenu")}>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <Typography sx={{ fontWeight: 950 }}>
+              {t("header.mobileMenuTitle")}
+            </Typography>
+            <IconButton
+              onClick={() => setOpen(false)}
+              aria-label={t("header.aria.closeMenu")}
+            >
               <CloseRoundedIcon />
             </IconButton>
           </Box>

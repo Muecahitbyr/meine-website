@@ -1,5 +1,11 @@
 import { useMemo, useState, useEffect } from "react";
-import { Box, Dialog, IconButton, Typography, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  Dialog,
+  IconButton,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
@@ -22,7 +28,8 @@ export default function ScreenshotGallery({ title, screenshots = [] }) {
     setOpen(true);
   };
 
-  const prev = () => setIdx((v) => (v - 1 + screenshots.length) % screenshots.length);
+  const prev = () =>
+    setIdx((v) => (v - 1 + screenshots.length) % screenshots.length);
   const next = () => setIdx((v) => (v + 1) % screenshots.length);
 
   useEffect(() => {
@@ -147,7 +154,12 @@ export default function ScreenshotGallery({ title, screenshots = [] }) {
               <IconButton
                 onClick={prev}
                 aria-label={t("screenshots.prev")}
-                sx={{ position: "absolute", top: "50%", left: 10, transform: "translateY(-50%)" }}
+                sx={{
+                  position: "absolute",
+                  top: "50%",
+                  left: 10,
+                  transform: "translateY(-50%)",
+                }}
               >
                 <ChevronLeftRoundedIcon />
               </IconButton>
@@ -155,7 +167,12 @@ export default function ScreenshotGallery({ title, screenshots = [] }) {
               <IconButton
                 onClick={next}
                 aria-label={t("screenshots.next")}
-                sx={{ position: "absolute", top: "50%", right: 10, transform: "translateY(-50%)" }}
+                sx={{
+                  position: "absolute",
+                  top: "50%",
+                  right: 10,
+                  transform: "translateY(-50%)",
+                }}
               >
                 <ChevronRightRoundedIcon />
               </IconButton>

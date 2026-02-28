@@ -13,7 +13,6 @@ export const projects = [
       `/screenshots/DC3.${EXT}`,
       `/screenshots/DC5.${EXT}`,
     ],
-
   },
   {
     id: "getataxi",

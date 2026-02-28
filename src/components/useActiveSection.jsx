@@ -16,11 +16,13 @@ export default function useActiveSection(sectionIds = []) {
       (entries) => {
         const best = entries
           .filter((e) => e.isIntersecting)
-          .sort((a, b) => (b.intersectionRatio || 0) - (a.intersectionRatio || 0))[0];
+          .sort(
+            (a, b) => (b.intersectionRatio || 0) - (a.intersectionRatio || 0),
+          )[0];
 
         if (best?.target?.id) setActive(best.target.id);
       },
-      { threshold: [0.25, 0.4, 0.55, 0.7] }
+      { threshold: [0.25, 0.4, 0.55, 0.7] },
     );
 
     els.forEach((el) => obs.observe(el));

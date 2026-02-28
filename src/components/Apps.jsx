@@ -41,7 +41,9 @@ export default function Apps({ projects, onOpenStore }) {
     >
       {projects.map((p, idx) => {
         const title = p.titleKey ? t(p.titleKey) : p.title;
-        const description = p.descriptionKey ? t(p.descriptionKey) : p.description;
+        const description = p.descriptionKey
+          ? t(p.descriptionKey)
+          : p.description;
         const note = p.noteKey ? t(p.noteKey) : p.note;
         const href = p.storeUrl || p.link;
 
@@ -59,7 +61,7 @@ export default function Apps({ projects, onOpenStore }) {
                     : `linear-gradient(180deg, ${alpha("#fff", 1)}, ${alpha("#fff", 0.96)})`,
                 border: `1px solid ${
                   theme.palette.mode === "dark"
-                    ? alpha("#fff", 0.10)
+                    ? alpha("#fff", 0.1)
                     : alpha("#000", 0.08)
                 }`,
                 backdropFilter: "blur(10px)",
@@ -78,7 +80,9 @@ export default function Apps({ projects, onOpenStore }) {
               >
                 {/* Header */}
                 <Box>
-                  <Typography sx={{ fontWeight: 900, fontSize: 16, letterSpacing: -0.2 }}>
+                  <Typography
+                    sx={{ fontWeight: 900, fontSize: 16, letterSpacing: -0.2 }}
+                  >
                     {title}
                   </Typography>
 
@@ -115,7 +119,10 @@ export default function Apps({ projects, onOpenStore }) {
 
                 {/* Screenshot (fixed space) */}
                 <Box sx={{ mt: 0.2 }}>
-                  <ScreenshotGallery title={title} screenshots={p.screenshots || []} />
+                  <ScreenshotGallery
+                    title={title}
+                    screenshots={p.screenshots || []}
+                  />
                 </Box>
 
                 {/* Spacer */}
@@ -132,7 +139,12 @@ export default function Apps({ projects, onOpenStore }) {
                 >
                   <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap" }}>
                     {(p.tags || []).map((tag) => (
-                      <Chip key={tag} label={tag} size="small" variant="outlined" />
+                      <Chip
+                        key={tag}
+                        label={tag}
+                        size="small"
+                        variant="outlined"
+                      />
                     ))}
                   </Stack>
 

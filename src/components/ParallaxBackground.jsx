@@ -24,8 +24,12 @@ export default function ParallaxBackground() {
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
         const sy = window.scrollY || 0;
-        const mx = getComputedStyle(document.documentElement).getPropertyValue("--mx") || "0";
-        const my = getComputedStyle(document.documentElement).getPropertyValue("--my") || "0";
+        const mx =
+          getComputedStyle(document.documentElement).getPropertyValue("--mx") ||
+          "0";
+        const my =
+          getComputedStyle(document.documentElement).getPropertyValue("--my") ||
+          "0";
         setVars(mx, my, sy.toFixed(0));
       });
     };

@@ -8,7 +8,9 @@ export default function LanguageSelect({ size = "small" }) {
 
   return (
     <FormControl size={size} sx={{ minWidth: 150 }}>
-      <InputLabel>{t("language.label", { defaultValue: "Language" })}</InputLabel>
+      <InputLabel>
+        {t("language.label", { defaultValue: "Language" })}
+      </InputLabel>
       <Select
         label={t("language.label", { defaultValue: "Language" })}
         value={i18n.language || "de"}

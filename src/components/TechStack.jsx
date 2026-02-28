@@ -38,7 +38,7 @@ function TechItem({ title, Icon, description }) {
           t.palette.mode === "dark"
             ? `linear-gradient(180deg, ${alpha("#fff", 0.055)}, ${alpha("#fff", 0.025)})`
             : `linear-gradient(180deg, ${alpha("#fff", 1)}, ${alpha("#fff", 0.96)})`,
-        border: `1px solid ${t.palette.mode === "dark" ? alpha("#fff", 0.10) : alpha("#000", 0.08)}`,
+        border: `1px solid ${t.palette.mode === "dark" ? alpha("#fff", 0.1) : alpha("#000", 0.08)}`,
         backdropFilter: "blur(10px)",
       })}
     >
@@ -53,12 +53,14 @@ function TechItem({ title, Icon, description }) {
             backgroundColor:
               t.palette.mode === "dark"
                 ? alpha(t.palette.primary.main, 0.16)
-                : alpha(t.palette.primary.main, 0.10),
+                : alpha(t.palette.primary.main, 0.1),
             border: `1px solid ${alpha(t.palette.primary.main, 0.22)}`,
             flexShrink: 0,
           })}
         >
-          <Box sx={{ fontSize: 20, lineHeight: 1 }}>{Icon ? <Icon /> : null}</Box>
+          <Box sx={{ fontSize: 20, lineHeight: 1 }}>
+            {Icon ? <Icon /> : null}
+          </Box>
         </Box>
 
         <Typography sx={{ fontWeight: 900, fontSize: 15, letterSpacing: -0.2 }}>
@@ -85,27 +87,98 @@ function TechItem({ title, Icon, description }) {
 }
 
 const tech = [
-  { title: "Swift", Icon: SiSwift, description: "Native iOS development with modern concurrency and clean architecture." },
-  { title: "C#", Icon: SiSharp, description: "Backend & application development with strong typing and OOP principles." },
-  { title: "JavaScript", Icon: SiJavascript, description: "Frontend and backend development with modern ES6+ features." },
-  { title: "TypeScript", Icon: SiTypescript, description: "Superset of JavaScript adding static types for safer code." },
+  {
+    title: "Swift",
+    Icon: SiSwift,
+    description:
+      "Native iOS development with modern concurrency and clean architecture.",
+  },
+  {
+    title: "C#",
+    Icon: SiSharp,
+    description:
+      "Backend & application development with strong typing and OOP principles.",
+  },
+  {
+    title: "JavaScript",
+    Icon: SiJavascript,
+    description: "Frontend and backend development with modern ES6+ features.",
+  },
+  {
+    title: "TypeScript",
+    Icon: SiTypescript,
+    description: "Superset of JavaScript adding static types for safer code.",
+  },
 
-  { title: "SwiftUI", Icon: FaApple, description: "Declarative UI framework for modern Apple interfaces." },
-  { title: "React", Icon: SiReact, description: "Component-based frontend for scalable web applications." },
-  { title: "Tailwind", Icon: SiTailwindcss, description: "Utility-first CSS for fast, consistent UI design." },
-  { title: "Node.js", Icon: SiNodedotjs, description: "JavaScript runtime for scalable backend services." },
-  { title: "REST APIs", Icon: TbApi, description: "Designing and integrating structured API communication." },
+  {
+    title: "SwiftUI",
+    Icon: FaApple,
+    description: "Declarative UI framework for modern Apple interfaces.",
+  },
+  {
+    title: "React",
+    Icon: SiReact,
+    description: "Component-based frontend for scalable web applications.",
+  },
+  {
+    title: "Tailwind",
+    Icon: SiTailwindcss,
+    description: "Utility-first CSS for fast, consistent UI design.",
+  },
+  {
+    title: "Node.js",
+    Icon: SiNodedotjs,
+    description: "JavaScript runtime for scalable backend services.",
+  },
+  {
+    title: "REST APIs",
+    Icon: TbApi,
+    description: "Designing and integrating structured API communication.",
+  },
 
-  { title: "Firebase", Icon: SiFirebase, description: "Auth, Firestore and cloud-based app infrastructure." },
-  { title: "MongoDB", Icon: SiMongodb, description: "NoSQL database for flexible, scalable data storage." },
+  {
+    title: "Firebase",
+    Icon: SiFirebase,
+    description: "Auth, Firestore and cloud-based app infrastructure.",
+  },
+  {
+    title: "MongoDB",
+    Icon: SiMongodb,
+    description: "NoSQL database for flexible, scalable data storage.",
+  },
 
-  { title: "Docker", Icon: SiDocker, description: "Containerization for reproducible environments and deployment." },
-  { title: "OpenShift", Icon: SiRedhatopenshift, description: "Enterprise Kubernetes platform for scalable deployments." },
-  { title: "Git", Icon: SiGit, description: "Version control and collaborative workflows." },
+  {
+    title: "Docker",
+    Icon: SiDocker,
+    description:
+      "Containerization for reproducible environments and deployment.",
+  },
+  {
+    title: "OpenShift",
+    Icon: SiRedhatopenshift,
+    description: "Enterprise Kubernetes platform for scalable deployments.",
+  },
+  {
+    title: "Git",
+    Icon: SiGit,
+    description: "Version control and collaborative workflows.",
+  },
 
-  { title: "Xcode", Icon: FaApple, description: "Apple IDE for building and testing native iOS apps." },
-  { title: "VS Code", Icon: SiCodeium, description: "Lightweight editor for modern web development." },
-  { title: "Visual Studio", Icon: SiCodeium, description: "IDE for C# and enterprise application development." },
+  {
+    title: "Xcode",
+    Icon: FaApple,
+    description: "Apple IDE for building and testing native iOS apps.",
+  },
+  {
+    title: "VS Code",
+    Icon: SiCodeium,
+    description: "Lightweight editor for modern web development.",
+  },
+  {
+    title: "Visual Studio",
+    Icon: SiCodeium,
+    description: "IDE for C# and enterprise application development.",
+  },
 ];
 
 export default function TechStack() {
@@ -129,7 +202,11 @@ export default function TechStack() {
       >
         {tech.map((item, idx) => (
           <Reveal key={item.title} delay={idx * 60} y={18}>
-            <TechItem title={item.title} Icon={item.Icon} description={item.description} />
+            <TechItem
+              title={item.title}
+              Icon={item.Icon}
+              description={item.description}
+            />
           </Reveal>
         ))}
       </Box>

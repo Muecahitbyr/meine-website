@@ -10,7 +10,7 @@ const STORAGE_KEY = "lang";
 function getInitialLanguage() {
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved === "de" || saved === "en" || saved === "tr") return saved;
-  return "de"; 
+  return "de";
 }
 
 i18n.use(initReactI18next).init({

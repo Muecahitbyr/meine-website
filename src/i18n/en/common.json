@@ -15,18 +15,18 @@
     "mobileMenuTitle": "Menu"
   },
 
-"hero": {
-  "overline": "Full-Stack & iOS Developer",
-  "titleLine1": "I build",
-  "highlight": "modern web and Apple apps",
-  "titleLine2": "with clean UI and scalable architecture.",
-  "subtitle": "From frontend to backend — with a strong focus on JavaScript, TypeScript and premium iOS experiences.",
-  "nameRole": "Full-Stack Developer with iOS Focus",
-  "portraitAlt": "Portrait"
-},
-"footer": {
-  "role": "Full-Stack Developer & iOS Developer"
-},
+  "hero": {
+    "overline": "Full-Stack & iOS Developer",
+    "titleLine1": "I build",
+    "highlight": "modern web and Apple apps",
+    "titleLine2": "with clean UI and scalable architecture.",
+    "subtitle": "From frontend to backend — with a strong focus on JavaScript, TypeScript and premium iOS experiences.",
+    "nameRole": "Full-Stack Developer with iOS Focus",
+    "portraitAlt": "Portrait"
+  },
+  "footer": {
+    "role": "Full-Stack Developer & iOS Developer"
+  },
   "language": {
     "label": "Language"
   },

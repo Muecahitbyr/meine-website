@@ -9,7 +9,9 @@ body::before {
   mix-blend-mode: overlay;
 }
 
-#root, .page, main {
+#root,
+.page,
+main {
   position: relative;
   z-index: 1;
 }
@@ -35,8 +37,12 @@ body::before {
   transform: scaleX(0);
   transform-origin: left;
   border-radius: 999px;
-  background: linear-gradient(90deg, rgba(154,230,255,0.95), rgba(154,230,255,0.10));
-  box-shadow: 0 0 22px rgba(154,230,255,0.24);
+  background: linear-gradient(
+    90deg,
+    rgba(154, 230, 255, 0.95),
+    rgba(154, 230, 255, 0.1)
+  );
+  box-shadow: 0 0 22px rgba(154, 230, 255, 0.24);
   transition: transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
@@ -60,7 +66,7 @@ body::before {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255,255,255,0.18),
+    rgba(255, 255, 255, 0.18),
     transparent
   );
   transition: transform 650ms cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -71,9 +77,15 @@ body::before {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body::before { display: none; }
-  .shineBtn::after { display: none; }
-}html, body {
+  body::before {
+    display: none;
+  }
+  .shineBtn::after {
+    display: none;
+  }
+}
+html,
+body {
   height: 100%;
   overflow-x: hidden;
 }

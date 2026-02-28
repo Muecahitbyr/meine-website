@@ -27,8 +27,7 @@ export default function Contact() {
   const copyEmail = async () => {
     try {
       await navigator.clipboard.writeText(EMAIL);
-    } catch {
-    }
+    } catch {}
   };
 
   return (
@@ -53,7 +52,10 @@ export default function Contact() {
                 ? `linear-gradient(180deg, ${alpha("#fff", 0.07)}, ${alpha("#fff", 0.03)})`
                 : `linear-gradient(180deg, ${alpha("#fff", 1)}, ${alpha("#fff", 0.92)})`,
             border: `1px solid ${tt.palette.mode === "dark" ? alpha("#fff", 0.12) : alpha("#000", 0.08)}`,
-            boxShadow: tt.palette.mode === "dark" ? "0 24px 60px rgba(0,0,0,0.35)" : "0 24px 60px rgba(0,0,0,0.10)",
+            boxShadow:
+              tt.palette.mode === "dark"
+                ? "0 24px 60px rgba(0,0,0,0.35)"
+                : "0 24px 60px rgba(0,0,0,0.10)",
             backdropFilter: "blur(10px)",
           })}
         >
@@ -65,7 +67,10 @@ export default function Contact() {
                 borderRadius: 3,
                 display: "grid",
                 placeItems: "center",
-                backgroundColor: alpha(tt.palette.primary.main, tt.palette.mode === "dark" ? 0.16 : 0.1),
+                backgroundColor: alpha(
+                  tt.palette.primary.main,
+                  tt.palette.mode === "dark" ? 0.16 : 0.1,
+                ),
                 border: `1px solid ${alpha(tt.palette.primary.main, 0.25)}`,
               })}
             >
@@ -84,9 +89,15 @@ export default function Contact() {
 
           <Divider sx={{ my: 2.2, opacity: 0.25 }} />
 
-          <Typography color="text.secondary">{t("contact.card.body")}</Typography>
+          <Typography color="text.secondary">
+            {t("contact.card.body")}
+          </Typography>
 
-          <Stack direction={{ xs: "column", sm: "row" }} spacing={1.2} sx={{ mt: 2 }}>
+          <Stack
+            direction={{ xs: "column", sm: "row" }}
+            spacing={1.2}
+            sx={{ mt: 2 }}
+          >
             <Button
               variant="contained"
               href={mailto}
@@ -110,7 +121,10 @@ export default function Contact() {
               alignItems: "center",
               justifyContent: "space-between",
               gap: 1.5,
-              backgroundColor: tt.palette.mode === "dark" ? alpha("#fff", 0.05) : alpha("#000", 0.03),
+              backgroundColor:
+                tt.palette.mode === "dark"
+                  ? alpha("#fff", 0.05)
+                  : alpha("#000", 0.03),
               border: `1px solid ${tt.palette.mode === "dark" ? alpha("#fff", 0.1) : alpha("#000", 0.08)}`,
             })}
           >
@@ -128,13 +142,20 @@ export default function Contact() {
             </Box>
 
             <Tooltip title={t("contact.card.copyTooltip")}>
-              <IconButton onClick={copyEmail} aria-label={t("contact.card.copyAria")}>
+              <IconButton
+                onClick={copyEmail}
+                aria-label={t("contact.card.copyAria")}
+              >
                 <ContentCopyRoundedIcon />
               </IconButton>
             </Tooltip>
           </Paper>
 
-          <Typography variant="caption" color="text.secondary" sx={{ display: "block", mt: 1.2 }}>
+          <Typography
+            variant="caption"
+            color="text.secondary"
+            sx={{ display: "block", mt: 1.2 }}
+          >
             {t("contact.card.tip")}
           </Typography>
         </Paper>
@@ -155,15 +176,26 @@ export default function Contact() {
                 ? `linear-gradient(180deg, ${alpha("#fff", 0.06)}, ${alpha("#fff", 0.03)})`
                 : `linear-gradient(180deg, ${alpha("#fff", 1)}, ${alpha("#fff", 0.92)})`,
             border: `1px solid ${tt.palette.mode === "dark" ? alpha("#fff", 0.12) : alpha("#000", 0.08)}`,
-            boxShadow: tt.palette.mode === "dark" ? "0 24px 60px rgba(0,0,0,0.35)" : "0 24px 60px rgba(0,0,0,0.10)",
+            boxShadow:
+              tt.palette.mode === "dark"
+                ? "0 24px 60px rgba(0,0,0,0.35)"
+                : "0 24px 60px rgba(0,0,0,0.10)",
             backdropFilter: "blur(10px)",
           })}
         >
           <Box sx={{ width: "100%", display: "grid", placeItems: "center" }}>
-            <Typography sx={{ fontWeight: 900, fontSize: 18, mb: 1 }} align="center">
+            <Typography
+              sx={{ fontWeight: 900, fontSize: 18, mb: 1 }}
+              align="center"
+            >
               {t("contact.qr.title")}
             </Typography>
-            <Typography color="text.secondary" variant="body2" sx={{ mb: 2 }} align="center">
+            <Typography
+              color="text.secondary"
+              variant="body2"
+              sx={{ mb: 2 }}
+              align="center"
+            >
               {t("contact.qr.subtitle")}
             </Typography>
 

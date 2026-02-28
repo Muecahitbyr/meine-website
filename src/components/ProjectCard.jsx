@@ -4,7 +4,9 @@ export default function ProjectCard({ project }) {
   const { t } = useTranslation("common");
 
   const title = project.titleKey ? t(project.titleKey) : project.title;
-  const description = project.descriptionKey ? t(project.descriptionKey) : project.description;
+  const description = project.descriptionKey
+    ? t(project.descriptionKey)
+    : project.description;
   const note = project.noteKey ? t(project.noteKey) : project.note;
 
   const href = project.storeUrl || project.link;
@@ -65,7 +67,14 @@ export default function ProjectCard({ project }) {
               pointerEvents: "auto",
             }}
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+              focusable="false"
+            >
               <path d="M12 2l4 4-8 8-4-4 8-8z" fill="white" />
             </svg>
 

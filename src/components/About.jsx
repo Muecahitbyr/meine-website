@@ -12,14 +12,25 @@ function Stat({ label, value }) {
       sx={(t) => ({
         p: 2,
         borderRadius: 4,
-        background: t.palette.mode === "dark" ? alpha("#fff", 0.05) : alpha("#000", 0.03),
+        background:
+          t.palette.mode === "dark" ? alpha("#fff", 0.05) : alpha("#000", 0.03),
         border: `1px solid ${t.palette.mode === "dark" ? alpha("#fff", 0.1) : alpha("#000", 0.08)}`,
       })}
     >
-      <Typography sx={{ fontWeight: 900, fontSize: 22, textAlign: { xs: "center", md: "left" } }}>
+      <Typography
+        sx={{
+          fontWeight: 900,
+          fontSize: 22,
+          textAlign: { xs: "center", md: "left" },
+        }}
+      >
         {value}
       </Typography>
-      <Typography color="text.secondary" variant="body2" sx={{ mt: 0.5, textAlign: { xs: "center", md: "left" } }}>
+      <Typography
+        color="text.secondary"
+        variant="body2"
+        sx={{ mt: 0.5, textAlign: { xs: "center", md: "left" } }}
+      >
         {label}
       </Typography>
     </TiltCard>
@@ -74,7 +85,10 @@ function DeviceMock() {
         borderRadius: 2,
         p: 2.5,
         border: `1px solid ${tt.palette.mode === "dark" ? alpha("#fff", 0.12) : alpha("#000", 0.08)}`,
-        background: tt.palette.mode === "dark" ? alpha("#fff", 0.05) : alpha("#000", 0.02),
+        background:
+          tt.palette.mode === "dark"
+            ? alpha("#fff", 0.05)
+            : alpha("#000", 0.02),
         overflow: "hidden",
       })}
     >
@@ -88,11 +102,16 @@ function DeviceMock() {
           sx={(tt) => ({
             p: 2,
             borderRadius: 4,
-            background: alpha(tt.palette.primary.main, tt.palette.mode === "dark" ? 0.12 : 0.08),
+            background: alpha(
+              tt.palette.primary.main,
+              tt.palette.mode === "dark" ? 0.12 : 0.08,
+            ),
             border: `1px solid ${alpha(tt.palette.primary.main, 0.25)}`,
           })}
         >
-          <Typography sx={{ fontWeight: 900 }}>{t("about.deviceMock.vehicleDataTitle")}</Typography>
+          <Typography sx={{ fontWeight: 900 }}>
+            {t("about.deviceMock.vehicleDataTitle")}
+          </Typography>
           <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
             {t("about.deviceMock.vehicleDataSubtitle")}
           </Typography>
@@ -106,7 +125,10 @@ function DeviceMock() {
               sx={(tt) => ({
                 p: 2,
                 borderRadius: 4,
-                background: tt.palette.mode === "dark" ? alpha("#fff", 0.05) : alpha("#000", 0.02),
+                background:
+                  tt.palette.mode === "dark"
+                    ? alpha("#fff", 0.05)
+                    : alpha("#000", 0.02),
                 border: `1px solid ${tt.palette.mode === "dark" ? alpha("#fff", 0.1) : alpha("#000", 0.08)}`,
               })}
             >
@@ -125,11 +147,16 @@ function DeviceMock() {
           sx={(tt) => ({
             p: 2,
             borderRadius: 4,
-            background: tt.palette.mode === "dark" ? alpha("#fff", 0.05) : alpha("#000", 0.02),
+            background:
+              tt.palette.mode === "dark"
+                ? alpha("#fff", 0.05)
+                : alpha("#000", 0.02),
             border: `1px solid ${tt.palette.mode === "dark" ? alpha("#fff", 0.1) : alpha("#000", 0.08)}`,
           })}
         >
-          <Typography sx={{ fontWeight: 900 }}>{t("about.deviceMock.cleanUiTitle")}</Typography>
+          <Typography sx={{ fontWeight: 900 }}>
+            {t("about.deviceMock.cleanUiTitle")}
+          </Typography>
           <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
             {t("about.deviceMock.cleanUiSubtitle")}
           </Typography>
@@ -165,7 +192,14 @@ export default function About() {
             </Typography>
 
             <Stack direction="row" spacing={1} sx={{ mt: 2, flexWrap: "wrap" }}>
-              {["Swift", "SwiftUI", "Xcode", "MVVM", "Async/Await", "REST APIs"].map((chip) => (
+              {[
+                "Swift",
+                "SwiftUI",
+                "Xcode",
+                "MVVM",
+                "Async/Await",
+                "REST APIs",
+              ].map((chip) => (
                 <Chip key={chip} label={chip} variant="outlined" />
               ))}
             </Stack>
@@ -180,8 +214,14 @@ export default function About() {
               gap: 2,
             }}
           >
-            <Stat label={t("about.stats.focusLabel")} value={t("about.stats.focusValue")} />
-            <Stat label={t("about.stats.styleLabel")} value={t("about.stats.styleValue")} />
+            <Stat
+              label={t("about.stats.focusLabel")}
+              value={t("about.stats.focusValue")}
+            />
+            <Stat
+              label={t("about.stats.styleLabel")}
+              value={t("about.stats.styleValue")}
+            />
           </Box>
         </Reveal>
 
@@ -215,10 +255,15 @@ export default function About() {
         </Reveal>
 
         <Reveal delay={200} y={22}>
-          <GlassCard title={t("about.highlights.title")} subtitle={t("about.highlights.subtitle")}>
+          <GlassCard
+            title={t("about.highlights.title")}
+            subtitle={t("about.highlights.subtitle")}
+          >
             <Box sx={{ display: "grid", gap: 1.3 }}>
               <Box>
-                <Typography sx={{ fontWeight: 900 }}>{t("about.highlights.planTitle")}</Typography>
+                <Typography sx={{ fontWeight: 900 }}>
+                  {t("about.highlights.planTitle")}
+                </Typography>
                 <Typography color="text.secondary" variant="body2">
                   {t("about.highlights.planBody")}
                 </Typography>
@@ -227,7 +272,9 @@ export default function About() {
               <Divider sx={{ opacity: 0.25 }} />
 
               <Box>
-                <Typography sx={{ fontWeight: 900 }}>{t("about.highlights.buildTitle")}</Typography>
+                <Typography sx={{ fontWeight: 900 }}>
+                  {t("about.highlights.buildTitle")}
+                </Typography>
                 <Typography color="text.secondary" variant="body2">
                   {t("about.highlights.buildBody")}
                 </Typography>
@@ -236,7 +283,9 @@ export default function About() {
               <Divider sx={{ opacity: 0.25 }} />
 
               <Box>
-                <Typography sx={{ fontWeight: 900 }}>{t("about.highlights.finishTitle")}</Typography>
+                <Typography sx={{ fontWeight: 900 }}>
+                  {t("about.highlights.finishTitle")}
+                </Typography>
                 <Typography color="text.secondary" variant="body2">
                   {t("about.highlights.finishBody")}
                 </Typography>
