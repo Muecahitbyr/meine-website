@@ -29,7 +29,6 @@ export default function Hero() {
             alignItems: "center",
           }}
         >
-          {/* LEFT */}
           <Reveal>
             <Box>
               <Typography
@@ -63,22 +62,11 @@ export default function Hero() {
               <Typography color="text.secondary" sx={{ mt: 2, maxWidth: 720 }}>
                 {t("hero.subtitle")}
               </Typography>
-
-              <Stack direction="row" spacing={1.5} sx={{ mt: 3, flexWrap: "wrap" }}>
-                <Button variant="contained" href="#apps">
-                  {t("hero.ctaApps")}
-                </Button>
-                <Button variant="outlined" href="#contact">
-                  {t("hero.ctaContact")}
-                </Button>
-              </Stack>
             </Box>
           </Reveal>
 
-          {/* RIGHT */}
           <Reveal delay={120} y={22}>
             <Box sx={{ display: "grid", justifyItems: "center", gap: 1.5 }}>
-              {/* IMAGE */}
               <Box
                 component="img"
                 src="/PB.png"
@@ -101,7 +89,6 @@ export default function Hero() {
                 }}
               />
 
-              {/* INFO CARD (Premium, immer lesbar) */}
               <Paper
                 elevation={0}
                 sx={(t) => ({
@@ -147,7 +134,6 @@ export default function Hero() {
                   </Typography>
                 </Box>
 
-                {/* optional kleines "Status" / Tag rechts */}
                 <Box
                   sx={(t) => ({
                     flexShrink: 0,
@@ -164,7 +150,7 @@ export default function Hero() {
                     border: `1px solid ${alpha(t.palette.primary.main, 0.25)}`,
                   })}
                 >
-                  iOS
+                  Full-Stack & iOS 
                 </Box>
               </Paper>
             </Box>

@@ -13,7 +13,6 @@ export const projects = [
       `/screenshots/DC3.${EXT}`,
       `/screenshots/DC5.${EXT}`,
     ],
-        storeUrl: "https://apps.apple.com/de/app/driveconnect/id6758020999"
 
   },
   {

@@ -2,11 +2,13 @@ import { Box, Paper, Stack, Typography, Chip, Divider } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import Reveal from "./Reveal.jsx";
 import { useTranslation } from "react-i18next";
+import TiltCard from "./TiltCard.jsx";
 
 function Stat({ label, value }) {
   return (
-    <Paper
-      elevation={0}
+    <TiltCard
+      maxTilt={8}
+      lift={5}
       sx={(t) => ({
         p: 2,
         borderRadius: 4,
@@ -17,21 +19,18 @@ function Stat({ label, value }) {
       <Typography sx={{ fontWeight: 900, fontSize: 22, textAlign: { xs: "center", md: "left" } }}>
         {value}
       </Typography>
-      <Typography
-        color="text.secondary"
-        variant="body2"
-        sx={{ mt: 0.5, textAlign: { xs: "center", md: "left" } }}
-      >
+      <Typography color="text.secondary" variant="body2" sx={{ mt: 0.5, textAlign: { xs: "center", md: "left" } }}>
         {label}
       </Typography>
-    </Paper>
+    </TiltCard>
   );
 }
 
 function GlassCard({ title, subtitle, children }) {
   return (
-    <Paper
-      elevation={0}
+    <TiltCard
+      maxTilt={10}
+      lift={6}
       sx={(t) => ({
         p: 3,
         borderRadius: 4,
@@ -40,7 +39,10 @@ function GlassCard({ title, subtitle, children }) {
             ? `linear-gradient(180deg, ${alpha("#fff", 0.07)}, ${alpha("#fff", 0.03)})`
             : `linear-gradient(180deg, ${alpha("#fff", 1)}, ${alpha("#fff", 0.92)})`,
         border: `1px solid ${t.palette.mode === "dark" ? alpha("#fff", 0.12) : alpha("#000", 0.08)}`,
-        boxShadow: t.palette.mode === "dark" ? "0 24px 60px rgba(0,0,0,0.35)" : "0 24px 60px rgba(0,0,0,0.10)",
+        boxShadow:
+          t.palette.mode === "dark"
+            ? "0 24px 60px rgba(0,0,0,0.35)"
+            : "0 24px 60px rgba(0,0,0,0.10)",
         backdropFilter: "blur(10px)",
       })}
     >
@@ -51,7 +53,7 @@ function GlassCard({ title, subtitle, children }) {
         </Typography>
       ) : null}
       <Box sx={{ mt: 2 }}>{children}</Box>
-    </Paper>
+    </TiltCard>
   );
 }
 

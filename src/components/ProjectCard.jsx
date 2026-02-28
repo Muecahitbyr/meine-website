@@ -1,8 +1,12 @@
-// ...existing code...
 import { useTranslation } from "react-i18next";
 
 export default function ProjectCard({ project }) {
   const { t } = useTranslation("common");
+
+  const title = project.titleKey ? t(project.titleKey) : project.title;
+  const description = project.descriptionKey ? t(project.descriptionKey) : project.description;
+  const note = project.noteKey ? t(project.noteKey) : project.note;
+
   const href = project.storeUrl || project.link;
 
   const openInAppStore = (url) => {
@@ -21,16 +25,16 @@ export default function ProjectCard({ project }) {
   return (
     <article className="card projectCard">
       <div className="projectTop">
-        <h3>{project.title}</h3>
+        <h3>{title}</h3>
         <span className="link">{t("projectCard.open")}</span>
       </div>
 
-      <p className="muted">{project.description}</p>
+      <p className="muted">{description}</p>
 
-      {project.noteKey ? <p className="muted small">{t(project.noteKey)}</p> : null}
+      {note ? <p className="muted small">{note}</p> : null}
 
       <div className="pillRow">
-        {project.tags.map((tag) => (
+        {(project.tags || []).map((tag) => (
           <span key={tag} className="pill">
             {tag}
           </span>
@@ -43,7 +47,7 @@ export default function ProjectCard({ project }) {
             type="button"
             className="storeButton"
             onClick={() => openInAppStore(href)}
-            aria-label="Im App Store öffnen"
+            aria-label={t("projectCard.openStoreAria")}
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -54,17 +58,21 @@ export default function ProjectCard({ project }) {
               background: "linear-gradient(90deg,#0a84ff,#5ac8fa)",
               color: "white",
               cursor: "pointer",
-              fontWeight: 600,
+              fontWeight: 700,
+
+              position: "relative",
+              zIndex: 2,
+              pointerEvents: "auto",
             }}
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden focusable="false">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
               <path d="M12 2l4 4-8 8-4-4 8-8z" fill="white" />
             </svg>
-            Im App Store öffnen
+
+            {t("projectCard.openStore")}
           </button>
         </div>
       ) : null}
     </article>
   );
 }
-// ...existing code...

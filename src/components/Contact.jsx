@@ -28,7 +28,6 @@ export default function Contact() {
     try {
       await navigator.clipboard.writeText(EMAIL);
     } catch {
-      // Clipboard kann blockiert sein -> ignorieren
     }
   };
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   AppBar,
   Box,
@@ -7,7 +7,6 @@ import {
   Toolbar,
   Typography,
   Button,
-  SvgIcon,
   Drawer,
   List,
   ListItemButton,
@@ -21,16 +20,36 @@ import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import { useTranslation } from "react-i18next";
 import LanguageSelect from "./LanguageSelect.jsx";
+import useActiveSection from "./useActiveSection.jsx";
 
 export default function Header({ mode, onToggleMode }) {
   const [open, setOpen] = useState(false);
+  const [progress, setProgress] = useState(0);
   const { t } = useTranslation("common");
 
-  const navItems = [
-    { label: t("header.nav.about"), href: "#about" },
-    { label: t("header.nav.apps"), href: "#apps" },
-    { label: t("header.nav.contact"), href: "#contact" },
-  ];
+  const navItems = useMemo(
+    () => [
+      { id: "about", label: t("header.nav.about"), href: "#about" },
+      { id: "tech", label: t("header.nav.tech"), href: "#tech" },
+      { id: "apps", label: t("header.nav.apps"), href: "#apps" },
+      { id: "contact", label: t("header.nav.contact"), href: "#contact" },
+    ],
+    [t]
+  );
+
+  const active = useActiveSection(navItems.map((n) => n.id));
+
+  useEffect(() => {
+    const onScroll = () => {
+      const doc = document.documentElement;
+      const max = (doc.scrollHeight || 1) - window.innerHeight;
+      const p = max > 0 ? (window.scrollY / max) * 100 : 0;
+      setProgress(Math.max(0, Math.min(100, p)));
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <>
@@ -38,90 +57,94 @@ export default function Header({ mode, onToggleMode }) {
         position="sticky"
         elevation={0}
         color="transparent"
-        sx={(tt) => ({
-          color: tt.palette.text.primary,
-          backgroundColor:
-            tt.palette.mode === "dark"
-              ? alpha("#0B0D12", 0.65)
-              : alpha("#FFFFFF", 0.78),
-          backdropFilter: "blur(12px)",
-          borderBottom: `1px solid ${
-            tt.palette.mode === "dark"
-              ? alpha("#fff", 0.12)
-              : alpha("#000", 0.08)
-          }`,
+        sx={() => ({
+          backgroundColor: alpha("#0B0D12", 0.72),
+          backdropFilter: "blur(14px)",
+          borderBottom: `1px solid ${alpha("#fff", 0.10)}`,
         })}
       >
-        <Toolbar disableGutters>
-          <Container
-            maxWidth="lg"
-            sx={{ display: "flex", alignItems: "center", gap: 2 }}
-          >
-            {/* 🍎 Icon + Brand */}
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-              <SvgIcon
-                viewBox="0 0 384 512"
-                sx={{ fontSize: 22, color: "text.primary", lineHeight: 1 }}
-              >
-                <path
-                  fill="currentColor"
-                  d="M318.7 268.5c-.2-45.2 36.9-66.9 38.6-68.1-21-30.6-53.6-34.8-65.2-35.2-27.8-2.8-54.3 16.4-68.4 16.4-14.1 0-36-16-59.2-15.6-30.5.5-58.7 17.7-74.4 45-31.8 55.1-8.1 136.7 22.8 181.4 15.1 21.8 33.1 46.3 56.7 45.4 22.8-.9 31.4-14.7 58.9-14.7 27.5 0 35.3 14.7 59.3 14.2 24.5-.5 40-22.4 55-44.3 17.3-25.3 24.4-49.9 24.7-51.2-.5-.2-47.4-18.2-47.7-72.3zM257.1 114.7c12.6-15.3 21.1-36.6 18.8-57.7-18.1.7-40 12-53 27.3-11.6 13.3-21.8 34.6-19.1 55 20.2 1.6 40.7-10.2 53.3-24.6z"
-                />
-              </SvgIcon>
+        {/* Progress Bar */}
+        <Box
+          sx={{
+            height: 2,
+            width: "100%",
+            background: alpha("#fff", 0.06),
+          }}
+        >
+          <Box
+            sx={{
+              height: "100%",
+              width: `${progress}%`,
+              background: "linear-gradient(90deg, rgba(154,230,255,0.95), rgba(154,230,255,0.15))",
+              boxShadow: "0 0 18px rgba(154,230,255,0.20)",
+              transition: "width 120ms linear",
+            }}
+          />
+        </Box>
 
-              <Typography
-                variant="h6"
-                sx={{ fontWeight: 900, letterSpacing: -0.3 }}
-              >
-                {t("header.brand")}
-              </Typography>
-            </Box>
+        <Toolbar disableGutters sx={{ minHeight: 64 }}>
+          <Container maxWidth="lg" sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+            <Typography sx={{ fontWeight: 950, letterSpacing: -0.3 }}>
+               {t("header.brand")}
+            </Typography>
 
             <Box sx={{ flex: 1 }} />
 
-            {/* Desktop Nav + Language Dropdown */}
-            <Box
-              sx={{
-                display: { xs: "none", md: "flex" },
-                gap: 1,
-                alignItems: "center",
-              }}
-            >
-              {navItems.map((item) => (
-                <Button
-                  key={item.href}
-                  href={item.href}
-                  sx={{ color: "text.primary" }}
-                >
-                  {item.label}
-                </Button>
-              ))}
+            <Box sx={{ display: { xs: "none", md: "flex" }, gap: 0.5, alignItems: "center" }}>
+              {navItems.map((item) => {
+                const isActive = active === item.id;
+                return (
+                  <Button
+                    key={item.href}
+                    href={item.href}
+                    sx={{
+                      color: "rgba(255,255,255,0.86)",
+                      fontWeight: 900,
+                      textTransform: "none",
+                      borderRadius: 999,
+                      px: 1.3,
+                      position: "relative",
+                      "&:hover": { backgroundColor: alpha("#fff", 0.08) },
+                      ...(isActive && {
+                        backgroundColor: alpha("#fff", 0.08),
+                      }),
+                      "&::after": {
+                        content: '""',
+                        position: "absolute",
+                        left: 14,
+                        right: 14,
+                        bottom: 6,
+                        height: 2,
+                        borderRadius: 999,
+                        transform: isActive ? "scaleX(1)" : "scaleX(0)",
+                        transformOrigin: "left",
+                        transition: "transform 220ms ease",
+                        background:
+                          "linear-gradient(90deg, rgba(154,230,255,0.95), rgba(154,230,255,0.15))",
+                        boxShadow: isActive ? "0 0 18px rgba(154,230,255,0.25)" : "none",
+                      },
+                    }}
+                  >
+                    {item.label}
+                  </Button>
+                );
+              })}
 
-              {/* 🌍 Language Dropdown */}
               <LanguageSelect />
             </Box>
 
-            {/* Theme Toggle */}
             <IconButton
               onClick={onToggleMode}
               aria-label={t("header.aria.toggleTheme")}
-              sx={{ color: "text.primary" }}
+              sx={{ color: "rgba(255,255,255,0.86)" }}
             >
-              {mode === "dark" ? (
-                <LightModeOutlinedIcon />
-              ) : (
-                <DarkModeOutlinedIcon />
-              )}
+              {mode === "dark" ? <LightModeOutlinedIcon /> : <DarkModeOutlinedIcon />}
             </IconButton>
 
-            {/* Mobile Menu Button */}
             <IconButton
               onClick={() => setOpen(true)}
               aria-label={t("header.aria.openMenu")}
-              sx={{
-                display: { xs: "inline-flex", md: "none" },
-                color: "text.primary",
-              }}
+              sx={{ display: { xs: "inline-flex", md: "none" }, color: "rgba(255,255,255,0.86)" }}
             >
               <MenuRoundedIcon />
             </IconButton>
@@ -129,24 +152,11 @@ export default function Header({ mode, onToggleMode }) {
         </Toolbar>
       </AppBar>
 
-      {/* Mobile Drawer */}
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
-        <Box sx={{ width: 280, p: 2 }}>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              gap: 2,
-            }}
-          >
-            <Typography sx={{ fontWeight: 900 }}>
-              {t("header.mobileMenuTitle")}
-            </Typography>
-            <IconButton
-              onClick={() => setOpen(false)}
-              aria-label={t("header.aria.closeMenu")}
-            >
+        <Box sx={{ width: 290, p: 2 }}>
+          <Box sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            <Typography sx={{ fontWeight: 950 }}>{t("header.mobileMenuTitle")}</Typography>
+            <IconButton onClick={() => setOpen(false)} aria-label={t("header.aria.closeMenu")}>
               <CloseRoundedIcon />
             </IconButton>
           </Box>
@@ -167,7 +177,6 @@ export default function Header({ mode, onToggleMode }) {
             ))}
           </List>
 
-          {/* 🌍 Language Dropdown im Mobile Drawer */}
           <Divider sx={{ my: 1.5 }} />
           <LanguageSelect size="medium" />
         </Box>

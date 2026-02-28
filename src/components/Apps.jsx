@@ -1,9 +1,10 @@
-// ...existing code...
 import { Box, Paper, Typography, Stack, Chip, Button } from "@mui/material";
+import { alpha } from "@mui/material/styles";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import Reveal from "./Reveal.jsx";
 import ScreenshotGallery from "./ScreenshotGallery.jsx";
 import { useTranslation } from "react-i18next";
+import TiltCard from "./TiltCard.jsx";
 
 export default function Apps({ projects, onOpenStore }) {
   const { t } = useTranslation("common");
@@ -15,11 +16,9 @@ export default function Apps({ projects, onOpenStore }) {
       return;
     }
     try {
-      const scheme = url.replace(/^https?:\/\//, "itms-apps://");
+      const scheme = url.replace(/^https?:\/\//, "itms-apps:");
       window.location.href = scheme;
-      setTimeout(() => {
-        window.open(url, "_blank", "noopener,noreferrer");
-      }, 600);
+      setTimeout(() => window.open(url, "_blank", "noopener,noreferrer"), 600);
     } catch {
       window.open(url, "_blank", "noopener,noreferrer");
     }
@@ -28,6 +27,8 @@ export default function Apps({ projects, onOpenStore }) {
   return (
     <Box
       sx={{
+        maxWidth: 1100,
+        mx: "auto",
         display: "grid",
         gridTemplateColumns: {
           xs: "1fr",
@@ -35,6 +36,7 @@ export default function Apps({ projects, onOpenStore }) {
           md: "repeat(3, 1fr)",
         },
         gap: 2,
+        alignItems: "stretch",
       }}
     >
       {projects.map((p, idx) => {
@@ -44,61 +46,119 @@ export default function Apps({ projects, onOpenStore }) {
         const href = p.storeUrl || p.link;
 
         return (
-          <Reveal key={p.id || p.titleKey || p.title} delay={idx * 90} y={22}>
-            <Paper sx={{ p: 2, height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-              <Box>
-                <Typography variant="h3" sx={{ fontSize: 18 }}>
-                  {title}
-                </Typography>
+          <Reveal key={p.id || p.titleKey || p.title} delay={idx * 90} y={18}>
+            <TiltCard
+              maxTilt={8}
+              lift={6}
+              sx={(theme) => ({
+                height: "100%",
+                borderRadius: 4,
+                background:
+                  theme.palette.mode === "dark"
+                    ? `linear-gradient(180deg, ${alpha("#fff", 0.055)}, ${alpha("#fff", 0.025)})`
+                    : `linear-gradient(180deg, ${alpha("#fff", 1)}, ${alpha("#fff", 0.96)})`,
+                border: `1px solid ${
+                  theme.palette.mode === "dark"
+                    ? alpha("#fff", 0.10)
+                    : alpha("#000", 0.08)
+                }`,
+                backdropFilter: "blur(10px)",
+                overflow: "hidden",
+              })}
+            >
+              {/* inner layout */}
+              <Box
+                sx={{
+                  p: 2.2,
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 1.2,
+                }}
+              >
+                {/* Header */}
+                <Box>
+                  <Typography sx={{ fontWeight: 900, fontSize: 16, letterSpacing: -0.2 }}>
+                    {title}
+                  </Typography>
 
-                <Typography color="text.secondary" sx={{ mt: 1 }}>
-                  {description}
-                </Typography>
-
-                {note ? (
                   <Typography
-                    variant="caption"
+                    color="text.secondary"
                     sx={{
-                      display: "block",
-                      mt: 0.5,
-                      color: "primary.main",
-                      fontWeight: 700,
+                      mt: 0.6,
+                      fontSize: 13,
+                      lineHeight: 1.45,
+                      display: "-webkit-box",
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
+                      minHeight: 56,
                     }}
                   >
-                    {note}
+                    {description}
                   </Typography>
-                ) : null}
 
-                {href ? (
-                  <Box sx={{ mt: 1 }}>
+                  {note ? (
+                    <Typography
+                      variant="caption"
+                      sx={{
+                        display: "block",
+                        mt: 0.8,
+                        color: "primary.main",
+                        fontWeight: 800,
+                      }}
+                    >
+                      {note}
+                    </Typography>
+                  ) : null}
+                </Box>
+
+                {/* Screenshot (fixed space) */}
+                <Box sx={{ mt: 0.2 }}>
+                  <ScreenshotGallery title={title} screenshots={p.screenshots || []} />
+                </Box>
+
+                {/* Spacer */}
+                <Box sx={{ flex: 1 }} />
+
+                {/* Tags + Button bottom */}
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 1.2,
+                    pt: 0.6,
+                  }}
+                >
+                  <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap" }}>
+                    {(p.tags || []).map((tag) => (
+                      <Chip key={tag} label={tag} size="small" variant="outlined" />
+                    ))}
+                  </Stack>
+
+                  {href ? (
                     <Button
                       fullWidth
                       variant="contained"
                       startIcon={<OpenInNewIcon />}
                       onClick={() => openInAppStore(href)}
-                      sx={{ borderRadius: 2, textTransform: "none", py: 1.25 }}
-                      aria-label="Im App Store öffnen"
+                      sx={{
+                        borderRadius: 3,
+                        textTransform: "none",
+                        py: 1.1,
+                        fontWeight: 900,
+                      }}
+                      aria-label={t("projectCard.openStoreAria")}
                     >
-                      Im App Store öffnen
+                      {t("projectCard.openStore")}
                     </Button>
-                  </Box>
-                ) : null}
-
-                <ScreenshotGallery title={title} screenshots={p.screenshots || []} />
+                  ) : null}
+                </Box>
               </Box>
-
-              <Box sx={{ mt: 2, display: "flex", justifyContent: "space-between", alignItems: "center", gap: 2 }}>
-                <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap" }}>
-                  {(p.tags || []).map((tag) => (
-                    <Chip key={tag} label={tag} size="small" variant="outlined" />
-                  ))}
-                </Stack>
-              </Box>
-            </Paper>
+            </TiltCard>
           </Reveal>
         );
       })}
     </Box>
   );
 }
-// ...existing code...

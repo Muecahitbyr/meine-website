@@ -17,7 +17,7 @@ export default function ScrollReveal({
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
-          obs.disconnect(); // nur einmal animieren
+          obs.disconnect(); 
         }
       },
       { threshold: 0.12 },

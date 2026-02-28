@@ -1,8 +1,9 @@
 {
   "header": {
-    "brand": "iOS Dev",
+    "brand": "Full-Stack & iOS Developer",
     "nav": {
       "about": "About",
+      "tech": "Tech Stack",
       "apps": "Apps",
       "contact": "Contact"
     },
@@ -13,41 +14,85 @@
     },
     "mobileMenuTitle": "Menu"
   },
+
+"hero": {
+  "overline": "Full-Stack & iOS Developer",
+  "titleLine1": "I build",
+  "highlight": "modern web and Apple apps",
+  "titleLine2": "with clean UI and scalable architecture.",
+  "subtitle": "From frontend to backend — with a strong focus on JavaScript, TypeScript and premium iOS experiences.",
+  "nameRole": "Full-Stack Developer with iOS Focus",
+  "portraitAlt": "Portrait"
+},
+"footer": {
+  "role": "Full-Stack Developer & iOS Developer"
+},
+  "language": {
+    "label": "Language"
+  },
+
+  "sections": {
+    "about": {
+      "title": "About",
+      "subtitle": "Swift & SwiftUI developer — clean, fast and modern."
+    },
+    "tech": {
+      "title": "Tech Stack",
+      "subtitle": "Technologies and tools for modern high-performance apps."
+    },
+    "apps": {
+      "title": "Apps",
+      "subtitle": "Published and upcoming projects in the App Store."
+    },
+    "contact": {
+      "title": "Contact",
+      "subtitle": "Reach out via email."
+    }
+  },
+
   "about": {
+    "sectionTitle": "About me",
+    "sectionSubtitle": "I build modern iOS apps focused on clean architecture, performance and premium UI.",
+
     "profileTitle": "Profile",
-    "profileSubtitle": "I build iOS apps with Swift & SwiftUI — clean, fast, and modern.",
-    "profileBody": "My focus is clean architecture (e.g., MVVM), high-performance apps, and a UI that feels truly native.",
+    "profileSubtitle": "Swift & SwiftUI iOS development — clean, fast and modern.",
+    "profileBody": "My focus is clean architecture (e.g. MVVM), high-performance apps and a truly native user experience.",
+
     "stats": {
       "focusLabel": "Focus",
       "focusValue": "iOS & SwiftUI",
       "styleLabel": "Style",
       "styleValue": "Clean & Modern"
     },
+
     "whatIBuild": {
       "title": "What I build",
-      "subtitle": "Typical features I implement",
+      "subtitle": "Typical features",
       "items": [
         "Modern SwiftUI screens (lists, cards, detail views)",
         "API integration + loading/empty/error states",
         "State management, navigation, routing",
         "Animations, micro-interactions & dark mode",
-        "Clean structure, components & reusability"
+        "Clean structure & reusable components"
       ]
     },
+
     "uiPreview": {
       "title": "UI Preview",
-      "subtitle": "A small visual preview (not a real photo)"
+      "subtitle": "Small visual demo (not a real screenshot)"
     },
+
     "highlights": {
       "title": "Highlights",
       "subtitle": "How I work",
       "planTitle": "1) Planning",
-      "planBody": "Clear scope, screens, and data flows before I write code.",
+      "planBody": "Clear structure, screens and data flow before coding.",
       "buildTitle": "2) Implementation",
-      "buildBody": "Build components cleanly, polish the UI, handle edge cases.",
-      "finishTitle": "3) Finishing touches",
-      "finishBody": "Performance, accessibility, details — so it feels truly finished."
+      "buildBody": "Clean components, polished UI and stable logic.",
+      "finishTitle": "3) Final polish",
+      "finishBody": "Performance, accessibility and attention to detail."
     },
+
     "deviceMock": {
       "dashboard": "Dashboard",
       "vehicleDataTitle": "Vehicle Data",
@@ -55,87 +100,34 @@
       "tiles": {
         "speed": "Speed",
         "range": "Range",
-        "temp": "Temp",
+        "temp": "Temperature",
         "battery": "Battery"
       },
       "cleanUiTitle": "Clean UI",
       "cleanUiSubtitle": "Components • Animations • Accessibility"
     }
   },
-  "contact": {
-    "emailSubject": "Contact via your website",
-    "emailBody": "Hi! I saw your website and would like to get in touch.",
-    "card": {
-      "title": "Message me",
-      "subtitle": "Quick via email — or scan the QR code.",
-      "body": "I’m happy to hear about app ideas, projects, or any questions around iOS & SwiftUI.",
-      "sendEmail": "Send email",
-      "toApps": "Go to apps",
-      "emailLabel": "EMAIL",
-      "copyTooltip": "Copy email",
-      "copyAria": "Copy email",
-      "tip": "Tip: A short message + your goal/idea is enough — I’ll reply."
+
+  "techstack": {
+    "sectionTitle": "Tech Stack",
+    "sectionSubtitle": "Technologies and tools I use to build modern, high-performance apps.",
+    "mobile": {
+      "title": "Mobile Development",
+      "subtitle": "iOS & SwiftUI architecture (MVVM, Async/Await, Combine)"
     },
-    "qr": {
-      "title": "QR code",
-      "subtitle": "Scan to email me.",
-      "alt": "QR Code Email"
+    "backend": {
+      "title": "Backend & APIs",
+      "subtitle": "Data, authentication and integrations (REST, Firebase)"
+    },
+    "tools": {
+      "title": "Tools & Workflow",
+      "subtitle": "Development, testing and deployment"
     }
   },
-  "hero": {
-    "overline": "iOS / Swift Developer",
-    "titleLine1": "I build",
-    "highlight": "Apple apps",
-    "titleLine2": "with modern UI & clean code.",
-    "subtitle": "Swift, SwiftUI, Xcode — focused on clean architecture, performance, and a high-quality user experience.",
-    "ctaApps": "My apps",
-    "ctaContact": "Contact",
-    "nameRole": "App developer",
-    "portraitAlt": "Portrait"
-  },
+
   "projectCard": {
-    "open": "Open →"
-  },
-  "screenshots": {
-    "placeholder": "iOS screenshot placeholder",
-    "openAria": "Open {{title}} screenshots",
-    "previewAlt": "{{title}} screenshot preview",
-    "dialogClose": "Close",
-    "prev": "Previous image",
-    "next": "Next image"
-  },
-  "projects": {
-  "driveconnect": {
-    "title": "DriveConnect",
-    "description": "Personalized iOS app for analyzing and displaying vehicle data — clean, modern, and tailored to the user.",
-    "note": "(Available on the App Store)"
-  },
-  "getataxi": {
-    "title": "Get A Taxi",
-    "description": "iOS app to request a taxi: choose or use your current location, enter destination, and send the request quickly.",
-    "note": "(Coming soon to the App Store)"
-  },
-  "gtcc": {
-    "title": "Guess The Capital City",
-    "description": "Quiz game: recognize flags and guess the correct capital — built with clean logic and SwiftUI animations.",
-    "note": "(Coming soon to the App Store)"
+    "open": "Details",
+    "openStore": "Open in App Store",
+    "openStoreAria": "Open in App Store"
   }
-  },
-  "language": { 
-    "label": "language" 
-},
-"sections": {
-  "about": {
-    "title": "About",
-    "subtitle": "I build Apple apps with Swift & SwiftUI — clean, fast, and modern."
-  },
-  "apps": {
-    "title": "Apps",
-    "subtitle": "Apps I built that are already on the App Store or coming soon."
-  },
-  "contact": {
-    "title": "Contact",
-    "subtitle": "Send me an email directly."
-  }
-}
 }
