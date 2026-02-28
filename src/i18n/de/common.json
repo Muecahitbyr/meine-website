@@ -32,11 +32,11 @@
   "sections": {
     "about": {
       "title": "Über mich",
-      "subtitle": "Swift & SwiftUI Entwickler — sauber, schnell und modern."
+      "subtitle": "Full-Stack & iOS Entwickler — sauber, schnell und modern."
     },
     "tech": {
-      "title": "TechStack",
-      "subtitle": "Technologien und Tools für moderne, performante Apps."
+      "title": "Tech Stack",
+      "subtitle": "Technologien und Tools für moderne, performante Web- und iOS-Apps."
     },
     "apps": {
       "title": "Apps",
@@ -47,21 +47,22 @@
       "subtitle": "Schreib mir direkt per E-Mail."
     }
   },
+
   "footer": {
     "role": "Full-Stack Entwickler & iOS Entwickler"
   },
 
   "about": {
     "sectionTitle": "Über mich",
-    "sectionSubtitle": "Ich entwickle moderne iOS-Apps mit Fokus auf saubere Architektur, Performance und Premium-UI.",
+    "sectionSubtitle": "Ich entwickle moderne Web- und iOS-Apps mit Fokus auf saubere Architektur, Performance und Premium-UI.",
 
     "profileTitle": "Profil",
-    "profileSubtitle": "Swift & SwiftUI iOS Entwicklung — sauber, schnell und modern.",
-    "profileBody": "Mein Fokus liegt auf sauberer Architektur (z.B. MVVM), performanten Apps und einer wirklich nativen User Experience.",
+    "profileSubtitle": "Full-Stack & iOS Entwicklung — sauber, schnell und modern.",
+    "profileBody": "Mein Fokus liegt auf sauberer Architektur (z.B. MVVM), performanten Apps sowie stabilen Backends und modernen Web-UIs.",
 
     "stats": {
       "focusLabel": "Fokus",
-      "focusValue": "iOS & SwiftUI",
+      "focusValue": "Full-Stack & iOS",
       "styleLabel": "Stil",
       "styleValue": "Clean & Modern"
     },
@@ -73,7 +74,8 @@
         "Moderne SwiftUI Screens (Listen, Karten, Detailviews)",
         "API Integration + Loading/Empty/Error States",
         "State Management, Navigation, Routing",
-        "Animationen, Micro-Interactions & Dark Mode",
+        "Backend-APIs (REST) & Datenmodelle",
+        "Web-UIs mit React & Tailwind",
         "Saubere Struktur & wiederverwendbare Komponenten"
       ]
     },
@@ -185,5 +187,25 @@
       "subtitle": "Scannen zum E-Mail schreiben.",
       "alt": "QR Code E-Mail"
     }
+  },
+
+  "techItems": {
+    "swift": "Native iOS-Entwicklung mit moderner Concurrency und sauberer Architektur.",
+    "csharp": "Backend- und App-Entwicklung mit starker Typisierung und OOP-Prinzipien.",
+    "javascript": "Frontend- und Backend-Entwicklung mit modernen ES6+ Features.",
+    "typescript": "JavaScript mit statischer Typisierung für sichereren, skalierbaren Code.",
+    "swiftui": "Deklaratives UI-Framework für moderne Apple Interfaces.",
+    "react": "Komponentenbasiertes Frontend für skalierbare Web-Anwendungen.",
+    "tailwind": "Utility-first CSS für schnelles und konsistentes UI-Design.",
+    "node": "JavaScript-Runtime für performante, skalierbare Backend-Services.",
+    "rest": "Strukturierte API-Kommunikation entwerfen und integrieren.",
+    "firebase": "Authentifizierung, Firestore und Cloud-Infrastruktur für Apps.",
+    "mongodb": "NoSQL-Datenbank für flexible und skalierbare Datenspeicherung.",
+    "docker": "Containerisierung für reproduzierbare Umgebungen und Deployments.",
+    "openshift": "Enterprise-Kubernetes-Plattform für skalierbare Deployments.",
+    "git": "Versionskontrolle und kollaborative Workflows im Team.",
+    "xcode": "Apple IDE zum Entwickeln und Testen nativer iOS-Apps.",
+    "vscode": "Leichter Editor für moderne Web-Entwicklung.",
+    "visualstudio": "Vollwertige IDE für C# und Enterprise-Anwendungsentwicklung."
   }
 }

@@ -3,7 +3,7 @@
     "brand": "Full-Stack & iOS Geliştirici",
     "nav": {
       "about": "Hakkımda",
-      "tech": "Teknik Stack",
+      "tech": "Teknoloji",
       "apps": "Uygulamalar",
       "contact": "İletişim"
     },
@@ -20,13 +20,11 @@
     "titleLine1": "Modern",
     "highlight": "web ve Apple uygulamaları",
     "titleLine2": "temiz UI ve sağlam mimari ile geliştiriyorum.",
-    "subtitle": "Frontend’den backend’e kadar — özellikle JavaScript, TypeScript ve premium iOS deneyimlerine odaklanıyorum.",
+    "subtitle": "Frontend’den backend’e kadar — özellikle JavaScript, TypeScript ve kaliteli iOS uygulamalarına odaklanıyorum.",
     "nameRole": "iOS Odaklı Full-Stack Geliştirici",
     "portraitAlt": "Portre"
   },
-  "footer": {
-    "role": "Full-Stack Geliştirici & iOS Geliştirici"
-  },
+
   "language": {
     "label": "Dil"
   },
@@ -34,63 +32,68 @@
   "sections": {
     "about": {
       "title": "Hakkımda",
-      "subtitle": "Swift & SwiftUI ile Apple uygulamaları geliştiriyorum — temiz, hızlı ve modern."
+      "subtitle": "Full-Stack & iOS Geliştirici — düzenli, hızlı ve modern."
     },
     "tech": {
       "title": "Teknik Stack",
-      "subtitle": "Modern ve yüksek performanslı uygulamalar geliştirdiğim teknolojiler ve araçlar."
+      "subtitle": "Modern ve performanslı web ve iOS uygulamaları için teknolojiler ve araçlar."
     },
     "apps": {
       "title": "Uygulamalar",
-      "subtitle": "Geliştirdiğim ve App Store’da olan veya yakında gelecek uygulamalar."
+      "subtitle": "App Store’da olan ve yakında çıkacak projeler."
     },
     "contact": {
       "title": "İletişim",
-      "subtitle": "Bana doğrudan e-posta ile yaz."
+      "subtitle": "Doğrudan e-posta ile yaz."
     }
+  },
+
+  "footer": {
+    "role": "Full-Stack & iOS Geliştirici"
   },
 
   "about": {
     "sectionTitle": "Hakkımda",
-    "sectionSubtitle": "Temiz mimari, performans ve premium UI odağıyla modern iOS uygulamaları geliştiriyorum.",
+    "sectionSubtitle": "Temiz mimari, performans ve premium UI odağıyla modern web ve iOS uygulamaları geliştiriyorum.",
 
     "profileTitle": "Profil",
-    "profileSubtitle": "Swift & SwiftUI ile iOS uygulamaları geliştiriyorum — temiz, hızlı ve modern.",
-    "profileBody": "Odak noktam temiz mimari (örn. MVVM), yüksek performanslı uygulamalar ve gerçekten “native” hissi veren bir arayüz.",
+    "profileSubtitle": "Full-Stack & iOS geliştirme — temiz, hızlı ve modern.",
+    "profileBody": "Odak noktam temiz mimari (örn. MVVM), performanslı uygulamalar, stabil backend’ler ve modern web arayüzleri.",
 
     "stats": {
       "focusLabel": "Odak",
-      "focusValue": "iOS & SwiftUI",
+      "focusValue": "Full-Stack & iOS",
       "styleLabel": "Stil",
-      "styleValue": "Temiz & Modern"
+      "styleValue": "Clean & Modern"
     },
 
     "whatIBuild": {
-      "title": "Neler yapıyorum",
-      "subtitle": "Sık yaptığım özellikler",
+      "title": "Neler geliştiriyorum",
+      "subtitle": "Tipik özellikler",
       "items": [
-        "Modern SwiftUI ekranları (liste, kart, detay ekranları)",
-        "API entegrasyonu + yükleniyor/boş/hata durumları",
+        "Modern SwiftUI ekranları (liste, kart, detay)",
+        "API entegrasyonu + loading/empty/error durumları",
         "State yönetimi, navigation, routing",
-        "Animasyonlar, mikro etkileşimler & dark mode",
-        "Temiz yapı, bileşenler & tekrar kullanılabilirlik"
+        "Backend API’leri (REST) ve veri modelleri",
+        "React & Tailwind ile web arayüzleri",
+        "Temiz yapı ve tekrar kullanılabilir bileşenler"
       ]
     },
 
     "uiPreview": {
       "title": "UI Önizleme",
-      "subtitle": "Küçük bir görsel önizleme (gerçek fotoğraf değil)"
+      "subtitle": "Küçük görsel demo (gerçek görsel değil)"
     },
 
     "highlights": {
       "title": "Öne çıkanlar",
       "subtitle": "Nasıl çalışıyorum",
       "planTitle": "1) Planlama",
-      "planBody": "Kod yazmadan önce net kapsam, ekranlar ve veri akışları.",
+      "planBody": "Koda başlamadan önce net yapı ve veri akışları.",
       "buildTitle": "2) Uygulama",
-      "buildBody": "Bileşenleri temiz kurmak, UI’ı parlatmak, edge-case’leri yakalamak.",
+      "buildBody": "Temiz bileşenler, polished UI ve stabil mantık.",
       "finishTitle": "3) Son dokunuş",
-      "finishBody": "Performans, erişilebilirlik, detaylar — gerçekten bitmiş hissetsin diye."
+      "finishBody": "Performans, erişilebilirlik ve premium detaylar."
     },
 
     "deviceMock": {
@@ -110,7 +113,7 @@
 
   "techstack": {
     "sectionTitle": "Teknik Stack",
-    "sectionSubtitle": "Modern ve yüksek performanslı uygulamalar geliştirdiğim teknolojiler ve araçlar.",
+    "sectionSubtitle": "Modern ve yüksek performanslı uygulamalar için teknolojiler ve araçlar.",
     "mobile": {
       "title": "Mobil Geliştirme",
       "subtitle": "iOS & SwiftUI mimarisi (MVVM, Async/Await, Combine)"
@@ -121,32 +124,32 @@
     },
     "tools": {
       "title": "Araçlar & Workflow",
-      "subtitle": "Günlük geliştirme, test ve deployment süreci"
+      "subtitle": "Geliştirme, test ve deployment"
     }
   },
 
   "projects": {
     "driveconnect": {
       "title": "DriveConnect",
-      "description": "Araç verilerini analiz eden ve gösteren kişiselleştirilmiş iOS uygulaması — sade, modern ve kullanıcıya özel.",
-      "note": "(App Store'da mevcut)"
+      "description": "Araç verilerini analiz eden ve görselleştiren kişiselleştirilmiş iOS uygulaması — modern ve kullanıcı odaklı.",
+      "note": "(App Store’da mevcut)"
     },
     "getataxi": {
       "title": "Get A Taxi",
-      "description": "Taksi çağırmak için iOS uygulaması: başlangıç konumu seç, hedefi gir ve isteği hızlıca gönder.",
-      "note": "(Yakında App Store'da)"
+      "description": "Taksi uygulaması: başlangıç noktası seç, hedefi gir ve isteği hızlıca gönder.",
+      "note": "(Yakında App Store’da)"
     },
     "gtcc": {
       "title": "Guess The Capital City",
-      "description": "Bilgi oyunu: bayrağı tanı ve doğru başkenti tahmin et — temiz mantık ve SwiftUI animasyonlarıyla.",
-      "note": "(App Store'da mevcut)"
+      "description": "Quiz: bayrağı tanı ve doğru başkenti seç — SwiftUI animasyonlarıyla.",
+      "note": "(App Store’da mevcut)"
     }
   },
 
   "projectCard": {
     "open": "Detaylar",
-    "openStore": "App Store'da aç",
-    "openStoreAria": "App Store'da aç"
+    "openStore": "App Store’da aç",
+    "openStoreAria": "App Store’da aç"
   },
 
   "screenshots": {
@@ -158,31 +161,51 @@
     "next": "Sonraki görsel"
   },
 
+  "apps": {
+    "sectionTitle": "Uygulamalar",
+    "sectionSubtitle": "Yayınlanmış ve yakında çıkacak iOS projelerim."
+  },
+
   "contact": {
     "emailSubject": "Web siten üzerinden iletişim",
     "emailBody": "Merhaba! Web siteni gördüm ve iletişime geçmek istiyorum.",
     "sectionTitle": "İletişim",
-    "sectionSubtitle": "Bana doğrudan e-posta ile yaz.",
+    "sectionSubtitle": "Doğrudan e-posta ile yaz.",
     "card": {
       "title": "Bana yaz",
       "subtitle": "Hızlıca e-posta ile — ya da QR kodu tara.",
-      "body": "Uygulama fikirleri, projeler veya iOS & SwiftUI hakkında sorular için mesajlarını beklerim.",
+      "body": "Uygulama fikirleri, projeler veya iOS & SwiftUI hakkında sorular için yazabilirsin.",
       "sendEmail": "E-posta gönder",
       "toApps": "Uygulamalara git",
       "emailLabel": "E-POSTA",
       "copyTooltip": "E-postayı kopyala",
       "copyAria": "E-postayı kopyala",
-      "tip": "İpucu: Kısa bir mesaj + hedefin/fikrin yeter — dönüş yaparım."
+      "tip": "İpucu: Kısa bir mesaj yeter — dönüş yaparım."
     },
     "qr": {
-      "title": "QR kod",
-      "subtitle": "Bana e-posta atmak için tara.",
+      "title": "QR Kod",
+      "subtitle": "E-posta yazmak için tara.",
       "alt": "QR Kod E-posta"
     }
   },
 
-  "apps": {
-    "sectionTitle": "Uygulamalar",
-    "sectionSubtitle": "Geliştirdiğim ve App Store’da olan veya yakında gelecek uygulamalar."
+  "techItems": {
+    "swift": "Modern concurrency ve temiz mimari ile native iOS geliştirme.",
+    "csharp": "Güçlü tip sistemi ve OOP ile backend ve uygulama geliştirme.",
+    "javascript": "Modern ES6+ ile frontend ve backend geliştirme.",
+    "typescript": "Daha güvenli ve ölçeklenebilir kod için statik tipli JavaScript.",
+    "swiftui": "Modern Apple arayüzleri için deklaratif UI framework.",
+    "react": "Ölçeklenebilir web uygulamaları için component tabanlı frontend.",
+    "tailwind": "Hızlı ve tutarlı UI için utility-first CSS yaklaşımı.",
+    "node": "Ölçeklenebilir backend servisleri için JavaScript runtime.",
+    "rest": "Yapılandırılmış API iletişimi tasarlama ve entegrasyon.",
+    "firebase": "Kimlik doğrulama, Firestore ve cloud altyapısı.",
+    "mongodb": "Esnek ve ölçeklenebilir veri saklama için NoSQL veritabanı.",
+    "docker": "Tekrarlanabilir ortamlar ve deployment için containerization.",
+    "openshift": "Kurumsal ve ölçeklenebilir Kubernetes platformu.",
+    "git": "Versiyon kontrolü ve ekip içi geliştirme akışları.",
+    "xcode": "Native iOS uygulamaları geliştirmek ve test etmek için Apple IDE.",
+    "vscode": "Modern web geliştirme için hafif ve hızlı editör.",
+    "visualstudio": "C# ve kurumsal uygulamalar için kapsamlı IDE."
   }
 }
