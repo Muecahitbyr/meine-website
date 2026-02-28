@@ -3,6 +3,7 @@ import { alpha } from "@mui/material/styles";
 import TiltCard from "./TiltCard.jsx";
 import Reveal from "./Reveal.jsx";
 import { useTranslation } from "react-i18next";
+import { ScrollParallax } from "./ScrollFX.jsx";
 
 import {
   SiSwift,
@@ -37,18 +38,13 @@ function TechItem({ title, Icon, description }) {
         gap: 1.1,
         background:
           t.palette.mode === "dark"
-            ? `linear-gradient(180deg, ${alpha("#fff", 0.055)}, ${alpha(
-                "#fff",
-                0.025,
-              )})`
-            : `linear-gradient(180deg, ${alpha("#fff", 1)}, ${alpha(
-                "#fff",
-                0.96,
-              )})`,
+            ? `linear-gradient(180deg, ${alpha("#fff", 0.055)}, ${alpha("#fff", 0.025)})`
+            : `linear-gradient(180deg, ${alpha("#fff", 1)}, ${alpha("#fff", 0.96)})`,
         border: `1px solid ${
           t.palette.mode === "dark" ? alpha("#fff", 0.1) : alpha("#000", 0.08)
         }`,
         backdropFilter: "blur(10px)",
+        overflow: "hidden",
       })}
     >
       <Box sx={{ display: "flex", alignItems: "stretch", gap: 12 }}>
@@ -98,7 +94,9 @@ function TechItem({ title, Icon, description }) {
 export default function TechStack() {
   const { t } = useTranslation("common");
 
+  // Reihenfolge: Sprachen -> Frameworks -> Backend/API -> DB -> DevOps -> Tools
   const tech = [
+    // Languages
     { title: "Swift", Icon: SiSwift, descKey: "techItems.swift" },
     { title: "C#", Icon: SiSharp, descKey: "techItems.csharp" },
     {
@@ -112,15 +110,20 @@ export default function TechStack() {
       descKey: "techItems.typescript",
     },
 
+    // UI / Frameworks
     { title: "SwiftUI", Icon: FaApple, descKey: "techItems.swiftui" },
     { title: "React", Icon: SiReact, descKey: "techItems.react" },
     { title: "Tailwind", Icon: SiTailwindcss, descKey: "techItems.tailwind" },
+
+    // Backend / API
     { title: "Node.js", Icon: SiNodedotjs, descKey: "techItems.node" },
     { title: "REST APIs", Icon: TbApi, descKey: "techItems.rest" },
 
+    // Data
     { title: "Firebase", Icon: SiFirebase, descKey: "techItems.firebase" },
     { title: "MongoDB", Icon: SiMongodb, descKey: "techItems.mongodb" },
 
+    // DevOps
     { title: "Docker", Icon: SiDocker, descKey: "techItems.docker" },
     {
       title: "OpenShift",
@@ -129,6 +132,7 @@ export default function TechStack() {
     },
     { title: "Git", Icon: SiGit, descKey: "techItems.git" },
 
+    // Tools
     { title: "Xcode", Icon: FaApple, descKey: "techItems.xcode" },
     { title: "VS Code", Icon: SiCodeium, descKey: "techItems.vscode" },
     {
@@ -153,11 +157,19 @@ export default function TechStack() {
       >
         {tech.map((item, idx) => (
           <Reveal key={item.title} delay={idx * 60} y={18}>
-            <TechItem
-              title={item.title}
-              Icon={item.Icon}
-              description={t(item.descKey)}
-            />
+            {/* Scroll-linked micro motion (leicht, kein Lag) */}
+            <ScrollParallax
+              y={18}
+              rotate={0.25}
+              scaleFrom={0.985}
+              opacityFrom={0.92}
+            >
+              <TechItem
+                title={item.title}
+                Icon={item.Icon}
+                description={t(item.descKey)}
+              />
+            </ScrollParallax>
           </Reveal>
         ))}
       </Box>

@@ -12,6 +12,7 @@ body::before {
 #root,
 .page,
 main {
+  scroll-snap-type: none;
   position: relative;
   z-index: 1;
 }
@@ -84,8 +85,11 @@ main {
     display: none;
   }
 }
-html,
+html {
+  scroll-behavior: smooth;
+}
 body {
+  scroll-snap-type: none;
   height: 100%;
   overflow-x: hidden;
 }
