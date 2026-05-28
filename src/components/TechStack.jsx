@@ -1,8 +1,7 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Chip } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import TiltCard from "./TiltCard.jsx";
 import Reveal from "./Reveal.jsx";
-import { useTranslation } from "react-i18next";
 import { ScrollParallax } from "./ScrollFX.jsx";
 
 import {
@@ -23,62 +22,78 @@ import {
 import { FaApple } from "react-icons/fa";
 import { TbApi } from "react-icons/tb";
 
-function TechItem({ title, Icon, description }) {
+function TechItem({ title, Icon, description, category }) {
   return (
     <TiltCard
       maxTilt={8}
       lift={6}
-      sx={(t) => ({
+      sx={(theme) => ({
         p: { xs: 2, md: 2.4 },
         borderRadius: 4,
         height: "100%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        gap: 1.1,
+        gap: 1.2,
         background:
-          t.palette.mode === "dark"
-            ? `linear-gradient(180deg, ${alpha("#fff", 0.055)}, ${alpha("#fff", 0.025)})`
+          theme.palette.mode === "dark"
+            ? `linear-gradient(180deg, ${alpha("#fff", 0.06)}, ${alpha("#fff", 0.025)})`
             : `linear-gradient(180deg, ${alpha("#fff", 1)}, ${alpha("#fff", 0.96)})`,
         border: `1px solid ${
-          t.palette.mode === "dark" ? alpha("#fff", 0.1) : alpha("#000", 0.08)
+          theme.palette.mode === "dark" ? alpha("#fff", 0.1) : alpha("#000", 0.08)
         }`,
         backdropFilter: "blur(10px)",
         overflow: "hidden",
       })}
     >
-      <Box sx={{ display: "flex", alignItems: "stretch", gap: 12 }}>
+      <Box sx={{ display: "flex", alignItems: "center", gap: 1.4 }}>
         <Box
-          sx={(t) => ({
-            width: 40,
-            height: 40,
+          sx={(theme) => ({
+            width: 42,
+            height: 42,
             borderRadius: 3,
             display: "grid",
             placeItems: "center",
             backgroundColor:
-              t.palette.mode === "dark"
-                ? alpha(t.palette.primary.main, 0.16)
-                : alpha(t.palette.primary.main, 0.1),
-            border: `1px solid ${alpha(t.palette.primary.main, 0.22)}`,
+              theme.palette.mode === "dark"
+                ? alpha(theme.palette.primary.main, 0.16)
+                : alpha(theme.palette.primary.main, 0.1),
+            border: `1px solid ${alpha(theme.palette.primary.main, 0.24)}`,
             flexShrink: 0,
           })}
         >
-          <Box sx={{ fontSize: 20, lineHeight: 1 }}>
+          <Box sx={{ fontSize: 21, lineHeight: 1, color: "primary.main" }}>
             {Icon ? <Icon /> : null}
           </Box>
         </Box>
 
-        <Typography sx={{ fontWeight: 900, fontSize: 15, letterSpacing: -0.2 }}>
-          {title}
-        </Typography>
+        <Box sx={{ minWidth: 0 }}>
+          <Typography sx={{ fontWeight: 950, fontSize: 15.5 }}>
+            {title}
+          </Typography>
+
+          <Chip
+            label={category}
+            size="small"
+            sx={{
+              mt: 0.6,
+              height: 20,
+              fontSize: 10.5,
+              fontWeight: 800,
+              backgroundColor: (theme) =>
+                alpha(theme.palette.primary.main, 0.14),
+              color: "text.primary",
+            }}
+          />
+        </Box>
       </Box>
 
       <Typography
         variant="body2"
         color="text.secondary"
         sx={{
-          fontSize: 12.5,
-          lineHeight: 1.45,
+          fontSize: 12.8,
+          lineHeight: 1.5,
           display: "-webkit-box",
           WebkitLineClamp: 2,
           WebkitBoxOrient: "vertical",
@@ -92,83 +107,79 @@ function TechItem({ title, Icon, description }) {
 }
 
 export default function TechStack() {
-  const { t } = useTranslation("common");
-
-  // Reihenfolge: Sprachen -> Frameworks -> Backend/API -> DB -> DevOps -> Tools
   const tech = [
-    // Languages
-    { title: "Swift", Icon: SiSwift, descKey: "techItems.swift" },
-    { title: "C#", Icon: SiSharp, descKey: "techItems.csharp" },
     {
-      title: "JavaScript",
-      Icon: SiJavascript,
-      descKey: "techItems.javascript",
+      title: "B2B-Webseiten",
+      Icon: SiReact,
+      category: "Web",
+      description: "Conversion-optimierte Websites und Kundenportale mit klarer Struktur.",
     },
     {
-      title: "TypeScript",
-      Icon: SiTypescript,
-      descKey: "techItems.typescript",
+      title: "Mobile Geschäftsanwendungen",
+      Icon: SiSwift,
+      category: "App",
+      description: "Native iOS Apps, die Prozesse digitalisieren und Nutzer begeistern.",
     },
-
-    // UI / Frameworks
-    { title: "SwiftUI", Icon: FaApple, descKey: "techItems.swiftui" },
-    { title: "React", Icon: SiReact, descKey: "techItems.react" },
-    { title: "Tailwind", Icon: SiTailwindcss, descKey: "techItems.tailwind" },
-
-    // Backend / API
-    { title: "Node.js", Icon: SiNodedotjs, descKey: "techItems.node" },
-    { title: "REST APIs", Icon: TbApi, descKey: "techItems.rest" },
-
-    // Data
-    { title: "Firebase", Icon: SiFirebase, descKey: "techItems.firebase" },
-    { title: "MongoDB", Icon: SiMongodb, descKey: "techItems.mongodb" },
-
-    // DevOps
-    { title: "Docker", Icon: SiDocker, descKey: "techItems.docker" },
     {
-      title: "OpenShift",
-      Icon: SiRedhatopenshift,
-      descKey: "techItems.openshift",
+      title: "Sichere APIs",
+      Icon: TbApi,
+      category: "Backend",
+      description: "Zuverlässige Schnittstellen für Daten, Authentifizierung und Integrationen.",
     },
-    { title: "Git", Icon: SiGit, descKey: "techItems.git" },
-
-    // Tools
-    { title: "Xcode", Icon: FaApple, descKey: "techItems.xcode" },
-    { title: "VS Code", Icon: SiCodeium, descKey: "techItems.vscode" },
     {
-      title: "Visual Studio",
-      Icon: SiCodeium,
-      descKey: "techItems.visualstudio",
+      title: "Cloud & Hosting",
+      Icon: SiFirebase,
+      category: "Cloud",
+      description: "Skalierbare Backends und Deployments für performante Anwendungen.",
+    },
+    {
+      title: "UI/UX Design",
+      Icon: SiTailwindcss,
+      category: "Design",
+      description: "Klare Benutzerführung, starke Markenwirkung und echte Bedienfreundlichkeit.",
+    },
+    {
+      title: "Wartbare Systeme",
+      Icon: SiGit,
+      category: "Workflow",
+      description: "Sauberer Code, Versionskontrolle und effizientes Projektmanagement.",
+    },
+    {
+      title: "Daten & Integrationen",
+      Icon: SiMongodb,
+      category: "Daten",
+      description: "Flexibler Datenaufbau und zuverlässige Datenflüsse für Ihr System.",
+    },
+    {
+      title: "Release & Betrieb",
+      Icon: SiDocker,
+      category: "DevOps",
+      description: "Automatisierte Auslieferung und stabiler Betrieb für Ihre Lösung.",
     },
   ];
 
   return (
-    <Box sx={{ maxWidth: 1040, mx: "auto" }}>
+    <Box sx={{ maxWidth: 1080, mx: "auto" }}>
       <Box
         sx={{
           display: "grid",
           gridTemplateColumns: {
             xs: "1fr",
             sm: "repeat(2, 1fr)",
-            md: "repeat(3, 1fr)",
+            md: "repeat(4, 1fr)",
           },
           gap: { xs: 1.6, md: 2 },
         }}
       >
         {tech.map((item, idx) => (
-          <Reveal key={item.title} delay={idx * 60} y={18}>
-            {/* Scroll-linked micro motion (leicht, kein Lag) */}
+          <Reveal key={item.title} delay={idx * 45} y={18}>
             <ScrollParallax
-              y={18}
-              rotate={0.25}
+              y={16}
+              rotate={0.2}
               scaleFrom={0.985}
               opacityFrom={0.92}
             >
-              <TechItem
-                title={item.title}
-                Icon={item.Icon}
-                description={t(item.descKey)}
-              />
+              <TechItem {...item} />
             </ScrollParallax>
           </Reveal>
         ))}

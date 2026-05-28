@@ -14,25 +14,23 @@ import {
   Divider,
 } from "@mui/material";
 import { alpha } from "@mui/material/styles";
-import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import { useTranslation } from "react-i18next";
-import LanguageSelect from "./LanguageSelect.jsx";
+import { Link as RouterLink } from "react-router-dom";
 import useActiveSection from "./useActiveSection.jsx";
 
-export default function Header({ mode, onToggleMode }) {
+export default function Header() {
   const [open, setOpen] = useState(false);
   const [progress, setProgress] = useState(0);
   const { t } = useTranslation("common");
 
   const navItems = useMemo(
     () => [
-      { id: "about", label: t("header.nav.about"), href: "#about" },
-      { id: "tech", label: t("header.nav.tech"), href: "#tech" },
-      { id: "apps", label: t("header.nav.apps"), href: "#apps" },
-      { id: "contact", label: t("header.nav.contact"), href: "#contact" },
+      { id: "about", label: t("header.nav.about"), to: "/#about" },
+      { id: "tech", label: t("header.nav.tech"), to: "/#tech" },
+      { id: "apps", label: t("header.nav.apps"), to: "/#apps" },
+      { id: "contact", label: t("header.nav.contact"), to: "/#contact" },
     ],
     [t],
   );
@@ -57,8 +55,11 @@ export default function Header({ mode, onToggleMode }) {
         position="sticky"
         elevation={0}
         color="transparent"
-        sx={() => ({
-          backgroundColor: alpha("#0B0D12", 0.72),
+        sx={(theme) => ({
+          background: `linear-gradient(180deg, ${alpha(
+            theme.palette.primary.main,
+            0.22,
+          )}, ${alpha(theme.palette.primary.main, 0.12)})`,
           backdropFilter: "blur(14px)",
           borderBottom: `1px solid ${alpha("#fff", 0.1)}`,
         })}
@@ -88,9 +89,23 @@ export default function Header({ mode, onToggleMode }) {
             maxWidth="lg"
             sx={{ display: "flex", alignItems: "center", gap: 2 }}
           >
-            <Typography sx={{ fontWeight: 950, letterSpacing: -0.3 }}>
-               {t("header.brand")}
-            </Typography>
+            <Button
+              component={RouterLink}
+              to="/"
+              disableRipple
+              sx={{
+                p: 0,
+                minWidth: 0,
+                color: "rgba(255,255,255,0.94)",
+                textTransform: "none",
+                fontWeight: 950,
+                letterSpacing: -0.3,
+                fontSize: "1rem",
+                justifyContent: "flex-start",
+              }}
+            >
+              {t("header.brand")}
+            </Button>
 
             <Box sx={{ flex: 1 }} />
 
@@ -105,8 +120,9 @@ export default function Header({ mode, onToggleMode }) {
                 const isActive = active === item.id;
                 return (
                   <Button
-                    key={item.href}
-                    href={item.href}
+                    key={item.to}
+                    component={RouterLink}
+                    to={item.to}
                     sx={{
                       color: "rgba(255,255,255,0.86)",
                       fontWeight: 900,
@@ -141,21 +157,7 @@ export default function Header({ mode, onToggleMode }) {
                   </Button>
                 );
               })}
-
-              <LanguageSelect />
             </Box>
-
-            <IconButton
-              onClick={onToggleMode}
-              aria-label={t("header.aria.toggleTheme")}
-              sx={{ color: "rgba(255,255,255,0.86)" }}
-            >
-              {mode === "dark" ? (
-                <LightModeOutlinedIcon />
-              ) : (
-                <DarkModeOutlinedIcon />
-              )}
-            </IconButton>
 
             <IconButton
               onClick={() => setOpen(true)}
@@ -196,9 +198,9 @@ export default function Header({ mode, onToggleMode }) {
           <List disablePadding>
             {navItems.map((item) => (
               <ListItemButton
-                key={item.href}
-                component="a"
-                href={item.href}
+                key={item.to}
+                component={RouterLink}
+                to={item.to}
                 onClick={() => setOpen(false)}
                 sx={{ borderRadius: 2 }}
               >
@@ -208,7 +210,6 @@ export default function Header({ mode, onToggleMode }) {
           </List>
 
           <Divider sx={{ my: 1.5 }} />
-          <LanguageSelect size="medium" />
         </Box>
       </Drawer>
     </>

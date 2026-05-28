@@ -31,15 +31,6 @@ export default function Footer() {
           >
             Impressum
           </Typography>
-
-          <Typography
-            component={RouterLink}
-            to="/datenschutz"
-            variant="body2"
-            sx={{ color: "text.secondary", textDecoration: "none" }}
-          >
-            Datenschutz
-          </Typography>
         </Stack>
       </Container>
     </Box>

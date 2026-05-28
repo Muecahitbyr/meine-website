@@ -7,19 +7,13 @@ import trCommon from "./tr/common.json";
 
 const STORAGE_KEY = "lang";
 
-function getInitialLanguage() {
-  const saved = localStorage.getItem(STORAGE_KEY);
-  if (saved === "de" || saved === "en" || saved === "tr") return saved;
-  return "de";
-}
-
 i18n.use(initReactI18next).init({
   resources: {
     de: { common: deCommon },
     en: { common: enCommon },
     tr: { common: trCommon },
   },
-  lng: getInitialLanguage(),
+  lng: "de",
   fallbackLng: "de",
   defaultNS: "common",
   ns: ["common"],

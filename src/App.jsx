@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { ThemeProvider, createTheme, CssBaseline, Box } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Routes, Route } from "react-router-dom";
@@ -15,7 +15,6 @@ import Apps from "./components/Apps.jsx";
 import Contact from "./components/Contact.jsx";
 
 import Imprint from "./components/Imprint.jsx";
-import Privacy from "./components/Privacy.jsx";
 
 import { projects } from "./data/projects.js";
 
@@ -30,24 +29,24 @@ function HomePage() {
 
       <Section
         id="about"
-        title={t("about.sectionTitle")}
-        subtitle={t("about.sectionSubtitle")}
+        title="Über MBDevelopment"
+        subtitle="Digitale Unternehmenslösungen für Kunden, die wachsen, effizienter arbeiten und stärker am Markt wahrgenommen werden wollen."
       >
         <About />
       </Section>
 
       <Section
         id="tech"
-        title={t("techstack.sectionTitle")}
-        subtitle={t("techstack.sectionSubtitle")}
+        title="Leistungen"
+        subtitle="Digitale Lösungen für Unternehmen mit Fokus auf Kundennutzen, Geschwindigkeit und Skalierbarkeit."
       >
         <TechStack />
       </Section>
 
       <Section
         id="apps"
-        title={t("apps.sectionTitle")}
-        subtitle={t("apps.sectionSubtitle")}
+        title="Referenzen & Lösungen"
+        subtitle="Ausgewählte Kundenlösungen und digitale Referenzen."
       >
         <Apps projects={projects} />
       </Section>
@@ -55,7 +54,7 @@ function HomePage() {
       <Section
         id="contact"
         title={t("contact.sectionTitle")}
-        subtitle={t("contact.sectionSubtitle")}
+        subtitle="Bereit für dein nächstes digitales Projekt? Lass uns sprechen."
       >
         <Contact />
       </Section>
@@ -64,18 +63,36 @@ function HomePage() {
 }
 
 export default function App() {
-  const [mode, setMode] = useState("dark");
-
   const theme = useMemo(
     () =>
       createTheme({
-        palette: { mode, primary: { main: "#0a84ff" } },
-        shape: { borderRadius: 16 },
+        palette: {
+          mode: "light",
+          primary: {
+            main: "#3dd5c7",
+          },
+          background: {
+            default: "#f0fcfb",
+            paper: "#ffffff",
+          },
+        },
+        shape: { borderRadius: 18 },
+        typography: {
+          fontFamily:
+            '"Inter", "SF Pro Display", "Segoe UI", system-ui, sans-serif',
+          h1: {
+            fontWeight: 900,
+          },
+          h2: {
+            fontWeight: 900,
+          },
+          button: {
+            fontWeight: 800,
+          },
+        },
       }),
-    [mode],
+    [],
   );
-
-  const toggleMode = () => setMode((p) => (p === "dark" ? "light" : "dark"));
 
   return (
     <ThemeProvider theme={theme}>
@@ -83,10 +100,11 @@ export default function App() {
       <ParallaxBackground />
 
       <Box className="page">
-        <Header mode={mode} onToggleMode={toggleMode} />
+        <Header />
 
         <Routes>
           <Route path="/" element={<HomePage />} />
+
           <Route
             path="/impressum"
             element={
@@ -97,16 +115,7 @@ export default function App() {
               </main>
             }
           />
-          <Route
-            path="/datenschutz"
-            element={
-              <main className="snapMain">
-                <Section id="privacy" title="Datenschutz">
-                  <Privacy />
-                </Section>
-              </main>
-            }
-          />
+
         </Routes>
 
         <Footer />

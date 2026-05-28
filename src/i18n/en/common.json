@@ -1,10 +1,10 @@
 {
   "header": {
-    "brand": "Full-Stack & iOS Developer",
+    "brand": "MB Development",
     "nav": {
-      "about": "About",
-      "tech": "Tech Stack",
-      "apps": "Apps",
+      "about": "About MBDevelopment",
+      "tech": "Services",
+      "apps": "References",
       "contact": "Contact"
     },
     "aria": {
@@ -31,16 +31,16 @@
 
   "sections": {
     "about": {
-      "title": "About",
-      "subtitle": "Full-Stack & iOS Developer — clean, fast and modern."
+      "title": "About MBDevelopment",
+      "subtitle": "Digital business solutions — modern, efficient and market-focused."
     },
     "tech": {
-      "title": "Tech Stack",
-      "subtitle": "Technologies and tools for modern, high-performance web and iOS apps."
+      "title": "Services",
+      "subtitle": "Digital solutions for businesses with a focus on customer value, speed, and scalability."
     },
     "apps": {
-      "title": "Apps",
-      "subtitle": "Published and upcoming App Store projects."
+      "title": "References",
+      "subtitle": "Selected client solutions and app projects."
     },
     "contact": {
       "title": "Contact",
@@ -49,34 +49,34 @@
   },
 
   "footer": {
-    "role": "Full-Stack Developer & iOS Developer"
+    "role": "Digital solutions for businesses"
   },
 
   "about": {
-    "sectionTitle": "About",
-    "sectionSubtitle": "I build modern web and iOS apps with a focus on clean architecture, performance and premium UI.",
+    "sectionTitle": "About MBDevelopment",
+    "sectionSubtitle": "Digital business solutions with a focus on growth, stability and user satisfaction.",
 
     "profileTitle": "Profile",
-    "profileSubtitle": "Full-Stack & iOS development — clean, fast and modern.",
-    "profileBody": "My focus is clean architecture (e.g. MVVM), high-performance apps, stable backends and modern web UIs.",
+    "profileSubtitle": "Business-oriented software solutions — efficient, reliable and market-ready.",
+    "profileBody": "My work turns ideas into digital products that simplify operations and delight customers.",
 
     "stats": {
       "focusLabel": "Focus",
-      "focusValue": "Full-Stack & iOS",
+      "focusValue": "Business Solutions",
       "styleLabel": "Style",
-      "styleValue": "Clean & Modern"
+      "styleValue": "Business-first"
     },
 
     "whatIBuild": {
-      "title": "What I Build",
-      "subtitle": "Typical Features",
+      "title": "What I Deliver",
+      "subtitle": "Examples of business solutions",
       "items": [
-        "Modern SwiftUI screens (lists, cards, detail views)",
-        "API integration + loading/empty/error states",
-        "State management, navigation, routing",
-        "Backend APIs (REST) & data models",
-        "Web UIs with React & Tailwind",
-        "Clean structure & reusable components"
+        "Digital client portals, booking systems and landing pages",
+        "Native iOS apps for stronger customer engagement",
+        "API integrations for seamless data synchronization",
+        "Scalable backend systems and cloud services",
+        "Conversion-optimized user interfaces",
+        "Maintainable architecture for long-term product care"
       ]
     },
 
@@ -174,13 +174,13 @@
     "card": {
       "title": "Message me",
       "subtitle": "Quickly via email — or scan the QR code.",
-      "body": "For app ideas, projects or questions about iOS & SwiftUI.",
+      "body": "For project inquiries, digitalization goals or an initial feasibility review.",
       "sendEmail": "Send email",
-      "toApps": "Go to apps",
+      "toApps": "Go to references",
       "emailLabel": "EMAIL",
       "copyTooltip": "Copy email",
       "copyAria": "Copy email",
-      "tip": "Tip: A short message with your goal is enough — I'll reply."
+      "tip": "Tip: A brief project summary is enough — I'll respond promptly."
     },
     "qr": {
       "title": "QR Code",

@@ -1,10 +1,10 @@
 {
   "header": {
-    "brand": "Full-Stack & iOS Entwickler",
+    "brand": "MB Development",
     "nav": {
-      "about": "Über mich",
-      "tech": "Tech Stack",
-      "apps": "Apps",
+      "about": "Über MBDevelopment",
+      "tech": "Leistungen",
+      "apps": "Referenzen",
       "contact": "Kontakt"
     },
     "aria": {
@@ -21,7 +21,7 @@
     "highlight": "moderne Web- und Apple Apps",
     "titleLine2": "mit klarem UI und sauberer Architektur.",
     "subtitle": "Von Frontend bis Backend — mit besonderem Fokus auf JavaScript, TypeScript und hochwertige iOS Anwendungen.",
-    "nameRole": "Full-Stack Entwickler mit iOS Schwerpunkt",
+    "nameRole": "Entwickler",
     "portraitAlt": "Porträt"
   },
 
@@ -31,16 +31,16 @@
 
   "sections": {
     "about": {
-      "title": "Über mich",
-      "subtitle": "Full-Stack & iOS Entwickler — sauber, schnell und modern."
+      "title": "Über MBDevelopment",
+      "subtitle": "Digitale Unternehmenslösungen — modern, effizient und marktorientiert."
     },
     "tech": {
-      "title": "Tech Stack",
-      "subtitle": "Technologien und Tools für moderne, performante Web- und iOS-Apps."
+      "title": "Leistungen",
+      "subtitle": "Digitale Lösungen für Unternehmen mit Fokus auf Kundennutzen, Geschwindigkeit und Skalierbarkeit."
     },
     "apps": {
-      "title": "Apps",
-      "subtitle": "Veröffentlichte und kommende Projekte im App Store."
+      "title": "Referenzen",
+      "subtitle": "Ausgewählte Kundenlösungen und App-Projekte."
     },
     "contact": {
       "title": "Kontakt",
@@ -49,34 +49,34 @@
   },
 
   "footer": {
-    "role": "Full-Stack Entwickler & iOS Entwickler"
+    "role": "Digitale Lösungen für Unternehmen"
   },
 
   "about": {
-    "sectionTitle": "Über mich",
-    "sectionSubtitle": "Ich entwickle moderne Web- und iOS-Apps mit Fokus auf saubere Architektur, Performance und Premium-UI.",
+    "sectionTitle": "Über MBDevelopment",
+    "sectionSubtitle": "Digitale Lösungen für Unternehmen mit Fokus auf Wachstum, Stabilität und Nutzerzufriedenheit.",
 
     "profileTitle": "Profil",
-    "profileSubtitle": "Full-Stack & iOS Entwicklung — sauber, schnell und modern.",
-    "profileBody": "Mein Fokus liegt auf sauberer Architektur (z.B. MVVM), performanten Apps sowie stabilen Backends und modernen Web-UIs.",
+    "profileSubtitle": "Unternehmensorientierte Softwarelösungen — effizient, zuverlässig und marktfähig.",
+    "profileBody": "Meine Arbeit verwandelt Ideen in digitale Produkte, die Abläufe verbessern und Kunden begeistern.",
 
     "stats": {
       "focusLabel": "Fokus",
-      "focusValue": "Full-Stack & iOS",
+      "focusValue": "Digitale Lösungen",
       "styleLabel": "Stil",
-      "styleValue": "Clean & Modern"
+      "styleValue": "Business-first"
     },
 
     "whatIBuild": {
-      "title": "Was ich entwickle",
-      "subtitle": "Typische Features",
+      "title": "Was ich umsetze",
+      "subtitle": "Beispiele für Geschäftslösungen",
       "items": [
-        "Moderne SwiftUI Screens (Listen, Karten, Detailviews)",
-        "API Integration + Loading/Empty/Error States",
-        "State Management, Navigation, Routing",
-        "Backend-APIs (REST) & Datenmodelle",
-        "Web-UIs mit React & Tailwind",
-        "Saubere Struktur & wiederverwendbare Komponenten"
+        "Digitale Kundenportale, Buchungssysteme und Landingpages",
+        "Native iOS-Apps für bessere Kundenbindung",
+        "API-Integrationen für reibungslose Datensynchronisation",
+        "Skalierbare Backend-Systeme und Cloud-Services",
+        "Conversion-optimierte Benutzeroberflächen",
+        "Wartbare Architektur für langfristige Produktpflege"
       ]
     },
 
@@ -174,13 +174,13 @@
     "card": {
       "title": "Schreib mir",
       "subtitle": "Schnell per E-Mail — oder QR-Code scannen.",
-      "body": "Für App-Ideen, Projekte oder Fragen rund um iOS & SwiftUI.",
+      "body": "Für Projektanfragen, Digitalisierungsziele oder eine erste Machbarkeitsprüfung.",
       "sendEmail": "E-Mail senden",
-      "toApps": "Zu den Apps",
+      "toApps": "Zu den Referenzen",
       "emailLabel": "E-MAIL",
       "copyTooltip": "E-Mail kopieren",
       "copyAria": "E-Mail kopieren",
-      "tip": "Tipp: Eine kurze Nachricht mit deinem Ziel reicht — ich melde mich."
+      "tip": "Tipp: Ein kurzer Projektüberblick genügt — ich melde mich zeitnah."
     },
     "qr": {
       "title": "QR Code",

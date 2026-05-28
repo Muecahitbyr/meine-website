@@ -8,8 +8,7 @@ export default function Privacy() {
       </Typography>
 
       <Typography color="text.secondary">
-        Kurzfassung: Diese Website nutzt keine Cookies/Tracking (falls das bei
-        dir stimmt).
+        Kurzfassung: Diese Website nutzt keine Cookies/Tracking.
       </Typography>
 
       <Typography sx={{ fontWeight: 800, mt: 1 }}>Verantwortlicher</Typography>
