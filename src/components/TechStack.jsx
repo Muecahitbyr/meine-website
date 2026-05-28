@@ -2,7 +2,7 @@ import { Box, Typography, Chip } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import TiltCard from "./TiltCard.jsx";
 import Reveal from "./Reveal.jsx";
-import { ScrollParallax } from "./ScrollFX.jsx";
+import { ScrollParallax } from "./Scrollfx.jsx";
 
 import {
   SiSwift,
