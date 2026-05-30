@@ -29,7 +29,7 @@ function HomePage() {
 
       <Section
         id="about"
-        title="Über MBDevelopment"
+        title="Über bayar-solutions"
         subtitle="Digitale Unternehmenslösungen für Kunden, die wachsen, effizienter arbeiten und stärker am Markt wahrgenommen werden wollen."
       >
         <About />

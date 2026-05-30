@@ -2,7 +2,7 @@
   "header": {
     "brand": "MB Development",
     "nav": {
-      "about": "About MBDevelopment",
+      "about": "About bayar-solutions",
       "tech": "Services",
       "apps": "References",
       "contact": "Contact"
@@ -31,7 +31,7 @@
 
   "sections": {
     "about": {
-      "title": "About MBDevelopment",
+      "title": "About bayar-solutions",
       "subtitle": "Digital business solutions — modern, efficient and market-focused."
     },
     "tech": {
@@ -53,7 +53,7 @@
   },
 
   "about": {
-    "sectionTitle": "About MBDevelopment",
+    "sectionTitle": "About bayar-solutions",
     "sectionSubtitle": "Digital business solutions with a focus on growth, stability and user satisfaction.",
 
     "profileTitle": "Profile",

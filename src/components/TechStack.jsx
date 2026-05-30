@@ -1,40 +1,23 @@
-import { Box, Typography, Chip } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import TiltCard from "./TiltCard.jsx";
 import Reveal from "./Reveal.jsx";
-import { ScrollParallax } from "./Scrollfx.jsx";
 
-import {
-  SiSwift,
-  SiSharp,
-  SiReact,
-  SiTailwindcss,
-  SiNodedotjs,
-  SiFirebase,
-  SiMongodb,
-  SiDocker,
-  SiRedhatopenshift,
-  SiGit,
-  SiCodeium,
-  SiJavascript,
-  SiTypescript,
-} from "react-icons/si";
-import { FaApple } from "react-icons/fa";
-import { TbApi } from "react-icons/tb";
+import { SiReact, SiFirebase, SiMongodb, SiDocker } from "react-icons/si";
 
-function TechItem({ title, Icon, description, category }) {
+function ServiceCard({ title, description, Icon }) {
   return (
     <TiltCard
-      maxTilt={8}
-      lift={6}
+      maxTilt={6}
+      lift={4}
       sx={(theme) => ({
-        p: { xs: 2, md: 2.4 },
-        borderRadius: 4,
+        p: { xs: 3, md: 3.5 },
+        borderRadius: 6,
         height: "100%",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
-        gap: 1.2,
+        justifyContent: "center",
+        gap: 2,
         background:
           theme.palette.mode === "dark"
             ? `linear-gradient(180deg, ${alpha("#fff", 0.06)}, ${alpha("#fff", 0.025)})`
@@ -43,61 +26,39 @@ function TechItem({ title, Icon, description, category }) {
           theme.palette.mode === "dark" ? alpha("#fff", 0.1) : alpha("#000", 0.08)
         }`,
         backdropFilter: "blur(10px)",
-        overflow: "hidden",
       })}
     >
-      <Box sx={{ display: "flex", alignItems: "center", gap: 1.4 }}>
+      <Box sx={{ display: "flex", alignItems: "flex-start", gap: 2 }}>
         <Box
-          sx={(theme) => ({
-            width: 42,
-            height: 42,
-            borderRadius: 3,
+          sx={{
+            width: 56,
+            height: 56,
+            borderRadius: 4,
             display: "grid",
             placeItems: "center",
-            backgroundColor:
-              theme.palette.mode === "dark"
-                ? alpha(theme.palette.primary.main, 0.16)
-                : alpha(theme.palette.primary.main, 0.1),
-            border: `1px solid ${alpha(theme.palette.primary.main, 0.24)}`,
+            backgroundColor: (theme) =>
+              alpha(theme.palette.primary.main, 0.12),
+            border: `2px solid ${(theme) => alpha(theme.palette.primary.main, 0.3)}`,
             flexShrink: 0,
-          })}
+            fontSize: 28,
+            color: "primary.main",
+          }}
         >
-          <Box sx={{ fontSize: 21, lineHeight: 1, color: "primary.main" }}>
-            {Icon ? <Icon /> : null}
-          </Box>
+          {Icon ? <Icon /> : null}
         </Box>
 
         <Box sx={{ minWidth: 0 }}>
-          <Typography sx={{ fontWeight: 950, fontSize: 15.5 }}>
+          <Typography sx={{ fontWeight: 900, fontSize: { xs: 18, md: 22 }, lineHeight: 1.2 }}>
             {title}
           </Typography>
-
-          <Chip
-            label={category}
-            size="small"
-            sx={{
-              mt: 0.6,
-              height: 20,
-              fontSize: 10.5,
-              fontWeight: 800,
-              backgroundColor: (theme) =>
-                alpha(theme.palette.primary.main, 0.14),
-              color: "text.primary",
-            }}
-          />
         </Box>
       </Box>
 
       <Typography
-        variant="body2"
         color="text.secondary"
         sx={{
-          fontSize: 12.8,
-          lineHeight: 1.5,
-          display: "-webkit-box",
-          WebkitLineClamp: 2,
-          WebkitBoxOrient: "vertical",
-          overflow: "hidden",
+          fontSize: { xs: 15, md: 17 },
+          lineHeight: 1.65,
         }}
       >
         {description}
@@ -107,80 +68,49 @@ function TechItem({ title, Icon, description, category }) {
 }
 
 export default function TechStack() {
-  const tech = [
+  const services = [
     {
-      title: "B2B-Webseiten",
+      title: "Geschäfts-Websites",
       Icon: SiReact,
-      category: "Web",
-      description: "Conversion-optimierte Websites und Kundenportale mit klarer Struktur.",
+      description:
+        "Websites, die Ihre Kunden finden und konvertieren. Schnell, sicher und benutzerfreundlich.",
     },
     {
-      title: "Mobile Geschäftsanwendungen",
-      Icon: SiSwift,
-      category: "App",
-      description: "Native iOS Apps, die Prozesse digitalisieren und Nutzer begeistern.",
-    },
-    {
-      title: "Sichere APIs",
-      Icon: TbApi,
-      category: "Backend",
-      description: "Zuverlässige Schnittstellen für Daten, Authentifizierung und Integrationen.",
-    },
-    {
-      title: "Cloud & Hosting",
+      title: "Geschäftsapps",
       Icon: SiFirebase,
-      category: "Cloud",
-      description: "Skalierbare Backends und Deployments für performante Anwendungen.",
+      description:
+        "Apps für iOS oder Web, die Ihre Prozesse digitalisieren und Ihren Alltag vereinfachen.",
     },
     {
-      title: "UI/UX Design",
-      Icon: SiTailwindcss,
-      category: "Design",
-      description: "Klare Benutzerführung, starke Markenwirkung und echte Bedienfreundlichkeit.",
-    },
-    {
-      title: "Wartbare Systeme",
-      Icon: SiGit,
-      category: "Workflow",
-      description: "Sauberer Code, Versionskontrolle und effizientes Projektmanagement.",
-    },
-    {
-      title: "Daten & Integrationen",
+      title: "Backend & APIs",
       Icon: SiMongodb,
-      category: "Daten",
-      description: "Flexibler Datenaufbau und zuverlässige Datenflüsse für Ihr System.",
+      description:
+        "Zuverlässige Datenflüsse und Schnittstellen damit Ihre Systeme zusammenarbeiten.",
     },
     {
-      title: "Release & Betrieb",
+      title: "Hosting & Betrieb",
       Icon: SiDocker,
-      category: "DevOps",
-      description: "Automatisierte Auslieferung und stabiler Betrieb für Ihre Lösung.",
+      description:
+        "Ihre Lösung läuft stabil und sicher. 24/7 verfügbar, schnell und wartbar.",
     },
   ];
 
   return (
-    <Box sx={{ maxWidth: 1080, mx: "auto" }}>
+    <Box sx={{ maxWidth: 1200, mx: "auto" }}>
       <Box
         sx={{
           display: "grid",
           gridTemplateColumns: {
             xs: "1fr",
             sm: "repeat(2, 1fr)",
-            md: "repeat(4, 1fr)",
+            md: "repeat(2, 1fr)",
           },
-          gap: { xs: 1.6, md: 2 },
+          gap: { xs: 2.4, md: 3 },
         }}
       >
-        {tech.map((item, idx) => (
-          <Reveal key={item.title} delay={idx * 45} y={18}>
-            <ScrollParallax
-              y={16}
-              rotate={0.2}
-              scaleFrom={0.985}
-              opacityFrom={0.92}
-            >
-              <TechItem {...item} />
-            </ScrollParallax>
+        {services.map((item, idx) => (
+          <Reveal key={item.title} delay={idx * 60} y={20}>
+            <ServiceCard {...item} />
           </Reveal>
         ))}
       </Box>

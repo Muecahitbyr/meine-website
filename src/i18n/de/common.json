@@ -2,7 +2,7 @@
   "header": {
     "brand": "MB Development",
     "nav": {
-      "about": "Über MBDevelopment",
+      "about": "Über bayar-solutions",
       "tech": "Leistungen",
       "apps": "Referenzen",
       "contact": "Kontakt"
@@ -31,7 +31,7 @@
 
   "sections": {
     "about": {
-      "title": "Über MBDevelopment",
+      "title": "Über bayar-solutions",
       "subtitle": "Digitale Unternehmenslösungen — modern, effizient und marktorientiert."
     },
     "tech": {
@@ -53,7 +53,7 @@
   },
 
   "about": {
-    "sectionTitle": "Über MBDevelopment",
+    "sectionTitle": "Über bayar-solutions",
     "sectionSubtitle": "Digitale Lösungen für Unternehmen mit Fokus auf Wachstum, Stabilität und Nutzerzufriedenheit.",
 
     "profileTitle": "Profil",
@@ -131,7 +131,7 @@
   "projects": {
     "driveconnect": {
       "title": "DriveConnect",
-      "description": "Personalisierte iOS App zur Analyse und Darstellung von Fahrzeugdaten — modern und benutzerzentriert.",
+      "description": "Personalisierte iOS App zur Analyse und Darstellung von Fahrzeugdaten modern und benutzerzentriert.",
       "note": "(Im App Store verfügbar)"
     },
     "getataxi": {
@@ -141,7 +141,7 @@
     },
     "gtcc": {
       "title": "Guess The Capital City",
-      "description": "Quiz-Spiel: Flagge erkennen und die richtige Hauptstadt wählen — mit SwiftUI Animationen.",
+      "description": "Quiz-Spiel: Flagge erkennen und die richtige Hauptstadt wählen mit SwiftUI Animationen.",
       "note": "(Im App Store verfügbar)"
     }
   },

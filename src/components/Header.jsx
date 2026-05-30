@@ -58,8 +58,8 @@ export default function Header() {
         sx={(theme) => ({
           background: `linear-gradient(180deg, ${alpha(
             theme.palette.primary.main,
-            0.22,
-          )}, ${alpha(theme.palette.primary.main, 0.12)})`,
+            0.45,
+          )}, ${alpha(theme.palette.primary.main, 0.32)})`,
           backdropFilter: "blur(14px)",
           borderBottom: `1px solid ${alpha("#fff", 0.1)}`,
         })}

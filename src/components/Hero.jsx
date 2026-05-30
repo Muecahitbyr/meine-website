@@ -50,7 +50,7 @@ export default function Hero() {
                   letterSpacing: 2,
                 }}
               >
-                MBDevelopment
+                bayar-solutions
               </Typography>
 
               <Typography
@@ -129,8 +129,6 @@ export default function Hero() {
                   "Unternehmenswebsites",
                   "Kundenportale",
                   "Mobile Apps",
-                  "APIs",
-                  "UI/UX",
                 ].map((item) => (
                   <Chip
                     key={item}
@@ -186,9 +184,9 @@ export default function Hero() {
                       lineHeight: 1,
                     }}
                   >
-                    MB
+                    bayar
                     <Box component="span" sx={{ color: "primary.main" }}>
-                      Development
+                      solutions
                     </Box>
                   </Typography>
 
