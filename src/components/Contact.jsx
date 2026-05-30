@@ -14,7 +14,7 @@ import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
 import Reveal from "./Reveal.jsx";
 import { useTranslation } from "react-i18next";
 
-const EMAIL = "mucahitbayar@outlook.de";
+const EMAIL = "bayar-solutions@outlook.de";
 
 export default function Contact() {
   const { t } = useTranslation("common");

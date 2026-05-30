@@ -173,14 +173,14 @@
     "sectionSubtitle": "Schreib mir direkt per E-Mail.",
     "card": {
       "title": "Schreib mir",
-      "subtitle": "Schnell per E-Mail — oder QR-Code scannen.",
+      "subtitle": "Schnell per E-Mail oder QR-Code scannen.",
       "body": "Für Projektanfragen, Digitalisierungsziele oder eine erste Machbarkeitsprüfung.",
       "sendEmail": "E-Mail senden",
       "toApps": "Zu den Referenzen",
       "emailLabel": "E-MAIL",
       "copyTooltip": "E-Mail kopieren",
       "copyAria": "E-Mail kopieren",
-      "tip": "Tipp: Ein kurzer Projektüberblick genügt — ich melde mich zeitnah."
+      "tip": "Tipp: Ein kurzer Projektüberblick genügt ich melde mich zeitnah."
     },
     "qr": {
       "title": "QR Code",
