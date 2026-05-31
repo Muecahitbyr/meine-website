@@ -190,19 +190,6 @@ export default function About() {
             <Typography color="text.secondary">
               {t("about.profileBody")}
             </Typography>
-
-            <Stack direction="row" spacing={1} sx={{ mt: 2, flexWrap: "wrap" }}>
-              {[
-                "Swift",
-                "SwiftUI",
-                "Xcode",
-                "MVVM",
-                "Async/Await",
-                "REST APIs",
-              ].map((chip) => (
-                <Chip key={chip} label={chip} variant="outlined" />
-              ))}
-            </Stack>
           </GlassCard>
         </Reveal>
 
@@ -214,14 +201,6 @@ export default function About() {
               gap: 2,
             }}
           >
-            <Stat
-              label={t("about.stats.focusLabel")}
-              value={t("about.stats.focusValue")}
-            />
-            <Stat
-              label={t("about.stats.styleLabel")}
-              value={t("about.stats.styleValue")}
-            />
           </Box>
         </Reveal>
 

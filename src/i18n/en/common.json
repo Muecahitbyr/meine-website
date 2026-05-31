@@ -1,8 +1,8 @@
 {
   "header": {
-    "brand": "bayar-solutions",
+    "brand": "BAYAR-SOLUTIONS",
     "nav": {
-      "about": "About bayar-solutions",
+      "about": "About BAYAR-SOLUTIONS",
       "tech": "Services",
       "apps": "References",
       "contact": "Contact"
@@ -31,7 +31,7 @@
 
   "sections": {
     "about": {
-      "title": "About bayar-solutions",
+      "title": "About BAYAR-SOLUTIONS",
       "subtitle": "Digital business solutions — modern, efficient and market-focused."
     },
     "tech": {
@@ -53,7 +53,7 @@
   },
 
   "about": {
-    "sectionTitle": "About bayar-solutions",
+    "sectionTitle": "About BAYAR-SOLUTIONS",
     "sectionSubtitle": "Digital business solutions with a focus on growth, stability and user satisfaction.",
 
     "profileTitle": "Profile",

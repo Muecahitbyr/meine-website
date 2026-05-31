@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import {
   Box,
   Button,
@@ -12,6 +13,24 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Reveal from "./Reveal.jsx";
 
 export default function Hero() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(Math.min(window.scrollY, 360));
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const topImageOffset = Math.min(scrollY * 0.2, 100);
+  const secondImageOffset = Math.min(scrollY * 0.28, 140);
+  const contentOffset = Math.min(scrollY * 0.16, 70);
+
   const scrollTo = (id) => {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -21,23 +40,72 @@ export default function Hero() {
     <Box
       id="top"
       sx={(theme) => ({
-        minHeight: "100vh",
         display: "flex",
-        alignItems: "center",
-        py: { xs: 8, md: 12 },
+        flexDirection: "column",
+        py: 0,
+        pt: 0,
+        pb: { xs: 6, md: 0 },
+        mt: { xs: -4, md: -16 },
         background:
           theme.palette.mode === "dark"
             ? "radial-gradient(900px 600px at 20% 10%, rgba(217,164,4,0.18), transparent 60%), radial-gradient(800px 500px at 80% 20%, rgba(255,255,255,0.07), transparent 60%)"
             : "radial-gradient(900px 600px at 20% 10%, rgba(217,164,4,0.2), transparent 60%), radial-gradient(800px 500px at 80% 20%, rgba(0,0,0,0.05), transparent 60%)",
       })}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ mt: 0, pt: 0 }}>
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
+            gap: { xs: 2, md: 3 },
+            mb: { xs: 4, md: 40 },
+            alignItems: "center",
+          }}
+        >
+          <Box
+            component="img"
+            src="/BayerSolutionsLogo.png"
+            alt="Bayer Solutions logo"
+            sx={{
+              width: "100%",
+              maxWidth: { xs: 720, md: 1100 },
+              maxHeight: { xs: 360, md: 720 },
+              objectFit: "contain",
+              borderRadius: 6,
+              boxShadow: "0 30px 90px rgba(0,0,0,0.12)",
+              backgroundColor: "#fff",
+              p: { xs: 2, md: 4 },
+              transform: `translateY(${topImageOffset}px)`,
+              transition: "transform 180ms ease-out",
+            }}
+          />
+          <Box
+            component="img"
+            src="/PB.png"
+            alt="PB logo"
+            sx={{
+              width: "100%",
+              maxWidth: { xs: 720, md: 1100 },
+              maxHeight: { xs: 360, md: 720 },
+              objectFit: "contain",
+              borderRadius: 6,
+              boxShadow: "0 30px 90px rgba(0,0,0,0.12)",
+              backgroundColor: "#fff",
+              p: { xs: 2, md: 4 },
+              transform: `translateY(${secondImageOffset}px)`,
+              transition: "transform 180ms ease-out",
+            }}
+          />
+        </Box>
+
         <Box
           sx={{
             display: "grid",
             gridTemplateColumns: { xs: "1fr", md: "1.15fr 0.85fr" },
             gap: { xs: 5, md: 5 },
             alignItems: "center",
+            transform: `translateY(${contentOffset}px)`,
+            transition: "transform 180ms ease-out",
           }}
         >
           <Reveal>
@@ -50,7 +118,7 @@ export default function Hero() {
                   letterSpacing: 2,
                 }}
               >
-                bayar-solutions
+                BAYAR-SOLUTIONS
               </Typography>
 
               <Typography
