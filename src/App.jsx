@@ -23,9 +23,7 @@ function HomePage() {
 
   return (
     <main>
-      <Section id="home">
-        <Hero />
-      </Section>
+      <Hero />
 
       <Section
         id="about"
