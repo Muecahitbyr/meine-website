@@ -1,46 +1,26 @@
-import { useEffect, useRef, useState } from "react";
-import { Box } from "@mui/material";
+import { motion, useReducedMotion } from "framer-motion";
 
-export default function Reveal({ children, delay = 0, y = 12 }) {
-  const ref = useRef(null);
-  const [show, setShow] = useState(false);
+const EASE = [0.25, 0.46, 0.45, 0.94];
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setShow(true);
-          obs.disconnect();
-        }
-      },
-      { threshold: 0.12 },
-    );
-
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
+/**
+ * Scroll-reveal wrapper — slides and fades in once when entering the viewport.
+ * delay is in milliseconds (matches existing call sites).
+ */
+export default function Reveal({ children, delay = 0, y = 18 }) {
+  const rm = useReducedMotion();
 
   return (
-    <Box
-      ref={ref}
-      sx={{
-        opacity: show ? 1 : 0,
-        transform: show ? "translateY(0)" : `translateY(${y}px)`,
-        transition:
-          "opacity 450ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 450ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-        transitionDelay: `${delay}ms`,
-        willChange: "transform, opacity",
-        "@media (prefers-reduced-motion: reduce)": {
-          transition: "none",
-          opacity: 1,
-          transform: "none",
-        },
+    <motion.div
+      initial={rm ? false : { opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px 0px" }}
+      transition={{
+        duration: 0.62,
+        ease: EASE,
+        delay: rm ? 0 : delay / 1000,
       }}
     >
       {children}
-    </Box>
+    </motion.div>
   );
 }
