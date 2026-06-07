@@ -19,6 +19,7 @@ import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import { useTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
 import useActiveSection from "./useActiveSection.jsx";
+import LanguageSelect from "./LanguageSelect.jsx";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -61,10 +62,10 @@ export default function Header() {
             0.45,
           )}, ${alpha(theme.palette.primary.main, 0.32)})`,
           backdropFilter: "blur(14px)",
-          borderBottom: `1px solid ${alpha("#fff", 0.1)}`,
+          borderBottom: `1px solid ${alpha("#fff", 0.10)}`,
         })}
       >
-        {/* Progress Bar */}
+        {/* Scroll progress bar */}
         <Box
           sx={{
             height: 2,
@@ -73,22 +74,21 @@ export default function Header() {
           }}
         >
           <Box
-            sx={{
+            sx={(theme) => ({
               height: "100%",
               width: `${progress}%`,
-              background:
-                "linear-gradient(90deg, rgba(154,230,255,0.95), rgba(154,230,255,0.15))",
-              boxShadow: "0 0 18px rgba(154,230,255,0.20)",
+              background: `linear-gradient(90deg, ${alpha(theme.palette.primary.light, 0.95)}, ${alpha(theme.palette.primary.light, 0.15)})`,
               transition: "width 120ms linear",
-            }}
+            })}
           />
         </Box>
 
         <Toolbar disableGutters sx={{ minHeight: 64 }}>
           <Container
             maxWidth="lg"
-            sx={{ display: "flex", alignItems: "center", gap: 2 }}
+            sx={{ display: "flex", alignItems: "center", gap: 1.5 }}
           >
+            {/* Brand */}
             <Button
               component={RouterLink}
               to="/"
@@ -98,9 +98,9 @@ export default function Header() {
                 minWidth: 0,
                 color: "rgba(255,255,255,0.94)",
                 textTransform: "none",
-                fontWeight: 950,
+                fontWeight: 800,
                 letterSpacing: -0.3,
-                fontSize: "1rem",
+                fontSize: "0.9375rem",
                 justifyContent: "flex-start",
               }}
             >
@@ -109,6 +109,7 @@ export default function Header() {
 
             <Box sx={{ flex: 1 }} />
 
+            {/* Desktop nav */}
             <Box
               sx={{
                 display: { xs: "none", md: "flex" },
@@ -125,31 +126,30 @@ export default function Header() {
                     to={item.to}
                     sx={{
                       color: "rgba(255,255,255,0.86)",
-                      fontWeight: 900,
+                      fontWeight: 600,
+                      fontSize: 14,
                       textTransform: "none",
-                      borderRadius: 999,
-                      px: 1.3,
+                      borderRadius: 9999,
+                      px: 1.5,
                       position: "relative",
-                      "&:hover": { backgroundColor: alpha("#fff", 0.08) },
+                      "&:hover": { backgroundColor: alpha("#fff", 0.10) },
                       ...(isActive && {
-                        backgroundColor: alpha("#fff", 0.08),
+                        backgroundColor: alpha("#fff", 0.14),
+                        color: "rgba(255,255,255,0.96)",
                       }),
                       "&::after": {
                         content: '""',
                         position: "absolute",
-                        left: 14,
-                        right: 14,
+                        left: 12,
+                        right: 12,
                         bottom: 6,
                         height: 2,
                         borderRadius: 999,
                         transform: isActive ? "scaleX(1)" : "scaleX(0)",
                         transformOrigin: "left",
                         transition: "transform 220ms ease",
-                        background:
-                          "linear-gradient(90deg, rgba(154,230,255,0.95), rgba(154,230,255,0.15))",
-                        boxShadow: isActive
-                          ? "0 0 18px rgba(154,230,255,0.25)"
-                          : "none",
+                        background: (theme) =>
+                          `linear-gradient(90deg, ${alpha(theme.palette.primary.light, 0.95)}, ${alpha(theme.palette.primary.light, 0.15)})`,
                       },
                     }}
                   >
@@ -159,6 +159,12 @@ export default function Header() {
               })}
             </Box>
 
+            {/* Language selector — desktop */}
+            <Box sx={{ display: { xs: "none", md: "flex" }, ml: 0.5 }}>
+              <LanguageSelect mode="overlay" />
+            </Box>
+
+            {/* Mobile menu button */}
             <IconButton
               onClick={() => setOpen(true)}
               aria-label={t("header.aria.openMenu")}
@@ -173,8 +179,9 @@ export default function Header() {
         </Toolbar>
       </AppBar>
 
+      {/* Mobile drawer */}
       <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
-        <Box sx={{ width: 290, p: 2 }}>
+        <Box sx={{ width: 280, p: 2 }}>
           <Box
             sx={{
               display: "flex",
@@ -182,7 +189,7 @@ export default function Header() {
               justifyContent: "space-between",
             }}
           >
-            <Typography sx={{ fontWeight: 950 }}>
+            <Typography sx={{ fontWeight: 700 }}>
               {t("header.mobileMenuTitle")}
             </Typography>
             <IconButton
@@ -202,14 +209,29 @@ export default function Header() {
                 component={RouterLink}
                 to={item.to}
                 onClick={() => setOpen(false)}
-                sx={{ borderRadius: 2 }}
+                sx={{ borderRadius: 1.5 }}
               >
-                <ListItemText primary={item.label} />
+                <ListItemText
+                  primary={item.label}
+                  primaryTypographyProps={{ fontWeight: 600, fontSize: 15 }}
+                />
               </ListItemButton>
             ))}
           </List>
 
           <Divider sx={{ my: 1.5 }} />
+
+          {/* Language selector — mobile */}
+          <Box sx={{ px: 1 }}>
+            <Typography
+              variant="caption"
+              color="text.secondary"
+              sx={{ mb: 1, display: "block", fontWeight: 600, letterSpacing: 0.5 }}
+            >
+              {t("language.label")}
+            </Typography>
+            <LanguageSelect />
+          </Box>
         </Box>
       </Drawer>
     </>
