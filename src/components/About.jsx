@@ -1,35 +1,29 @@
 import { Box, Paper, Typography, Divider } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import Reveal from "./Reveal.jsx";
+import GlowCard from "./GlowCard.jsx";
 import { useTranslation } from "react-i18next";
-import TiltCard from "./TiltCard.jsx";
 
-function GlassCard({ title, subtitle, children }) {
+// GlowCard replaces TiltCard+Paper — children own their padding
+function GlassCard({ title, subtitle, children, accentColor = "#1DB8AA" }) {
   return (
-    <TiltCard
+    <GlowCard
+      accentColor={accentColor}
       maxTilt={4}
-      lift={3}
       sx={(theme) => ({
-        p: 3,
-        borderRadius: "12px",
         background: theme.palette.background.paper,
-        border: `1px solid ${theme.palette.divider}`,
-        boxShadow: "0 2px 8px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04)",
-        transition: "box-shadow 200ms ease, transform 200ms ease",
-        "&:hover": {
-          boxShadow:
-            "0 4px 16px rgba(0,0,0,0.07), 0 2px 6px rgba(0,0,0,0.04)",
-        },
       })}
     >
-      <Typography sx={{ fontWeight: 700, fontSize: 18 }}>{title}</Typography>
-      {subtitle ? (
-        <Typography color="text.secondary" sx={{ mt: 0.75, fontSize: 14 }}>
-          {subtitle}
-        </Typography>
-      ) : null}
-      <Box sx={{ mt: 2 }}>{children}</Box>
-    </TiltCard>
+      <Box sx={{ p: 3 }}>
+        <Typography sx={{ fontWeight: 700, fontSize: 18 }}>{title}</Typography>
+        {subtitle ? (
+          <Typography color="text.secondary" sx={{ mt: 0.75, fontSize: 14 }}>
+            {subtitle}
+          </Typography>
+        ) : null}
+        <Box sx={{ mt: 2 }}>{children}</Box>
+      </Box>
+    </GlowCard>
   );
 }
 
@@ -37,10 +31,10 @@ function DashboardMock() {
   const { t } = useTranslation("common");
 
   const tiles = [
-    { key: "users", value: "1.2k" },
-    { key: "uptime", value: "99.9%" },
-    { key: "rating", value: "4.9★" },
-    { key: "projects", value: "12+" },
+    { key: "users",    value: "1.2k",  color: "#3B82F6" },
+    { key: "uptime",   value: "99.9%", color: "#22C55E" },
+    { key: "rating",   value: "4.9★",  color: "#F59E0B" },
+    { key: "projects", value: "12+",   color: "#1DB8AA" },
   ];
 
   return (
@@ -61,8 +55,8 @@ function DashboardMock() {
           sx={(theme) => ({
             p: 2,
             borderRadius: "8px",
-            background: alpha(theme.palette.primary.main, 0.07),
-            border: `1px solid ${alpha(theme.palette.primary.main, 0.18)}`,
+            background: `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.08)} 0%, ${alpha(theme.palette.primary.main, 0.04)} 100%)`,
+            border: `1px solid ${alpha(theme.palette.primary.main, 0.22)}`,
           })}
         >
           <Typography sx={{ fontWeight: 700, fontSize: 14 }}>
@@ -73,6 +67,7 @@ function DashboardMock() {
           </Typography>
         </Paper>
 
+        {/* Stats tiles — each tile gets its own accent colour */}
         <Box
           sx={{
             display: "grid",
@@ -86,8 +81,9 @@ function DashboardMock() {
               sx={(theme) => ({
                 p: 2,
                 borderRadius: "8px",
-                border: `1px solid ${theme.palette.divider}`,
-                background: theme.palette.background.paper,
+                border: `1px solid ${alpha(tile.color, 0.22)}`,
+                background: `linear-gradient(135deg, ${theme.palette.background.paper} 0%, ${alpha(tile.color, 0.06)} 100%)`,
+                boxShadow: `0 0 12px ${alpha(tile.color, 0.10)}`,
               })}
             >
               <Typography sx={{ fontWeight: 700, fontSize: 13 }}>
@@ -95,8 +91,7 @@ function DashboardMock() {
               </Typography>
               <Typography
                 variant="body2"
-                color="text.secondary"
-                sx={{ fontWeight: 600, mt: 0.25 }}
+                sx={{ fontWeight: 700, mt: 0.25, color: tile.color }}
               >
                 {tile.value}
               </Typography>
@@ -150,7 +145,7 @@ export default function About() {
           </GlassCard>
         </Reveal>
 
-        <Reveal delay={50}>
+        <Reveal delay={60}>
           <GlassCard
             title={t("about.whatIBuild.title")}
             subtitle={t("about.whatIBuild.subtitle")}
@@ -174,7 +169,7 @@ export default function About() {
 
       {/* Right column */}
       <Box sx={{ display: "grid", gap: 2 }}>
-        <Reveal delay={60}>
+        <Reveal delay={80}>
           <GlassCard
             title={t("about.uiPreview.title")}
             subtitle={t("about.uiPreview.subtitle")}
@@ -183,7 +178,7 @@ export default function About() {
           </GlassCard>
         </Reveal>
 
-        <Reveal delay={60}>
+        <Reveal delay={80}>
           <GlassCard
             title={t("about.highlights.title")}
             subtitle={t("about.highlights.subtitle")}

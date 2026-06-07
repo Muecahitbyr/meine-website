@@ -4,77 +4,80 @@ import LanguageRoundedIcon from "@mui/icons-material/LanguageRounded";
 import PhoneAndroidRoundedIcon from "@mui/icons-material/PhoneAndroidRounded";
 import StorageRoundedIcon from "@mui/icons-material/StorageRounded";
 import CloudRoundedIcon from "@mui/icons-material/CloudRounded";
-import TiltCard from "./TiltCard.jsx";
+import GlowCard from "./GlowCard.jsx";
 import Reveal from "./Reveal.jsx";
 import { useTranslation } from "react-i18next";
 
+// Each service gets a distinct brand colour — breaks the all-teal monotony
 const SERVICE_KEYS = [
-  { key: "web", Icon: LanguageRoundedIcon },
-  { key: "apps", Icon: PhoneAndroidRoundedIcon },
-  { key: "backend", Icon: StorageRoundedIcon },
-  { key: "hosting", Icon: CloudRoundedIcon },
+  { key: "web",     Icon: LanguageRoundedIcon,      color: "#3B82F6" }, // blue
+  { key: "apps",    Icon: PhoneAndroidRoundedIcon,  color: "#1DB8AA" }, // teal (brand)
+  { key: "backend", Icon: StorageRoundedIcon,       color: "#8B5CF6" }, // violet
+  { key: "hosting", Icon: CloudRoundedIcon,         color: "#F59E0B" }, // amber
 ];
 
-function ServiceCard({ title, description, Icon }) {
+function ServiceCard({ title, description, Icon, color }) {
   return (
-    <TiltCard
-      maxTilt={4}
-      lift={3}
-      sx={(theme) => ({
-        p: { xs: 3, md: 3.5 },
-        borderRadius: "12px",
+    <GlowCard
+      accentColor={color}
+      maxTilt={5}
+      sx={() => ({
+        // Subtle diagonal gradient blends the accent colour into the card
+        background: `linear-gradient(135deg, #ffffff 0%, ${color}08 100%)`,
         height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        gap: 2,
-        background: theme.palette.background.paper,
-        border: `1px solid ${theme.palette.divider}`,
-        boxShadow: "0 2px 8px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04)",
-        transition: "box-shadow 200ms ease, transform 200ms ease",
-        "&:hover": {
-          boxShadow:
-            "0 4px 16px rgba(0,0,0,0.07), 0 2px 6px rgba(0,0,0,0.04)",
-        },
       })}
     >
-      <Box sx={{ display: "flex", alignItems: "flex-start", gap: 2 }}>
-        <Box
-          sx={(theme) => ({
-            width: 48,
-            height: 48,
-            borderRadius: "10px",
-            display: "grid",
-            placeItems: "center",
-            flexShrink: 0,
-            backgroundColor: alpha(theme.palette.primary.main, 0.10),
-            border: `1px solid ${alpha(theme.palette.primary.main, 0.20)}`,
-            color: "primary.main",
-            fontSize: 22,
-          })}
-        >
-          {Icon ? <Icon fontSize="inherit" /> : null}
-        </Box>
-
-        <Box sx={{ minWidth: 0, pt: 0.5 }}>
-          <Typography
+      <Box
+        sx={{
+          p: { xs: 3, md: 3.5 },
+          display: "flex",
+          flexDirection: "column",
+          gap: 2,
+          height: "100%",
+        }}
+      >
+        <Box sx={{ display: "flex", alignItems: "flex-start", gap: 2 }}>
+          {/* Icon box — tinted with the card's accent colour */}
+          <Box
             sx={{
-              fontWeight: 700,
-              fontSize: { xs: 17, md: 19 },
-              lineHeight: 1.25,
+              width: 48,
+              height: 48,
+              borderRadius: "10px",
+              display: "grid",
+              placeItems: "center",
+              flexShrink: 0,
+              backgroundColor: alpha(color, 0.12),
+              border: `1px solid ${alpha(color, 0.24)}`,
+              color: color,
+              fontSize: 22,
+              // Subtle inner glow on the icon box
+              boxShadow: `0 0 14px ${alpha(color, 0.18)}`,
             }}
           >
-            {title}
-          </Typography>
-        </Box>
-      </Box>
+            {Icon ? <Icon fontSize="inherit" /> : null}
+          </Box>
 
-      <Typography
-        color="text.secondary"
-        sx={{ fontSize: { xs: 14, md: 15 }, lineHeight: 1.65 }}
-      >
-        {description}
-      </Typography>
-    </TiltCard>
+          <Box sx={{ minWidth: 0, pt: 0.5 }}>
+            <Typography
+              sx={{
+                fontWeight: 700,
+                fontSize: { xs: 17, md: 19 },
+                lineHeight: 1.25,
+              }}
+            >
+              {title}
+            </Typography>
+          </Box>
+        </Box>
+
+        <Typography
+          color="text.secondary"
+          sx={{ fontSize: { xs: 14, md: 15 }, lineHeight: 1.65 }}
+        >
+          {description}
+        </Typography>
+      </Box>
+    </GlowCard>
   );
 }
 
@@ -90,12 +93,13 @@ export default function TechStack() {
           gap: { xs: 2, md: 3 },
         }}
       >
-        {SERVICE_KEYS.map(({ key, Icon }, idx) => (
-          <Reveal key={key} delay={idx * 50}>
+        {SERVICE_KEYS.map(({ key, Icon, color }, idx) => (
+          <Reveal key={key} delay={idx * 60}>
             <ServiceCard
               title={t(`services.${key}.title`)}
               description={t(`services.${key}.description`)}
               Icon={Icon}
+              color={color}
             />
           </Reveal>
         ))}
