@@ -1,65 +1,30 @@
-import { Box, Paper, Stack, Typography, Chip, Divider } from "@mui/material";
+import { Box, Paper, Typography, Divider } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import Reveal from "./Reveal.jsx";
 import { useTranslation } from "react-i18next";
 import TiltCard from "./TiltCard.jsx";
 
-function Stat({ label, value }) {
-  return (
-    <TiltCard
-      maxTilt={8}
-      lift={5}
-      sx={(t) => ({
-        p: 2,
-        borderRadius: 4,
-        background:
-          t.palette.mode === "dark" ? alpha("#fff", 0.05) : alpha("#000", 0.03),
-        border: `1px solid ${t.palette.mode === "dark" ? alpha("#fff", 0.1) : alpha("#000", 0.08)}`,
-      })}
-    >
-      <Typography
-        sx={{
-          fontWeight: 900,
-          fontSize: 22,
-          textAlign: { xs: "center", md: "left" },
-        }}
-      >
-        {value}
-      </Typography>
-      <Typography
-        color="text.secondary"
-        variant="body2"
-        sx={{ mt: 0.5, textAlign: { xs: "center", md: "left" } }}
-      >
-        {label}
-      </Typography>
-    </TiltCard>
-  );
-}
-
 function GlassCard({ title, subtitle, children }) {
   return (
     <TiltCard
-      maxTilt={10}
-      lift={6}
-      sx={(t) => ({
+      maxTilt={4}
+      lift={3}
+      sx={(theme) => ({
         p: 3,
-        borderRadius: 4,
-        background:
-          t.palette.mode === "dark"
-            ? `linear-gradient(180deg, ${alpha("#fff", 0.07)}, ${alpha("#fff", 0.03)})`
-            : `linear-gradient(180deg, ${alpha("#fff", 1)}, ${alpha("#fff", 0.92)})`,
-        border: `1px solid ${t.palette.mode === "dark" ? alpha("#fff", 0.12) : alpha("#000", 0.08)}`,
-        boxShadow:
-          t.palette.mode === "dark"
-            ? "0 24px 60px rgba(0,0,0,0.35)"
-            : "0 24px 60px rgba(0,0,0,0.10)",
-        backdropFilter: "blur(10px)",
+        borderRadius: "12px",
+        background: theme.palette.background.paper,
+        border: `1px solid ${theme.palette.divider}`,
+        boxShadow: "0 2px 8px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04)",
+        transition: "box-shadow 200ms ease, transform 200ms ease",
+        "&:hover": {
+          boxShadow:
+            "0 4px 16px rgba(0,0,0,0.07), 0 2px 6px rgba(0,0,0,0.04)",
+        },
       })}
     >
-      <Typography sx={{ fontWeight: 900, fontSize: 18 }}>{title}</Typography>
+      <Typography sx={{ fontWeight: 700, fontSize: 18 }}>{title}</Typography>
       {subtitle ? (
-        <Typography color="text.secondary" sx={{ mt: 0.75 }}>
+        <Typography color="text.secondary" sx={{ mt: 0.75, fontSize: 14 }}>
           {subtitle}
         </Typography>
       ) : null}
@@ -68,74 +33,71 @@ function GlassCard({ title, subtitle, children }) {
   );
 }
 
-function DeviceMock() {
+function DashboardMock() {
   const { t } = useTranslation("common");
 
   const tiles = [
-    { key: "speed", value: "120 km/h" },
-    { key: "range", value: "410 km" },
-    { key: "temp", value: "92°C" },
-    { key: "battery", value: "86%" },
+    { key: "users", value: "1.2k" },
+    { key: "uptime", value: "99.9%" },
+    { key: "rating", value: "4.9★" },
+    { key: "projects", value: "12+" },
   ];
 
   return (
     <Paper
-      elevation={0}
-      sx={(tt) => ({
-        borderRadius: 2,
+      sx={(theme) => ({
+        borderRadius: "10px",
         p: 2.5,
-        border: `1px solid ${tt.palette.mode === "dark" ? alpha("#fff", 0.12) : alpha("#000", 0.08)}`,
-        background:
-          tt.palette.mode === "dark"
-            ? alpha("#fff", 0.05)
-            : alpha("#000", 0.02),
-        overflow: "hidden",
+        border: `1px solid ${theme.palette.divider}`,
+        background: alpha(theme.palette.background.default, 0.6),
       })}
     >
-      <Box sx={{ display: "grid", gridTemplateColumns: "1fr", gap: 1.3 }}>
-        <Typography sx={{ fontWeight: 900, fontSize: 22, letterSpacing: -0.4 }}>
+      <Box sx={{ display: "grid", gridTemplateColumns: "1fr", gap: 1.5 }}>
+        <Typography sx={{ fontWeight: 700, fontSize: 20, letterSpacing: -0.3 }}>
           {t("about.deviceMock.dashboard")}
         </Typography>
 
         <Paper
-          elevation={0}
-          sx={(tt) => ({
+          sx={(theme) => ({
             p: 2,
-            borderRadius: 4,
-            background: alpha(
-              tt.palette.primary.main,
-              tt.palette.mode === "dark" ? 0.12 : 0.08,
-            ),
-            border: `1px solid ${alpha(tt.palette.primary.main, 0.25)}`,
+            borderRadius: "8px",
+            background: alpha(theme.palette.primary.main, 0.07),
+            border: `1px solid ${alpha(theme.palette.primary.main, 0.18)}`,
           })}
         >
-          <Typography sx={{ fontWeight: 900 }}>
-            {t("about.deviceMock.vehicleDataTitle")}
+          <Typography sx={{ fontWeight: 700, fontSize: 14 }}>
+            {t("about.deviceMock.primaryCardTitle")}
           </Typography>
           <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
-            {t("about.deviceMock.vehicleDataSubtitle")}
+            {t("about.deviceMock.primaryCardSubtitle")}
           </Typography>
         </Paper>
 
-        <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 1.3 }}>
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: "repeat(2, 1fr)",
+            gap: 1.5,
+          }}
+        >
           {tiles.map((tile) => (
             <Paper
               key={tile.key}
-              elevation={0}
-              sx={(tt) => ({
+              sx={(theme) => ({
                 p: 2,
-                borderRadius: 4,
-                background:
-                  tt.palette.mode === "dark"
-                    ? alpha("#fff", 0.05)
-                    : alpha("#000", 0.02),
-                border: `1px solid ${tt.palette.mode === "dark" ? alpha("#fff", 0.1) : alpha("#000", 0.08)}`,
+                borderRadius: "8px",
+                border: `1px solid ${theme.palette.divider}`,
+                background: theme.palette.background.paper,
               })}
             >
-              <Typography sx={{ fontWeight: 900 }}>
+              <Typography sx={{ fontWeight: 700, fontSize: 13 }}>
                 {t(`about.deviceMock.tiles.${tile.key}`)}
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                sx={{ fontWeight: 600, mt: 0.25 }}
+              >
                 {tile.value}
               </Typography>
             </Paper>
@@ -143,18 +105,14 @@ function DeviceMock() {
         </Box>
 
         <Paper
-          elevation={0}
-          sx={(tt) => ({
+          sx={(theme) => ({
             p: 2,
-            borderRadius: 4,
-            background:
-              tt.palette.mode === "dark"
-                ? alpha("#fff", 0.05)
-                : alpha("#000", 0.02),
-            border: `1px solid ${tt.palette.mode === "dark" ? alpha("#fff", 0.1) : alpha("#000", 0.08)}`,
+            borderRadius: "8px",
+            border: `1px solid ${theme.palette.divider}`,
+            background: theme.palette.background.paper,
           })}
         >
-          <Typography sx={{ fontWeight: 900 }}>
+          <Typography sx={{ fontWeight: 700, fontSize: 13 }}>
             {t("about.deviceMock.cleanUiTitle")}
           </Typography>
           <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
@@ -168,7 +126,6 @@ function DeviceMock() {
 
 export default function About() {
   const { t } = useTranslation("common");
-
   const featureItems = t("about.whatIBuild.items", { returnObjects: true });
 
   return (
@@ -180,40 +137,33 @@ export default function About() {
         alignItems: "start",
       }}
     >
-      {/* LINKS */}
+      {/* Left column */}
       <Box sx={{ display: "grid", gap: 2 }}>
         <Reveal>
           <GlassCard
             title={t("about.profileTitle")}
             subtitle={t("about.profileSubtitle")}
           >
-            <Typography color="text.secondary">
+            <Typography color="text.secondary" sx={{ fontSize: 15 }}>
               {t("about.profileBody")}
             </Typography>
           </GlassCard>
         </Reveal>
 
-        <Reveal delay={80} y={22}>
-          <Box
-            sx={{
-              display: "grid",
-              gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
-              gap: 2,
-            }}
-          >
-          </Box>
-        </Reveal>
-
-        <Reveal delay={140} y={22}>
+        <Reveal delay={50}>
           <GlassCard
             title={t("about.whatIBuild.title")}
             subtitle={t("about.whatIBuild.subtitle")}
           >
-            <Box sx={{ display: "grid", gap: 1.2 }}>
+            <Box sx={{ display: "grid", gap: 1 }}>
               {Array.isArray(featureItems)
                 ? featureItems.map((item) => (
-                    <Typography key={item} color="text.secondary">
-                      • {item}
+                    <Typography
+                      key={item}
+                      color="text.secondary"
+                      sx={{ fontSize: 14, lineHeight: 1.6 }}
+                    >
+                      · {item}
                     </Typography>
                   ))
                 : null}
@@ -222,25 +172,25 @@ export default function About() {
         </Reveal>
       </Box>
 
-      {/* RECHTS */}
+      {/* Right column */}
       <Box sx={{ display: "grid", gap: 2 }}>
-        <Reveal delay={120} y={22}>
+        <Reveal delay={60}>
           <GlassCard
             title={t("about.uiPreview.title")}
             subtitle={t("about.uiPreview.subtitle")}
           >
-            <DeviceMock />
+            <DashboardMock />
           </GlassCard>
         </Reveal>
 
-        <Reveal delay={200} y={22}>
+        <Reveal delay={60}>
           <GlassCard
             title={t("about.highlights.title")}
             subtitle={t("about.highlights.subtitle")}
           >
-            <Box sx={{ display: "grid", gap: 1.3 }}>
+            <Box sx={{ display: "grid", gap: 1.5 }}>
               <Box>
-                <Typography sx={{ fontWeight: 900 }}>
+                <Typography sx={{ fontWeight: 700, fontSize: 14 }}>
                   {t("about.highlights.planTitle")}
                 </Typography>
                 <Typography color="text.secondary" variant="body2">
@@ -248,10 +198,10 @@ export default function About() {
                 </Typography>
               </Box>
 
-              <Divider sx={{ opacity: 0.25 }} />
+              <Divider />
 
               <Box>
-                <Typography sx={{ fontWeight: 900 }}>
+                <Typography sx={{ fontWeight: 700, fontSize: 14 }}>
                   {t("about.highlights.buildTitle")}
                 </Typography>
                 <Typography color="text.secondary" variant="body2">
@@ -259,10 +209,10 @@ export default function About() {
                 </Typography>
               </Box>
 
-              <Divider sx={{ opacity: 0.25 }} />
+              <Divider />
 
               <Box>
-                <Typography sx={{ fontWeight: 900 }}>
+                <Typography sx={{ fontWeight: 700, fontSize: 14 }}>
                   {t("about.highlights.finishTitle")}
                 </Typography>
                 <Typography color="text.secondary" variant="body2">
