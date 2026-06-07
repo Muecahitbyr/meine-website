@@ -2,7 +2,7 @@
   "header": {
     "brand": "BAYAR-SOLUTIONS",
     "nav": {
-      "about": "About BAYAR-SOLUTIONS",
+      "about": "About",
       "tech": "Services",
       "apps": "References",
       "contact": "Contact"
@@ -16,13 +16,22 @@
   },
 
   "hero": {
-    "overline": "Full-Stack & iOS Developer",
-    "titleLine1": "I build",
-    "highlight": "modern web and Apple apps",
-    "titleLine2": "with clean UI and solid architecture.",
-    "subtitle": "From frontend to backend — with a strong focus on JavaScript, TypeScript and high-quality iOS apps.",
-    "nameRole": "Full-Stack Developer with iOS Focus",
-    "portraitAlt": "Portrait"
+    "headlinePre": "Modern",
+    "headlineHighlight": "Software",
+    "headlinePost": "for Businesses",
+    "subtitle": "I develop digital solutions for companies that delight customers, simplify processes and drive growth.",
+    "ctaPrimary": "Request a project",
+    "ctaSecondary": "View references",
+    "chips": ["Business Websites", "Client Portals", "Mobile Apps"],
+    "card": {
+      "description": "A sole proprietorship for digital products, modern interfaces and custom software development.",
+      "tiles": [
+        { "title": "Web", "text": "B2B websites & portals" },
+        { "title": "Mobile", "text": "Native business apps" },
+        { "title": "Backend", "text": "APIs & data logic" },
+        { "title": "Cloud", "text": "Deployments & operations" }
+      ]
+    }
   },
 
   "language": {
@@ -36,15 +45,15 @@
     },
     "tech": {
       "title": "Services",
-      "subtitle": "Digital solutions for businesses with a focus on customer value, speed, and scalability."
+      "subtitle": "Digital solutions for businesses with a focus on customer value, speed and scalability."
     },
     "apps": {
-      "title": "References",
-      "subtitle": "Selected client solutions and app projects."
+      "title": "References & Solutions",
+      "subtitle": "Selected client solutions and digital references."
     },
     "contact": {
       "title": "Contact",
-      "subtitle": "Reach out directly via email."
+      "subtitle": "Ready for your next digital project? Let's talk."
     }
   },
 
@@ -53,19 +62,9 @@
   },
 
   "about": {
-    "sectionTitle": "About BAYAR-SOLUTIONS",
-    "sectionSubtitle": "Digital business solutions with a focus on growth, stability and user satisfaction.",
-
     "profileTitle": "Profile",
     "profileSubtitle": "Business-oriented software solutions — efficient, reliable and market-ready.",
     "profileBody": "My work turns ideas into digital products that simplify operations and delight customers.",
-
-    "stats": {
-      "focusLabel": "Focus",
-      "focusValue": "Business Solutions",
-      "styleLabel": "Style",
-      "styleValue": "Business-first"
-    },
 
     "whatIBuild": {
       "title": "What I Deliver",
@@ -82,12 +81,12 @@
 
     "uiPreview": {
       "title": "UI Preview",
-      "subtitle": "Small visual demo (not a real image)"
+      "subtitle": "Example dashboard"
     },
 
     "highlights": {
-      "title": "Highlights",
-      "subtitle": "How I work",
+      "title": "How I Work",
+      "subtitle": "How projects come to life",
       "planTitle": "1) Planning",
       "planBody": "Clear structure, screens and data flows before writing code.",
       "buildTitle": "2) Building",
@@ -98,33 +97,35 @@
 
     "deviceMock": {
       "dashboard": "Dashboard",
-      "vehicleDataTitle": "Vehicle Data",
-      "vehicleDataSubtitle": "Live values • History • Profile",
+      "primaryCardTitle": "Client Overview",
+      "primaryCardSubtitle": "Active Users • Conversions • Revenue",
       "tiles": {
-        "speed": "Speed",
-        "range": "Range",
-        "temp": "Temperature",
-        "battery": "Battery"
+        "users": "Users",
+        "uptime": "Uptime",
+        "rating": "Rating",
+        "projects": "Projects"
       },
       "cleanUiTitle": "Clean UI",
       "cleanUiSubtitle": "Components • Animations • Accessibility"
     }
   },
 
-  "techstack": {
-    "sectionTitle": "Technical Stack",
-    "sectionSubtitle": "Technologies and tools for modern, high-performance applications.",
-    "mobile": {
-      "title": "Mobile Development",
-      "subtitle": "iOS & SwiftUI architecture (MVVM, Async/Await, Combine)"
+  "services": {
+    "web": {
+      "title": "Business Websites",
+      "description": "Websites your customers find and convert on. Fast, secure and user-friendly."
+    },
+    "apps": {
+      "title": "Business Apps",
+      "description": "iOS or web apps that digitize your processes and simplify daily operations."
     },
     "backend": {
       "title": "Backend & APIs",
-      "subtitle": "Data, authentication and integrations (REST, Firebase)"
+      "description": "Reliable data flows and interfaces so your systems work together seamlessly."
     },
-    "tools": {
-      "title": "Tools & Workflow",
-      "subtitle": "Development, testing and deployment"
+    "hosting": {
+      "title": "Hosting & Operations",
+      "description": "Your solution runs stable and secure. Available 24/7, fast and maintainable."
     }
   },
 
@@ -161,16 +162,10 @@
     "next": "Next image"
   },
 
-  "apps": {
-    "sectionTitle": "Apps",
-    "sectionSubtitle": "My published and upcoming iOS applications."
-  },
-
   "contact": {
     "emailSubject": "Contact via your website",
     "emailBody": "Hello! I saw your website and would like to get in touch.",
     "sectionTitle": "Contact",
-    "sectionSubtitle": "Reach out directly via email.",
     "card": {
       "title": "Message me",
       "subtitle": "Quickly via email — or scan the QR code.",
@@ -187,25 +182,5 @@
       "subtitle": "Scan to write an email.",
       "alt": "QR Code Email"
     }
-  },
-
-  "techItems": {
-    "swift": "Native iOS development with modern concurrency and clean architecture.",
-    "csharp": "Backend & application development with strong typing and OOP principles.",
-    "javascript": "Frontend and backend development with modern ES6+ features.",
-    "typescript": "JavaScript with static typing for safer, scalable code.",
-    "swiftui": "Declarative UI framework for modern Apple interfaces.",
-    "react": "Component-based frontend for scalable web applications.",
-    "tailwind": "Utility-first CSS for fast and consistent UI design.",
-    "node": "JavaScript runtime for scalable backend services.",
-    "rest": "Designing and integrating structured API communication.",
-    "firebase": "Authentication, Firestore and cloud-based app infrastructure.",
-    "mongodb": "NoSQL database for flexible and scalable data storage.",
-    "docker": "Containerization for reproducible environments and deployment.",
-    "openshift": "Enterprise Kubernetes platform for scalable deployments.",
-    "git": "Version control and collaborative workflows.",
-    "xcode": "Apple IDE for building and testing native iOS apps.",
-    "vscode": "Lightweight editor for modern web development.",
-    "visualstudio": "Full IDE for C# and enterprise application development."
   }
 }

@@ -2,9 +2,9 @@
   "header": {
     "brand": "BAYAR-SOLUTIONS",
     "nav": {
-      "about": "Hakkımda",
-      "tech": "Teknoloji",
-      "apps": "Uygulamalar",
+      "about": "Hakkımızda",
+      "tech": "Hizmetler",
+      "apps": "Referanslar",
       "contact": "İletişim"
     },
     "aria": {
@@ -16,13 +16,22 @@
   },
 
   "hero": {
-    "overline": "Full-Stack & iOS Geliştirici",
-    "titleLine1": "Modern",
-    "highlight": "web ve Apple uygulamaları",
-    "titleLine2": "temiz UI ve sağlam mimari ile geliştiriyorum.",
-    "subtitle": "Frontend’den backend’e kadar — özellikle JavaScript, TypeScript ve kaliteli iOS uygulamalarına odaklanıyorum.",
-    "nameRole": "iOS Odaklı Full-Stack Geliştirici",
-    "portraitAlt": "Portre"
+    "headlinePre": "Modern",
+    "headlineHighlight": "Yazılım",
+    "headlinePost": "işletmeler için",
+    "subtitle": "Müşterileri memnun eden, süreçleri basitleştiren ve büyümeyi destekleyen dijital çözümler geliştiriyorum.",
+    "ctaPrimary": "Proje talep et",
+    "ctaSecondary": "Referansları gör",
+    "chips": ["Kurumsal Websiteler", "Müşteri Portalları", "Mobil Uygulamalar"],
+    "card": {
+      "description": "Dijital ürünler, modern arayüzler ve özel yazılım geliştirme alanında şahıs işletmesi.",
+      "tiles": [
+        { "title": "Web", "text": "B2B web siteleri & portallar" },
+        { "title": "Mobil", "text": "Native iş uygulamaları" },
+        { "title": "Backend", "text": "API'ler & veri mantığı" },
+        { "title": "Bulut", "text": "Deployment & operasyon" }
+      ]
+    }
   },
 
   "language": {
@@ -31,100 +40,92 @@
 
   "sections": {
     "about": {
-      "title": "Hakkımda",
-      "subtitle": "Full-Stack & iOS Geliştirici — düzenli, hızlı ve modern."
+      "title": "BAYAR-SOLUTIONS Hakkında",
+      "subtitle": "Dijital kurumsal çözümler — modern, verimli ve pazar odaklı."
     },
     "tech": {
-      "title": "Teknik Stack",
-      "subtitle": "Modern ve performanslı web ve iOS uygulamaları için teknolojiler ve araçlar."
+      "title": "Hizmetler",
+      "subtitle": "Müşteri değerine, hıza ve ölçeklenebilirliğe odaklanan dijital çözümler."
     },
     "apps": {
-      "title": "Uygulamalar",
-      "subtitle": "App Store’da olan ve yakında çıkacak projeler."
+      "title": "Referanslar & Çözümler",
+      "subtitle": "Seçilmiş müşteri çözümleri ve dijital referanslar."
     },
     "contact": {
       "title": "İletişim",
-      "subtitle": "Doğrudan e-posta ile yaz."
+      "subtitle": "Bir sonraki dijital projeniz için hazır mısınız? Konuşalım."
     }
   },
 
   "footer": {
-    "role": "Full-Stack & iOS Geliştirici"
+    "role": "İşletmeler için dijital çözümler"
   },
 
   "about": {
-    "sectionTitle": "Hakkımda",
-    "sectionSubtitle": "Temiz mimari, performans ve premium UI odağıyla modern web ve iOS uygulamaları geliştiriyorum.",
-
     "profileTitle": "Profil",
-    "profileSubtitle": "Full-Stack & iOS geliştirme — temiz, hızlı ve modern.",
-    "profileBody": "Odak noktam temiz mimari (örn. MVVM), performanslı uygulamalar, stabil backend’ler ve modern web arayüzleri.",
-
-    "stats": {
-      "focusLabel": "Odak",
-      "focusValue": "Full-Stack & iOS",
-      "styleLabel": "Stil",
-      "styleValue": "Clean & Modern"
-    },
+    "profileSubtitle": "İş odaklı yazılım çözümleri — verimli, güvenilir ve pazara hazır.",
+    "profileBody": "Çalışmalarım fikirleri dijital ürünlere dönüştürür, operasyonları iyileştirir ve müşterileri memnun eder.",
 
     "whatIBuild": {
       "title": "Neler geliştiriyorum",
-      "subtitle": "Tipik özellikler",
+      "subtitle": "İş çözümü örnekleri",
       "items": [
-        "Modern SwiftUI ekranları (liste, kart, detay)",
-        "API entegrasyonu + loading/empty/error durumları",
-        "State yönetimi, navigation, routing",
-        "Backend API’leri (REST) ve veri modelleri",
-        "React & Tailwind ile web arayüzleri",
-        "Temiz yapı ve tekrar kullanılabilir bileşenler"
+        "Dijital müşteri portalları, rezervasyon sistemleri ve açılış sayfaları",
+        "Daha güçlü müşteri bağlılığı için native iOS uygulamaları",
+        "Sorunsuz veri senkronizasyonu için API entegrasyonları",
+        "Ölçeklenebilir backend sistemleri ve bulut hizmetleri",
+        "Dönüşüm odaklı kullanıcı arayüzleri",
+        "Uzun vadeli ürün bakımı için sürdürülebilir mimari"
       ]
     },
 
     "uiPreview": {
       "title": "UI Önizleme",
-      "subtitle": "Küçük görsel demo (gerçek görsel değil)"
+      "subtitle": "Örnek dashboard"
     },
 
     "highlights": {
-      "title": "Öne çıkanlar",
-      "subtitle": "Nasıl çalışıyorum",
+      "title": "Çalışma Şeklim",
+      "subtitle": "Projeler nasıl hayata geçer",
       "planTitle": "1) Planlama",
-      "planBody": "Koda başlamadan önce net yapı ve veri akışları.",
+      "planBody": "Koda başlamadan önce net yapı, ekranlar ve veri akışları.",
       "buildTitle": "2) Uygulama",
-      "buildBody": "Temiz bileşenler, polished UI ve stabil mantık.",
-      "finishTitle": "3) Son dokunuş",
-      "finishBody": "Performans, erişilebilirlik ve premium detaylar."
+      "buildBody": "Temiz bileşenler, özenli UI ve kararlı mantık.",
+      "finishTitle": "3) Son Dokunuş",
+      "finishBody": "Performans, erişilebilirlik ve premium his için detaylar."
     },
 
     "deviceMock": {
       "dashboard": "Panel",
-      "vehicleDataTitle": "Araç Verileri",
-      "vehicleDataSubtitle": "Canlı değerler • Geçmiş • Profil",
+      "primaryCardTitle": "Müşteri Genel Bakış",
+      "primaryCardSubtitle": "Aktif Kullanıcılar • Dönüşümler • Gelir",
       "tiles": {
-        "speed": "Hız",
-        "range": "Menzil",
-        "temp": "Sıcaklık",
-        "battery": "Batarya"
+        "users": "Kullanıcılar",
+        "uptime": "Çalışma Süresi",
+        "rating": "Puan",
+        "projects": "Projeler"
       },
       "cleanUiTitle": "Temiz UI",
       "cleanUiSubtitle": "Bileşenler • Animasyonlar • Erişilebilirlik"
     }
   },
 
-  "techstack": {
-    "sectionTitle": "Teknik Stack",
-    "sectionSubtitle": "Modern ve yüksek performanslı uygulamalar için teknolojiler ve araçlar.",
-    "mobile": {
-      "title": "Mobil Geliştirme",
-      "subtitle": "iOS & SwiftUI mimarisi (MVVM, Async/Await, Combine)"
+  "services": {
+    "web": {
+      "title": "Kurumsal Websiteler",
+      "description": "Müşterilerinizin bulduğu ve dönüştüğü websiteler. Hızlı, güvenli ve kullanıcı dostu."
+    },
+    "apps": {
+      "title": "İş Uygulamaları",
+      "description": "Süreçlerinizi dijitalleştiren ve günlük operasyonları basitleştiren iOS veya web uygulamaları."
     },
     "backend": {
-      "title": "Backend & API",
-      "subtitle": "Veri, kimlik doğrulama ve entegrasyonlar (REST, Firebase)"
+      "title": "Backend & API'ler",
+      "description": "Sistemlerinizin sorunsuz çalışması için güvenilir veri akışları ve arayüzler."
     },
-    "tools": {
-      "title": "Araçlar & Workflow",
-      "subtitle": "Geliştirme, test ve deployment"
+    "hosting": {
+      "title": "Hosting & Operasyon",
+      "description": "Çözümünüz stabil ve güvenli çalışır. 7/24 erişilebilir, hızlı ve bakımı kolay."
     }
   },
 
@@ -132,24 +133,24 @@
     "driveconnect": {
       "title": "DriveConnect",
       "description": "Araç verilerini analiz eden ve görselleştiren kişiselleştirilmiş iOS uygulaması — modern ve kullanıcı odaklı.",
-      "note": "(App Store’da mevcut)"
+      "note": "(App Store'da mevcut)"
     },
     "getataxi": {
       "title": "Get A Taxi",
       "description": "Taksi uygulaması: başlangıç noktası seç, hedefi gir ve isteği hızlıca gönder.",
-      "note": "(Yakında App Store’da)"
+      "note": "(Yakında App Store'da)"
     },
     "gtcc": {
       "title": "Guess The Capital City",
       "description": "Quiz: bayrağı tanı ve doğru başkenti seç — SwiftUI animasyonlarıyla.",
-      "note": "(App Store’da mevcut)"
+      "note": "(App Store'da mevcut)"
     }
   },
 
   "projectCard": {
     "open": "Detaylar",
-    "openStore": "App Store’da aç",
-    "openStoreAria": "App Store’da aç"
+    "openStore": "App Store'da aç",
+    "openStoreAria": "App Store'da aç"
   },
 
   "screenshots": {
@@ -161,22 +162,16 @@
     "next": "Sonraki görsel"
   },
 
-  "apps": {
-    "sectionTitle": "Uygulamalar",
-    "sectionSubtitle": "Yayınlanmış ve yakında çıkacak iOS projelerim."
-  },
-
   "contact": {
     "emailSubject": "Web siten üzerinden iletişim",
     "emailBody": "Merhaba! Web siteni gördüm ve iletişime geçmek istiyorum.",
     "sectionTitle": "İletişim",
-    "sectionSubtitle": "Doğrudan e-posta ile yaz.",
     "card": {
       "title": "Bana yaz",
       "subtitle": "Hızlıca e-posta ile — ya da QR kodu tara.",
-      "body": "Uygulama fikirleri, projeler veya iOS & SwiftUI hakkında sorular için yazabilirsin.",
+      "body": "Proje talepleri, dijitalleşme hedefleri veya ilk fizibilite değerlendirmesi için.",
       "sendEmail": "E-posta gönder",
-      "toApps": "Uygulamalara git",
+      "toApps": "Referanslara git",
       "emailLabel": "E-POSTA",
       "copyTooltip": "E-postayı kopyala",
       "copyAria": "E-postayı kopyala",
@@ -187,25 +182,5 @@
       "subtitle": "E-posta yazmak için tara.",
       "alt": "QR Kod E-posta"
     }
-  },
-
-  "techItems": {
-    "swift": "Modern concurrency ve temiz mimari ile native iOS geliştirme.",
-    "csharp": "Güçlü tip sistemi ve OOP ile backend ve uygulama geliştirme.",
-    "javascript": "Modern ES6+ ile frontend ve backend geliştirme.",
-    "typescript": "Daha güvenli ve ölçeklenebilir kod için statik tipli JavaScript.",
-    "swiftui": "Modern Apple arayüzleri için deklaratif UI framework.",
-    "react": "Ölçeklenebilir web uygulamaları için component tabanlı frontend.",
-    "tailwind": "Hızlı ve tutarlı UI için utility-first CSS yaklaşımı.",
-    "node": "Ölçeklenebilir backend servisleri için JavaScript runtime.",
-    "rest": "Yapılandırılmış API iletişimi tasarlama ve entegrasyon.",
-    "firebase": "Kimlik doğrulama, Firestore ve cloud altyapısı.",
-    "mongodb": "Esnek ve ölçeklenebilir veri saklama için NoSQL veritabanı.",
-    "docker": "Tekrarlanabilir ortamlar ve deployment için containerization.",
-    "openshift": "Kurumsal ve ölçeklenebilir Kubernetes platformu.",
-    "git": "Versiyon kontrolü ve ekip içi geliştirme akışları.",
-    "xcode": "Native iOS uygulamaları geliştirmek ve test etmek için Apple IDE.",
-    "vscode": "Modern web geliştirme için hafif ve hızlı editör.",
-    "visualstudio": "C# ve kurumsal uygulamalar için kapsamlı IDE."
   }
 }
