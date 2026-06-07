@@ -16,12 +16,6 @@ main {
   z-index: 1;
 }
 
-:root {
-  --mx: 0;
-  --my: 0;
-  --sy: 0;
-}
-
 /* Section title underline animation */
 .sectionTitleUnderline {
   position: relative;
