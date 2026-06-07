@@ -36,7 +36,9 @@ export default function Header() {
     [t],
   );
 
-  const active = useActiveSection(navItems.map((n) => n.id));
+  // Stable reference — prevents useActiveSection effect from reconnecting every render
+  const sectionIds = useMemo(() => navItems.map((n) => n.id), [navItems]);
+  const active = useActiveSection(sectionIds);
 
   useEffect(() => {
     const onScroll = () => {
@@ -56,28 +58,19 @@ export default function Header() {
         position="sticky"
         elevation={0}
         color="transparent"
-        sx={(theme) => ({
-          background: `linear-gradient(180deg, ${alpha(
-            theme.palette.primary.main,
-            0.45,
-          )}, ${alpha(theme.palette.primary.main, 0.32)})`,
-          backdropFilter: "blur(14px)",
-          borderBottom: `1px solid ${alpha("#fff", 0.10)}`,
-        })}
+        sx={{
+          background: "rgba(247,249,249,0.88)",
+          backdropFilter: "blur(12px)",
+          borderBottom: "1px solid rgba(0,0,0,0.07)",
+        }}
       >
         {/* Scroll progress bar */}
-        <Box
-          sx={{
-            height: 2,
-            width: "100%",
-            background: alpha("#fff", 0.06),
-          }}
-        >
+        <Box sx={{ height: 2, width: "100%", background: "rgba(0,0,0,0.05)" }}>
           <Box
             sx={(theme) => ({
               height: "100%",
               width: `${progress}%`,
-              background: `linear-gradient(90deg, ${alpha(theme.palette.primary.light, 0.95)}, ${alpha(theme.palette.primary.light, 0.15)})`,
+              background: `linear-gradient(90deg, ${theme.palette.primary.main}, ${alpha(theme.palette.primary.light, 0.4)})`,
               transition: "width 120ms linear",
             })}
           />
@@ -88,24 +81,24 @@ export default function Header() {
             maxWidth="lg"
             sx={{ display: "flex", alignItems: "center", gap: 1.5 }}
           >
-            {/* Brand */}
-            <Button
+            {/* Brand logo */}
+            <Box
               component={RouterLink}
               to="/"
-              disableRipple
               sx={{
-                p: 0,
-                minWidth: 0,
-                color: "rgba(255,255,255,0.94)",
-                textTransform: "none",
-                fontWeight: 800,
-                letterSpacing: -0.3,
-                fontSize: "0.9375rem",
-                justifyContent: "flex-start",
+                display: "flex",
+                alignItems: "center",
+                textDecoration: "none",
+                flexShrink: 0,
               }}
             >
-              {t("header.brand")}
-            </Button>
+              <Box
+                component="img"
+                src="/BayerSolutionsLogo.png"
+                alt="BAYAR-SOLUTIONS"
+                sx={{ height: 30, width: "auto", objectFit: "contain" }}
+              />
+            </Box>
 
             <Box sx={{ flex: 1 }} />
 
@@ -124,18 +117,20 @@ export default function Header() {
                     key={item.to}
                     component={RouterLink}
                     to={item.to}
-                    sx={{
-                      color: "rgba(255,255,255,0.86)",
+                    sx={(theme) => ({
+                      color: isActive ? "primary.main" : "text.secondary",
                       fontWeight: 600,
                       fontSize: 14,
                       textTransform: "none",
                       borderRadius: 9999,
                       px: 1.5,
                       position: "relative",
-                      "&:hover": { backgroundColor: alpha("#fff", 0.10) },
+                      "&:hover": {
+                        backgroundColor: alpha(theme.palette.primary.main, 0.07),
+                        color: "text.primary",
+                      },
                       ...(isActive && {
-                        backgroundColor: alpha("#fff", 0.14),
-                        color: "rgba(255,255,255,0.96)",
+                        backgroundColor: alpha(theme.palette.primary.main, 0.07),
                       }),
                       "&::after": {
                         content: '""',
@@ -148,10 +143,9 @@ export default function Header() {
                         transform: isActive ? "scaleX(1)" : "scaleX(0)",
                         transformOrigin: "left",
                         transition: "transform 220ms ease",
-                        background: (theme) =>
-                          `linear-gradient(90deg, ${alpha(theme.palette.primary.light, 0.95)}, ${alpha(theme.palette.primary.light, 0.15)})`,
+                        background: theme.palette.primary.main,
                       },
-                    }}
+                    })}
                   >
                     {item.label}
                   </Button>
@@ -161,7 +155,7 @@ export default function Header() {
 
             {/* Language selector — desktop */}
             <Box sx={{ display: { xs: "none", md: "flex" }, ml: 0.5 }}>
-              <LanguageSelect mode="overlay" />
+              <LanguageSelect />
             </Box>
 
             {/* Mobile menu button */}
@@ -170,7 +164,7 @@ export default function Header() {
               aria-label={t("header.aria.openMenu")}
               sx={{
                 display: { xs: "inline-flex", md: "none" },
-                color: "rgba(255,255,255,0.86)",
+                color: "text.secondary",
               }}
             >
               <MenuRoundedIcon />
