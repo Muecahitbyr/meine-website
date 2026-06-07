@@ -14,6 +14,7 @@ import Apps from "./components/Apps.jsx";
 import Contact from "./components/Contact.jsx";
 
 import Imprint from "./components/Imprint.jsx";
+import Privacy from "./components/Privacy.jsx";
 
 import { projects } from "./data/projects.js";
 
@@ -80,6 +81,17 @@ export default function App() {
               <main>
                 <Section id="imprint" title="Impressum">
                   <Imprint />
+                </Section>
+              </main>
+            }
+          />
+
+          <Route
+            path="/datenschutz"
+            element={
+              <main>
+                <Section id="privacy" title="Datenschutz">
+                  <Privacy />
                 </Section>
               </main>
             }
