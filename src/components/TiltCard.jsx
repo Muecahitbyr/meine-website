@@ -3,8 +3,8 @@ import { Paper, useMediaQuery } from "@mui/material";
 
 export default function TiltCard({
   children,
-  maxTilt = 10,
-  lift = 8,
+  maxTilt = 6,
+  lift = 4,
   sx,
   ...props
 }) {
@@ -15,7 +15,7 @@ export default function TiltCard({
   const isMedium = useMediaQuery("(max-width:1200px)");
 
   const disabled = isCoarse || isSmall;
-  const effectiveLift = disabled ? 0 : isMedium ? Math.max(0, lift - 3) : lift;
+  const effectiveLift = disabled ? 0 : isMedium ? Math.max(0, lift - 2) : lift;
 
   const [style, setStyle] = useState({
     transform: "perspective(900px) translateZ(0)",
@@ -60,10 +60,9 @@ export default function TiltCard({
           transformOrigin: "center",
           willChange: "transform",
           transform: style.transform,
-          transition: disabled ? "none" : "transform 160ms ease",
+          transition: disabled ? "none" : "transform 200ms ease-out",
           backfaceVisibility: "hidden",
-
-          contain: "layout paint",
+          contain: "layout",
           isolation: "isolate",
           display: "block",
         },
