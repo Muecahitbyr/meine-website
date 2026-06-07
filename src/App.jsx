@@ -25,34 +25,42 @@ function HomePage() {
     <main>
       <Hero />
 
+      {/* About — very light teal wash at the top, fades to white */}
       <Section
         id="about"
         title={t("sections.about.title")}
         subtitle={t("sections.about.subtitle")}
+        sx={{ background: "linear-gradient(180deg, rgba(29,184,170,0.05) 0%, rgba(247,249,249,0) 100%)" }}
       >
         <About />
       </Section>
 
+      {/* Tech — subtle cool-blue tint for contrast after the teal about section */}
       <Section
         id="tech"
         title={t("sections.tech.title")}
         subtitle={t("sections.tech.subtitle")}
+        sx={{ background: "linear-gradient(180deg, rgba(59,130,246,0.04) 0%, rgba(139,92,246,0.03) 100%)" }}
       >
         <TechStack />
       </Section>
 
+      {/* Apps — slightly off-white with teal tint at bottom */}
       <Section
         id="apps"
         title={t("sections.apps.title")}
         subtitle={t("sections.apps.subtitle")}
+        sx={{ background: "linear-gradient(180deg, #F4F7F7 0%, rgba(247,249,249,0) 100%)" }}
       >
         <Apps projects={projects} />
       </Section>
 
+      {/* Contact — stronger teal tint, gives the page a warm close */}
       <Section
         id="contact"
         title={t("sections.contact.title")}
         subtitle={t("sections.contact.subtitle")}
+        sx={{ background: "linear-gradient(180deg, rgba(29,184,170,0.04) 0%, rgba(29,184,170,0.09) 100%)" }}
       >
         <Contact />
       </Section>

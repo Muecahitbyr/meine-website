@@ -10,43 +10,70 @@ import { Box, Container, Typography } from "@mui/material";
 
 const EASE = [0.25, 0.46, 0.45, 0.94];
 
-export default function Section({ id, title, subtitle, children }) {
+/**
+ * Section wrapper with:
+ *   - Framer Motion title + subtitle slide-in (whileInView, once)
+ *   - CSS teal underline sweep
+ *   - Two parallax ambient blobs (top-right + bottom-left, opposite directions)
+ *   - sx prop forwarded to the outer Box for per-section background tints
+ */
+export default function Section({ id, title, subtitle, children, sx }) {
   const rm = useReducedMotion();
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
 
-  // Drive the CSS underline animation — replaces old IntersectionObserver
+  // Drive CSS underline animation — replaces IntersectionObserver
   const inView = useInView(titleRef, { once: true, margin: "-80px 0px" });
 
-  // Parallax blob: drifts upward as the section scrolls out of view
+  // Parallax: blob 1 drifts upward, blob 2 drifts downward (counter-movement)
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
   });
-  const blobY = useTransform(scrollYProgress, [0, 1], ["0%", "-28%"]);
+  const blob1Y = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
+  const blob2Y = useTransform(scrollYProgress, [0, 1], ["5%", "22%"]);
 
   return (
     <Box
       ref={sectionRef}
       component="section"
       id={id}
-      sx={{ position: "relative" }}
+      sx={[{ position: "relative" }, ...(Array.isArray(sx) ? sx : [sx || {}])]}
     >
-      {/* Decorative ambient blob — extremely subtle teal radial gradient
-          with parallax. body overflow-x:hidden clips the right overhang. */}
+      {/* Blob 1 — top-right, teal, drifts upward */}
       {!rm && (
         <motion.div
           aria-hidden="true"
           style={{
-            y: blobY,
+            y: blob1Y,
             position: "absolute",
-            top: "-25%",
-            right: "-18%",
-            width: 580,
-            height: 580,
+            top: "-28%",
+            right: "-16%",
+            width: 600,
+            height: 600,
             borderRadius: "50%",
             background:
-              "radial-gradient(circle, rgba(29,184,170,0.045) 0%, transparent 65%)",
+              "radial-gradient(circle, rgba(29,184,170,0.09) 0%, transparent 65%)",
+            zIndex: 0,
+            pointerEvents: "none",
+          }}
+        />
+      )}
+
+      {/* Blob 2 — bottom-left, slightly different tint, drifts downward (counter-parallax) */}
+      {!rm && (
+        <motion.div
+          aria-hidden="true"
+          style={{
+            y: blob2Y,
+            position: "absolute",
+            bottom: "-22%",
+            left: "-14%",
+            width: 500,
+            height: 500,
+            borderRadius: "50%",
+            background:
+              "radial-gradient(circle, rgba(29,184,170,0.06) 0%, transparent 65%)",
             zIndex: 0,
             pointerEvents: "none",
           }}
@@ -79,7 +106,7 @@ export default function Section({ id, title, subtitle, children }) {
                     fontWeight: 800,
                   }}
                 >
-                  {/* CSS underline sweeps in via the existing .sectionTitleUnderline class */}
+                  {/* CSS underline sweeps in via .sectionTitleUnderline.isOn */}
                   <span
                     className={`sectionTitleUnderline ${inView ? "isOn" : ""}`}
                   >

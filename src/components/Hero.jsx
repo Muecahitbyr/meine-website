@@ -17,7 +17,9 @@ const scrollTo = (id) => {
   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
-const STATIC_BG = "linear-gradient(135deg, #0A0E14 0%, #0d2622 55%, #061f1b 100%)";
+// Richer dark: adds a slight indigo layer for more colour in reduced-motion fallback
+const STATIC_BG =
+  "linear-gradient(135deg, #0A0E14 0%, #0c1628 30%, #0d2622 60%, #0a1420 100%)";
 const EASE = [0.25, 0.46, 0.45, 0.94];
 
 export default function Hero() {
@@ -178,12 +180,12 @@ export default function Hero() {
           height: 560,
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgba(29,184,170,0.14) 0%, transparent 68%)",
+            "radial-gradient(circle, rgba(29,184,170,0.22) 0%, transparent 68%)",
           zIndex: 2,
           pointerEvents: "none",
         }}
       />
-      {/* Blob 2 — bottom-right, lighter accent */}
+      {/* Blob 2 — bottom-right, lighter teal */}
       <motion.div
         animate={rm ? {} : { x: [0, -32, 18, 0], y: [0, 26, -16, 0] }}
         transition={{
@@ -201,7 +203,30 @@ export default function Hero() {
           height: 480,
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgba(78,207,195,0.10) 0%, transparent 68%)",
+            "radial-gradient(circle, rgba(78,207,195,0.14) 0%, transparent 68%)",
+          zIndex: 2,
+          pointerEvents: "none",
+        }}
+      />
+      {/* Blob 3 — centre-bottom, indigo/violet for colour variety */}
+      <motion.div
+        animate={rm ? {} : { x: [0, 28, -18, 0], y: [0, -22, 14, 0] }}
+        transition={{
+          duration: 26,
+          ease: "easeInOut",
+          repeat: Infinity,
+          repeatType: "loop",
+          delay: 9,
+        }}
+        style={{
+          position: "absolute",
+          bottom: "5%",
+          left: "28%",
+          width: 440,
+          height: 440,
+          borderRadius: "50%",
+          background:
+            "radial-gradient(circle, rgba(99,102,241,0.10) 0%, transparent 68%)",
           zIndex: 2,
           pointerEvents: "none",
         }}
@@ -285,6 +310,10 @@ export default function Hero() {
                         color: word.accent
                           ? theme.palette.primary.main
                           : "inherit",
+                        // Glowing text-shadow on the teal accent word
+                        textShadow: word.accent
+                          ? `0 0 32px ${alpha(theme.palette.primary.main, 0.55)}, 0 0 72px ${alpha(theme.palette.primary.main, 0.22)}`
+                          : "none",
                         marginRight: word.breakAfter ? 0 : "0.28em",
                       }}
                     >
