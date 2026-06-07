@@ -33,6 +33,11 @@ export default function Reveal({ children, delay = 0, y = 12 }) {
           "opacity 450ms cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 450ms cubic-bezier(0.25, 0.46, 0.45, 0.94)",
         transitionDelay: `${delay}ms`,
         willChange: "transform, opacity",
+        "@media (prefers-reduced-motion: reduce)": {
+          transition: "none",
+          opacity: 1,
+          transform: "none",
+        },
       }}
     >
       {children}
