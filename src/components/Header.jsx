@@ -19,7 +19,6 @@ import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import { useTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
 import useActiveSection from "./useActiveSection.jsx";
-import LanguageSelect from "./LanguageSelect.jsx";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -52,16 +51,31 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Inline style drives CSS transitions on the same DOM node (class changes can't interpolate)
+  const scrolled = progress > 0;
+
   return (
     <>
       <AppBar
         position="sticky"
         elevation={0}
         color="transparent"
-        sx={{
-          background: "rgba(247,249,249,0.88)",
-          backdropFilter: "blur(12px)",
+        style={{
+          background: scrolled
+            ? "rgba(247,249,249,0.97)"
+            : "rgba(247,249,249,0.88)",
+          backdropFilter: scrolled
+            ? "blur(22px) saturate(190%)"
+            : "blur(12px) saturate(150%)",
+          WebkitBackdropFilter: scrolled
+            ? "blur(22px) saturate(190%)"
+            : "blur(12px) saturate(150%)",
+          boxShadow: scrolled
+            ? "0 1px 28px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.05)"
+            : "none",
           borderBottom: "1px solid rgba(0,0,0,0.07)",
+          transition:
+            "background 350ms ease, backdrop-filter 350ms ease, -webkit-backdrop-filter 350ms ease, box-shadow 350ms ease",
         }}
       >
         {/* Scroll progress bar */}
@@ -153,11 +167,6 @@ export default function Header() {
               })}
             </Box>
 
-            {/* Language selector — desktop */}
-            <Box sx={{ display: { xs: "none", md: "flex" }, ml: 0.5 }}>
-              <LanguageSelect />
-            </Box>
-
             {/* Mobile menu button */}
             <IconButton
               onClick={() => setOpen(true)}
@@ -212,20 +221,6 @@ export default function Header() {
               </ListItemButton>
             ))}
           </List>
-
-          <Divider sx={{ my: 1.5 }} />
-
-          {/* Language selector — mobile */}
-          <Box sx={{ px: 1 }}>
-            <Typography
-              variant="caption"
-              color="text.secondary"
-              sx={{ mb: 1, display: "block", fontWeight: 600, letterSpacing: 0.5 }}
-            >
-              {t("language.label")}
-            </Typography>
-            <LanguageSelect />
-          </Box>
         </Box>
       </Drawer>
     </>
