@@ -9,9 +9,14 @@ const LANGUAGES = [
   { code: "tr", label: "TR" },
 ];
 
-export default function LanguageSelect() {
+/**
+ * mode="overlay"  — used inside frosted-glass header (white text on teal)
+ * mode="surface"  — used inside light drawers/panels (standard text colors)
+ */
+export default function LanguageSelect({ mode = "surface" }) {
   const { i18n } = useTranslation();
   const current = i18n.language || "de";
+  const isOverlay = mode === "overlay";
 
   return (
     <Stack direction="row" spacing={0.25}>
@@ -30,15 +35,22 @@ export default function LanguageSelect() {
               fontWeight: isActive ? 700 : 500,
               lineHeight: 1,
               borderRadius: 9999,
-              color: isActive
-                ? "rgba(255,255,255,0.95)"
-                : "rgba(255,255,255,0.55)",
+              color: isOverlay
+                ? isActive
+                  ? "rgba(255,255,255,0.96)"
+                  : "rgba(255,255,255,0.55)"
+                : isActive
+                  ? "primary.main"
+                  : "text.secondary",
               backgroundColor: isActive
-                ? alpha("#fff", 0.14)
+                ? isOverlay
+                  ? alpha("#fff", 0.14)
+                  : alpha(theme.palette.primary.main, 0.10)
                 : "transparent",
               "&:hover": {
-                backgroundColor: alpha("#fff", 0.10),
-                color: "rgba(255,255,255,0.85)",
+                backgroundColor: isOverlay
+                  ? alpha("#fff", 0.10)
+                  : alpha(theme.palette.primary.main, 0.07),
               },
             })}
           >
