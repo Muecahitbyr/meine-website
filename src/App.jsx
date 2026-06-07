@@ -6,8 +6,6 @@ import { Routes, Route } from "react-router-dom";
 import { createAppTheme } from "./theme/createAppTheme";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
-import ParallaxBackground from "./components/ParallaxBackground.jsx";
-
 import Section from "./components/Sections.jsx";
 import Hero from "./components/Hero.jsx";
 import About from "./components/About.jsx";
@@ -69,7 +67,6 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <ParallaxBackground />
 
       <Box className="page">
         <Header />
