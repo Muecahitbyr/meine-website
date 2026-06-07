@@ -11,8 +11,14 @@ import ChevronLeftRoundedIcon from "@mui/icons-material/ChevronLeftRounded";
 import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
 import { useSwipeable } from "react-swipeable";
 import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
 
-export default function ScreenshotGallery({ title, screenshots = [] }) {
+// Defined at module level — prevents new component type on each render
+const MotionBox = motion(Box);
+
+const EASE = [0.25, 0.46, 0.45, 0.94];
+
+export default function ScreenshotGallery({ title, screenshots = [], isHovered = false }) {
   const { t } = useTranslation("common");
 
   const [open, setOpen] = useState(false);
@@ -85,38 +91,48 @@ export default function ScreenshotGallery({ title, screenshots = [] }) {
 
   return (
     <>
-      {/* Preview Bild */}
+      {/* Preview image — isHovered from parent card drives the zoom */}
       <Box
         component="button"
         type="button"
         onClick={() => openAt(0)}
         aria-label={t("screenshots.openAria", { title })}
-        style={{ all: "unset", cursor: "pointer", width: "100%" }}
+        style={{ all: "unset", cursor: "pointer", width: "100%", display: "block" }}
       >
+        {/* Overflow clip — prevents scaled image from spilling outside rounded corners */}
         <Box
-          component="img"
-          src={previewSrc}
-          alt={t("screenshots.previewAlt", { title })}
           sx={{
             mt: 2,
-            width: "100%",
-            aspectRatio: "9 / 19.5",
-            objectFit: "cover",
+            overflow: "hidden",
             borderRadius: 4,
-            border: (tt) =>
-              `1px solid ${
-                tt.palette.mode === "dark"
-                  ? "rgba(255,255,255,0.12)"
-                  : "rgba(0,0,0,0.12)"
-              }`,
-            boxShadow: (tt) =>
-              tt.palette.mode === "dark"
-                ? "0 18px 36px rgba(0,0,0,0.38)"
-                : "0 18px 36px rgba(0,0,0,0.14)",
-            transition: "transform 200ms ease, opacity 200ms ease",
-            "&:hover": { transform: "translateY(-2px)", opacity: 0.98 },
+            display: "block",
           }}
-        />
+        >
+          <MotionBox
+            component="img"
+            src={previewSrc}
+            alt={t("screenshots.previewAlt", { title })}
+            animate={{ scale: isHovered ? 1.05 : 1 }}
+            transition={{ duration: 0.45, ease: EASE }}
+            sx={{
+              width: "100%",
+              aspectRatio: "9 / 19.5",
+              objectFit: "cover",
+              borderRadius: 4,
+              border: (tt) =>
+                `1px solid ${
+                  tt.palette.mode === "dark"
+                    ? "rgba(255,255,255,0.12)"
+                    : "rgba(0,0,0,0.12)"
+                }`,
+              boxShadow: (tt) =>
+                tt.palette.mode === "dark"
+                  ? "0 18px 36px rgba(0,0,0,0.38)"
+                  : "0 18px 36px rgba(0,0,0,0.14)",
+              display: "block",
+            }}
+          />
+        </Box>
       </Box>
 
       {/* Lightbox */}
