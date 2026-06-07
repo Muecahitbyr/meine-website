@@ -44,17 +44,18 @@ export default function Hero() {
           {/* Left column: headline + CTAs */}
           <Reveal>
             <Box>
-              <Typography
-                variant="overline"
+              <Box
+                component="img"
+                src="/BayerSolutionsLogo.png"
+                alt="BAYAR-SOLUTIONS"
                 sx={{
-                  color: "primary.main",
-                  fontWeight: 700,
-                  letterSpacing: 1.5,
-                  fontSize: 11,
+                  height: { xs: 36, md: 44 },
+                  width: "auto",
+                  objectFit: "contain",
+                  display: "block",
+                  mb: 3,
                 }}
-              >
-                {t("header.brand")}
-              </Typography>
+              />
 
               <Typography
                 variant="h1"
@@ -169,18 +170,6 @@ export default function Hero() {
                 })}
               >
                 <Box>
-                  <Box
-                    component="img"
-                    src="/BayerSolutionsLogo.png"
-                    alt="BAYAR-SOLUTIONS"
-                    sx={{
-                      height: 40,
-                      width: "auto",
-                      objectFit: "contain",
-                      mb: 2,
-                      display: "block",
-                    }}
-                  />
                   <Typography
                     color="text.secondary"
                     sx={{ fontSize: 14, lineHeight: 1.65 }}
