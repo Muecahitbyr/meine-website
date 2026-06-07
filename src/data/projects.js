@@ -6,7 +6,8 @@ export const projects = [
     titleKey: "projects.driveconnect.title",
     descriptionKey: "projects.driveconnect.description",
     noteKey: "projects.driveconnect.note",
-    tags: ["SwiftUI", "Vehicle Data", "UX", "Firebase"],
+    tags: ["SwiftUI", "Firebase", "Vehicle Data", "UX"],
+    storeUrl: "", // TODO: add App Store URL
     screenshots: [
       `/screenshots/DC1.${EXT}`,
       `/screenshots/DC2.${EXT}`,
@@ -20,6 +21,7 @@ export const projects = [
     descriptionKey: "projects.getataxi.description",
     noteKey: "projects.getataxi.note",
     tags: ["SwiftUI", "REST", "Async/Await", "Firebase"],
+    storeUrl: "",
     screenshots: [
       `/screenshots/GetATaxi1.${EXT}`,
       `/screenshots/GetATaxi2.${EXT}`,
@@ -31,7 +33,8 @@ export const projects = [
     titleKey: "projects.gtcc.title",
     descriptionKey: "projects.gtcc.description",
     noteKey: "projects.gtcc.note",
-    tags: ["SwiftUI", "Game Logic", "Animations", "API"],
+    tags: ["SwiftUI", "Game Logic", "Animations"],
+    storeUrl: "", // TODO: add App Store URL
     screenshots: [
       `/screenshots/GTCC1.${EXT}`,
       `/screenshots/GTCC2.${EXT}`,
