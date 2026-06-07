@@ -1,8 +1,9 @@
 import { useMemo } from "react";
-import { ThemeProvider, createTheme, CssBaseline, Box } from "@mui/material";
+import { ThemeProvider, CssBaseline, Box } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Routes, Route } from "react-router-dom";
 
+import { createAppTheme } from "./theme/createAppTheme";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import ParallaxBackground from "./components/ParallaxBackground.jsx";
@@ -29,32 +30,32 @@ function HomePage() {
 
       <Section
         id="about"
-        title="Über BAYAR-SOLUTIONS"
-        subtitle="Digitale Unternehmenslösungen für Kunden, die wachsen, effizienter arbeiten und stärker am Markt wahrgenommen werden wollen."
+        title={t("sections.about.title")}
+        subtitle={t("sections.about.subtitle")}
       >
         <About />
       </Section>
 
       <Section
         id="tech"
-        title="Leistungen"
-        subtitle="Digitale Lösungen für Unternehmen mit Fokus auf Kundennutzen, Geschwindigkeit und Skalierbarkeit."
+        title={t("sections.tech.title")}
+        subtitle={t("sections.tech.subtitle")}
       >
         <TechStack />
       </Section>
 
       <Section
         id="apps"
-        title="Referenzen & Lösungen"
-        subtitle="Ausgewählte Kundenlösungen und digitale Referenzen."
+        title={t("sections.apps.title")}
+        subtitle={t("sections.apps.subtitle")}
       >
         <Apps projects={projects} />
       </Section>
 
       <Section
         id="contact"
-        title={t("contact.sectionTitle")}
-        subtitle="Bereit für dein nächstes digitales Projekt? Lass uns sprechen."
+        title={t("sections.contact.title")}
+        subtitle={t("sections.contact.subtitle")}
       >
         <Contact />
       </Section>
@@ -63,36 +64,7 @@ function HomePage() {
 }
 
 export default function App() {
-  const theme = useMemo(
-    () =>
-      createTheme({
-        palette: {
-          mode: "light",
-          primary: {
-            main: "#3dd5c7",
-          },
-          background: {
-            default: "#f0fcfb",
-            paper: "#ffffff",
-          },
-        },
-        shape: { borderRadius: 18 },
-        typography: {
-          fontFamily:
-            '"Inter", "SF Pro Display", "Segoe UI", system-ui, sans-serif',
-          h1: {
-            fontWeight: 900,
-          },
-          h2: {
-            fontWeight: 900,
-          },
-          button: {
-            fontWeight: 800,
-          },
-        },
-      }),
-    [],
-  );
+  const theme = useMemo(() => createAppTheme(), []);
 
   return (
     <ThemeProvider theme={theme}>
@@ -115,7 +87,6 @@ export default function App() {
               </main>
             }
           />
-
         </Routes>
 
         <Footer />
