@@ -1,18 +1,16 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Divider } from "@mui/material";
 
 export default function Privacy() {
   return (
-    <Box sx={{ display: "grid", gap: 1.2, maxWidth: 900 }}>
-      <Typography sx={{ fontWeight: 900, fontSize: 18 }}>
-        Datenschutzerklärung
+    <Box sx={{ display: "grid", gap: 1.5, maxWidth: 860 }}>
+      <Typography color="text.secondary" sx={{ fontSize: 15 }}>
+        Kurzfassung: Diese Website nutzt keine Cookies oder Tracking-Dienste.
       </Typography>
 
-      <Typography color="text.secondary">
-        Kurzfassung: Diese Website nutzt keine Cookies/Tracking.
-      </Typography>
+      <Divider sx={{ my: 0.5 }} />
 
-      <Typography sx={{ fontWeight: 800, mt: 1 }}>Verantwortlicher</Typography>
-      <Typography>
+      <Typography sx={{ fontWeight: 700, fontSize: 15 }}>Verantwortlicher</Typography>
+      <Typography sx={{ fontSize: 15, lineHeight: 1.7 }}>
         Mücahit Bayar
         <br />
         87600 Kaufbeuren
@@ -20,16 +18,17 @@ export default function Privacy() {
         E-Mail: mucahitbayar@outlook.de
       </Typography>
 
-      <Typography sx={{ fontWeight: 800, mt: 1 }}>Hosting</Typography>
-      <Typography color="text.secondary">
+      <Typography sx={{ fontWeight: 700, fontSize: 15, mt: 0.5 }}>Hosting</Typography>
+      <Typography color="text.secondary" sx={{ fontSize: 15, lineHeight: 1.7 }}>
         Die Website wird bei Vercel gehostet. Dabei werden technisch notwendige
-        Server-Logs verarbeitet (z.B. IP-Adresse, Zeitpunkt).
+        Server-Logs verarbeitet (z.B. IP-Adresse, Zeitpunkt des Abrufs).
       </Typography>
 
-      <Typography sx={{ fontWeight: 800, mt: 1 }}>Kontaktaufnahme</Typography>
-      <Typography color="text.secondary">
-        Wenn du per E-Mail Kontakt aufnimmst, werden deine Angaben zur
-        Bearbeitung der Anfrage gespeichert.
+      <Typography sx={{ fontWeight: 700, fontSize: 15, mt: 0.5 }}>Kontaktaufnahme</Typography>
+      <Typography color="text.secondary" sx={{ fontSize: 15, lineHeight: 1.7 }}>
+        Wenn Sie per E-Mail Kontakt aufnehmen, werden Ihre Angaben zur
+        Bearbeitung der Anfrage gespeichert. Eine Weitergabe an Dritte findet
+        nicht statt.
       </Typography>
     </Box>
   );
