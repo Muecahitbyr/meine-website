@@ -21,7 +21,7 @@ function HomePage() {
   const { t } = useTranslation("common");
 
   return (
-    <main className="snapMain">
+    <main>
       <Section id="home">
         <Hero />
       </Section>
@@ -77,7 +77,7 @@ export default function App() {
           <Route
             path="/impressum"
             element={
-              <main className="snapMain">
+              <main>
                 <Section id="imprint" title="Impressum">
                   <Imprint />
                 </Section>
