@@ -96,7 +96,7 @@ export default function App() {
             path="/datenschutz"
             element={
               <main>
-                <Section id="privacy" title="Datenschutz">
+                <Section id="privacy" title="Datenschutzerklärung">
                   <Privacy />
                 </Section>
               </main>
