@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/office/:path*",
+      "destination": "https://ops-origin.bayar-solutions.de/:path*"
+    }
+  ]
+}
