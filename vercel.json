@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/office",
+      "destination": "https://ops-origin.bayar-solutions.de"
+    },
+    {
       "source": "/office/:path*",
       "destination": "https://ops-origin.bayar-solutions.de/:path*"
     }
