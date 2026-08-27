@@ -1,0 +1,24 @@
+{
+  // Name muss exakt mit dem bereits im Cloudflare-Dashboard bestehenden
+  // Worker "meine-website" uebereinstimmen (Workers & Pages -> meine-website),
+  // sonst legt ein Deploy versehentlich einen ZWEITEN Worker an, statt den
+  // bestehenden zu aktualisieren.
+  "name": "meine-website",
+  "compatibility_date": "2026-08-26",
+  "main": "worker/index.js",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    // Ohne diese SPA-Einstellung wuerde ein direkter Aufruf/Reload einer
+    // Unterseite wie /impressum (react-router-dom, kein eigener statischer
+    // Build-Output dafuer) einen echten 404 vom Asset-Handler bekommen,
+    // statt index.html auszuliefern und das Routing dem Client zu ueberlassen
+    // - bereits bisheriges Verhalten, hier nur explizit gemacht, damit das
+    // Hinzufuegen von "main"/run_worker_first unten daran nichts aendert.
+    "not_found_handling": "single-page-application",
+    // Nur fuer /office (und Unterpfade) wird der Worker ueberhaupt
+    // aufgerufen - jede andere URL wird weiterhin ausschliesslich vom
+    // Asset-Handler bedient, unveraendert zum bisherigen Verhalten.
+    "run_worker_first": ["/office", "/office/*"]
+  }
+}
