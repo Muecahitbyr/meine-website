@@ -6,6 +6,14 @@
   "name": "meine-website",
   "compatibility_date": "2026-08-26",
   "main": "worker/index.js",
+  // "www" lief bis eben noch ueber das inzwischen geloeschte Vercel-Projekt
+  // (nur die nackte Domain war bereits als Custom Domain an diesen Worker
+  // gebunden) - beide explizit hier eintragen, damit "www" ab jetzt
+  // ebenfalls direkt vom Worker bedient wird.
+  "routes": [
+    { "pattern": "bayar-solutions.de", "custom_domain": true },
+    { "pattern": "www.bayar-solutions.de", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
