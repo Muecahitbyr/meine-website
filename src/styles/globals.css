@@ -75,10 +75,13 @@ main {
 /* Base scroll behaviour */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
   height: 100%;
+  width: 100%;
   overflow-x: hidden;
 }
 

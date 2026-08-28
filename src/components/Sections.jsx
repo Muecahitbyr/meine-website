@@ -38,7 +38,10 @@ export default function Section({ id, title, subtitle, children, sx }) {
       ref={sectionRef}
       component="section"
       id={id}
-      sx={[{ position: "relative" }, ...(Array.isArray(sx) ? sx : [sx || {}])]}
+      sx={[
+        { position: "relative", overflow: "hidden" },
+        ...(Array.isArray(sx) ? sx : [sx || {}]),
+      ]}
     >
       {/* Blob 1 — top-right, teal, drifts upward */}
       {!rm && (
