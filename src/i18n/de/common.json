@@ -135,15 +135,15 @@
       "description": "Personalisierte iOS App zur Analyse und Darstellung von Fahrzeugdaten — modern und benutzerzentriert.",
       "note": "(Im App Store verfügbar)"
     },
-    "getataxi": {
-      "title": "Get A Taxi",
-      "description": "Taxi-App: Startpunkt wählen, Ziel eingeben und Anfrage schnell senden.",
-      "note": "(Bald im App Store)"
-    },
-    "gtcc": {
-      "title": "Guess The Capital City",
-      "description": "Quiz-Spiel: Flagge erkennen und die richtige Hauptstadt wählen mit SwiftUI Animationen.",
+    "rechno": {
+      "title": "Rechno",
+      "description": "Rechnungs-App für Kleinunternehmer und Unternehmen: Rechnungen einfach erstellen, verwalten und direkt versenden.",
       "note": "(Im App Store verfügbar)"
+    },
+    "tano": {
+      "title": "Tano",
+      "description": "Minispiele-App: Flaggen, Länder und Musik erraten sowie Top-10-Ranglisten — unterhaltsame Quiz-Herausforderungen für zwischendurch.",
+      "note": "(Bald im App Store)"
     }
   },
 

@@ -12,6 +12,10 @@ import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { useTranslation } from "react-i18next";
 import Reveal from "./Reveal.jsx";
 import ScreenshotGallery from "./ScreenshotGallery.jsx";
+import ScrollParallax from "./ScrollParallax.jsx";
+
+// Alternating column depth — the classic staggered-grid parallax look
+const COLUMN_SPEEDS = [22, -14, 22];
 
 // Defined outside component — prevents new type on every render
 const MotionBox = motion(Box);
@@ -266,11 +270,9 @@ export default function Apps({ projects }) {
       }}
     >
       {projects.map((p, idx) => (
-        <ProjectCard3D
-          key={p.id || p.titleKey}
-          project={p}
-          delay={idx * 50}
-        />
+        <ScrollParallax key={p.id || p.titleKey} speed={COLUMN_SPEEDS[idx % 3]}>
+          <ProjectCard3D project={p} delay={idx * 50} />
+        </ScrollParallax>
       ))}
     </Box>
   );

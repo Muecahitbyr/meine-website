@@ -16,6 +16,7 @@ import { Link as RouterLink } from "react-router-dom";
 import Reveal from "./Reveal.jsx";
 import GlowCard from "./GlowCard.jsx";
 import MagneticButton from "./MagneticButton.jsx";
+import ScrollParallax from "./ScrollParallax.jsx";
 import { useTranslation } from "react-i18next";
 
 const EMAIL = "bayar-solutions@outlook.de";
@@ -217,18 +218,20 @@ export default function Contact() {
                 {t("contact.qr.subtitle")}
               </Typography>
 
-              <Box
-                component="img"
-                src="/QrEmail.jpg"
-                alt={t("contact.qr.alt")}
-                loading="lazy"
-                sx={{
-                  width: "65%",
-                  aspectRatio: "1 / 1",
-                  objectFit: "contain",
-                  borderRadius: "8px",
-                }}
-              />
+              <ScrollParallax speed={14} style={{ width: "65%" }}>
+                <Box
+                  component="img"
+                  src="/QrEmail.jpg"
+                  alt={t("contact.qr.alt")}
+                  loading="lazy"
+                  sx={{
+                    width: "100%",
+                    aspectRatio: "1 / 1",
+                    objectFit: "contain",
+                    borderRadius: "8px",
+                  }}
+                />
+              </ScrollParallax>
             </Box>
           </Box>
         </GlowCard>

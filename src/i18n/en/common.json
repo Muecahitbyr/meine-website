@@ -135,15 +135,15 @@
       "description": "Personalized iOS app to analyze and visualize vehicle data — modern and user-focused.",
       "note": "(Available on the App Store)"
     },
-    "getataxi": {
-      "title": "Get A Taxi",
-      "description": "Taxi app: choose pickup, enter destination and send a request quickly.",
-      "note": "(Coming soon to the App Store)"
-    },
-    "gtcc": {
-      "title": "Guess The Capital City",
-      "description": "Quiz game: recognize the flag and choose the correct capital — with SwiftUI animations.",
+    "rechno": {
+      "title": "Rechno",
+      "description": "Invoicing app for freelancers and small businesses: create, manage and send invoices with ease.",
       "note": "(Available on the App Store)"
+    },
+    "tano": {
+      "title": "Tano",
+      "description": "Mini-games app: guess flags, countries and songs, plus Top-10 rankings — quick quiz challenges on the go.",
+      "note": "(Coming soon to the App Store)"
     }
   },
 

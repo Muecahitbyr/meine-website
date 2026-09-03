@@ -2,6 +2,7 @@ import { Box, Paper, Typography, Divider } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import Reveal from "./Reveal.jsx";
 import GlowCard from "./GlowCard.jsx";
+import ScrollParallax from "./ScrollParallax.jsx";
 import { useTranslation } from "react-i18next";
 
 // GlowCard replaces TiltCard+Paper — children own their padding
@@ -67,7 +68,7 @@ function DashboardMock() {
           </Typography>
         </Paper>
 
-        {/* Stats tiles — each tile gets its own accent colour */}
+        {/* Stats tiles — each tile gets its own accent colour, staggered in */}
         <Box
           sx={{
             display: "grid",
@@ -75,27 +76,28 @@ function DashboardMock() {
             gap: 1.5,
           }}
         >
-          {tiles.map((tile) => (
-            <Paper
-              key={tile.key}
-              sx={(theme) => ({
-                p: 2,
-                borderRadius: "8px",
-                border: `1px solid ${alpha(tile.color, 0.22)}`,
-                background: `linear-gradient(135deg, ${theme.palette.background.paper} 0%, ${alpha(tile.color, 0.06)} 100%)`,
-                boxShadow: `0 0 12px ${alpha(tile.color, 0.10)}`,
-              })}
-            >
-              <Typography sx={{ fontWeight: 700, fontSize: 13 }}>
-                {t(`about.deviceMock.tiles.${tile.key}`)}
-              </Typography>
-              <Typography
-                variant="body2"
-                sx={{ fontWeight: 700, mt: 0.25, color: tile.color }}
+          {tiles.map((tile, idx) => (
+            <Reveal key={tile.key} delay={idx * 50} y={8}>
+              <Paper
+                sx={(theme) => ({
+                  p: 2,
+                  borderRadius: "8px",
+                  border: `1px solid ${alpha(tile.color, 0.22)}`,
+                  background: `linear-gradient(135deg, ${theme.palette.background.paper} 0%, ${alpha(tile.color, 0.06)} 100%)`,
+                  boxShadow: `0 0 12px ${alpha(tile.color, 0.10)}`,
+                })}
               >
-                {tile.value}
-              </Typography>
-            </Paper>
+                <Typography sx={{ fontWeight: 700, fontSize: 13 }}>
+                  {t(`about.deviceMock.tiles.${tile.key}`)}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{ fontWeight: 700, mt: 0.25, color: tile.color }}
+                >
+                  {tile.value}
+                </Typography>
+              </Paper>
+            </Reveal>
           ))}
         </Box>
 
@@ -152,14 +154,15 @@ export default function About() {
           >
             <Box sx={{ display: "grid", gap: 1 }}>
               {Array.isArray(featureItems)
-                ? featureItems.map((item) => (
-                    <Typography
-                      key={item}
-                      color="text.secondary"
-                      sx={{ fontSize: 14, lineHeight: 1.6 }}
-                    >
-                      · {item}
-                    </Typography>
+                ? featureItems.map((item, idx) => (
+                    <Reveal key={item} delay={idx * 40} y={8}>
+                      <Typography
+                        color="text.secondary"
+                        sx={{ fontSize: 14, lineHeight: 1.6 }}
+                      >
+                        · {item}
+                      </Typography>
+                    </Reveal>
                   ))
                 : null}
             </Box>
@@ -174,7 +177,9 @@ export default function About() {
             title={t("about.uiPreview.title")}
             subtitle={t("about.uiPreview.subtitle")}
           >
-            <DashboardMock />
+            <ScrollParallax speed={10}>
+              <DashboardMock />
+            </ScrollParallax>
           </GlassCard>
         </Reveal>
 

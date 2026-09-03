@@ -135,15 +135,15 @@
       "description": "Araç verilerini analiz eden ve görselleştiren kişiselleştirilmiş iOS uygulaması — modern ve kullanıcı odaklı.",
       "note": "(App Store'da mevcut)"
     },
-    "getataxi": {
-      "title": "Get A Taxi",
-      "description": "Taksi uygulaması: başlangıç noktası seç, hedefi gir ve isteği hızlıca gönder.",
-      "note": "(Yakında App Store'da)"
-    },
-    "gtcc": {
-      "title": "Guess The Capital City",
-      "description": "Quiz: bayrağı tanı ve doğru başkenti seç — SwiftUI animasyonlarıyla.",
+    "rechno": {
+      "title": "Rechno",
+      "description": "Küçük işletmeler ve şirketler için fatura uygulaması: faturaları kolayca oluşturun, yönetin ve gönderin.",
       "note": "(App Store'da mevcut)"
+    },
+    "tano": {
+      "title": "Tano",
+      "description": "Mini oyun uygulaması: bayrak, ülke ve müzik tahmini ile Top 10 sıralamaları — anlık eğlenceli quiz'ler.",
+      "note": "(Yakında App Store'da)"
     }
   },
 

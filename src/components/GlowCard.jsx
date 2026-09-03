@@ -32,7 +32,7 @@ const EASE = [0.25, 0.46, 0.45, 0.94];
 export default function GlowCard({
   children,
   accentColor = "#1DB8AA",
-  maxTilt = 6,
+  maxTilt = 5,
   sx,
   ...props
 }) {

@@ -30,8 +30,8 @@ export default function Section({ id, title, subtitle, children, sx }) {
     target: sectionRef,
     offset: ["start end", "end start"],
   });
-  const blob1Y = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
-  const blob2Y = useTransform(scrollYProgress, [0, 1], ["5%", "22%"]);
+  const blob1Y = useTransform(scrollYProgress, [0, 1], ["0%", "-42%"]);
+  const blob2Y = useTransform(scrollYProgress, [0, 1], ["6%", "30%"]);
 
   return (
     <Box

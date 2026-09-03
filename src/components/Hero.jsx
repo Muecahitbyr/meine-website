@@ -29,9 +29,15 @@ export default function Hero() {
   const chips = t("hero.chips", { returnObjects: true });
   const tiles = t("hero.card.tiles", { returnObjects: true });
 
-  // Parallax: card drifts up 35px over first 500px of scroll
+  // Parallax: card drifts up over first 600px of scroll — Apple-style hero exit
   const { scrollY } = useScroll();
-  const cardParallaxY = useTransform(scrollY, [0, 500], [0, -35]);
+  const cardParallaxY = useTransform(scrollY, [0, 600], [0, -60]);
+
+  // Left column recedes faster than the card, and the video breathes in —
+  // creates the layered depth you see leaving apple.com's hero as you scroll
+  const contentY = useTransform(scrollY, [0, 500], [0, -70]);
+  const contentOpacity = useTransform(scrollY, [0, 420], [1, 0.15]);
+  const videoScale = useTransform(scrollY, [0, 700], [1, 1.12]);
 
   // Build flat word list for headline stagger.
   // Each entry: { text, accent, breakAfter }
@@ -144,6 +150,7 @@ export default function Hero() {
             height: "100%",
             objectFit: "cover",
             zIndex: 0,
+            scale: videoScale,
           }}
         />
       )}
@@ -250,7 +257,8 @@ export default function Hero() {
             alignItems: "center",
           }}
         >
-          {/* ── Left column ──────────────────────────────────────────── */}
+          {/* ── Left column — recedes on scroll for hero-exit depth ───── */}
+          <motion.div style={{ y: rm ? 0 : contentY, opacity: rm ? 1 : contentOpacity }}>
           <Box>
             {/* Logo: entrance then perpetual float */}
             <motion.div {...fadeUp(0)}>
@@ -425,6 +433,7 @@ export default function Hero() {
               </motion.div>
             )}
           </Box>
+          </motion.div>
 
           {/* ── Right column — entrance + scroll parallax ────────────── */}
           {/* Outer handles entrance; inner handles parallax separately */}
