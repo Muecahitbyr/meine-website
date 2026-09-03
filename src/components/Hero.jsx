@@ -5,7 +5,6 @@ import {
   Container,
   Stack,
   Typography,
-  Paper,
   Chip,
 } from "@mui/material";
 import { alpha, useTheme } from "@mui/material/styles";
@@ -27,7 +26,6 @@ export default function Hero() {
   const theme = useTheme();
   const rm = useReducedMotion();
   const chips = t("hero.chips", { returnObjects: true });
-  const tiles = t("hero.card.tiles", { returnObjects: true });
 
   // Parallax: card drifts up over first 600px of scroll — Apple-style hero exit
   const { scrollY } = useScroll();
@@ -446,79 +444,28 @@ export default function Hero() {
                 justifyContent: "center",
               }}
             >
-              <Paper
-                sx={(th) => ({
+              <Box
+                sx={{
                   width: "100%",
                   maxWidth: 440,
-                  borderRadius: "20px",
-                  p: { xs: 3, md: 4 },
                   display: "flex",
-                  flexDirection: "column",
-                  gap: 3,
-                  background: "rgba(255,255,255,0.97)",
-                  border: "1px solid rgba(255,255,255,0.12)",
-                  boxShadow:
-                    "0 20px 60px rgba(0,0,0,0.38), 0 8px 24px rgba(0,0,0,0.22)",
-                  position: "relative",
-                  overflow: "hidden",
-                  "&::before": {
-                    content: '""',
-                    position: "absolute",
-                    top: 0,
-                    left: 24,
-                    right: 24,
-                    height: 2,
-                    borderRadius: "0 0 2px 2px",
-                    background: `linear-gradient(90deg, ${th.palette.primary.main}, ${alpha(th.palette.primary.light, 0.3)})`,
-                  },
-                })}
+                  justifyContent: "center",
+                }}
               >
-                <Box sx={{ display: "flex", justifyContent: "center", py: { xs: 1, md: 1.5 } }}>
-                  <Box
-                    component="img"
-                    src="/BayerSolutionsLogo.webp"
-                    alt="BAYAR-SOLUTIONS"
-                    sx={{
-                      height: { xs: 64, md: 84 },
-                      width: "auto",
-                      objectFit: "contain",
-                      display: "block",
-                    }}
-                  />
-                </Box>
-
-                {Array.isArray(tiles) && (
-                  <Box
-                    sx={{
-                      display: "grid",
-                      gridTemplateColumns: "repeat(2, 1fr)",
-                      gap: 1.5,
-                    }}
-                  >
-                    {tiles.map((tile) => (
-                      <Box
-                        key={tile.title}
-                        sx={(th) => ({
-                          p: 2,
-                          borderRadius: "10px",
-                          border: `1px solid ${th.palette.divider}`,
-                          backgroundColor: alpha(th.palette.primary.main, 0.04),
-                        })}
-                      >
-                        <Typography sx={{ fontWeight: 700, fontSize: 13 }}>
-                          {tile.title}
-                        </Typography>
-                        <Typography
-                          color="text.secondary"
-                          sx={{ fontSize: 12, mt: 0.25 }}
-                        >
-                          {tile.text}
-                        </Typography>
-                      </Box>
-                    ))}
-                  </Box>
-                )}
-              </Paper>
+                <Box
+                  component="img"
+                  src="/BayerSolutionsLogo.webp"
+                  alt="BAYAR-SOLUTIONS"
+                  sx={{
+                    width: { xs: "70%", md: "85%" },
+                    maxWidth: 360,
+                    height: "auto",
+                    objectFit: "contain",
+                    display: "block",
+                    filter: "drop-shadow(0 20px 60px rgba(0,0,0,0.35))",
+                  }}
+                />
+              </Box>
             </motion.div>
           </motion.div>
         </Box>
