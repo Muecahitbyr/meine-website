@@ -112,6 +112,8 @@ export default function ScreenshotGallery({ title, screenshots = [], isHovered =
             component="img"
             src={previewSrc}
             alt={t("screenshots.previewAlt", { title })}
+            loading="lazy"
+            decoding="async"
             animate={{ scale: isHovered ? 1.05 : 1 }}
             transition={{ duration: 0.45, ease: EASE }}
             sx={{

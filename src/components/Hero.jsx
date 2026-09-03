@@ -275,7 +275,7 @@ export default function Hero() {
               >
                 <Box
                   component="img"
-                  src="/BayerSolutionsLogo.png"
+                  src="/BayerSolutionsLogo.webp"
                   alt="BAYAR-SOLUTIONS"
                   sx={{
                     height: { xs: 34, md: 42 },
@@ -473,13 +473,18 @@ export default function Hero() {
                   },
                 })}
               >
-                <Box>
-                  <Typography
-                    color="text.secondary"
-                    sx={{ fontSize: 14, lineHeight: 1.65 }}
-                  >
-                    {t("hero.card.description")}
-                  </Typography>
+                <Box sx={{ display: "flex", justifyContent: "center", py: { xs: 1, md: 1.5 } }}>
+                  <Box
+                    component="img"
+                    src="/BayerSolutionsLogo.webp"
+                    alt="BAYAR-SOLUTIONS"
+                    sx={{
+                      height: { xs: 64, md: 84 },
+                      width: "auto",
+                      objectFit: "contain",
+                      display: "block",
+                    }}
+                  />
                 </Box>
 
                 {Array.isArray(tiles) && (

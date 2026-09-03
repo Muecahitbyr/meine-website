@@ -1,4 +1,4 @@
-const EXT = "png";
+const EXT = "webp";
 
 export const projects = [
   {

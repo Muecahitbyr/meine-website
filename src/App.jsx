@@ -1,7 +1,7 @@
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { ThemeProvider, CssBaseline, Box } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import { createAppTheme } from "./theme/createAppTheme";
 import Header from "./components/Header.jsx";
@@ -20,6 +20,17 @@ import { projects } from "./data/projects.js";
 
 function HomePage() {
   const { t } = useTranslation("common");
+  const location = useLocation();
+
+  // Nav links use client-side routing (RouterLink to="/#id"), which never
+  // triggers the browser's native hash-scroll — so we scroll manually
+  // whenever the hash changes, whether coming from this page or another.
+  useEffect(() => {
+    if (!location.hash) return;
+    const id = location.hash.slice(1);
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [location.hash]);
 
   return (
     <main>

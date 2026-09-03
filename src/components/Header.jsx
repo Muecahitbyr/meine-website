@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import {
   AppBar,
   Box,
@@ -14,15 +14,18 @@ import {
   Divider,
 } from "@mui/material";
 import { alpha } from "@mui/material/styles";
+import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import { useTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
 import useActiveSection from "./useActiveSection.jsx";
 
+const MotionBox = motion(Box);
+
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const [progress, setProgress] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
   const { t } = useTranslation("common");
 
   const navItems = useMemo(
@@ -39,20 +42,16 @@ export default function Header() {
   const sectionIds = useMemo(() => navItems.map((n) => n.id), [navItems]);
   const active = useActiveSection(sectionIds);
 
-  useEffect(() => {
-    const onScroll = () => {
-      const doc = document.documentElement;
-      const max = (doc.scrollHeight || 1) - window.innerHeight;
-      const p = max > 0 ? (window.scrollY / max) * 100 : 0;
-      setProgress(Math.max(0, Math.min(100, p)));
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  // Progress bar width is a motion value updated directly on the DOM — no
+  // React re-render per scroll pixel. Only crossing the "scrolled" threshold
+  // triggers an actual re-render (React bails out when the value is unchanged),
+  // which is what keeps scrolling smooth on lower-end mobile devices.
+  const { scrollY, scrollYProgress } = useScroll();
+  const progressWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
-  // Inline style drives CSS transitions on the same DOM node (class changes can't interpolate)
-  const scrolled = progress > 0;
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setScrolled(latest > 4);
+  });
 
   return (
     <>
@@ -78,19 +77,18 @@ export default function Header() {
             "background 350ms ease, backdrop-filter 350ms ease, -webkit-backdrop-filter 350ms ease, box-shadow 350ms ease",
         }}
       >
-        {/* Scroll progress bar */}
+        {/* Scroll progress bar — motion value drives width directly, no re-render */}
         <Box sx={{ height: 2, width: "100%", background: "rgba(0,0,0,0.05)" }}>
-          <Box
+          <MotionBox
+            style={{ width: progressWidth }}
             sx={(theme) => ({
               height: "100%",
-              width: `${progress}%`,
               background: `linear-gradient(90deg, ${theme.palette.primary.main}, ${alpha(theme.palette.primary.light, 0.4)})`,
-              transition: "width 120ms linear",
             })}
           />
         </Box>
 
-        <Toolbar disableGutters sx={{ minHeight: 64 }}>
+        <Toolbar disableGutters sx={{ minHeight: { xs: 88, md: 104 } }}>
           <Container
             maxWidth="lg"
             sx={{ display: "flex", alignItems: "center", gap: 1.5 }}
@@ -108,9 +106,9 @@ export default function Header() {
             >
               <Box
                 component="img"
-                src="/BayerSolutionsLogo.png"
+                src="/BayerSolutionsLogo.webp"
                 alt="BAYAR-SOLUTIONS"
-                sx={{ height: 30, width: "auto", objectFit: "contain" }}
+                sx={{ height: { xs: 60, md: 78 }, width: "auto", objectFit: "contain" }}
               />
             </Box>
 
