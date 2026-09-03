@@ -88,7 +88,7 @@ export default function Header() {
           />
         </Box>
 
-        <Toolbar disableGutters sx={{ minHeight: { xs: 112, md: 140 } }}>
+        <Toolbar disableGutters sx={{ minHeight: { xs: 88, md: 104 } }}>
           <Container
             maxWidth="lg"
             sx={{ display: "flex", alignItems: "center", gap: 1.5 }}
@@ -108,7 +108,7 @@ export default function Header() {
                 component="img"
                 src="/BayerSolutionsLogo.webp"
                 alt="BAYAR-SOLUTIONS"
-                sx={{ height: { xs: 84, md: 112 }, width: "auto", objectFit: "contain" }}
+                sx={{ height: { xs: 60, md: 78 }, width: "auto", objectFit: "contain" }}
               />
             </Box>
 
