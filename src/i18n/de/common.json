@@ -164,7 +164,7 @@
 
   "contact": {
     "emailSubject": "Kontakt über deine Website",
-    "emailBody": "Hallo! Ich habe deine Website gesehen und möchte Kontakt aufnehmen.",
+    "emailBody": "Hallo,\n\nich interessiere mich für ein Projekt mit BAYAR-SOLUTIONS.\n\nProjektname: \nProjektidee: \nGewünschter Zeitrahmen (bis): \nBudget (optional): \nSonstiges: \n\nViele Grüße",
     "sectionTitle": "Kontakt",
     "card": {
       "title": "Schreib mir",

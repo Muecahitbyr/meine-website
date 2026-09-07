@@ -164,7 +164,7 @@
 
   "contact": {
     "emailSubject": "Web siten üzerinden iletişim",
-    "emailBody": "Merhaba! Web siteni gördüm ve iletişime geçmek istiyorum.",
+    "emailBody": "Merhaba,\n\nBAYAR-SOLUTIONS ile bir proje için iletişime geçmek istiyorum.\n\nProje adı: \nProje fikri: \nİstenen zaman çizelgesi (ne zamana kadar): \nBütçe (opsiyonel): \nDiğer notlar: \n\nSaygılarımla",
     "sectionTitle": "İletişim",
     "card": {
       "title": "Bana yaz",
