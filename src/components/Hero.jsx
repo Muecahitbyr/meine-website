@@ -6,6 +6,7 @@ import {
   Stack,
   Typography,
   Chip,
+  useMediaQuery,
 } from "@mui/material";
 import { alpha, useTheme } from "@mui/material/styles";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -25,6 +26,14 @@ export default function Hero() {
   const { t } = useTranslation("common");
   const theme = useTheme();
   const rm = useReducedMotion();
+  // The 3 ambient blobs and the logo float below run as infinite JS-driven
+  // framer-motion loops — on desktop that's cheap, but on a phone they keep
+  // the main thread busy indefinitely, competing with the very first touch
+  // scroll right after the page opens (same class of issue fixed for
+  // GlowCard's breathing ring in d68fa2f). Touch devices skip them entirely
+  // since nobody's parsing subtle background drift with a thumb over it.
+  const isCoarsePointer = useMediaQuery("(pointer: coarse)");
+  const skipDecorativeLoops = rm || isCoarsePointer;
   const chips = t("hero.chips", { returnObjects: true });
 
   // Parallax: card drifts up over first 600px of scroll — Apple-style hero exit
@@ -170,7 +179,7 @@ export default function Hero() {
       {/* ── Ambient gradient blobs ───────────────────────────────────── */}
       {/* Blob 1 — top-left, teal glow */}
       <motion.div
-        animate={rm ? {} : { x: [0, 45, -20, 0], y: [0, -30, 22, 0] }}
+        animate={skipDecorativeLoops ? {} : { x: [0, 45, -20, 0], y: [0, -30, 22, 0] }}
         transition={{
           duration: 16,
           ease: "easeInOut",
@@ -192,7 +201,7 @@ export default function Hero() {
       />
       {/* Blob 2 — bottom-right, lighter teal */}
       <motion.div
-        animate={rm ? {} : { x: [0, -32, 18, 0], y: [0, 26, -16, 0] }}
+        animate={skipDecorativeLoops ? {} : { x: [0, -32, 18, 0], y: [0, 26, -16, 0] }}
         transition={{
           duration: 20,
           ease: "easeInOut",
@@ -215,7 +224,7 @@ export default function Hero() {
       />
       {/* Blob 3 — centre-bottom, indigo/violet for colour variety */}
       <motion.div
-        animate={rm ? {} : { x: [0, 28, -18, 0], y: [0, -22, 14, 0] }}
+        animate={skipDecorativeLoops ? {} : { x: [0, 28, -18, 0], y: [0, -22, 14, 0] }}
         transition={{
           duration: 26,
           ease: "easeInOut",
@@ -261,7 +270,7 @@ export default function Hero() {
             {/* Logo: entrance then perpetual float */}
             <motion.div {...fadeUp(0)}>
               <motion.div
-                animate={rm ? {} : { y: [0, -6, 0] }}
+                animate={skipDecorativeLoops ? {} : { y: [0, -6, 0] }}
                 transition={{
                   duration: 4,
                   ease: "easeInOut",
