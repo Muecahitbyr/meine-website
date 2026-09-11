@@ -7,7 +7,7 @@ import {
   useMotionTemplate,
   useReducedMotion,
 } from "framer-motion";
-import { Box } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 
 // Defined at module level — prevents new component type on each render
 const MotionBox = motion(Box);
@@ -37,6 +37,12 @@ export default function GlowCard({
   ...props
 }) {
   const rm = useReducedMotion();
+  // Touch devices have no cursor to tilt/spotlight toward, and skipping the
+  // work here avoids promoting a compositor layer for every card on mount —
+  // with a dozen+ cards on the page, that's real jank right when a phone
+  // tries to render and accept the first scroll gesture at once.
+  const isCoarsePointer = useMediaQuery("(pointer: coarse)");
+  const disabled = rm || isCoarsePointer;
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef(null);
 
@@ -60,7 +66,7 @@ export default function GlowCard({
 
   // ── Event handlers ──────────────────────────────────────────────────
   const onMouseMove = (e) => {
-    if (!cardRef.current || rm) return;
+    if (!cardRef.current || disabled) return;
     const r = cardRef.current.getBoundingClientRect();
     const x = (e.clientX - r.left) / r.width;
     const y = (e.clientY - r.top) / r.height;
@@ -77,39 +83,43 @@ export default function GlowCard({
   };
 
   // ── Breathing glow ring ─────────────────────────────────────────────
-  // Ring pulses opacity 0→0.65→0 at rest; hides on hover.
-  // Switching from keyframe array [0,0.65,0] to single value 0 (and back)
-  // works cleanly in Framer Motion: current opacity value is the transition source.
-  const ringAnimation = rm
-    ? { animate: { opacity: 0 }, transition: { duration: 0 } }
-    : isHovered
-      ? { animate: { opacity: 0 }, transition: { duration: 0.2 } }
-      : {
-          animate: { opacity: [0, 0.65, 0] },
-          transition: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-        };
+  // Pulses opacity 0→0.65→0 only while actually in view — an off-screen
+  // infinite loop per card (there can be a dozen+ on one page) is pure
+  // waste, and running them all from mount is what makes the first scroll
+  // gesture on a phone feel stuck until the browser catches up.
+  const ringAnimation =
+    disabled
+      ? { animate: { opacity: 0 }, transition: { duration: 0 } }
+      : isHovered
+        ? { animate: { opacity: 0 }, transition: { duration: 0.2 } }
+        : {
+            initial: { opacity: 0 },
+            whileInView: { opacity: [0, 0.65, 0] },
+            viewport: { once: false, amount: 0.2 },
+            transition: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+          };
 
   return (
-    <Box sx={{ perspective: "900px", height: "100%" }}>
+    <Box sx={{ perspective: disabled ? "none" : "900px", height: "100%" }}>
       {/* 3D tilt layer */}
       <motion.div
         ref={cardRef}
-        onMouseMove={rm ? undefined : onMouseMove}
-        onMouseEnter={rm ? undefined : () => setIsHovered(true)}
-        onMouseLeave={rm ? undefined : onMouseLeave}
+        onMouseMove={disabled ? undefined : onMouseMove}
+        onMouseEnter={disabled ? undefined : () => setIsHovered(true)}
+        onMouseLeave={disabled ? undefined : onMouseLeave}
         style={{
-          rotateX: rm ? 0 : rotateX,
-          rotateY: rm ? 0 : rotateY,
-          transformStyle: "preserve-3d",
+          rotateX: disabled ? 0 : rotateX,
+          rotateY: disabled ? 0 : rotateY,
+          transformStyle: disabled ? "flat" : "preserve-3d",
           height: "100%",
-          willChange: "transform",
+          willChange: disabled ? "auto" : "transform",
         }}
       >
         {/* Card surface — animated hover shadow */}
         <MotionBox
           animate={{
             boxShadow:
-              isHovered && !rm
+              isHovered && !disabled
                 ? `0 0 0 1px ${accentColor}66, 0 0 40px ${accentColor}28, 0 20px 48px rgba(0,0,0,0.16)`
                 : `0 0 0 1px ${accentColor}22, 0 2px 12px rgba(0,0,0,0.06)`,
           }}
@@ -139,7 +149,7 @@ export default function GlowCard({
           />
 
           {/* Cursor spotlight */}
-          {!rm && (
+          {!disabled && (
             <MotionBox
               style={{ background: spotlight }}
               sx={{

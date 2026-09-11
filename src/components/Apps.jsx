@@ -7,7 +7,7 @@ import {
   useMotionTemplate,
   useReducedMotion,
 } from "framer-motion";
-import { Box, Typography, Chip, Button } from "@mui/material";
+import { Box, Typography, Chip, Button, useMediaQuery } from "@mui/material";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { useTranslation } from "react-i18next";
 import Reveal from "./Reveal.jsx";
@@ -33,6 +33,11 @@ const SHADOW_HOVER =
 function ProjectCard3D({ project, delay }) {
   const { t } = useTranslation("common");
   const rm = useReducedMotion();
+  // No cursor on touch devices to tilt toward — skip the transform/perspective
+  // layer entirely there so mounting a whole grid of cards doesn't compete
+  // with the phone's first scroll gesture.
+  const isCoarsePointer = useMediaQuery("(pointer: coarse)");
+  const disabled = rm || isCoarsePointer;
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef(null);
 
@@ -58,7 +63,7 @@ function ProjectCard3D({ project, delay }) {
 
   // ── Handlers ────────────────────────────────────────────────────
   const onMouseMove = (e) => {
-    if (!cardRef.current) return;
+    if (!cardRef.current || disabled) return;
     const r = cardRef.current.getBoundingClientRect();
     const x = (e.clientX - r.left) / r.width;
     const y = (e.clientY - r.top) / r.height;
@@ -88,7 +93,7 @@ function ProjectCard3D({ project, delay }) {
           with the Framer Motion transforms on the child */}
       <Box
         sx={{
-          perspective: "1000px",
+          perspective: disabled ? "none" : "1000px",
           perspectiveOrigin: "50% 50%",
           height: "100%",
         }}
@@ -96,21 +101,21 @@ function ProjectCard3D({ project, delay }) {
         {/* 3D tilt layer */}
         <motion.div
           ref={cardRef}
-          onMouseMove={rm ? undefined : onMouseMove}
-          onMouseEnter={rm ? undefined : () => setIsHovered(true)}
-          onMouseLeave={rm ? undefined : onMouseLeave}
+          onMouseMove={disabled ? undefined : onMouseMove}
+          onMouseEnter={disabled ? undefined : () => setIsHovered(true)}
+          onMouseLeave={disabled ? undefined : onMouseLeave}
           style={{
-            rotateX: rm ? 0 : rotateX,
-            rotateY: rm ? 0 : rotateY,
-            transformStyle: "preserve-3d",
+            rotateX: disabled ? 0 : rotateX,
+            rotateY: disabled ? 0 : rotateY,
+            transformStyle: disabled ? "flat" : "preserve-3d",
             height: "100%",
-            willChange: "transform",
+            willChange: disabled ? "auto" : "transform",
           }}
         >
           {/* Card surface — animated shadow */}
           <MotionBox
             animate={{
-              boxShadow: isHovered && !rm ? SHADOW_HOVER : SHADOW_REST,
+              boxShadow: isHovered && !disabled ? SHADOW_HOVER : SHADOW_REST,
             }}
             transition={{ boxShadow: { duration: 0.35, ease: EASE } }}
             sx={(theme) => ({
@@ -123,7 +128,7 @@ function ProjectCard3D({ project, delay }) {
           >
             {/* Cursor spotlight — MotionValue drives background directly,
                 no React re-render on mouse move */}
-            {!rm && (
+            {!disabled && (
               <MotionBox
                 style={{ background: spotlight }}
                 sx={{
@@ -200,7 +205,7 @@ function ProjectCard3D({ project, delay }) {
                 <ScreenshotGallery
                   title={title}
                   screenshots={project.screenshots || []}
-                  isHovered={isHovered && !rm}
+                  isHovered={isHovered && !disabled}
                 />
               </Box>
 
