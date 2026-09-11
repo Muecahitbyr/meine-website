@@ -158,6 +158,7 @@ export default function Hero() {
             objectFit: "cover",
             zIndex: 0,
             scale: videoScale,
+            pointerEvents: "none",
           }}
         />
       )}
