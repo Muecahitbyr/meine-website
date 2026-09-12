@@ -21,9 +21,9 @@ function ServiceCard({ title, description, Icon, color }) {
     <GlowCard
       accentColor={color}
       maxTilt={5}
-      sx={() => ({
+      sx={(theme) => ({
         // Subtle diagonal gradient blends the accent colour into the card
-        background: `linear-gradient(135deg, #ffffff 0%, ${color}08 100%)`,
+        background: `linear-gradient(135deg, ${theme.palette.background.paper} 0%, ${color}14 100%)`,
         height: "100%",
       })}
     >

@@ -3,23 +3,25 @@ import { createTheme } from "@mui/material/styles";
 export function createAppTheme() {
   return createTheme({
     palette: {
-      mode: "light",
+      mode: "dark",
       primary: {
         main: "#1DB8AA",
         dark: "#169E92",
         light: "#4ECFC3",
-        contrastText: "#0C1117",
+        contrastText: "#071815",
       },
       background: {
-        default: "#F7F9F9",
-        paper: "#FFFFFF",
+        // Moderate dark slate, not near-black — a full-black canvas read as
+        // too harsh/void-like in review, this keeps depth without the void.
+        default: "#12181F",
+        paper: "#1A222C",
       },
       text: {
-        primary: "#0C1117",
-        secondary: "#4B5563",
-        disabled: "#9CA3AF",
+        primary: "#F2F5F4",
+        secondary: "#9FA9AE",
+        disabled: "#5C666B",
       },
-      divider: "rgba(0,0,0,0.08)",
+      divider: "rgba(255,255,255,0.10)",
     },
     shape: { borderRadius: 10 },
     typography: {
@@ -61,7 +63,7 @@ export function createAppTheme() {
       },
       MuiDivider: {
         styleOverrides: {
-          root: { borderColor: "rgba(0,0,0,0.08)" },
+          root: { borderColor: "rgba(255,255,255,0.10)" },
         },
       },
     },

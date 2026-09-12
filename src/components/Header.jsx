@@ -13,7 +13,7 @@ import {
   ListItemText,
   Divider,
 } from "@mui/material";
-import { alpha } from "@mui/material/styles";
+import { alpha, useTheme } from "@mui/material/styles";
 import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
@@ -27,6 +27,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { t } = useTranslation("common");
+  const theme = useTheme();
 
   const navItems = useMemo(
     () => [
@@ -60,9 +61,7 @@ export default function Header() {
         elevation={0}
         color="transparent"
         style={{
-          background: scrolled
-            ? "rgba(247,249,249,0.97)"
-            : "rgba(247,249,249,0.88)",
+          background: alpha(theme.palette.background.default, scrolled ? 0.97 : 0.86),
           backdropFilter: scrolled
             ? "blur(22px) saturate(190%)"
             : "blur(12px) saturate(150%)",
@@ -70,15 +69,15 @@ export default function Header() {
             ? "blur(22px) saturate(190%)"
             : "blur(12px) saturate(150%)",
           boxShadow: scrolled
-            ? "0 1px 28px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.05)"
+            ? "0 1px 28px rgba(0,0,0,0.32), 0 0 0 1px rgba(255,255,255,0.05)"
             : "none",
-          borderBottom: "1px solid rgba(0,0,0,0.07)",
+          borderBottom: `1px solid ${theme.palette.divider}`,
           transition:
             "background 350ms ease, backdrop-filter 350ms ease, -webkit-backdrop-filter 350ms ease, box-shadow 350ms ease",
         }}
       >
         {/* Scroll progress bar — motion value drives width directly, no re-render */}
-        <Box sx={{ height: 2, width: "100%", background: "rgba(0,0,0,0.05)" }}>
+        <Box sx={{ height: 2, width: "100%", background: "rgba(255,255,255,0.08)" }}>
           <MotionBox
             style={{ width: progressWidth }}
             sx={(theme) => ({
@@ -106,7 +105,7 @@ export default function Header() {
             >
               <Box
                 component="img"
-                src="/BayerSolutionsLogo.webp"
+                src="/BayerSolutionsLogoWhite.webp"
                 alt="BAYAR-SOLUTIONS"
                 sx={{ height: { xs: 60, md: 78 }, width: "auto", objectFit: "contain" }}
               />
