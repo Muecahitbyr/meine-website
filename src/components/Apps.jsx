@@ -7,8 +7,7 @@ import {
   useMotionTemplate,
   useReducedMotion,
 } from "framer-motion";
-import { Box, Typography, Button, useMediaQuery } from "@mui/material";
-import { alpha } from "@mui/material/styles";
+import { Box, Typography, Chip, Button, useMediaQuery } from "@mui/material";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { useTranslation } from "react-i18next";
 import Reveal from "./Reveal.jsx";
@@ -144,72 +143,76 @@ function ProjectCard3D({ project, delay }) {
               />
             )}
 
-            {/* Content sits above the spotlight — centered, phone mockup first */}
+            {/* Content sits above the spotlight */}
             <Box
               sx={{
                 p: 2.5,
                 height: "100%",
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "center",
-                textAlign: "center",
-                gap: 1.25,
+                gap: 1.5,
                 position: "relative",
                 zIndex: 2,
               }}
             >
-              {/* Phone mockup — auto-cycles through screenshots, click opens lightbox */}
-              <ScreenshotGallery
-                title={title}
-                screenshots={project.screenshots || []}
-                isHovered={isHovered && !disabled}
-              />
+              {/* Title + description */}
+              <Box>
+                <Typography
+                  sx={{ fontWeight: 700, fontSize: 16, letterSpacing: -0.2 }}
+                >
+                  {title}
+                </Typography>
+                <Typography
+                  color="text.secondary"
+                  sx={{
+                    mt: 0.75,
+                    fontSize: 13,
+                    lineHeight: 1.6,
+                    display: "-webkit-box",
+                    WebkitLineClamp: 4,
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden",
+                  }}
+                >
+                  {description}
+                </Typography>
+              </Box>
 
-              {/* Tags — small mono pills, matches the approved design */}
+              {/* Tags */}
               {project.tags?.length > 0 && (
-                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.75, justifyContent: "center", mt: 0.5 }}>
+                <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.75 }}>
                   {project.tags.map((tag) => (
-                    <Box
+                    <Chip
                       key={tag}
-                      component="span"
+                      label={tag}
+                      size="small"
                       sx={(theme) => ({
-                        fontFamily: '"JetBrains Mono", ui-monospace, monospace',
-                        fontSize: 10,
-                        fontWeight: 500,
-                        color: theme.palette.primary.light,
-                        border: `1px solid ${alpha(theme.palette.primary.light, 0.35)}`,
-                        borderRadius: "5px",
-                        px: 0.9,
-                        py: 0.3,
+                        height: 22,
+                        fontSize: 11,
+                        fontWeight: 600,
+                        borderRadius: "6px",
+                        border: `1px solid ${theme.palette.divider}`,
+                        backgroundColor: "transparent",
+                        color: "text.secondary",
                       })}
-                    >
-                      {tag}
-                    </Box>
+                    />
                   ))}
                 </Box>
               )}
 
-              <Typography sx={{ fontWeight: 700, fontSize: 17, letterSpacing: -0.2, mt: 0.5 }}>
-                {title}
-              </Typography>
-              <Typography
-                color="text.secondary"
-                sx={{
-                  fontSize: 13,
-                  lineHeight: 1.6,
-                  display: "-webkit-box",
-                  WebkitLineClamp: 3,
-                  WebkitBoxOrient: "vertical",
-                  overflow: "hidden",
-                }}
-              >
-                {description}
-              </Typography>
+              {/* Screenshot — isHovered triggers image zoom inside */}
+              <Box>
+                <ScreenshotGallery
+                  title={title}
+                  screenshots={project.screenshots || []}
+                  isHovered={isHovered && !disabled}
+                />
+              </Box>
 
               <Box sx={{ flex: 1 }} />
 
               {/* CTA */}
-              <Box sx={{ pt: 0.5, width: "100%" }}>
+              <Box sx={{ pt: 0.5 }}>
                 {href ? (
                   <Button
                     fullWidth
@@ -229,12 +232,22 @@ function ProjectCard3D({ project, delay }) {
                     {t("projectCard.openStore")}
                   </Button>
                 ) : (
-                  <Typography
-                    variant="caption"
-                    sx={(theme) => ({ fontWeight: 600, color: theme.palette.primary.light })}
+                  <Box
+                    sx={{
+                      textAlign: "center",
+                      py: 1,
+                      borderRadius: "8px",
+                      border: (theme) => `1px solid ${theme.palette.divider}`,
+                    }}
                   >
-                    {note ?? t("projectCard.open")}
-                  </Typography>
+                    <Typography
+                      variant="caption"
+                      color="text.disabled"
+                      sx={{ fontWeight: 600 }}
+                    >
+                      {note ?? t("projectCard.open")}
+                    </Typography>
+                  </Box>
                 )}
               </Box>
             </Box>

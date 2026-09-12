@@ -3,25 +3,23 @@ import { createTheme } from "@mui/material/styles";
 export function createAppTheme() {
   return createTheme({
     palette: {
-      mode: "dark",
+      mode: "light",
       primary: {
         main: "#1DB8AA",
         dark: "#169E92",
         light: "#4ECFC3",
-        contrastText: "#071815",
+        contrastText: "#0C1117",
       },
       background: {
-        // Lightened again after review — the first dark pass (#12181F) still
-        // read as too dark. This is a proper medium slate, not a near-black.
-        default: "#232B35",
-        paper: "#2E3844",
+        default: "#F7F9F9",
+        paper: "#FFFFFF",
       },
       text: {
-        primary: "#F5F7F7",
-        secondary: "#AEB8BE",
-        disabled: "#707B82",
+        primary: "#0C1117",
+        secondary: "#4B5563",
+        disabled: "#9CA3AF",
       },
-      divider: "rgba(255,255,255,0.10)",
+      divider: "rgba(0,0,0,0.08)",
     },
     shape: { borderRadius: 10 },
     typography: {
@@ -63,7 +61,7 @@ export function createAppTheme() {
       },
       MuiDivider: {
         styleOverrides: {
-          root: { borderColor: "rgba(255,255,255,0.10)" },
+          root: { borderColor: "rgba(0,0,0,0.08)" },
         },
       },
     },

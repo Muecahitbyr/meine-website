@@ -91,12 +91,12 @@ function HomePage() {
       )}
 
       {stage >= 3 && (
-        /* Apps — subtle indigo wash, distinct from the sections around it */
+        /* Apps — slightly off-white with teal tint at bottom */
         <Section
           id="apps"
           title={t("sections.apps.title")}
           subtitle={t("sections.apps.subtitle")}
-          sx={{ background: "linear-gradient(180deg, rgba(99,102,241,0.05) 0%, rgba(99,102,241,0) 100%)" }}
+          sx={{ background: "linear-gradient(180deg, #F4F7F7 0%, rgba(247,249,249,0) 100%)" }}
         >
           <Suspense fallback={null}>
             <Apps projects={projects} />

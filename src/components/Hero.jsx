@@ -1,5 +1,4 @@
-import { useRef } from "react";
-import { motion, useReducedMotion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import {
   Box,
   Button,
@@ -18,11 +17,9 @@ const scrollTo = (id) => {
   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
-// Fine-grain noise, same SVG turbulence technique as globals.css' body::before —
-// keeps the cinematic film-grain feel consistent with the rest of the site.
-const GRAIN_URL =
-  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E\")";
-
+// Richer dark: adds a slight indigo layer for more colour in reduced-motion fallback
+const STATIC_BG =
+  "linear-gradient(135deg, #0A0E14 0%, #0c1628 30%, #0d2622 60%, #0a1420 100%)";
 const EASE = [0.25, 0.46, 0.45, 0.94];
 
 export default function Hero() {
@@ -42,27 +39,6 @@ export default function Hero() {
   // Parallax: card drifts up over first 600px of scroll — Apple-style hero exit
   const { scrollY } = useScroll();
   const cardParallaxY = useTransform(scrollY, [0, 600], [0, -60]);
-
-  // Phone mockup: scroll parallax (above) combines with a subtle mouse-driven
-  // tilt on desktop — same "follow the cursor" depth cue as GlowCard's tilt,
-  // skipped on touch/reduced-motion where there's no cursor to follow.
-  const heroRef = useRef(null);
-  const phoneRotateX = useMotionValue(0);
-  const phoneRotateY = useMotionValue(0);
-  const springRotateX = useSpring(phoneRotateX, { stiffness: 150, damping: 20 });
-  const springRotateY = useSpring(phoneRotateY, { stiffness: 150, damping: 20 });
-  const onHeroMouseMove = (e) => {
-    if (skipDecorativeLoops || !heroRef.current) return;
-    const r = heroRef.current.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5;
-    const y = (e.clientY - r.top) / r.height - 0.5;
-    phoneRotateY.set(x * 10);
-    phoneRotateX.set(y * -8);
-  };
-  const onHeroMouseLeave = () => {
-    phoneRotateX.set(0);
-    phoneRotateY.set(0);
-  };
 
   // Left column recedes faster than the card, and the video breathes in —
   // creates the layered depth you see leaving apple.com's hero as you scroll
@@ -154,16 +130,13 @@ export default function Hero() {
     <Box
       component="section"
       id="home"
-      ref={heroRef}
-      onMouseMove={onHeroMouseMove}
-      onMouseLeave={onHeroMouseLeave}
       sx={{
         position: "relative",
         overflow: "hidden",
         minHeight: { xs: "100svh", md: "88vh" },
         display: "flex",
         alignItems: "center",
-        background: (theme) => theme.palette.background.default,
+        background: rm ? STATIC_BG : "#0A0E14",
       }}
     >
       {/* ── Background video ─────────────────────────────────────────── */}
@@ -190,33 +163,17 @@ export default function Hero() {
         />
       )}
 
-      {/* ── Dark overlay + scrim ─────────────────────────────────────── */}
-      {/* Bottom scrim fades into the page's own background colour so the
-          hero exits into the rest of the (also dark) site seamlessly,
-          instead of a hard cut at the section boundary. */}
+      {/* ── Dark overlay ─────────────────────────────────────────────── */}
       <Box
         sx={{
           position: "absolute",
           inset: 0,
           zIndex: 1,
           pointerEvents: "none",
-          background: (theme) => ({
-            xs: `linear-gradient(180deg, rgba(35,43,53,0.5) 0%, rgba(35,43,53,0.44) 55%, ${theme.palette.background.default} 100%)`,
-            md: `linear-gradient(180deg, rgba(35,43,53,0.34) 0%, rgba(35,43,53,0.30) 55%, ${theme.palette.background.default} 100%)`,
-          }),
-        }}
-      />
-
-      {/* ── Film grain — cinematic texture over the video/overlay ───────── */}
-      <Box
-        sx={{
-          position: "absolute",
-          inset: 0,
-          zIndex: 2,
-          pointerEvents: "none",
-          opacity: 0.5,
-          mixBlendMode: "overlay",
-          backgroundImage: GRAIN_URL,
+          background: {
+            xs: "rgba(10,14,20,0.74)",
+            md: "rgba(10,14,20,0.58)",
+          },
         }}
       />
 
@@ -239,7 +196,7 @@ export default function Hero() {
           borderRadius: "50%",
           background:
             "radial-gradient(circle, rgba(29,184,170,0.22) 0%, transparent 68%)",
-          zIndex: 3,
+          zIndex: 2,
           pointerEvents: "none",
         }}
       />
@@ -262,7 +219,7 @@ export default function Hero() {
           borderRadius: "50%",
           background:
             "radial-gradient(circle, rgba(78,207,195,0.14) 0%, transparent 68%)",
-          zIndex: 3,
+          zIndex: 2,
           pointerEvents: "none",
         }}
       />
@@ -285,7 +242,7 @@ export default function Hero() {
           borderRadius: "50%",
           background:
             "radial-gradient(circle, rgba(99,102,241,0.10) 0%, transparent 68%)",
-          zIndex: 3,
+          zIndex: 2,
           pointerEvents: "none",
         }}
       />
@@ -295,7 +252,7 @@ export default function Hero() {
         maxWidth="lg"
         sx={{
           position: "relative",
-          zIndex: 4,
+          zIndex: 3,
           py: { xs: 10, md: 14 },
           width: "100%",
         }}
@@ -311,21 +268,33 @@ export default function Hero() {
           {/* ── Left column — recedes on scroll for hero-exit depth ───── */}
           <motion.div style={{ y: rm ? 0 : contentY, opacity: rm ? 1 : contentOpacity }}>
           <Box>
-            {/* Eyebrow — real location detail, sets tone before the headline */}
+            {/* Logo: entrance then perpetual float */}
             <motion.div {...fadeUp(0)}>
-              <Typography
-                sx={{
-                  fontFamily: '"JetBrains Mono", ui-monospace, monospace',
-                  fontSize: 12,
-                  fontWeight: 500,
-                  letterSpacing: "1.4px",
-                  textTransform: "uppercase",
-                  color: theme.palette.primary.light,
-                  mb: 2.25,
+              <motion.div
+                animate={skipDecorativeLoops ? {} : { y: [0, -6, 0] }}
+                transition={{
+                  duration: 4,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  delay: 0.8,
                 }}
+                style={{ display: "inline-block" }}
               >
-                {t("hero.eyebrow")}
-              </Typography>
+                <Box
+                  component="img"
+                  src="/BayerSolutionsLogo.webp"
+                  alt="BAYAR-SOLUTIONS"
+                  sx={{
+                    height: { xs: 34, md: 42 },
+                    width: "auto",
+                    objectFit: "contain",
+                    display: "block",
+                    mb: 3,
+                    filter: "brightness(0) invert(1)",
+                  }}
+                />
+              </motion.div>
             </motion.div>
 
             {/* Headline — word-by-word stagger */}
@@ -474,15 +443,12 @@ export default function Hero() {
           </Box>
           </motion.div>
 
-          {/* ── Right column — real project screenshot in a phone mockup ── */}
-          {/* Outer handles entrance; inner combines scroll parallax (cardParallaxY)
-              with a mouse-driven tilt (phoneRotate*) into one transform. */}
-          <motion.div {...fadeUp(0.15)} style={{ width: "100%", perspective: 1000 }}>
+          {/* ── Right column — entrance + scroll parallax ────────────── */}
+          {/* Outer handles entrance; inner handles parallax separately */}
+          <motion.div {...fadeUp(0.15)} style={{ width: "100%" }}>
             <motion.div
               style={{
                 y: rm ? 0 : cardParallaxY,
-                rotateX: rm ? 0 : springRotateX,
-                rotateY: rm ? 0 : springRotateY,
                 width: "100%",
                 display: "flex",
                 justifyContent: "center",
@@ -490,40 +456,23 @@ export default function Hero() {
             >
               <Box
                 sx={{
-                  width: 220,
-                  maxWidth: "62%",
-                  aspectRatio: "9 / 19.5",
-                  borderRadius: "32px",
-                  border: "6px solid #1c2229",
-                  background: "#0d1116",
-                  boxShadow: "0 30px 70px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05)",
-                  overflow: "hidden",
-                  position: "relative",
+                  width: "100%",
+                  maxWidth: 440,
+                  display: "flex",
+                  justifyContent: "center",
                 }}
               >
                 <Box
-                  sx={{
-                    position: "absolute",
-                    top: 0,
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    width: "44%",
-                    height: 16,
-                    background: "#1c2229",
-                    borderRadius: "0 0 12px 12px",
-                    zIndex: 2,
-                  }}
-                />
-                <Box
                   component="img"
-                  src="/screenshots/DC/DC1.webp"
-                  alt="DriveConnect App"
-                  loading="lazy"
+                  src="/BayerSolutionsLogo.webp"
+                  alt="BAYAR-SOLUTIONS"
                   sx={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
+                    width: { xs: "70%", md: "85%" },
+                    maxWidth: 360,
+                    height: "auto",
+                    objectFit: "contain",
                     display: "block",
+                    filter: "drop-shadow(0 20px 60px rgba(0,0,0,0.35))",
                   }}
                 />
               </Box>
