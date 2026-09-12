@@ -201,8 +201,8 @@ export default function Hero() {
           zIndex: 1,
           pointerEvents: "none",
           background: (theme) => ({
-            xs: `linear-gradient(180deg, rgba(10,14,20,0.7) 0%, rgba(10,14,20,0.62) 55%, ${theme.palette.background.default} 100%)`,
-            md: `linear-gradient(180deg, rgba(10,14,20,0.5) 0%, rgba(10,14,20,0.46) 55%, ${theme.palette.background.default} 100%)`,
+            xs: `linear-gradient(180deg, rgba(35,43,53,0.5) 0%, rgba(35,43,53,0.44) 55%, ${theme.palette.background.default} 100%)`,
+            md: `linear-gradient(180deg, rgba(35,43,53,0.34) 0%, rgba(35,43,53,0.30) 55%, ${theme.palette.background.default} 100%)`,
           }),
         }}
       />

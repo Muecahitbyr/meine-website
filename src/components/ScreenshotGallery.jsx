@@ -20,14 +20,28 @@ const EASE = [0.25, 0.46, 0.45, 0.94];
 
 export default function ScreenshotGallery({ title, screenshots = [], isHovered = false }) {
   const { t } = useTranslation("common");
+  const reduceMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 
   const [open, setOpen] = useState(false);
   const [idx, setIdx] = useState(0);
+  // Preview auto-cycles through the app's screenshots like a little slideshow —
+  // stopped while the lightbox is open so it doesn't jump behind the dialog.
+  const [previewIdx, setPreviewIdx] = useState(0);
 
   const hasShots = screenshots.length > 0;
   const fullScreen = useMediaQuery("(max-width:900px)");
 
   const currentSrc = useMemo(() => screenshots[idx], [screenshots, idx]);
+
+  useEffect(() => {
+    if (reduceMotion || open || screenshots.length <= 1) return;
+    const id = setInterval(() => {
+      setPreviewIdx((v) => (v + 1) % screenshots.length);
+    }, 2600);
+    return () => clearInterval(id);
+  }, [open, screenshots.length, reduceMotion]);
 
   const openAt = (i) => {
     setIdx(i);
@@ -87,54 +101,73 @@ export default function ScreenshotGallery({ title, screenshots = [], isHovered =
     );
   }
 
-  const previewSrc = screenshots[0];
-
   return (
     <>
-      {/* Preview image — isHovered from parent card drives the zoom */}
+      {/* Preview — phone-frame mockup, auto-cycling through screenshots.
+          isHovered from parent card drives the zoom; click opens the lightbox
+          at whichever screenshot is currently showing. */}
       <Box
         component="button"
         type="button"
-        onClick={() => openAt(0)}
+        onClick={() => openAt(previewIdx)}
         aria-label={t("screenshots.openAria", { title })}
         style={{ all: "unset", cursor: "pointer", width: "100%", display: "block" }}
       >
-        {/* Overflow clip — prevents scaled image from spilling outside rounded corners */}
-        <Box
+        <MotionBox
+          animate={{ scale: isHovered ? 1.03 : 1 }}
+          transition={{ duration: 0.45, ease: EASE }}
           sx={{
             mt: 2,
+            mx: "auto",
+            width: "62%",
+            maxWidth: 170,
+            aspectRatio: "9 / 19.5",
+            borderRadius: "22px",
+            background: "#0d1116",
+            border: "5px solid #1c2229",
+            boxShadow: (tt) =>
+              tt.palette.mode === "dark"
+                ? "0 18px 36px rgba(0,0,0,0.45)"
+                : "0 18px 36px rgba(0,0,0,0.16)",
             overflow: "hidden",
-            borderRadius: 4,
-            display: "block",
+            position: "relative",
           }}
         >
-          <MotionBox
-            component="img"
-            src={previewSrc}
-            alt={t("screenshots.previewAlt", { title })}
-            loading="lazy"
-            decoding="async"
-            animate={{ scale: isHovered ? 1.05 : 1 }}
-            transition={{ duration: 0.45, ease: EASE }}
+          {/* Notch */}
+          <Box
             sx={{
-              width: "100%",
-              aspectRatio: "9 / 19.5",
-              objectFit: "cover",
-              borderRadius: 4,
-              border: (tt) =>
-                `1px solid ${
-                  tt.palette.mode === "dark"
-                    ? "rgba(255,255,255,0.12)"
-                    : "rgba(0,0,0,0.12)"
-                }`,
-              boxShadow: (tt) =>
-                tt.palette.mode === "dark"
-                  ? "0 18px 36px rgba(0,0,0,0.38)"
-                  : "0 18px 36px rgba(0,0,0,0.14)",
-              display: "block",
+              position: "absolute",
+              top: 0,
+              left: "50%",
+              transform: "translateX(-50%)",
+              width: "42%",
+              height: 14,
+              background: "#1c2229",
+              borderRadius: "0 0 10px 10px",
+              zIndex: 2,
             }}
           />
-        </Box>
+          {/* Crossfading screenshot stack */}
+          {screenshots.map((src, i) => (
+            <Box
+              key={src}
+              component="img"
+              src={src}
+              alt={t("screenshots.previewAlt", { title })}
+              loading="lazy"
+              decoding="async"
+              sx={{
+                position: "absolute",
+                inset: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                opacity: i === previewIdx ? 1 : 0,
+                transition: "opacity 900ms ease",
+              }}
+            />
+          ))}
+        </MotionBox>
       </Box>
 
       {/* Lightbox */}

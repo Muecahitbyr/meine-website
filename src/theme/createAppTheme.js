@@ -11,15 +11,15 @@ export function createAppTheme() {
         contrastText: "#071815",
       },
       background: {
-        // Moderate dark slate, not near-black — a full-black canvas read as
-        // too harsh/void-like in review, this keeps depth without the void.
-        default: "#12181F",
-        paper: "#1A222C",
+        // Lightened again after review — the first dark pass (#12181F) still
+        // read as too dark. This is a proper medium slate, not a near-black.
+        default: "#232B35",
+        paper: "#2E3844",
       },
       text: {
-        primary: "#F2F5F4",
-        secondary: "#9FA9AE",
-        disabled: "#5C666B",
+        primary: "#F5F7F7",
+        secondary: "#AEB8BE",
+        disabled: "#707B82",
       },
       divider: "rgba(255,255,255,0.10)",
     },
