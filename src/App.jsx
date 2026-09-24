@@ -21,6 +21,7 @@ const Apps = lazy(() => import("./components/Apps.jsx"));
 const Contact = lazy(() => import("./components/Contact.jsx"));
 const Imprint = lazy(() => import("./components/Imprint.jsx"));
 const Privacy = lazy(() => import("./components/Privacy.jsx"));
+const LandingPage = lazy(() => import("./pages/LandingPage.jsx"));
 
 function HomePage() {
   const { t } = useTranslation("common");
@@ -135,6 +136,24 @@ export default function App() {
 
         <Routes>
           <Route path="/" element={<HomePage />} />
+
+          <Route
+            path="/webseiten-kaufbeuren"
+            element={
+              <Suspense fallback={null}>
+                <LandingPage key="web" pageKey="web" />
+              </Suspense>
+            }
+          />
+
+          <Route
+            path="/app-entwicklung-kaufbeuren"
+            element={
+              <Suspense fallback={null}>
+                <LandingPage key="app" pageKey="app" />
+              </Suspense>
+            }
+          />
 
           <Route
             path="/impressum"

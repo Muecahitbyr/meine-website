@@ -58,7 +58,9 @@
   },
 
   "footer": {
-    "role": "Digitale Lösungen für Unternehmen"
+    "role": "Digitale Lösungen für Unternehmen",
+    "webLink": "Website erstellen lassen",
+    "appLink": "App entwickeln lassen"
   },
 
   "about": {
@@ -113,11 +115,13 @@
   "services": {
     "web": {
       "title": "Geschäfts-Websites",
-      "description": "Websites, die Ihre Kunden finden und konvertieren. Schnell, sicher und benutzerfreundlich."
+      "description": "Websites, die Ihre Kunden finden und konvertieren. Schnell, sicher und benutzerfreundlich.",
+      "linkLabel": "Webseiten für Unternehmen in Kaufbeuren"
     },
     "apps": {
       "title": "Geschäftsapps",
-      "description": "Apps für iOS oder Web, die Ihre Prozesse digitalisieren und Ihren Alltag vereinfachen."
+      "description": "Apps für iOS oder Web, die Ihre Prozesse digitalisieren und Ihren Alltag vereinfachen.",
+      "linkLabel": "App-Entwicklung in Kaufbeuren"
     },
     "backend": {
       "title": "Backend & APIs",

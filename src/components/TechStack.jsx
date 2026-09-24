@@ -4,19 +4,21 @@ import LanguageRoundedIcon from "@mui/icons-material/LanguageRounded";
 import PhoneAndroidRoundedIcon from "@mui/icons-material/PhoneAndroidRounded";
 import StorageRoundedIcon from "@mui/icons-material/StorageRounded";
 import CloudRoundedIcon from "@mui/icons-material/CloudRounded";
+import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
+import { Link as RouterLink } from "react-router-dom";
 import GlowCard from "./GlowCard.jsx";
 import Reveal from "./Reveal.jsx";
 import { useTranslation } from "react-i18next";
 
 // Each service gets a distinct brand colour — breaks the all-teal monotony
 const SERVICE_KEYS = [
-  { key: "web",     Icon: LanguageRoundedIcon,      color: "#3B82F6" }, // blue
-  { key: "apps",    Icon: PhoneAndroidRoundedIcon,  color: "#1DB8AA" }, // teal (brand)
+  { key: "web",     Icon: LanguageRoundedIcon,      color: "#3B82F6", to: "/webseiten-kaufbeuren" }, // blue
+  { key: "apps",    Icon: PhoneAndroidRoundedIcon,  color: "#1DB8AA", to: "/app-entwicklung-kaufbeuren" }, // teal (brand)
   { key: "backend", Icon: StorageRoundedIcon,       color: "#8B5CF6" }, // violet
   { key: "hosting", Icon: CloudRoundedIcon,         color: "#F59E0B" }, // amber
 ];
 
-function ServiceCard({ title, description, Icon, color }) {
+function ServiceCard({ title, description, Icon, color, linkTo, linkLabel }) {
   return (
     <GlowCard
       accentColor={color}
@@ -76,6 +78,30 @@ function ServiceCard({ title, description, Icon, color }) {
         >
           {description}
         </Typography>
+
+        {linkTo && (
+          <Typography
+            component={RouterLink}
+            to={linkTo}
+            sx={{
+              mt: "auto",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 0.75,
+              alignSelf: "flex-start",
+              fontSize: 14,
+              fontWeight: 700,
+              color: "text.primary",
+              textDecoration: "none",
+              "& svg": { color, transition: "transform 150ms ease" },
+              "&:hover": { textDecoration: "underline" },
+              "&:hover svg": { transform: "translateX(3px)" },
+            }}
+          >
+            {linkLabel}
+            <ArrowForwardRoundedIcon sx={{ fontSize: 18 }} />
+          </Typography>
+        )}
       </Box>
     </GlowCard>
   );
@@ -93,13 +119,15 @@ export default function TechStack() {
           gap: { xs: 2, md: 3 },
         }}
       >
-        {SERVICE_KEYS.map(({ key, Icon, color }, idx) => (
+        {SERVICE_KEYS.map(({ key, Icon, color, to }, idx) => (
           <Reveal key={key} delay={idx * 60}>
             <ServiceCard
               title={t(`services.${key}.title`)}
               description={t(`services.${key}.description`)}
               Icon={Icon}
               color={color}
+              linkTo={to}
+              linkLabel={to ? t(`services.${key}.linkLabel`) : undefined}
             />
           </Reveal>
         ))}

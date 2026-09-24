@@ -31,7 +31,35 @@ export default function Footer() {
           © {year} – {t("footer.role")}
         </Typography>
 
-        <Stack direction="row" spacing={2.5}>
+        <Stack
+          direction="row"
+          useFlexGap
+          sx={{ flexWrap: "wrap", justifyContent: "center", columnGap: 2.5, rowGap: 1 }}
+        >
+          <Typography
+            component={RouterLink}
+            to="/webseiten-kaufbeuren"
+            variant="body2"
+            sx={{
+              color: "text.secondary",
+              textDecoration: "none",
+              "&:hover": { color: "text.primary" },
+            }}
+          >
+            {t("footer.webLink")}
+          </Typography>
+          <Typography
+            component={RouterLink}
+            to="/app-entwicklung-kaufbeuren"
+            variant="body2"
+            sx={{
+              color: "text.secondary",
+              textDecoration: "none",
+              "&:hover": { color: "text.primary" },
+            }}
+          >
+            {t("footer.appLink")}
+          </Typography>
           <Typography
             component={RouterLink}
             to="/datenschutz"
