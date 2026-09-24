@@ -17,7 +17,7 @@ const EASE = [0.25, 0.46, 0.45, 0.94];
  *   - Two parallax ambient blobs (top-right + bottom-left, opposite directions)
  *   - sx prop forwarded to the outer Box for per-section background tints
  */
-export default function Section({ id, title, subtitle, children, sx }) {
+export default function Section({ id, title, titleAs = "h2", subtitle, children, sx }) {
   const rm = useReducedMotion();
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
@@ -103,6 +103,7 @@ export default function Section({ id, title, subtitle, children, sx }) {
               >
                 <Typography
                   variant="h2"
+                  component={titleAs}
                   sx={{
                     fontSize: { xs: 32, md: 44 },
                     letterSpacing: -0.8,

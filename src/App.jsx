@@ -8,6 +8,7 @@ import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 import Section from "./components/Sections.jsx";
 import Hero from "./components/Hero.jsx";
+import RouteSeo from "./components/RouteSeo.jsx";
 import { projects } from "./data/projects.js";
 
 // Below-the-fold and route-only components are code-split so their JS isn't
@@ -127,6 +128,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <RouteSeo />
 
       <Box className="page">
         <Header />
@@ -138,7 +140,7 @@ export default function App() {
             path="/impressum"
             element={
               <main>
-                <Section id="imprint" title="Impressum">
+                <Section id="imprint" title="Impressum" titleAs="h1">
                   <Suspense fallback={null}>
                     <Imprint />
                   </Suspense>
@@ -151,7 +153,7 @@ export default function App() {
             path="/datenschutz"
             element={
               <main>
-                <Section id="privacy" title="Datenschutzerklärung">
+                <Section id="privacy" title="Datenschutzerklärung" titleAs="h1">
                   <Suspense fallback={null}>
                     <Privacy />
                   </Suspense>
