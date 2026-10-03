@@ -255,7 +255,7 @@ export const LANDING_PAGES = {
       title: "App-Entwicklung für Unternehmen in Kaufbeuren",
       lead: "Eine eigene App kann Abläufe vereinfachen, Kunden enger an Ihr Unternehmen binden oder ein neues Angebot erst möglich machen. Ich entwickle individuelle Apps und Anwendungen für Unternehmen und Selbstständige in Kaufbeuren und im Allgäu – von der ersten Idee bis zur Veröffentlichung.",
       chips: [
-        "Native iOS-Apps mit SwiftUI",
+        "Native Apps für iOS & Android",
         "Web-Anwendungen",
         "Backend & Schnittstellen",
         "Wartung & Weiterentwicklung",
@@ -333,24 +333,24 @@ export const LANDING_PAGES = {
       ],
     },
     platforms: {
-      title: "iOS, Web oder beides?",
+      title: "iOS, Android oder Web?",
       subtitle:
         "Die passende Plattform hängt von Ihrer Zielgruppe ab. Ich sage Ihnen ehrlich, was ich empfehle.",
       items: [
         {
           Icon: AppleIcon,
           title: "iOS-App",
-          text: "Mein Schwerpunkt: native Entwicklung mit SwiftUI und Veröffentlichung im App Store – so wie bei den Apps in meinen Referenzen.",
+          text: "Native Entwicklung mit SwiftUI und Veröffentlichung im App Store – so wie bei den Apps in meinen Referenzen.",
+        },
+        {
+          Icon: AndroidRoundedIcon,
+          title: "Android-App",
+          text: "Native Android-Entwicklung für Ihre Zielgruppe auf Android-Geräten, inklusive Veröffentlichung im Google Play Store.",
         },
         {
           Icon: LanguageRoundedIcon,
           title: "Web-Anwendung",
           text: "Läuft im Browser auf iPhone, Android und Desktop, ganz ohne Store. Oft die richtige Wahl für interne Tools und Kundenportale.",
-        },
-        {
-          Icon: AndroidRoundedIcon,
-          title: "Android",
-          text: "Native Android-Apps sind nicht mein Schwerpunkt. Wenn Ihre Zielgruppe überwiegend Android nutzt, prüfen wir im Erstgespräch, ob eine Web-Anwendung die bessere Lösung ist.",
         },
       ],
     },
@@ -417,7 +417,7 @@ export const LANDING_PAGES = {
         },
         {
           q: "Entwickeln Sie für iOS oder Android?",
-          a: "Mein Schwerpunkt sind native iOS-Apps mit SwiftUI. Für Zielgruppen, die überwiegend Android nutzen, ist häufig eine Web-Anwendung sinnvoll, die auf allen Geräten läuft. Was für Ihr Vorhaben passt, klären wir im Erstgespräch.",
+          a: "Beides: Ich entwickle native Apps für iOS und Android sowie Web-Anwendungen, die auf allen Geräten ohne Store laufen. Welche Plattform für Ihr Vorhaben am sinnvollsten ist, klären wir im Erstgespräch.",
         },
         {
           q: "Muss es überhaupt eine App sein?",
