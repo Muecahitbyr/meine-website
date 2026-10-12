@@ -16,6 +16,26 @@ main {
   z-index: 1;
 }
 
+/* Progressive-enhancement safety net for scroll-triggered entrance
+   animations (Reveal.jsx, Sections.jsx title/subtitle): they render with
+   their hidden (opacity:0) starting value in the pre-rendered static HTML,
+   same as framer-motion would set on a normal mount, and only become
+   visible once framer-motion's IntersectionObserver confirms they're in
+   view. That needs JavaScript to actually run. <html> carries "no-js" by
+   default (see index.html) and App.jsx removes it in a useLayoutEffect —
+   which only fires once React has actually committed, so this rule stays
+   active (content stays visible) for as long as JS is unavailable, slow to
+   load, or fails outright, not just while it's literally disabled.
+   Above-the-fold entrance animations (Hero, LandingPage hero) don't need
+   this: they render already-visible in the static HTML itself (see the
+   skipEntranceAnimation prop in App.jsx), since forcing them visible here
+   and then handing control back to framer-motion on hydration would itself
+   cause a visible flash. */
+.no-js .motion-reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
 /* Section title underline animation */
 .sectionTitleUnderline {
   position: relative;

@@ -49,10 +49,16 @@ const inlineLinkSx = {
 
 /* ── Hero ──────────────────────────────────────────────────────────── */
 
-function LandingHero({ hero, breadcrumb }) {
+function LandingHero({ hero, breadcrumb, skipEntranceAnimation = false }) {
   const rm = useReducedMotion();
+  // See App.jsx for what this flag means — on the pre-rendered first paint
+  // (this page's actual HTML, before hydration), breadcrumb/overline/H1/
+  // lead/CTAs/chips are already visible, so their mount animation is
+  // skipped rather than replayed. A later mount of this same component
+  // (e.g. navigating away and back) still gets the full fade-up.
+  const skipHidden = rm || skipEntranceAnimation;
   const fade = (delay = 0) => ({
-    initial: rm ? false : { opacity: 0, y: 16 },
+    initial: skipHidden ? false : { opacity: 0, y: 16 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.6, ease: EASE, delay: rm ? 0 : delay },
   });
@@ -786,7 +792,7 @@ const WASH = {
     "linear-gradient(180deg, rgba(29,184,170,0.04) 0%, rgba(29,184,170,0.09) 100%)",
 };
 
-export default function LandingPage({ pageKey }) {
+export default function LandingPage({ pageKey, skipEntranceAnimation = false }) {
   const page = LANDING_PAGES[pageKey];
 
   // Client-side navigation keeps the previous scroll position — start at the
@@ -797,7 +803,11 @@ export default function LandingPage({ pageKey }) {
 
   return (
     <main>
-      <LandingHero hero={page.hero} breadcrumb={page.breadcrumb} />
+      <LandingHero
+        hero={page.hero}
+        breadcrumb={page.breadcrumb}
+        skipEntranceAnimation={skipEntranceAnimation}
+      />
 
       <Section
         id="lp-why"

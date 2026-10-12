@@ -11,6 +11,7 @@ export default function Reveal({ children, delay = 0, y = 12 }) {
 
   return (
     <motion.div
+      className="motion-reveal"
       initial={rm ? false : { opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px 0px" }}

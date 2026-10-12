@@ -17,8 +17,22 @@ const EASE = [0.25, 0.46, 0.45, 0.94];
  *   - Two parallax ambient blobs (top-right + bottom-left, opposite directions)
  *   - sx prop forwarded to the outer Box for per-section background tints
  */
-export default function Section({ id, title, titleAs = "h2", subtitle, children, sx }) {
+export default function Section({
+  id,
+  title,
+  titleAs = "h2",
+  subtitle,
+  children,
+  sx,
+  skipEntranceAnimation = false,
+}) {
   const rm = useReducedMotion();
+  // See App.jsx. Only matters for a Section used as a page's first, already-
+  // visible-at-load content (Impressum/Datenschutz pass this down for their
+  // H1) — every other Section is below the fold, where there's nothing to
+  // flash since the user hasn't scrolled to it yet, so they leave this false
+  // and keep the normal scroll-triggered reveal.
+  const skipHidden = rm || skipEntranceAnimation;
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
 
@@ -96,7 +110,8 @@ export default function Section({ id, title, titleAs = "h2", subtitle, children,
           <Box ref={titleRef} sx={{ mb: { xs: 5, md: 6 } }}>
             {title && (
               <motion.div
-                initial={rm ? false : { opacity: 0, y: 16 }}
+                className="motion-reveal"
+                initial={skipHidden ? false : { opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px 0px" }}
                 transition={{ duration: 0.65, ease: EASE }}
@@ -122,7 +137,8 @@ export default function Section({ id, title, titleAs = "h2", subtitle, children,
 
             {subtitle && (
               <motion.div
-                initial={rm ? false : { opacity: 0, y: 10 }}
+                className="motion-reveal"
+                initial={skipHidden ? false : { opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px 0px" }}
                 transition={{

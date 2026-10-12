@@ -6,11 +6,30 @@
 export const ORIGIN = "https://www.bayar-solutions.de";
 export const ORG_ID = `${ORIGIN}/#organization`;
 
+// `contentFiles` (repo-relative) are only read by vite-plugins/seoHead.js at
+// build time, to compute each route's sitemap <lastmod> from that route's
+// actual git history instead of hardcoding or stamping today's date. They
+// are plain strings so this stays safe to import from the browser bundle
+// (RouteSeo.jsx imports this same module) — no Node APIs in this file.
 export const ROUTES = {
   "/": {
     title: "Bayar Solutions | Webseiten & App-Entwicklung in Kaufbeuren",
     description:
       "Bayar Solutions entwickelt Webseiten und Apps für Unternehmen und Selbstständige in Kaufbeuren und im Allgäu – individuell, schnell und aus einer Hand.",
+    // Deliberately *not* Header.jsx/Footer.jsx/Sections.jsx/common.json/
+    // routes.js — those are shared with every other route (nav wording,
+    // the translation file, this very file's own data), so a change to one
+    // of them isn't actually a content change specific to the homepage.
+    // Only files exclusively rendered on "/" are listed, so a homepage
+    // content edit is what moves this date, not a shared-file edit.
+    contentFiles: [
+      "src/components/Hero.jsx",
+      "src/components/About.jsx",
+      "src/components/TechStack.jsx",
+      "src/components/Apps.jsx",
+      "src/components/Contact.jsx",
+      "src/data/projects.js",
+    ],
   },
   "/webseiten-kaufbeuren": {
     title: "Webdesign Kaufbeuren | Webseiten erstellen – Bayar Solutions",
@@ -21,6 +40,13 @@ export const ROUTES = {
       serviceType: "Webseitenerstellung und Webentwicklung",
       breadcrumb: "Webseiten Kaufbeuren",
     },
+    // No contentFiles: its content (src/data/landingPages.js) and the one
+    // that renders it (src/pages/LandingPage.jsx) are both shared with
+    // /app-entwicklung-kaufbeuren — the two pages' copy live as sibling
+    // keys in the same file. A whole-file git log can't tell which page's
+    // half actually changed, so it would stamp both with the same date
+    // whenever either one is edited — a systematically inaccurate lastmod,
+    // which the sitemap omits for this URL instead (see buildSitemap).
   },
   "/app-entwicklung-kaufbeuren": {
     title: "App-Entwicklung in Kaufbeuren | Bayar Solutions",
@@ -31,18 +57,26 @@ export const ROUTES = {
       serviceType: "App-Entwicklung",
       breadcrumb: "App-Entwicklung Kaufbeuren",
     },
+    // Same reasoning as /webseiten-kaufbeuren above.
   },
   "/impressum": {
     title: "Impressum | Bayar Solutions",
     description:
       "Impressum und Anbieterkennzeichnung von Bayar Solutions gemäß § 5 DDG.",
+    contentFiles: ["src/components/Imprint.jsx"],
   },
   "/datenschutz": {
     title: "Datenschutzerklärung | Bayar Solutions",
     description:
       "Datenschutzerklärung von Bayar Solutions: Informationen zur Verarbeitung personenbezogener Daten beim Besuch dieser Website.",
+    contentFiles: ["src/components/Privacy.jsx"],
   },
 };
+
+// Routes listed in public/sitemap.xml. Kept as an explicit subset (not just
+// every key in ROUTES) because /impressum and /datenschutz are deliberately
+// left out of the sitemap.
+export const SITEMAP_ROUTES = ["/", "/webseiten-kaufbeuren", "/app-entwicklung-kaufbeuren"];
 
 export const urlFor = (path) => (path === "/" ? `${ORIGIN}/` : `${ORIGIN}${path}`);
 
@@ -111,5 +145,35 @@ export function renderSeoHead(path) {
     lines.push(`<script type="application/ld+json" data-route-ld>${json}</script>`);
   }
   lines.push(SEO_END);
+  return lines.join("\n    ");
+}
+
+export const NOT_FOUND = {
+  title: "Seite nicht gefunden | Bayar Solutions",
+  description:
+    "Diese Seite existiert nicht oder wurde verschoben. Zu Webseiten, App-Entwicklung und Kontakt geht es über die Startseite von Bayar Solutions.",
+};
+
+/**
+ * The 404 page's own <head> block — deliberately not an entry in ROUTES:
+ * it has no canonical (there's no one real URL it's a copy of) and is
+ * `noindex`, so it never competes with real pages for ranking, unlike the
+ * old setup where every unmatched URL served the homepage's own head block
+ * marked `index` with a canonical pointing elsewhere (see the SEO analysis
+ * this fixes).
+ */
+export function renderNotFoundHead() {
+  const { title, description } = NOT_FOUND;
+  const lines = [
+    SEO_START,
+    `<title>${esc(title)}</title>`,
+    `<meta name="description" content="${esc(description)}" />`,
+    `<meta name="robots" content="noindex, follow" />`,
+    `<meta property="og:title" content="${esc(title)}" />`,
+    `<meta property="og:description" content="${esc(description)}" />`,
+    `<meta name="twitter:title" content="${esc(title)}" />`,
+    `<meta name="twitter:description" content="${esc(description)}" />`,
+    SEO_END,
+  ];
   return lines.join("\n    ");
 }

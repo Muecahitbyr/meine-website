@@ -17,13 +17,18 @@
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
-    // Ohne diese SPA-Einstellung wuerde ein direkter Aufruf/Reload einer
-    // Unterseite wie /impressum (react-router-dom, kein eigener statischer
-    // Build-Output dafuer) einen echten 404 vom Asset-Handler bekommen,
-    // statt index.html auszuliefern und das Routing dem Client zu ueberlassen
-    // - bereits bisheriges Verhalten, hier nur explizit gemacht, damit das
-    // Hinzufuegen von "main"/run_worker_first unten daran nichts aendert.
-    "not_found_handling": "single-page-application",
+    // War "single-page-application" (jede unbekannte URL -> index.html mit
+    // 200), solange /impressum & Co. nur client-seitig per react-router-dom
+    // existierten und keinen eigenen statischen Build-Output hatten. Das ist
+    // seit vite-plugins/seoHead.js nicht mehr der Fall - jede echte Route
+    // hat jetzt ihre eigene vorgerenderte <route>.html, die der Asset-
+    // Handler bei einem direkten Aufruf/Reload ohnehin per exaktem
+    // Datei-Match ausliefert (mit oder ohne diese Einstellung). Fuer
+    // tatsaechlich unbekannte Pfade liefert "404-page" jetzt die von
+    // seoHead.js miterzeugte dist/404.html mit echtem HTTP 404 aus, statt
+    // sie als zweite, falsch-kanonische Kopie der Startseite mit 200
+    // auszuliefern.
+    "not_found_handling": "404-page",
     // Nur fuer /office (und Unterpfade) wird der Worker ueberhaupt
     // aufgerufen - jede andere URL wird weiterhin ausschliesslich vom
     // Asset-Handler bedient, unveraendert zum bisherigen Verhalten.

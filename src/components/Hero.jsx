@@ -22,10 +22,14 @@ const STATIC_BG =
   "linear-gradient(135deg, #0A0E14 0%, #0c1628 30%, #0d2622 60%, #0a1420 100%)";
 const EASE = [0.25, 0.46, 0.45, 0.94];
 
-export default function Hero() {
+export default function Hero({ skipEntranceAnimation = false }) {
   const { t } = useTranslation("common");
   const theme = useTheme();
   const rm = useReducedMotion();
+  // See App.jsx for what this means and why — on the pre-rendered first
+  // paint, every "hidden" value below is swapped for its already-settled
+  // one so nothing here replays an entrance that already happened visually.
+  const skipHidden = rm || skipEntranceAnimation;
   // The 3 ambient blobs and the logo float below run as infinite JS-driven
   // framer-motion loops — on desktop that's cheap, but on a phone they keep
   // the main thread busy indefinitely, competing with the very first touch
@@ -73,7 +77,7 @@ export default function Hero() {
   };
 
   const wordItem = {
-    hidden: rm ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 },
+    hidden: skipHidden ? { opacity: 1, y: 0 } : { opacity: 0, y: 22 },
     visible: {
       opacity: 1,
       y: 0,
@@ -92,7 +96,7 @@ export default function Hero() {
   };
 
   const ctaItem = {
-    hidden: rm ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 },
+    hidden: skipHidden ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 },
     visible: {
       opacity: 1,
       y: 0,
@@ -111,7 +115,7 @@ export default function Hero() {
   };
 
   const chipItem = {
-    hidden: rm ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 },
+    hidden: skipHidden ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 },
     visible: {
       opacity: 1,
       y: 0,
@@ -121,7 +125,7 @@ export default function Hero() {
 
   // Convenience: simple fade-up with per-call delay
   const fadeUp = (delay = 0) => ({
-    initial: rm ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 },
+    initial: skipHidden ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.65, ease: EASE, delay: rm ? 0 : delay },
   });
@@ -142,7 +146,7 @@ export default function Hero() {
       {/* ── Background video ─────────────────────────────────────────── */}
       {!rm && (
         <motion.video
-          initial={{ opacity: 0 }}
+          initial={{ opacity: skipHidden ? 1 : 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
           autoPlay
@@ -312,7 +316,7 @@ export default function Hero() {
             >
               <motion.span
                 variants={wordContainer}
-                initial="hidden"
+                initial={skipHidden ? "visible" : "hidden"}
                 animate="visible"
                 style={{ display: "block" }}
               >
@@ -359,7 +363,7 @@ export default function Hero() {
             {/* CTA buttons — staggered entrance */}
             <motion.div
               variants={ctaContainer}
-              initial="hidden"
+              initial={skipHidden ? "visible" : "hidden"}
               animate="visible"
               style={{ marginTop: "28px" }}
             >
@@ -412,7 +416,7 @@ export default function Hero() {
             {Array.isArray(chips) && (
               <motion.div
                 variants={chipContainer}
-                initial="hidden"
+                initial={skipHidden ? "visible" : "hidden"}
                 animate="visible"
                 style={{ marginTop: "24px" }}
               >

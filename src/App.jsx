@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, startTransition, lazy, Suspense } from "react";
+import { useEffect, useLayoutEffect, useMemo, useState, Suspense } from "react";
 import { ThemeProvider, CssBaseline, Box } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { Routes, Route, useLocation } from "react-router-dom";
@@ -10,121 +10,158 @@ import Section from "./components/Sections.jsx";
 import Hero from "./components/Hero.jsx";
 import RouteSeo from "./components/RouteSeo.jsx";
 import { projects } from "./data/projects.js";
+import {
+  LazyAbout,
+  LazyTechStack,
+  LazyApps,
+  LazyContact,
+  LazyImprint,
+  LazyPrivacy,
+  LazyLandingPage,
+} from "./routeComponents.js";
 
-// Below-the-fold and route-only components are code-split so their JS isn't
-// even downloaded/parsed as part of the critical bundle Hero needs — on a
-// throttled connection that's real parse/eval time saved before the page
-// can respond to input, on top of the staged-mount ordering below.
-const About = lazy(() => import("./components/About.jsx"));
-const TechStack = lazy(() => import("./components/TechStack.jsx"));
-const Apps = lazy(() => import("./components/Apps.jsx"));
-const Contact = lazy(() => import("./components/Contact.jsx"));
-const Imprint = lazy(() => import("./components/Imprint.jsx"));
-const Privacy = lazy(() => import("./components/Privacy.jsx"));
-const LandingPage = lazy(() => import("./pages/LandingPage.jsx"));
+// Renders `resolved` (a plain component, already available — either from
+// entry-server.jsx's eager SSR imports, or from main.jsx having awaited
+// ROUTE_MODULE_LOADERS before the first hydrateRoot call) when given one,
+// with no <Suspense> involved at all. Falls back to the ordinary
+// React.lazy() version, Suspense-wrapped, otherwise — which only happens
+// for a route reached via later client-side navigation, where there's no
+// SSR output to structurally match and an ordinary lazy mount is safe. See
+// routeComponents.js's top comment for the full reasoning.
+function RouteSlot({ resolved, lazy, instanceKey, ...props }) {
+  const Resolved = resolved;
+  const Lazy = lazy;
+  if (Resolved) return <Resolved key={instanceKey} {...props} />;
+  return (
+    <Suspense fallback={null}>
+      <Lazy key={instanceKey} {...props} />
+    </Suspense>
+  );
+}
 
-function HomePage() {
+function HomePage({ skipEntranceAnimation, resolvedComponents }) {
   const { t } = useTranslation("common");
   const location = useLocation();
 
   // The whole page (Hero + every section, each stacked with GlowCards,
   // Reveal/ScrollParallax motion values and IntersectionObservers) used to
-  // mount in one React commit. Profiling on a throttled mobile CPU showed
-  // that commit blocking the main thread for hundreds of ms — long enough
-  // that the first swipe after opening the page barely registers. React can
-  // only yield *between* commits, not within one, so a single deferred
-  // "mount everything" flag just moves the big block later instead of
-  // shrinking it. Mounting one section per frame instead spreads that same
-  // work across several small commits the browser can interleave with the
-  // user's first scroll input.
-  const SECTION_COUNT = 4; // about, tech, apps, contact
-  const [stage, setStage] = useState(0);
-
-  useEffect(() => {
-    if (stage >= SECTION_COUNT) return;
-    const raf = requestAnimationFrame(() => {
-      startTransition(() => setStage((s) => s + 1));
-    });
-    return () => cancelAnimationFrame(raf);
-  }, [stage]);
-
+  // mount across several animation frames instead of one React commit,
+  // because building that whole subtree from scratch on a throttled mobile
+  // CPU blocked the main thread for hundreds of ms right as the user tried
+  // to scroll.
+  //
+  // That staging is gone now that the homepage's HTML is pre-rendered at
+  // build time (vite-plugins/seoHead.js + src/entry-server.jsx): the browser
+  // paints the full page from the static HTML before any JS has even
+  // loaded, so there is nothing left to stage — React's job on mount is
+  // hydration (reconciling existing DOM), not construction from nothing,
+  // which is the bottleneck the staging worked around. Staging it on top of
+  // that would instead make the client's first render not match the
+  // pre-rendered markup, which is a hydration mismatch.
+  //
   // Nav links use client-side routing (RouterLink to="/#id"), which never
   // triggers the browser's native hash-scroll — so we scroll manually
   // whenever the hash changes, whether coming from this page or another.
-  // Re-checked as each stage mounts, since the target section may not
-  // exist yet on the first pass.
   useEffect(() => {
     if (!location.hash) return;
     const id = location.hash.slice(1);
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, [location.hash, stage]);
+  }, [location.hash]);
 
   return (
     <main>
-      <Hero />
+      <Hero skipEntranceAnimation={skipEntranceAnimation} />
 
-      {stage >= 1 && (
-        /* About — very light teal wash at the top, fades to white */
-        <Section
-          id="about"
-          title={t("sections.about.title")}
-          subtitle={t("sections.about.subtitle")}
-          sx={{ background: "linear-gradient(180deg, rgba(29,184,170,0.05) 0%, rgba(247,249,249,0) 100%)" }}
-        >
-          <Suspense fallback={null}>
-            <About />
-          </Suspense>
-        </Section>
-      )}
+      {/* About — very light teal wash at the top, fades to white */}
+      <Section
+        id="about"
+        title={t("sections.about.title")}
+        subtitle={t("sections.about.subtitle")}
+        sx={{ background: "linear-gradient(180deg, rgba(29,184,170,0.05) 0%, rgba(247,249,249,0) 100%)" }}
+      >
+        <RouteSlot resolved={resolvedComponents.About} lazy={LazyAbout} />
+      </Section>
 
-      {stage >= 2 && (
-        /* Tech — subtle cool-blue tint for contrast after the teal about section */
-        <Section
-          id="tech"
-          title={t("sections.tech.title")}
-          subtitle={t("sections.tech.subtitle")}
-          sx={{ background: "linear-gradient(180deg, rgba(59,130,246,0.04) 0%, rgba(139,92,246,0.03) 100%)" }}
-        >
-          <Suspense fallback={null}>
-            <TechStack />
-          </Suspense>
-        </Section>
-      )}
+      {/* Tech — subtle cool-blue tint for contrast after the teal about section */}
+      <Section
+        id="tech"
+        title={t("sections.tech.title")}
+        subtitle={t("sections.tech.subtitle")}
+        sx={{ background: "linear-gradient(180deg, rgba(59,130,246,0.04) 0%, rgba(139,92,246,0.03) 100%)" }}
+      >
+        <RouteSlot resolved={resolvedComponents.TechStack} lazy={LazyTechStack} />
+      </Section>
 
-      {stage >= 3 && (
-        /* Apps — slightly off-white with teal tint at bottom */
-        <Section
-          id="apps"
-          title={t("sections.apps.title")}
-          subtitle={t("sections.apps.subtitle")}
-          sx={{ background: "linear-gradient(180deg, #F4F7F7 0%, rgba(247,249,249,0) 100%)" }}
-        >
-          <Suspense fallback={null}>
-            <Apps projects={projects} />
-          </Suspense>
-        </Section>
-      )}
+      {/* Apps — slightly off-white with teal tint at bottom */}
+      <Section
+        id="apps"
+        title={t("sections.apps.title")}
+        subtitle={t("sections.apps.subtitle")}
+        sx={{ background: "linear-gradient(180deg, #F4F7F7 0%, rgba(247,249,249,0) 100%)" }}
+      >
+        <RouteSlot resolved={resolvedComponents.Apps} lazy={LazyApps} projects={projects} />
+      </Section>
 
-      {stage >= 4 && (
-        /* Contact — stronger teal tint, gives the page a warm close */
-        <Section
-          id="contact"
-          title={t("sections.contact.title")}
-          subtitle={t("sections.contact.subtitle")}
-          sx={{ background: "linear-gradient(180deg, rgba(29,184,170,0.04) 0%, rgba(29,184,170,0.09) 100%)" }}
-        >
-          <Suspense fallback={null}>
-            <Contact />
-          </Suspense>
-        </Section>
-      )}
+      {/* Contact — stronger teal tint, gives the page a warm close */}
+      <Section
+        id="contact"
+        title={t("sections.contact.title")}
+        subtitle={t("sections.contact.subtitle")}
+        sx={{ background: "linear-gradient(180deg, rgba(29,184,170,0.04) 0%, rgba(29,184,170,0.09) 100%)" }}
+      >
+        <RouteSlot resolved={resolvedComponents.Contact} lazy={LazyContact} />
+      </Section>
     </main>
   );
 }
 
-export default function App() {
+// Default: nothing pre-resolved — every RouteSlot above and below falls
+// back to its ordinary Lazy+Suspense version. entry-server.jsx and
+// main.jsx both pass their own `resolvedComponents` instead, populated
+// only with the one current route's component(s) — see routeComponents.js.
+const NO_RESOLVED_COMPONENTS = {};
+
+export default function App({ resolvedComponents = NO_RESOLVED_COMPONENTS }) {
   const theme = useMemo(() => createAppTheme(), []);
+
+  // True for this App instance's very first render — on every one of the 5
+  // public routes, that first render's HTML was already pre-rendered at
+  // build time (vite-plugins/seoHead.js + src/entry-server.jsx) and is
+  // already visible before hydration runs. Hero/LandingPage's above-the-fold
+  // entrance animation (word stagger, CTA/chip stagger, fade-up) reads this
+  // to skip replaying its hidden→visible transition on that first paint —
+  // replaying it would mean briefly hiding content the user can already
+  // see, which is a flash, not an entrance. The flag flips to false right
+  // after that first commit (effect below), so a *later* mount of the same
+  // component — e.g. navigating away and back via client-side routing, a
+  // genuinely fresh mount with nothing pre-rendered for it — still plays
+  // the full animation exactly as before. It starts `true` identically on
+  // the server (effects never run during SSR, so it never flips there) and
+  // on the client's first hydration pass, so server and client agree on the
+  // very first render — no hydration mismatch.
+  const [isFirstRender, setIsFirstRender] = useState(true);
+  useEffect(() => {
+    // Intentional: the value needs to go true (first render only) → false
+    // (every render after) for App's one, long-lived instance, which needs
+    // a second render to happen at all — there's no "compute during
+    // render" or external-store equivalent for that. Guarded by the `if`,
+    // so this never runs more than once and can't cascade.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (isFirstRender) setIsFirstRender(false);
+  }, [isFirstRender]);
+
+  // Content below the fold (Reveal.jsx, Sections.jsx titles) stays visible
+  // by default — see globals.css's ".no-js .motion-reveal" rule and
+  // index.html's default "no-js" class on <html>. This only removes that
+  // class once React has actually committed its first tree, so the rule
+  // keeps content visible for as long as JS hasn't run yet, not just while
+  // it's disabled. useLayoutEffect (not useEffect) so it runs before the
+  // browser paints the hydrated result — the class is already gone by the
+  // time anything is shown, no separate visible toggle.
+  useLayoutEffect(() => {
+    document.documentElement.classList.remove("no-js");
+  }, []);
 
   return (
     <ThemeProvider theme={theme}>
@@ -135,23 +172,36 @@ export default function App() {
         <Header />
 
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route
+            path="/"
+            element={
+              <HomePage skipEntranceAnimation={isFirstRender} resolvedComponents={resolvedComponents} />
+            }
+          />
 
           <Route
             path="/webseiten-kaufbeuren"
             element={
-              <Suspense fallback={null}>
-                <LandingPage key="web" pageKey="web" />
-              </Suspense>
+              <RouteSlot
+                resolved={resolvedComponents.LandingPage}
+                lazy={LazyLandingPage}
+                instanceKey="web"
+                pageKey="web"
+                skipEntranceAnimation={isFirstRender}
+              />
             }
           />
 
           <Route
             path="/app-entwicklung-kaufbeuren"
             element={
-              <Suspense fallback={null}>
-                <LandingPage key="app" pageKey="app" />
-              </Suspense>
+              <RouteSlot
+                resolved={resolvedComponents.LandingPage}
+                lazy={LazyLandingPage}
+                instanceKey="app"
+                pageKey="app"
+                skipEntranceAnimation={isFirstRender}
+              />
             }
           />
 
@@ -159,10 +209,8 @@ export default function App() {
             path="/impressum"
             element={
               <main>
-                <Section id="imprint" title="Impressum" titleAs="h1">
-                  <Suspense fallback={null}>
-                    <Imprint />
-                  </Suspense>
+                <Section id="imprint" title="Impressum" titleAs="h1" skipEntranceAnimation={isFirstRender}>
+                  <RouteSlot resolved={resolvedComponents.Imprint} lazy={LazyImprint} />
                 </Section>
               </main>
             }
@@ -172,10 +220,8 @@ export default function App() {
             path="/datenschutz"
             element={
               <main>
-                <Section id="privacy" title="Datenschutzerklärung" titleAs="h1">
-                  <Suspense fallback={null}>
-                    <Privacy />
-                  </Suspense>
+                <Section id="privacy" title="Datenschutzerklärung" titleAs="h1" skipEntranceAnimation={isFirstRender}>
+                  <RouteSlot resolved={resolvedComponents.Privacy} lazy={LazyPrivacy} />
                 </Section>
               </main>
             }
