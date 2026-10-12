@@ -43,8 +43,8 @@ export const LANDING_PAGES = {
     mailSubject: "Anfrage Unternehmenswebsite",
     hero: {
       overline: "Webseiten",
-      title: "Webseiten für Unternehmen in Kaufbeuren",
-      lead: "Ihre Website ist oft der erste Eindruck, den neue Kunden von Ihrem Betrieb bekommen. Ich entwickle moderne, schnelle und individuelle Webseiten für Unternehmen und Selbstständige in Kaufbeuren und im Allgäu – verständlich aufgebaut, auf dem Smartphone genauso gut bedienbar wie am Rechner und mit einer technischen Basis, die Google gut versteht.",
+      title: "Webdesign in Kaufbeuren – professionelle Webseiten für Unternehmen",
+      lead: "Sie möchten eine professionelle Website erstellen lassen? Bayar Solutions entwickelt moderne, schnelle und individuelle Webseiten für Unternehmen und Selbstständige in Kaufbeuren und im Allgäu. Von der Planung über das Webdesign bis zur Veröffentlichung erhalten Sie eine Website, die Ihr Unternehmen optimal präsentiert und potenziellen Kunden die Kontaktaufnahme erleichtert.",
       chips: [
         "Individuell entwickelt",
         "Für Smartphone & Desktop",

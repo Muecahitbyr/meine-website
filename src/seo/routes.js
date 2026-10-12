@@ -13,9 +13,9 @@ export const ROUTES = {
       "Bayar Solutions entwickelt Webseiten und Apps für Unternehmen und Selbstständige in Kaufbeuren und im Allgäu – individuell, schnell und aus einer Hand.",
   },
   "/webseiten-kaufbeuren": {
-    title: "Webseite erstellen in Kaufbeuren | Bayar Solutions",
+    title: "Webdesign Kaufbeuren | Webseiten erstellen – Bayar Solutions",
     description:
-      "Bayar Solutions entwickelt moderne, schnelle und individuelle Webseiten für Unternehmen und Selbstständige in Kaufbeuren und im Allgäu.",
+      "Professionelles Webdesign in Kaufbeuren: Bayar Solutions erstellt moderne, schnelle Webseiten für Unternehmen und Selbstständige im Allgäu. Jetzt anfragen.",
     service: {
       name: "Webseiten für Unternehmen in Kaufbeuren",
       serviceType: "Webseitenerstellung und Webentwicklung",
