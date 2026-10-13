@@ -133,6 +133,10 @@
     "hosting": {
       "title": "Hosting & Betrieb",
       "description": "Ihre Lösung läuft stabil und sicher. 24/7 verfügbar, schnell und wartbar."
+    },
+    "ai": {
+      "title": "KI & Automatisierung",
+      "description": "Bayar Solutions entwickelt individuelle KI-Lösungen und Automatisierungen für Unternehmen. Von der Automatisierung wiederkehrender Aufgaben über intelligente Assistenten bis zur Integration von KI in bestehende Geschäftsprozesse – praxisnah, effizient und auf die Anforderungen Ihres Unternehmens abgestimmt."
     }
   },
 

@@ -129,6 +129,10 @@
     "hosting": {
       "title": "Hosting & Operations",
       "description": "Your solution runs stable and secure. Available 24/7, fast and maintainable."
+    },
+    "ai": {
+      "title": "AI & Automation",
+      "description": "Bayar Solutions develops custom AI solutions and automations for businesses. From automating recurring tasks to intelligent assistants and integrating AI into existing business processes – practical, efficient and tailored to your company's needs."
     }
   },
 

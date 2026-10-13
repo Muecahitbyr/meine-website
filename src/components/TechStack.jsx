@@ -4,6 +4,7 @@ import LanguageRoundedIcon from "@mui/icons-material/LanguageRounded";
 import PhoneAndroidRoundedIcon from "@mui/icons-material/PhoneAndroidRounded";
 import StorageRoundedIcon from "@mui/icons-material/StorageRounded";
 import CloudRoundedIcon from "@mui/icons-material/CloudRounded";
+import AutoAwesomeRoundedIcon from "@mui/icons-material/AutoAwesomeRounded";
 import ArrowForwardRoundedIcon from "@mui/icons-material/ArrowForwardRounded";
 import { Link as RouterLink } from "react-router-dom";
 import GlowCard from "./GlowCard.jsx";
@@ -16,6 +17,7 @@ const SERVICE_KEYS = [
   { key: "apps",    Icon: PhoneAndroidRoundedIcon,  color: "#1DB8AA", to: "/app-entwicklung-kaufbeuren" }, // teal (brand)
   { key: "backend", Icon: StorageRoundedIcon,       color: "#8B5CF6" }, // violet
   { key: "hosting", Icon: CloudRoundedIcon,         color: "#F59E0B" }, // amber
+  { key: "ai",      Icon: AutoAwesomeRoundedIcon,   color: "#EC4899" }, // pink
 ];
 
 function ServiceCard({ title, description, Icon, color, linkTo, linkLabel }) {
