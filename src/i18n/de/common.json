@@ -51,7 +51,8 @@
       "title": "Eigene Projekte & Lösungen",
       "subtitle": "Einblicke in meine eigenen App-Entwicklungen und digitalen Lösungen.",
       "ownNote": "DriveConnect, Rechno, Tano und 3DRaum sind eigene Entwicklungen – keine Kundenprojekte.",
-      "devLink": "Mehr über App-Entwicklung in Kaufbeuren"
+      "devLink": "Mehr über App-Entwicklung in Kaufbeuren",
+      "projectsLink": "Alle Projekte im Detail ansehen"
     },
     "contact": {
       "title": "Kontakt",
@@ -64,6 +65,7 @@
     "appsLink": "Eigene Projekte",
     "webLink": "Website erstellen lassen",
     "appLink": "App entwickeln lassen",
+    "projectsLink": "Projekte im Detail",
     "instagramAria": "Bayar Solutions auf Instagram"
   },
 

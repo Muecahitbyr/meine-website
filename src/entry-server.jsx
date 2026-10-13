@@ -36,12 +36,14 @@ import Contact from "./components/Contact.jsx";
 import Imprint from "./components/Imprint.jsx";
 import Privacy from "./components/Privacy.jsx";
 import LandingPage from "./pages/LandingPage.jsx";
+import Projects from "./pages/Projects.jsx";
 
 const RESOLVED_BY_PATH = {
   "/": { About, TechStack, Apps, Contact },
   "/webseiten-kaufbeuren": { LandingPage },
   "/app-entwicklung-kaufbeuren": { LandingPage },
   "/ki-automatisierung": { LandingPage },
+  "/projekte": { Projects },
   "/impressum": { Imprint },
   "/datenschutz": { Privacy },
 };

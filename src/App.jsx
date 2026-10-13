@@ -18,6 +18,7 @@ import {
   LazyImprint,
   LazyPrivacy,
   LazyLandingPage,
+  LazyProjects,
 } from "./routeComponents.js";
 
 // Renders `resolved` (a plain component, already available — either from
@@ -120,6 +121,20 @@ function HomePage({ skipEntranceAnimation, resolvedComponents }) {
             }}
           >
             {t("sections.apps.devLink")}
+          </Typography>
+          {" · "}
+          <Typography
+            component={RouterLink}
+            to="/projekte"
+            sx={{
+              color: "primary.dark",
+              fontWeight: 700,
+              textDecorationColor: "rgba(22,158,146,0.4)",
+              textUnderlineOffset: 3,
+              "&:hover": { textDecorationColor: "currentColor" },
+            }}
+          >
+            {t("sections.apps.projectsLink")}
           </Typography>
         </Typography>
 
@@ -236,6 +251,17 @@ export default function App({ resolvedComponents = NO_RESOLVED_COMPONENTS }) {
                 lazy={LazyLandingPage}
                 instanceKey="ai"
                 pageKey="ai"
+                skipEntranceAnimation={isFirstRender}
+              />
+            }
+          />
+
+          <Route
+            path="/projekte"
+            element={
+              <RouteSlot
+                resolved={resolvedComponents.Projects}
+                lazy={LazyProjects}
                 skipEntranceAnimation={isFirstRender}
               />
             }

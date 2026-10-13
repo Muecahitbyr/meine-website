@@ -72,6 +72,16 @@ export const ROUTES = {
     // above: content lives in src/data/landingPages.js, shared with both of
     // those pages, so no contentFiles here either.
   },
+  "/projekte": {
+    title: "Projekte & Eigenentwicklungen | Bayar Solutions",
+    description:
+      "Eigenständig entwickelte Projekte von Bayar Solutions: native iOS-Apps und ein browserbasierter 3D-Raumplaner – mit echten Funktionen und Live-Demo.",
+    // Deliberately no `service` field: this page showcases own projects, it
+    // doesn't sell a bookable service, so a Service/BreadcrumbList schema
+    // here would misrepresent it. The shared ProfessionalService block
+    // (index.html) still applies to this page like every other one.
+    contentFiles: ["src/pages/Projects.jsx", "src/data/projects.js"],
+  },
   "/impressum": {
     title: "Impressum | Bayar Solutions",
     description:
@@ -94,6 +104,7 @@ export const SITEMAP_ROUTES = [
   "/webseiten-kaufbeuren",
   "/app-entwicklung-kaufbeuren",
   "/ki-automatisierung",
+  "/projekte",
 ];
 
 export const urlFor = (path) => (path === "/" ? `${ORIGIN}/` : `${ORIGIN}${path}`);

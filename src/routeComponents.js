@@ -32,6 +32,7 @@ export const LazyContact = lazy(() => import("./components/Contact.jsx"));
 export const LazyImprint = lazy(() => import("./components/Imprint.jsx"));
 export const LazyPrivacy = lazy(() => import("./components/Privacy.jsx"));
 export const LazyLandingPage = lazy(() => import("./pages/LandingPage.jsx"));
+export const LazyProjects = lazy(() => import("./pages/Projects.jsx"));
 
 export const ROUTE_MODULE_LOADERS = {
   "/": () =>
@@ -52,6 +53,8 @@ export const ROUTE_MODULE_LOADERS = {
     import("./pages/LandingPage.jsx").then((m) => ({ LandingPage: m.default })),
   "/ki-automatisierung": () =>
     import("./pages/LandingPage.jsx").then((m) => ({ LandingPage: m.default })),
+  "/projekte": () =>
+    import("./pages/Projects.jsx").then((m) => ({ Projects: m.default })),
   "/impressum": () =>
     import("./components/Imprint.jsx").then((m) => ({ Imprint: m.default })),
   "/datenschutz": () =>

@@ -51,7 +51,8 @@
       "title": "Own Projects & Solutions",
       "subtitle": "A look at my own app developments and digital solutions.",
       "ownNote": "DriveConnect, Rechno, Tano and 3DRaum are my own developments – not client projects.",
-      "devLink": "More about app development in Kaufbeuren"
+      "devLink": "More about app development in Kaufbeuren",
+      "projectsLink": "See all projects in detail"
     },
     "contact": {
       "title": "Contact",
@@ -62,6 +63,7 @@
   "footer": {
     "role": "Digital solutions for businesses",
     "appsLink": "Own Projects",
+    "projectsLink": "Projects in detail",
     "instagramAria": "Bayar Solutions on Instagram"
   },
 

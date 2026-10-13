@@ -49,7 +49,10 @@ const inlineLinkSx = {
 
 /* ── Hero ──────────────────────────────────────────────────────────── */
 
-function LandingHero({ hero, breadcrumb, skipEntranceAnimation = false }) {
+// Exported — reused as-is by src/pages/Projects.jsx, which needs the same
+// dark hero treatment and closing CTA but isn't a lead-gen service page, so
+// it doesn't belong in LANDING_PAGES/this file's own render tree.
+export function LandingHero({ hero, breadcrumb, skipEntranceAnimation = false }) {
   const rm = useReducedMotion();
   // See App.jsx for what this flag means — on the pre-rendered first paint
   // (this page's actual HTML, before hydration), breadcrumb/overline/H1/
@@ -685,7 +688,8 @@ function Faq({ items }) {
 
 /* ── Closing CTA ───────────────────────────────────────────────────── */
 
-function ClosingCta({ cta, mailSubject }) {
+// Exported — see LandingHero's comment above.
+export function ClosingCta({ cta, mailSubject }) {
   const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(mailSubject)}`;
 
   return (
