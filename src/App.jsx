@@ -229,6 +229,19 @@ export default function App({ resolvedComponents = NO_RESOLVED_COMPONENTS }) {
           />
 
           <Route
+            path="/ki-automatisierung"
+            element={
+              <RouteSlot
+                resolved={resolvedComponents.LandingPage}
+                lazy={LazyLandingPage}
+                instanceKey="ai"
+                pageKey="ai"
+                skipEntranceAnimation={isFirstRender}
+              />
+            }
+          />
+
+          <Route
             path="/impressum"
             element={
               <main>

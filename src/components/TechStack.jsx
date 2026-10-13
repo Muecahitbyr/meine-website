@@ -17,7 +17,7 @@ const SERVICE_KEYS = [
   { key: "apps",    Icon: PhoneAndroidRoundedIcon,  color: "#1DB8AA", to: "/app-entwicklung-kaufbeuren" }, // teal (brand)
   { key: "backend", Icon: StorageRoundedIcon,       color: "#8B5CF6" }, // violet
   { key: "hosting", Icon: CloudRoundedIcon,         color: "#F59E0B" }, // amber
-  { key: "ai",      Icon: AutoAwesomeRoundedIcon,   color: "#EC4899" }, // pink
+  { key: "ai",      Icon: AutoAwesomeRoundedIcon,   color: "#EC4899", to: "/ki-automatisierung" }, // pink
 ];
 
 function ServiceCard({ title, description, Icon, color, linkTo, linkLabel }) {

@@ -41,6 +41,7 @@ const RESOLVED_BY_PATH = {
   "/": { About, TechStack, Apps, Contact },
   "/webseiten-kaufbeuren": { LandingPage },
   "/app-entwicklung-kaufbeuren": { LandingPage },
+  "/ki-automatisierung": { LandingPage },
   "/impressum": { Imprint },
   "/datenschutz": { Privacy },
 };

@@ -59,6 +59,19 @@ export const ROUTES = {
     },
     // Same reasoning as /webseiten-kaufbeuren above.
   },
+  "/ki-automatisierung": {
+    title: "KI-Automatisierung Kaufbeuren | Bayar Solutions",
+    description:
+      "Individuelle KI-Automatisierung für Unternehmen und Selbstständige in Kaufbeuren und im Allgäu: Geschäftsprozesse automatisieren, Workflows verbinden und Zeit sparen.",
+    service: {
+      name: "KI-Automatisierung für Unternehmen in Kaufbeuren",
+      serviceType: "KI-Automatisierung und Prozessautomatisierung",
+      breadcrumb: "KI-Automatisierung Kaufbeuren",
+    },
+    // Same reasoning as /webseiten-kaufbeuren and /app-entwicklung-kaufbeuren
+    // above: content lives in src/data/landingPages.js, shared with both of
+    // those pages, so no contentFiles here either.
+  },
   "/impressum": {
     title: "Impressum | Bayar Solutions",
     description:
@@ -76,7 +89,12 @@ export const ROUTES = {
 // Routes listed in public/sitemap.xml. Kept as an explicit subset (not just
 // every key in ROUTES) because /impressum and /datenschutz are deliberately
 // left out of the sitemap.
-export const SITEMAP_ROUTES = ["/", "/webseiten-kaufbeuren", "/app-entwicklung-kaufbeuren"];
+export const SITEMAP_ROUTES = [
+  "/",
+  "/webseiten-kaufbeuren",
+  "/app-entwicklung-kaufbeuren",
+  "/ki-automatisierung",
+];
 
 export const urlFor = (path) => (path === "/" ? `${ORIGIN}/` : `${ORIGIN}${path}`);
 

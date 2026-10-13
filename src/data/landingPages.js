@@ -27,15 +27,22 @@ import HubRoundedIcon from "@mui/icons-material/HubRounded";
 import UpdateRoundedIcon from "@mui/icons-material/UpdateRounded";
 import AppleIcon from "@mui/icons-material/Apple";
 import AndroidRoundedIcon from "@mui/icons-material/AndroidRounded";
+import DescriptionRoundedIcon from "@mui/icons-material/DescriptionRounded";
+import SyncAltRoundedIcon from "@mui/icons-material/SyncAltRounded";
+import SmartToyRoundedIcon from "@mui/icons-material/SmartToyRounded";
+import AutoAwesomeRoundedIcon from "@mui/icons-material/AutoAwesomeRounded";
+import AccountTreeRoundedIcon from "@mui/icons-material/AccountTreeRounded";
+import StorageRoundedIcon from "@mui/icons-material/StorageRounded";
 
 // Kept in sync with the address shown on the Contact section / Impressum.
 export const CONTACT_EMAIL = "bayar-solutions@outlook.de";
 
 /**
- * Copy and structure for the local landing pages. The two pages deliberately
+ * Copy and structure for the local landing pages. The pages deliberately
  * differ in angle and section mix (the web page has "audience", the app page
- * has "platforms") so they don't read as templated doorway pages.
- * Document title, description and schema.org data live in RouteSeo.jsx.
+ * has "platforms", the AI page has neither) so they don't read as templated
+ * doorway pages. Document title, description and schema.org data live in
+ * src/seo/routes.js.
  */
 export const LANDING_PAGES = {
   web: {
@@ -441,6 +448,167 @@ export const LANDING_PAGES = {
         text: "Brauchen Sie zunächst eine Unternehmenswebsite?",
         to: "/webseiten-kaufbeuren",
         label: "Zu den Webseiten in Kaufbeuren",
+      },
+    },
+  },
+
+  ai: {
+    breadcrumb: "KI-Automatisierung Kaufbeuren",
+    mailSubject: "Anfrage KI-Automatisierung",
+    hero: {
+      overline: "KI-Automatisierung",
+      title: "KI-Automatisierung für Unternehmen in Kaufbeuren",
+      lead: "Wiederkehrende Aufgaben kosten Zeit, die an anderer Stelle fehlt. Ich entwickle individuelle KI-Automatisierungen und Softwarelösungen für Unternehmen und Selbstständige in Kaufbeuren und im Allgäu – von einzelnen automatisierten Abläufen bis zur Anbindung bestehender Systeme.",
+      chips: [
+        "KI-Automatisierung",
+        "Workflow-Automatisierung",
+        "Prozessautomatisierung",
+        "Kaufbeuren & Allgäu",
+      ],
+      primaryCta: "Projekt anfragen",
+      secondaryCta: "Referenzen ansehen",
+    },
+    why: {
+      title: "Anwendungsfälle für KI-Automatisierung",
+      subtitle:
+        "Mögliche Lösungen für wiederkehrende Aufgaben in Unternehmen – je nach Ausgangslage individuell umsetzbar.",
+      items: [
+        {
+          Icon: MarkEmailReadRoundedIcon,
+          title: "E-Mail- und Verwaltungsabläufe",
+          text: "Wiederkehrende E-Mail-Antworten, Terminbestätigungen oder interne Verwaltungsschritte lassen sich automatisieren, statt sie manuell zu wiederholen.",
+        },
+        {
+          Icon: DescriptionRoundedIcon,
+          title: "Dokumentenverarbeitung & Datenextraktion",
+          text: "Rechnungen, Formulare oder PDFs können automatisiert ausgelesen und strukturiert weiterverarbeitet werden.",
+        },
+        {
+          Icon: SyncAltRoundedIcon,
+          title: "Datenübertragung zwischen Systemen",
+          text: "Daten zwischen Software-Systemen wie CRM, Warenwirtschaft oder Buchhaltung automatisch abgleichen, statt sie manuell zu übertragen.",
+        },
+        {
+          Icon: SmartToyRoundedIcon,
+          title: "KI-Assistenten für interne Abläufe",
+          text: "Ein KI-Assistent kann interne Anfragen beantworten, Informationen zusammenfassen oder bei wiederkehrenden Aufgaben unterstützen.",
+        },
+        {
+          Icon: SettingsSuggestRoundedIcon,
+          title: "Individuelle Prozessautomatisierung",
+          text: "Wenn Standardtools nicht passen, entwickle ich eine maßgeschneiderte Automatisierung für Ihren konkreten Geschäftsprozess.",
+        },
+      ],
+    },
+    offer: {
+      title: "Leistungen rund um KI-Automatisierung",
+      subtitle: "Von der ersten Idee bis zur laufenden Automatisierung.",
+      items: [
+        {
+          Icon: AutoAwesomeRoundedIcon,
+          title: "Individuelle KI-Integration",
+          text: "Einbindung von KI-Funktionen in bestehende Abläufe oder neue Anwendungen – abgestimmt auf Ihren Anwendungsfall.",
+        },
+        {
+          Icon: AccountTreeRoundedIcon,
+          title: "Workflow-Automatisierung",
+          text: "Mehrstufige Abläufe, die bisher manuell koordiniert werden, als automatisierten Workflow abbilden.",
+        },
+        {
+          Icon: StorageRoundedIcon,
+          title: "Backend-Entwicklung",
+          text: "Eine zuverlässige technische Grundlage, auf der Automatisierungen stabil und nachvollziehbar laufen.",
+        },
+        {
+          Icon: HubRoundedIcon,
+          title: "Schnittstellen",
+          text: "Anbindung an bestehende Software über APIs, damit Daten nicht doppelt gepflegt werden müssen.",
+        },
+      ],
+    },
+    process: {
+      title: "So läuft ein Automatisierungsprojekt ab",
+      subtitle: "Transparent und in nachvollziehbaren Schritten.",
+      steps: [
+        {
+          title: "Anforderungen verstehen",
+          text: "Wir klären, welcher Ablauf automatisiert werden soll, welche Systeme beteiligt sind und wo aktuell Zeit verloren geht.",
+        },
+        {
+          title: "Lösung planen",
+          text: "Ich entwerfe einen passenden technischen Ansatz – realistisch eingeschätzt, was sich automatisieren lässt und was nicht.",
+        },
+        {
+          title: "Entwicklung",
+          text: "Die Automatisierung oder KI-Integration entsteht in überschaubaren Schritten, damit früh etwas Funktionierendes sichtbar ist.",
+        },
+        {
+          title: "Testen",
+          text: "Vor dem Einsatz wird die Lösung geprüft, damit sie im echten Betrieb zuverlässig funktioniert.",
+        },
+        {
+          title: "Einführung",
+          text: "Die Automatisierung geht in Betrieb. Auf Wunsch übernehme ich danach auch Anpassungen und Weiterentwicklung.",
+        },
+      ],
+    },
+    local: {
+      title: "Kaufbeuren & Allgäu",
+      paragraphs: [
+        "Bayar Solutions arbeitet als Einzelunternehmen für Unternehmen und Selbstständige aus Kaufbeuren und dem Allgäu. Gerade bei der Automatisierung interner Abläufe hilft es, wenn Anforderungen direkt und ohne Umwege besprochen werden können.",
+        "Ich schaue mir Ihren konkreten Ablauf an und schätze ehrlich ein, ob und wie er sich sinnvoll automatisieren lässt – auch wenn das Ergebnis manchmal ist, dass eine einfachere Lösung ausreicht.",
+        "Ein erster Kontakt per E-Mail genügt. Auf Wunsch stimmen wir uns auch persönlich ab.",
+      ],
+      cardTitle: "Direkter Draht",
+      cardPoints: [
+        "Ansprechpartner von Anfang bis Ende: eine Person",
+        "Ehrliche Einschätzung, was automatisierbar ist",
+        "Region Kaufbeuren und Allgäu",
+      ],
+    },
+    references: {
+      title: "Referenzen",
+      text: "Meine bisherigen Projekte zeigen, wie ich Software konzipiere, Daten strukturiere und komplexe Abläufe technisch sauber umsetze – von einer Rechnungs-App mit automatisierten PDF-Exporten bis zum browserbasierten 3D-Raumplaner mit Kollisionserkennung. Diese Erfahrung in Softwareentwicklung und Systemintegration ist die Grundlage für individuelle KI-Automatisierungsprojekte. Einen Überblick mit Screenshots finden Sie auf der Startseite.",
+      link: "Alle Referenzen ansehen",
+      showApps: false,
+    },
+    faq: {
+      title: "Häufige Fragen zur KI-Automatisierung",
+      items: [
+        {
+          q: "Was kann ich mit KI-Automatisierung in meinem Unternehmen automatisieren?",
+          a: "Das hängt von Ihren Abläufen ab. Häufig eignen sich wiederkehrende, regelbasierte Aufgaben wie E-Mail-Bearbeitung, Dokumentenverarbeitung oder Datenübertragung zwischen Systemen. Im Erstgespräch schauen wir uns Ihren konkreten Ablauf an.",
+        },
+        {
+          q: "Was kostet eine KI-Automatisierung?",
+          a: "Das hängt stark vom Umfang und von der Komplexität des Ablaufs ab, deshalb gibt es keine Pauschalpreise. Nach einem kurzen Erstgespräch erhalten Sie eine individuelle, nachvollziehbare Einschätzung.",
+        },
+        {
+          q: "Ist meine Automatisierung DSGVO-konform?",
+          a: "Datenschutz ist bei der Verarbeitung von Unternehmensdaten ein wichtiger Aspekt, den ich bei der technischen Umsetzung berücksichtige. Eine rechtliche Bewertung Ihrer individuellen Situation kann ich als Softwareentwickler jedoch nicht ersetzen – dafür empfiehlt sich im Zweifel zusätzlich eine rechtliche Beratung.",
+        },
+        {
+          q: "Lohnt sich KI-Automatisierung auch für kleine Unternehmen?",
+          a: "Das kommt auf den konkreten Ablauf an. Auch bei kleineren Unternehmen kann sich eine Automatisierung lohnen, wenn eine Aufgabe häufig und nach einem klaren Muster wiederkehrt. Ob sich der Aufwand lohnt, lässt sich am besten im Erstgespräch einschätzen.",
+        },
+        {
+          q: "Wie lange dauert die Umsetzung einer Automatisierung?",
+          a: "Je nach Umfang reicht das von wenigen Tagen für eine einzelne automatisierte Aufgabe bis zu mehreren Wochen für eine komplexere Integration. Einen realistischen Zeitrahmen nenne ich nach der Anforderungsklärung.",
+        },
+        {
+          q: "Können bestehende Systeme eingebunden werden?",
+          a: "Häufig ja, sofern Ihr bestehendes System eine Schnittstelle (API) anbietet oder sich Daten strukturiert exportieren lassen. Das prüfe ich zu Beginn, damit später keine Überraschungen entstehen. Wenn dafür eine neue Anwendung oder ein eigenes Backend sinnvoll ist, übernehme ich auch das – mehr dazu unter",
+          link: { to: "/app-entwicklung-kaufbeuren", label: "App- und Softwareentwicklung in Kaufbeuren" },
+        },
+      ],
+    },
+    cta: {
+      title: "Lassen Sie uns über Ihre Automatisierung sprechen",
+      text: "Beschreiben Sie mir kurz Ihren wiederkehrenden Ablauf – ein paar Sätze per E-Mail genügen. Ich melde mich zeitnah mit einer ehrlichen Einschätzung, ob und wie sich eine Automatisierung lohnt.",
+      cross: {
+        text: "Benötigen Sie dafür auch eine neue App oder individuelle Software?",
+        to: "/app-entwicklung-kaufbeuren",
+        label: "Zur App- und Softwareentwicklung in Kaufbeuren",
       },
     },
   },
