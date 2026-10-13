@@ -1,4 +1,5 @@
-import { Box, Container, Typography, Stack } from "@mui/material";
+import { Box, Container, Typography, Stack, IconButton } from "@mui/material";
+import InstagramIcon from "@mui/icons-material/Instagram";
 import { useTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
 
@@ -34,7 +35,13 @@ export default function Footer() {
         <Stack
           direction="row"
           useFlexGap
-          sx={{ flexWrap: "wrap", justifyContent: "center", columnGap: 2.5, rowGap: 1 }}
+          sx={{
+            flexWrap: "wrap",
+            justifyContent: "center",
+            alignItems: "center",
+            columnGap: 2.5,
+            rowGap: 1,
+          }}
         >
           <Typography
             component={RouterLink}
@@ -96,6 +103,20 @@ export default function Footer() {
           >
             Impressum
           </Typography>
+          <IconButton
+            component="a"
+            href="https://www.instagram.com/bayarsolutions/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={t("footer.instagramAria")}
+            size="small"
+            sx={{
+              color: "text.secondary",
+              "&:hover": { color: "text.primary" },
+            }}
+          >
+            <InstagramIcon fontSize="small" />
+          </IconButton>
         </Stack>
       </Container>
     </Box>
