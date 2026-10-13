@@ -86,6 +86,9 @@ function ProjectCard3D({ project, delay }) {
     : project.description || "";
   const note = project.noteKey ? t(project.noteKey) : project.note;
   const href = project.storeUrl || project.link;
+  const ctaLabel = project.storeUrl
+    ? t("projectCard.openStore")
+    : t("projectCard.openDemo");
 
   return (
     <Reveal delay={delay}>
@@ -206,6 +209,7 @@ function ProjectCard3D({ project, delay }) {
                   title={title}
                   screenshots={project.screenshots || []}
                   isHovered={isHovered && !disabled}
+                  aspectRatio={project.aspectRatio}
                 />
               </Box>
 
@@ -216,11 +220,12 @@ function ProjectCard3D({ project, delay }) {
                 {href ? (
                   <Button
                     fullWidth
+                    component="a"
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     variant="contained"
                     startIcon={<OpenInNewIcon sx={{ fontSize: 16 }} />}
-                    onClick={() =>
-                      window.open(href, "_blank", "noopener,noreferrer")
-                    }
                     sx={{
                       borderRadius: "8px",
                       py: 1.1,
@@ -229,7 +234,7 @@ function ProjectCard3D({ project, delay }) {
                       color: "primary.contrastText",
                     }}
                   >
-                    {t("projectCard.openStore")}
+                    {ctaLabel}
                   </Button>
                 ) : (
                   <Box

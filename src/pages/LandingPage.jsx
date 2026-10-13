@@ -26,7 +26,7 @@ import Reveal from "../components/Reveal.jsx";
 import GlowCard from "../components/GlowCard.jsx";
 import MagneticButton from "../components/MagneticButton.jsx";
 import Apps from "../components/Apps.jsx";
-import { projects } from "../data/projects.js";
+import { iosApps } from "../data/projects.js";
 import { LANDING_PAGES, CONTACT_EMAIL } from "../data/landingPages.js";
 
 const EASE = [0.25, 0.46, 0.45, 0.94];
@@ -537,7 +537,7 @@ function ReferenceTeaser({ references }) {
           gap: { xs: 2, md: 3 },
         }}
       >
-        {projects.map((project, idx) => {
+        {iosApps.map((project, idx) => {
           const title = t(project.titleKey);
           return (
             <Reveal key={project.id} delay={idx * 60}>
@@ -869,7 +869,7 @@ export default function LandingPage({ pageKey, skipEntranceAnimation = false }) 
         sx={{ background: WASH.grey }}
       >
         {page.references.showApps ? (
-          <Apps projects={projects} />
+          <Apps projects={iosApps} />
         ) : (
           <ReferenceTeaser references={page.references} />
         )}

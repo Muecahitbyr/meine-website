@@ -45,4 +45,23 @@ export const projects = [
       `/screenshots/Tano/Tano5.${EXT}`,
     ],
   },
+  {
+    id: "3draum",
+    titleKey: "projects.3draum.title",
+    descriptionKey: "projects.3draum.description",
+    noteKey: "projects.3draum.note",
+    tags: ["React", "TypeScript", "Three.js"],
+    link: "https://raumersteller.vercel.app",
+    aspectRatio: "8 / 5",
+    screenshots: [
+      `/screenshots/3DRaum/3DRaum1.${EXT}`,
+      `/screenshots/3DRaum/3DRaum2.${EXT}`,
+      `/screenshots/3DRaum/3DRaum3.${EXT}`,
+    ],
+  },
 ];
+
+// Homepage shows all own projects, including web apps like 3DRaum. The
+// /app-entwicklung-kaufbeuren landingpage is iOS-specific — it must keep
+// showing only the native apps, not 3DRaum (a browser app).
+export const iosApps = projects.filter((p) => p.id !== "3draum");

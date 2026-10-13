@@ -18,7 +18,12 @@ const MotionBox = motion(Box);
 
 const EASE = [0.25, 0.46, 0.45, 0.94];
 
-export default function ScreenshotGallery({ title, screenshots = [], isHovered = false }) {
+export default function ScreenshotGallery({
+  title,
+  screenshots = [],
+  isHovered = false,
+  aspectRatio = "9 / 19.5",
+}) {
   const { t } = useTranslation("common");
 
   const [open, setOpen] = useState(false);
@@ -28,6 +33,15 @@ export default function ScreenshotGallery({ title, screenshots = [], isHovered =
   const fullScreen = useMediaQuery("(max-width:900px)");
 
   const currentSrc = useMemo(() => screenshots[idx], [screenshots, idx]);
+
+  // Landscape screenshots (e.g. a desktop web app) need a wider lightbox box
+  // than the portrait default (iOS screenshots) — derived from the ratio
+  // itself so callers only ever need to pass one prop.
+  const isLandscape = useMemo(() => {
+    const [w, h] = aspectRatio.split("/").map((n) => parseFloat(n));
+    return w > h;
+  }, [aspectRatio]);
+  const lightboxWidth = isLandscape ? "min(860px, 92vw)" : "min(420px, 90vw)";
 
   const openAt = (i) => {
     setIdx(i);
@@ -69,7 +83,7 @@ export default function ScreenshotGallery({ title, screenshots = [], isHovered =
         sx={{
           mt: 2,
           width: "100%",
-          aspectRatio: "9 / 19.5",
+          aspectRatio,
           borderRadius: 4,
           overflow: "hidden",
           backgroundColor: (tt) =>
@@ -118,7 +132,7 @@ export default function ScreenshotGallery({ title, screenshots = [], isHovered =
             transition={{ duration: 0.45, ease: EASE }}
             sx={{
               width: "100%",
-              aspectRatio: "9 / 19.5",
+              aspectRatio,
               objectFit: "cover",
               borderRadius: 4,
               border: (tt) =>
@@ -214,8 +228,8 @@ export default function ScreenshotGallery({ title, screenshots = [], isHovered =
               alt={`${title} Screenshot ${idx + 1}`}
               draggable={false}
               sx={{
-                width: "min(420px, 90vw)",
-                aspectRatio: "9 / 19.5",
+                width: lightboxWidth,
+                aspectRatio,
                 objectFit: "contain",
                 borderRadius: 4,
                 backgroundColor: (tt) =>

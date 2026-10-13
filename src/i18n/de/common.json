@@ -50,7 +50,7 @@
     "apps": {
       "title": "Eigene Projekte & Lösungen",
       "subtitle": "Einblicke in meine eigenen App-Entwicklungen und digitalen Lösungen.",
-      "ownNote": "DriveConnect, Rechno und Tano sind eigene App-Entwicklungen – keine Kundenprojekte.",
+      "ownNote": "DriveConnect, Rechno, Tano und 3DRaum sind eigene Entwicklungen – keine Kundenprojekte.",
       "devLink": "Mehr über App-Entwicklung in Kaufbeuren"
     },
     "contact": {
@@ -151,13 +151,19 @@
       "title": "Tano",
       "description": "Minispiele-App: Flaggen, Länder und Musik erraten sowie Top-10-Ranglisten — unterhaltsame Quiz-Herausforderungen für zwischendurch.",
       "note": "(Eigenentwicklung)"
+    },
+    "3draum": {
+      "title": "3DRaum",
+      "description": "Browserbasierter 2D- und 3D-Raumplaner mit interaktiver Raumgestaltung, Möbelplatzierung, Kollisionserkennung, Projektverwaltung und Exportfunktionen.",
+      "note": "(Eigenentwicklung)"
     }
   },
 
   "projectCard": {
     "open": "Details",
     "openStore": "Im App Store öffnen",
-    "openStoreAria": "Im App Store öffnen"
+    "openStoreAria": "Im App Store öffnen",
+    "openDemo": "Live-Demo öffnen"
   },
 
   "screenshots": {
