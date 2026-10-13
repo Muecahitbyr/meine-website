@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useMemo, useState, Suspense } from "react";
-import { ThemeProvider, CssBaseline, Box } from "@mui/material";
+import { ThemeProvider, CssBaseline, Box, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Link as RouterLink } from "react-router-dom";
 
 import { createAppTheme } from "./theme/createAppTheme";
 import Header from "./components/Header.jsx";
@@ -100,6 +100,29 @@ function HomePage({ skipEntranceAnimation, resolvedComponents }) {
         subtitle={t("sections.apps.subtitle")}
         sx={{ background: "linear-gradient(180deg, #F4F7F7 0%, rgba(247,249,249,0) 100%)" }}
       >
+        {/* DriveConnect, Rechno and Tano are my own apps, not client work —
+            said plainly here so the section isn't mistaken for client
+            references (it used to be titled/subtitled that way). */}
+        <Typography
+          color="text.secondary"
+          sx={{ mb: { xs: 3, md: 4 }, maxWidth: 760, fontSize: { xs: 14, md: 15 }, lineHeight: 1.65 }}
+        >
+          {t("sections.apps.ownNote")}{" "}
+          <Typography
+            component={RouterLink}
+            to="/app-entwicklung-kaufbeuren"
+            sx={{
+              color: "primary.dark",
+              fontWeight: 700,
+              textDecorationColor: "rgba(22,158,146,0.4)",
+              textUnderlineOffset: 3,
+              "&:hover": { textDecorationColor: "currentColor" },
+            }}
+          >
+            {t("sections.apps.devLink")}
+          </Typography>
+        </Typography>
+
         <RouteSlot resolved={resolvedComponents.Apps} lazy={LazyApps} projects={projects} />
       </Section>
 

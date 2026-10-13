@@ -202,7 +202,7 @@ export const LANDING_PAGES = {
     },
     references: {
       title: "Referenzen",
-      text: "Meine bisherigen veröffentlichten Projekte sind native iOS-Apps – vom Rechnungsprogramm bis zur Quiz-App. Sie zeigen, wie ich Oberflächen gestalte und Funktionen umsetze. Einen Überblick mit Screenshots finden Sie auf der Startseite.",
+      text: "Meine bisherigen Projekte sind eigene App-Entwicklungen – vom Rechnungsprogramm bis zur Quiz-App, keine Kundenaufträge. Sie zeigen, wie ich Oberflächen gestalte und Funktionen umsetze. Einen Überblick mit Screenshots finden Sie auf der Startseite.",
       link: "Alle Referenzen ansehen",
       showApps: false,
     },
@@ -400,7 +400,7 @@ export const LANDING_PAGES = {
     },
     references: {
       title: "Referenzen",
-      subtitle: "Drei Apps aus meinem Portfolio – im App Store verfügbar.",
+      subtitle: "Drei eigene App-Entwicklungen aus meinem Portfolio – keine Kundenprojekte.",
       link: "Alle Referenzen ansehen",
       showApps: true,
     },

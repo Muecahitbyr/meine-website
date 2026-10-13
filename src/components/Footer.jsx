@@ -38,6 +38,18 @@ export default function Footer() {
         >
           <Typography
             component={RouterLink}
+            to="/#apps"
+            variant="body2"
+            sx={{
+              color: "text.secondary",
+              textDecoration: "none",
+              "&:hover": { color: "text.primary" },
+            }}
+          >
+            {t("footer.appsLink")}
+          </Typography>
+          <Typography
+            component={RouterLink}
             to="/webseiten-kaufbeuren"
             variant="body2"
             sx={{

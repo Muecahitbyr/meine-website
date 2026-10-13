@@ -48,8 +48,10 @@
       "subtitle": "Digitale Lösungen für Unternehmen mit Fokus auf Kundennutzen, Geschwindigkeit und Skalierbarkeit."
     },
     "apps": {
-      "title": "Referenzen & Lösungen",
-      "subtitle": "Ausgewählte Kundenlösungen und digitale Referenzen."
+      "title": "Eigene Projekte & Lösungen",
+      "subtitle": "Einblicke in meine eigenen App-Entwicklungen und digitalen Lösungen.",
+      "ownNote": "DriveConnect, Rechno und Tano sind eigene App-Entwicklungen – keine Kundenprojekte.",
+      "devLink": "Mehr über App-Entwicklung in Kaufbeuren"
     },
     "contact": {
       "title": "Kontakt",
@@ -59,6 +61,7 @@
 
   "footer": {
     "role": "Digitale Lösungen für Unternehmen",
+    "appsLink": "Eigene Projekte",
     "webLink": "Website erstellen lassen",
     "appLink": "App entwickeln lassen"
   },
@@ -137,17 +140,17 @@
     "driveconnect": {
       "title": "DriveConnect",
       "description": "Personalisierte iOS App zur Analyse und Darstellung von Fahrzeugdaten — modern und benutzerzentriert.",
-      "note": "(Im App Store verfügbar)"
+      "note": "(Eigenentwicklung)"
     },
     "rechno": {
       "title": "Rechno",
       "description": "Rechnungs-App für Kleinunternehmer und Unternehmen: Rechnungen einfach erstellen, verwalten und direkt versenden.",
-      "note": "(Im App Store verfügbar)"
+      "note": "(Eigenentwicklung)"
     },
     "tano": {
       "title": "Tano",
       "description": "Minispiele-App: Flaggen, Länder und Musik erraten sowie Top-10-Ranglisten — unterhaltsame Quiz-Herausforderungen für zwischendurch.",
-      "note": "(Im App Store verfügbar)"
+      "note": "(Eigenentwicklung)"
     }
   },
 

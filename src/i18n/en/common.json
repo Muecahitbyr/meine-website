@@ -48,8 +48,10 @@
       "subtitle": "Digital solutions for businesses with a focus on customer value, speed and scalability."
     },
     "apps": {
-      "title": "References & Solutions",
-      "subtitle": "Selected client solutions and digital references."
+      "title": "Own Projects & Solutions",
+      "subtitle": "A look at my own app developments and digital solutions.",
+      "ownNote": "DriveConnect, Rechno and Tano are my own app developments – not client projects.",
+      "devLink": "More about app development in Kaufbeuren"
     },
     "contact": {
       "title": "Contact",
@@ -58,7 +60,8 @@
   },
 
   "footer": {
-    "role": "Digital solutions for businesses"
+    "role": "Digital solutions for businesses",
+    "appsLink": "Own Projects"
   },
 
   "about": {
@@ -133,17 +136,17 @@
     "driveconnect": {
       "title": "DriveConnect",
       "description": "Personalized iOS app to analyze and visualize vehicle data — modern and user-focused.",
-      "note": "(Available on the App Store)"
+      "note": "(Own development)"
     },
     "rechno": {
       "title": "Rechno",
       "description": "Invoicing app for freelancers and small businesses: create, manage and send invoices with ease.",
-      "note": "(Available on the App Store)"
+      "note": "(Own development)"
     },
     "tano": {
       "title": "Tano",
       "description": "Mini-games app: guess flags, countries and songs, plus Top-10 rankings — quick quiz challenges on the go.",
-      "note": "(Coming soon to the App Store)"
+      "note": "(Own development)"
     }
   },
 
