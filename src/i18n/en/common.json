@@ -19,10 +19,10 @@
     "headlinePre": "Modern",
     "headlineHighlight": "Software",
     "headlinePost": "for Businesses",
-    "subtitle": "I develop digital solutions for companies that delight customers, simplify processes and drive growth.",
+    "subtitle": "As a sole proprietorship, I develop websites, apps, software and AI automations for businesses and self-employed professionals in Kaufbeuren and the Allgäu region.",
     "ctaPrimary": "Request a project",
     "ctaSecondary": "View references",
-    "chips": ["Business Websites", "Client Portals", "Mobile Apps"],
+    "chips": ["Business Websites", "Client Portals", "Mobile Apps", "AI Automation"],
     "card": {
       "description": "A sole proprietorship for digital products, modern interfaces and custom software development.",
       "tiles": [
@@ -76,6 +76,7 @@
       "items": [
         "Digital client portals, booking systems and landing pages",
         "Native iOS apps for stronger customer engagement",
+        "AI automations for recurring tasks and workflows",
         "API integrations for seamless data synchronization",
         "Scalable backend systems and cloud services",
         "Conversion-optimized user interfaces",
@@ -109,6 +110,7 @@
         "rating": "Rating",
         "projects": "Projects"
       },
+      "demoNote": "Demo data for illustration – not real figures.",
       "cleanUiTitle": "Clean UI",
       "cleanUiSubtitle": "Components • Animations • Accessibility"
     }

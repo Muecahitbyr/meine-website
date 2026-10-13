@@ -68,6 +68,18 @@ function DashboardMock() {
           </Typography>
         </Paper>
 
+        {/* Explicit disclaimer right next to the numbers — without it, text
+            extraction (search snippets, AI crawlers) can read "4.9★" /
+            "1.2k" next to "Dashboard" as real company stats rather than
+            illustrative UI-preview content. */}
+        <Typography
+          variant="caption"
+          color="text.disabled"
+          sx={{ fontSize: 11, fontStyle: "italic" }}
+        >
+          {t("about.deviceMock.demoNote")}
+        </Typography>
+
         {/* Stats tiles — each tile gets its own accent colour, staggered in */}
         <Box
           sx={{

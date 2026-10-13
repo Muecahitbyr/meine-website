@@ -19,10 +19,10 @@
     "headlinePre": "Moderne",
     "headlineHighlight": "Software",
     "headlinePost": "für Unternehmen",
-    "subtitle": "Ich entwickle digitale Lösungen für Unternehmen, die Kunden begeistern, Prozesse vereinfachen und Wachstum fördern.",
+    "subtitle": "Als Einzelunternehmen entwickle ich Webseiten, Apps, Software und KI-Automatisierungen für Unternehmen und Selbstständige in Kaufbeuren und im Allgäu.",
     "ctaPrimary": "Projekt anfragen",
     "ctaSecondary": "Referenzen ansehen",
-    "chips": ["Unternehmenswebsites", "Kundenportale", "Mobile Apps"],
+    "chips": ["Unternehmenswebsites", "Kundenportale", "Mobile Apps", "KI-Automatisierung"],
     "card": {
       "description": "Einzelunternehmen für digitale Produkte, moderne Benutzeroberflächen und individuelle Softwareentwicklung.",
       "tiles": [
@@ -78,6 +78,7 @@
       "items": [
         "Digitale Kundenportale, Buchungssysteme und Landingpages",
         "Native iOS-Apps für bessere Kundenbindung",
+        "KI-Automatisierungen für wiederkehrende Aufgaben und Abläufe",
         "API-Integrationen für reibungslose Datensynchronisation",
         "Skalierbare Backend-Systeme und Cloud-Services",
         "Conversion-optimierte Benutzeroberflächen",
@@ -111,6 +112,7 @@
         "rating": "Bewertung",
         "projects": "Projekte"
       },
+      "demoNote": "Demodaten zur Illustration – keine echten Kennzahlen.",
       "cleanUiTitle": "Sauberes UI",
       "cleanUiSubtitle": "Komponenten • Animationen • Accessibility"
     }
