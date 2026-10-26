@@ -59,9 +59,24 @@ export const projects = [
       `/screenshots/3DRaum/3DRaum3.${EXT}`,
     ],
   },
+  {
+    id: "mbtimer",
+    titleKey: "projects.mbtimer.title",
+    descriptionKey: "projects.mbtimer.description",
+    noteKey: "projects.mbtimer.note",
+    tags: ["React", "TypeScript", "Zeiterfassung", "SaaS"],
+    link: "https://mbtimer.vercel.app",
+    aspectRatio: "8 / 5",
+    screenshots: [
+      `/screenshots/MBTimer/MBTimer1.${EXT}`,
+      `/screenshots/MBTimer/MBTimer2.${EXT}`,
+      `/screenshots/MBTimer/MBTimer3.${EXT}`,
+    ],
+  },
 ];
 
-// Homepage shows all own projects, including web apps like 3DRaum. The
-// /app-entwicklung-kaufbeuren landingpage is iOS-specific — it must keep
-// showing only the native apps, not 3DRaum (a browser app).
-export const iosApps = projects.filter((p) => p.id !== "3draum");
+// Homepage shows all own projects, including browser-based web apps like
+// 3DRaum and MBTimer. The /app-entwicklung-kaufbeuren landingpage is
+// iOS-specific — it must keep showing only the native apps.
+const WEB_ONLY_IDS = ["3draum", "mbtimer"];
+export const iosApps = projects.filter((p) => !WEB_ONLY_IDS.includes(p.id));

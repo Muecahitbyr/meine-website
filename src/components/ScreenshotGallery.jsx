@@ -165,6 +165,13 @@ export default function ScreenshotGallery({
                 : "rgba(255,255,255,0.92)",
             backdropFilter: "blur(10px)",
             borderRadius: fullScreen ? 0 : 4,
+            // Without this, a tall portrait screenshot forces the Paper
+            // taller than the viewport on short windows (laptops) — since
+            // the Paper's default max-height leaves no room to shrink, the
+            // overflow used to spill past the bottom of the browser window
+            // with no way to reach it (body scroll is locked while open).
+            maxHeight: fullScreen ? "100%" : "92vh",
+            overflowY: "auto",
           },
         }}
       >
@@ -228,8 +235,15 @@ export default function ScreenshotGallery({
               alt={`${title} Screenshot ${idx + 1}`}
               draggable={false}
               sx={{
-                width: lightboxWidth,
-                aspectRatio,
+                // auto width/height + both max- bounds lets the browser pick
+                // whichever constraint (viewport height, on a tall portrait
+                // shot, or the lightbox width, on a wide one) is tighter,
+                // instead of forcing a fixed width that ignores how tall the
+                // window actually is.
+                width: "auto",
+                height: "auto",
+                maxWidth: lightboxWidth,
+                maxHeight: { xs: "62vh", md: "72vh" },
                 objectFit: "contain",
                 borderRadius: 4,
                 backgroundColor: (tt) =>

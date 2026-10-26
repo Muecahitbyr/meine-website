@@ -19,7 +19,7 @@ const WASH = {
 const HERO = {
   overline: "Projekte",
   title: "Meine Projekte und Software-Eigenentwicklungen",
-  lead: "Vier eigenständig entwickelte Anwendungen zeigen, wie ich von der ersten Idee bis zur fertigen Software arbeite – als Eigenentwicklungen, nicht als Kundenaufträge. Drei native iOS-Apps und ein browserbasierter 3D-Raumplaner mit echter Live-Demo.",
+  lead: "Fünf eigenständig entwickelte Anwendungen zeigen, wie ich von der ersten Idee bis zur fertigen Software arbeite – als Eigenentwicklungen, nicht als Kundenaufträge. Drei native iOS-Apps und zwei browserbasierte Webanwendungen, beide mit echter Live-Demo.",
   chips: ["SwiftUI", "React", "TypeScript", "Firebase", "Three.js"],
   primaryCta: "Projekt anfragen",
   secondaryCta: "Zum Kontakt",
@@ -34,7 +34,8 @@ const HERO = {
 // invoices, a placeholder leaderboard) is deliberately not cited here as if
 // it were real activity. 3DRaum's entries additionally draw on direct,
 // hands-on testing of the live demo from an earlier session, not just
-// screenshots.
+// screenshots. MBTimer's entries likewise draw on hands-on testing of its
+// live demo (role selection, dashboard, kiosk).
 const PROJECT_DETAILS = {
   driveconnect: {
     kind: "iOS-App",
@@ -83,6 +84,19 @@ const PROJECT_DETAILS = {
       "Boden- und Wandmaterialien individuell wählen",
       "Wechsel zwischen 2D-Grundriss mit Maßangaben und 3D-Ansicht",
       "Projektverwaltung (Speichern, mehrere Projekte) und Exportfunktion",
+    ],
+  },
+  mbtimer: {
+    kind: "Webanwendung",
+    problem:
+      "Arbeitszeiten für ein Praxisteam per Zettel oder Excel zu erfassen ist unübersichtlich und fehleranfällig. MBTimer bildet Zeiterfassung, Urlaubsverwaltung und Genehmigungen für Arzt- und Zahnarztpraxen in einer webbasierten Anwendung ab – nutzbar auf Kiosk-Tablet, PC oder Smartphone ohne Installation.",
+    features: [
+      "Kommen- und Gehen-Stempeln per PIN am Kiosk-Tablet oder im Browser",
+      "Dashboard mit Tagesstatus, Monatssaldo und Überstundenkonto",
+      "Urlaubsanträge mit Genehmigung und Team-Urlaubskalender",
+      "Zeitkorrekturen zur nachträglichen Anpassung erfasster Zeiten",
+      "Rollen- und Rechteverwaltung: Chef, Praxis-Admin, Urlaubsbeauftragte und Mitarbeiter",
+      "Teamübersicht mit Anwesenheitsstatus sowie Statistik zu Kranken- und Urlaubstagen",
     ],
   },
 };

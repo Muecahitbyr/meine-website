@@ -50,7 +50,7 @@
     "apps": {
       "title": "Eigene Projekte & Lösungen",
       "subtitle": "Einblicke in meine eigenen App-Entwicklungen und digitalen Lösungen.",
-      "ownNote": "DriveConnect, Rechno, Tano und 3DRaum sind eigene Entwicklungen – keine Kundenprojekte.",
+      "ownNote": "DriveConnect, Rechno, Tano, 3DRaum und MBTimer sind eigene Entwicklungen – keine Kundenprojekte.",
       "devLink": "Mehr über App-Entwicklung in Kaufbeuren",
       "projectsLink": "Alle Projekte im Detail ansehen"
     },
@@ -165,6 +165,11 @@
     "3draum": {
       "title": "3DRaum",
       "description": "Browserbasierter 2D- und 3D-Raumplaner mit interaktiver Raumgestaltung, Möbelplatzierung, Kollisionserkennung, Projektverwaltung und Exportfunktionen.",
+      "note": "(Eigenentwicklung)"
+    },
+    "mbtimer": {
+      "title": "MBTimer",
+      "description": "Webbasierte Arbeitszeiterfassung für Arzt- und Zahnarztpraxen: Stempeln per PIN am Tablet, Urlaubsplanung, Zeitkorrekturen, Überstundenkonto und Teamübersicht in einer Anwendung.",
       "note": "(Eigenentwicklung)"
     }
   },

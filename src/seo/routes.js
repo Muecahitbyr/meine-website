@@ -75,7 +75,7 @@ export const ROUTES = {
   "/projekte": {
     title: "Projekte & Eigenentwicklungen | Bayar Solutions",
     description:
-      "Eigenständig entwickelte Projekte von Bayar Solutions: native iOS-Apps und ein browserbasierter 3D-Raumplaner – mit echten Funktionen und Live-Demo.",
+      "Eigenständig entwickelte Projekte von Bayar Solutions: native iOS-Apps und browserbasierte Webanwendungen wie ein 3D-Raumplaner und eine Arbeitszeiterfassung – mit echten Funktionen und Live-Demo.",
     // Deliberately no `service` field: this page showcases own projects, it
     // doesn't sell a bookable service, so a Service/BreadcrumbList schema
     // here would misrepresent it. The shared ProfessionalService block
