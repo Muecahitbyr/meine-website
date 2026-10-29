@@ -13,9 +13,21 @@ export const ORG_ID = `${ORIGIN}/#organization`;
 // (RouteSeo.jsx imports this same module) — no Node APIs in this file.
 export const ROUTES = {
   "/": {
-    title: "Bayar Solutions | Webseiten & App-Entwicklung in Kaufbeuren",
+    // Title: 52 chars (was 59) — shorter than before despite covering all
+    // three core services, so no truncation risk. "KI" rather than the
+    // longer "KI-Automatisierung" keeps it compact; the dedicated
+    // /ki-automatisierung route below still owns that exact, more specific
+    // phrase in its own title, so this doesn't cannibalize it — it's a
+    // broader entity-level signal, not a competing exact-match target.
+    title: "Bayar Solutions | Webseiten, Apps & KI in Kaufbeuren",
+    // Description: 131 chars (was 151, limit ~160) — room freed up by
+    // dropping the generic "individuell, schnell und aus einer Hand" tail
+    // (unverifiable speed/quality claim, not needed) made space for the
+    // third service without stuffing or exceeding the safe length. Kept in
+    // sync with the ProfessionalService JSON-LD description in index.html —
+    // see that file's comment.
     description:
-      "Bayar Solutions entwickelt Webseiten und Apps für Unternehmen und Selbstständige in Kaufbeuren und im Allgäu – individuell, schnell und aus einer Hand.",
+      "Bayar Solutions entwickelt Webseiten, Apps und KI-Automatisierungen für Unternehmen und Selbstständige in Kaufbeuren und im Allgäu.",
     // Deliberately *not* Header.jsx/Footer.jsx/Sections.jsx/common.json/
     // routes.js — those are shared with every other route (nav wording,
     // the translation file, this very file's own data), so a change to one

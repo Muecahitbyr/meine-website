@@ -81,6 +81,18 @@ export default function Footer() {
           </Typography>
           <Typography
             component={RouterLink}
+            to="/ki-automatisierung"
+            variant="body2"
+            sx={{
+              color: "text.secondary",
+              textDecoration: "none",
+              "&:hover": { color: "text.primary" },
+            }}
+          >
+            {t("footer.aiLink")}
+          </Typography>
+          <Typography
+            component={RouterLink}
             to="/projekte"
             variant="body2"
             sx={{

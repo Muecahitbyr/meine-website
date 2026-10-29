@@ -200,5 +200,35 @@ export default function seoHead() {
 
       fs.writeFileSync(path.join(outDir, "sitemap.xml"), buildSitemap(root));
     },
+
+    // public/sitemap.xml (tracked in git) was found stale during the 2026-10
+    // SEO audit — missing two routes, outdated <lastmod> — because nothing
+    // kept it in sync with SITEMAP_ROUTES/ROUTES. A first fix had the build
+    // overwrite that tracked file on every `npm run build`, but that makes
+    // the build mutate version-controlled source as a side effect: every
+    // local build then leaves an uncommitted public/sitemap.xml diff behind,
+    // which is surprising, easy to `git add -A` by accident, and makes
+    // "is the sitemap right" depend on "did someone remember to build and
+    // commit" rather than being structurally guaranteed. The dist/ output
+    // above is already the one thing that's actually served in production
+    // (wrangler.jsonc's assets.directory), so that's the only artifact that
+    // needs regenerating — this project's deploy is a local `npm run build`
+    // + `wrangler deploy` of that dist/ folder, not a Cloudflare-side CI
+    // build, so there's no separate build environment to keep in sync.
+    // This hook instead serves /sitemap.xml live from the same buildSitemap()
+    // during `npm run dev`, so the dev server never depends on the static
+    // file being fresh either — it's correct by construction, every time,
+    // in both environments that actually matter, with nothing to forget to
+    // regenerate. The committed public/sitemap.xml now only still matters as
+    // parseExistingSitemap()'s defensive <lastmod> fallback below (kept,
+    // regenerated once as part of this fix) — low-stakes, since it's not
+    // directly served anywhere anymore.
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        if (req.url !== "/sitemap.xml") return next();
+        res.setHeader("Content-Type", "application/xml; charset=utf-8");
+        res.end(buildSitemap(root));
+      });
+    },
   };
 }

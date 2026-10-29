@@ -4,7 +4,7 @@
     "nav": {
       "about": "Über BAYAR-SOLUTIONS",
       "tech": "Leistungen",
-      "apps": "Referenzen",
+      "apps": "Eigene Projekte",
       "contact": "Kontakt"
     },
     "aria": {
@@ -21,7 +21,7 @@
     "headlinePost": "für Unternehmen",
     "subtitle": "Als Einzelunternehmen entwickle ich Webseiten, Apps, Software und KI-Automatisierungen für Unternehmen und Selbstständige in Kaufbeuren und im Allgäu.",
     "ctaPrimary": "Projekt anfragen",
-    "ctaSecondary": "Referenzen ansehen",
+    "ctaSecondary": "Projekte ansehen",
     "chips": ["Unternehmenswebsites", "Kundenportale", "Mobile Apps", "KI-Automatisierung"],
     "card": {
       "description": "Einzelunternehmen für digitale Produkte, moderne Benutzeroberflächen und individuelle Softwareentwicklung.",
@@ -65,6 +65,7 @@
     "appsLink": "Eigene Projekte",
     "webLink": "Website erstellen lassen",
     "appLink": "App entwickeln lassen",
+    "aiLink": "KI-Automatisierung umsetzen",
     "projectsLink": "Projekte im Detail",
     "instagramAria": "Bayar Solutions auf Instagram"
   },
@@ -199,7 +200,7 @@
       "subtitle": "Schnell per E-Mail oder QR-Code scannen.",
       "body": "Für Projektanfragen, Digitalisierungsziele oder eine erste Machbarkeitsprüfung.",
       "sendEmail": "E-Mail senden",
-      "toApps": "Zu den Referenzen",
+      "toApps": "Zu den Projekten",
       "emailLabel": "E-MAIL",
       "copyTooltip": "E-Mail kopieren",
       "copyAria": "E-Mail kopieren",

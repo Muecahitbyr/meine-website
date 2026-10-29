@@ -59,7 +59,7 @@ export const LANDING_PAGES = {
         "Technische SEO-Basis",
       ],
       primaryCta: "Projekt anfragen",
-      secondaryCta: "Referenzen ansehen",
+      secondaryCta: "Projekte ansehen",
     },
     why: {
       title: "Warum eine professionelle Website für lokale Unternehmen wichtig ist",
@@ -208,9 +208,9 @@ export const LANDING_PAGES = {
       cardPoints: ["Kaufbeuren", "Allgäu", "Auf Wunsch auch darüber hinaus"],
     },
     references: {
-      title: "Referenzen",
+      title: "Eigene Projekte",
       text: "Meine bisherigen Projekte sind eigene App-Entwicklungen – vom Rechnungsprogramm bis zur Quiz-App, keine Kundenaufträge. Sie zeigen, wie ich Oberflächen gestalte und Funktionen umsetze. Einen Überblick mit Screenshots finden Sie auf der Startseite.",
-      link: "Alle Referenzen ansehen",
+      link: "Alle Projekte ansehen",
       showApps: false,
     },
     faq: {
@@ -241,6 +241,11 @@ export const LANDING_PAGES = {
           a: "Ja. Neben klassischen Unternehmensseiten entwickle ich Lösungen mit besonderen Funktionen, etwa Anfrage- und Buchungsformulare, geschützte Bereiche oder Anbindungen an andere Systeme. Wenn Ihr Vorhaben eher in Richtung einer eigenen Anwendung geht, finden Sie mehr dazu unter",
           link: { to: "/app-entwicklung-kaufbeuren", label: "individuelle App-Entwicklung" },
         },
+        {
+          q: "Kann meine Website auch mit KI-Automatisierung kombiniert werden?",
+          a: "Ja. Wiederkehrende Abläufe rund um Ihre Website – etwa automatische Antworten auf Anfragen oder die Weiterverarbeitung von Formulardaten – lassen sich mit individuellen Automatisierungen ergänzen. Mehr dazu finden Sie unter",
+          link: { to: "/ki-automatisierung", label: "KI-Automatisierung für Unternehmen" },
+        },
       ],
     },
     cta: {
@@ -268,7 +273,7 @@ export const LANDING_PAGES = {
         "Wartung & Weiterentwicklung",
       ],
       primaryCta: "App-Idee besprechen",
-      secondaryCta: "Referenzen ansehen",
+      secondaryCta: "Projekte ansehen",
     },
     why: {
       title: "Wann sich eine eigene App lohnt",
@@ -347,7 +352,7 @@ export const LANDING_PAGES = {
         {
           Icon: AppleIcon,
           title: "iOS-App",
-          text: "Native Entwicklung mit SwiftUI und Veröffentlichung im App Store – so wie bei den Apps in meinen Referenzen.",
+          text: "Native Entwicklung mit SwiftUI und Veröffentlichung im App Store – so wie bei den Apps in meinen eigenen Projekten.",
         },
         {
           Icon: AndroidRoundedIcon,
@@ -406,9 +411,9 @@ export const LANDING_PAGES = {
       ],
     },
     references: {
-      title: "Referenzen",
+      title: "Eigene Projekte",
       subtitle: "Drei eigene App-Entwicklungen aus meinem Portfolio – keine Kundenprojekte.",
-      link: "Alle Referenzen ansehen",
+      link: "Alle Projekte ansehen",
       showApps: true,
     },
     faq: {
@@ -439,6 +444,11 @@ export const LANDING_PAGES = {
           q: "Was passiert nach der Veröffentlichung?",
           a: "Software lebt weiter: Betriebssysteme ändern sich, Anforderungen wachsen. Auf Wunsch übernehme ich Wartung, Fehlerbehebung und neue Funktionen. Umfang und Konditionen besprechen wir vorab.",
         },
+        {
+          q: "Lässt sich eine App mit KI-Automatisierung verbinden?",
+          a: "Ja. Abläufe innerhalb oder rund um eine App – etwa Datenverarbeitung, Benachrichtigungen oder die Anbindung an andere Systeme – lassen sich automatisieren. Mehr dazu finden Sie unter",
+          link: { to: "/ki-automatisierung", label: "KI-Automatisierung für Unternehmen" },
+        },
       ],
     },
     cta: {
@@ -466,7 +476,7 @@ export const LANDING_PAGES = {
         "Kaufbeuren & Allgäu",
       ],
       primaryCta: "Projekt anfragen",
-      secondaryCta: "Referenzen ansehen",
+      secondaryCta: "Projekte ansehen",
     },
     why: {
       title: "Anwendungsfälle für KI-Automatisierung",
@@ -567,9 +577,9 @@ export const LANDING_PAGES = {
       ],
     },
     references: {
-      title: "Referenzen",
+      title: "Eigene Projekte",
       text: "Meine bisherigen Projekte zeigen, wie ich Software konzipiere, Daten strukturiere und komplexe Abläufe technisch sauber umsetze – von einer Rechnungs-App mit automatisierten PDF-Exporten bis zum browserbasierten 3D-Raumplaner mit Kollisionserkennung. Diese Erfahrung in Softwareentwicklung und Systemintegration ist die Grundlage für individuelle KI-Automatisierungsprojekte. Einen Überblick mit Screenshots finden Sie auf der Startseite.",
-      link: "Alle Referenzen ansehen",
+      link: "Alle Projekte ansehen",
       showApps: false,
     },
     faq: {
