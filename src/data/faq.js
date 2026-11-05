@@ -18,7 +18,7 @@ export const FAQ = {
     },
     {
       q: "Kann meine vorhandene Website modernisiert werden?",
-      a: "Ja. Eine bestehende Website kann überarbeitet oder neu aufgebaut werden – optisch, inhaltlich und technisch. Im Erstgespräch schauen wir gemeinsam, was sich übernehmen lässt und wo ein Neuaufbau sinnvoller ist.",
+      a: "Ja. Eine bestehende Website kann überarbeitet oder neu aufgebaut werden, optisch, inhaltlich und technisch. Im Erstgespräch schauen wir gemeinsam, was sich übernehmen lässt und wo ein Neuaufbau sinnvoller ist.",
     },
     {
       q: "Funktioniert die Website auch auf dem Smartphone?",
@@ -26,7 +26,7 @@ export const FAQ = {
     },
     {
       q: "Übernimmt Bayar Solutions Wartung und Änderungen?",
-      a: "Ja, auf Wunsch. Ob Textänderungen, neue Seiten oder technische Updates – Sie können mich auch nach dem Start weiter beauftragen. Umfang und Konditionen besprechen wir vorab.",
+      a: "Ja, auf Wunsch. Ob Textänderungen, neue Seiten oder technische Updates, Sie können mich auch nach dem Start weiter beauftragen. Umfang und Konditionen besprechen wir vorab.",
     },
     {
       q: "Können individuelle Funktionen umgesetzt werden?",
@@ -35,7 +35,7 @@ export const FAQ = {
     },
     {
       q: "Kann meine Website auch mit KI-Automatisierung kombiniert werden?",
-      a: "Ja. Wiederkehrende Abläufe rund um Ihre Website – etwa automatische Antworten auf Anfragen oder die Weiterverarbeitung von Formulardaten – lassen sich mit individuellen Automatisierungen ergänzen. Mehr dazu finden Sie unter",
+      a: "Ja. Wiederkehrende Abläufe rund um Ihre Website (etwa automatische Antworten auf Anfragen oder die Weiterverarbeitung von Formulardaten) lassen sich mit individuellen Automatisierungen ergänzen. Mehr dazu finden Sie unter",
       link: { to: "/ki-automatisierung", label: "KI-Automatisierung für Unternehmen" },
     },
   ],
@@ -68,7 +68,7 @@ export const FAQ = {
     },
     {
       q: "Lässt sich eine App mit KI-Automatisierung verbinden?",
-      a: "Ja. Abläufe innerhalb oder rund um eine App – etwa Datenverarbeitung, Benachrichtigungen oder die Anbindung an andere Systeme – lassen sich automatisieren. Mehr dazu finden Sie unter",
+      a: "Ja. Abläufe innerhalb oder rund um eine App (etwa Datenverarbeitung, Benachrichtigungen oder die Anbindung an andere Systeme) lassen sich automatisieren. Mehr dazu finden Sie unter",
       link: { to: "/ki-automatisierung", label: "KI-Automatisierung für Unternehmen" },
     },
   ],
@@ -84,7 +84,7 @@ export const FAQ = {
     },
     {
       q: "Ist meine Automatisierung DSGVO-konform?",
-      a: "Datenschutz ist bei der Verarbeitung von Unternehmensdaten ein wichtiger Aspekt, den ich bei der technischen Umsetzung berücksichtige. Eine rechtliche Bewertung Ihrer individuellen Situation kann ich als Softwareentwickler jedoch nicht ersetzen – dafür empfiehlt sich im Zweifel zusätzlich eine rechtliche Beratung.",
+      a: "Datenschutz ist bei der Verarbeitung von Unternehmensdaten ein wichtiger Aspekt, den ich bei der technischen Umsetzung berücksichtige. Eine rechtliche Bewertung Ihrer individuellen Situation kann ich als Softwareentwickler jedoch nicht ersetzen. Im Zweifel empfiehlt sich zusätzlich eine rechtliche Beratung.",
     },
     {
       q: "Lohnt sich KI-Automatisierung auch für kleine Unternehmen?",
@@ -96,7 +96,7 @@ export const FAQ = {
     },
     {
       q: "Können bestehende Systeme eingebunden werden?",
-      a: "Häufig ja, sofern Ihr bestehendes System eine Schnittstelle (API) anbietet oder sich Daten strukturiert exportieren lassen. Das prüfe ich zu Beginn, damit später keine Überraschungen entstehen. Wenn dafür eine neue Anwendung oder ein eigenes Backend sinnvoll ist, übernehme ich auch das – mehr dazu unter",
+      a: "Häufig ja, sofern Ihr bestehendes System eine Schnittstelle (API) anbietet oder sich Daten strukturiert exportieren lassen. Das prüfe ich zu Beginn, damit später keine Überraschungen entstehen. Wenn dafür eine neue Anwendung oder ein eigenes Backend sinnvoll ist, übernehme ich auch das. Mehr dazu unter",
       link: { to: "/app-entwicklung-kaufbeuren", label: "App- und Softwareentwicklung in Kaufbeuren" },
     },
   ],

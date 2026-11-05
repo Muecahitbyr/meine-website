@@ -52,7 +52,7 @@ export const LANDING_PAGES = {
     mailSubject: "Anfrage Unternehmenswebsite",
     hero: {
       overline: "Webseiten",
-      title: "Webdesign in Kaufbeuren – professionelle Webseiten für Unternehmen",
+      title: "Webdesign in Kaufbeuren: professionelle Webseiten für Unternehmen",
       lead: "Sie möchten eine professionelle Website erstellen lassen? Bayar Solutions entwickelt moderne, schnelle und individuelle Webseiten für Unternehmen und Selbstständige in Kaufbeuren und im Allgäu. Von der Planung über das Webdesign bis zur Veröffentlichung erhalten Sie eine Website, die Ihr Unternehmen optimal präsentiert und potenziellen Kunden die Kontaktaufnahme erleichtert.",
       chips: [
         "Individuell entwickelt",
@@ -81,7 +81,7 @@ export const LANDING_PAGES = {
         {
           Icon: MarkEmailReadRoundedIcon,
           title: "Anfragen erleichtern",
-          text: "Ob Anruf, E-Mail oder Kontaktformular: Besucher sollen ohne Umwege den Weg zu Ihnen finden – unterwegs am Smartphone genauso wie am Schreibtisch.",
+          text: "Ob Anruf, E-Mail oder Kontaktformular: Besucher sollen ohne Umwege den Weg zu Ihnen finden, unterwegs am Smartphone genauso wie am Schreibtisch.",
         },
       ],
     },
@@ -113,7 +113,7 @@ export const LANDING_PAGES = {
         {
           Icon: ContactMailRoundedIcon,
           title: "Kontaktformulare",
-          text: "Anfragen erreichen Sie direkt – mit genau den Feldern, die Sie für eine Rückmeldung brauchen.",
+          text: "Anfragen erreichen Sie direkt, mit genau den Feldern, die Sie für eine Rückmeldung brauchen.",
         },
         {
           Icon: TravelExploreRoundedIcon,
@@ -123,7 +123,7 @@ export const LANDING_PAGES = {
         {
           Icon: BuildCircleRoundedIcon,
           title: "Wartung und Erweiterungen",
-          text: "Inhalte ändern, neue Seiten ergänzen, Technik aktuell halten – auf Wunsch auch nach dem Start.",
+          text: "Auf Wunsch auch nach dem Start: Inhalte ändern, neue Seiten ergänzen, Technik aktuell halten.",
         },
         {
           Icon: ExtensionRoundedIcon,
@@ -135,7 +135,7 @@ export const LANDING_PAGES = {
     audience: {
       title: "Für welche Unternehmen",
       subtitle:
-        "Beispiele für Bereiche, in denen eine gute lokale Website besonders viel bewirkt – keine Kundenliste.",
+        "Beispiele für Bereiche, in denen eine gute lokale Website besonders viel bewirkt, keine Kundenliste.",
       items: [
         {
           Icon: HandymanRoundedIcon,
@@ -171,7 +171,7 @@ export const LANDING_PAGES = {
     },
     process: {
       title: "So läuft ein Website-Projekt ab",
-      subtitle: "Überschaubar und transparent – Sie wissen jederzeit, wo wir stehen.",
+      subtitle: "Überschaubar und transparent: Sie wissen jederzeit, wo wir stehen.",
       steps: [
         {
           title: "Erstgespräch",
@@ -183,7 +183,7 @@ export const LANDING_PAGES = {
         },
         {
           title: "Design und Entwicklung",
-          text: "Ich setze Ihre Website um – im Look Ihres Unternehmens und technisch sauber.",
+          text: "Ich setze Ihre Website um, im Look Ihres Unternehmens und technisch sauber.",
         },
         {
           title: "Abstimmung",
@@ -191,7 +191,7 @@ export const LANDING_PAGES = {
         },
         {
           title: "Veröffentlichung",
-          text: "Die Website geht online – inklusive technischer SEO-Basis.",
+          text: "Die Website geht online, inklusive technischer SEO-Basis.",
         },
         {
           title: "Betreuung",
@@ -203,7 +203,7 @@ export const LANDING_PAGES = {
       title: "Kaufbeuren & Allgäu",
       paragraphs: [
         "Bayar Solutions arbeitet für Unternehmen und Selbstständige aus Kaufbeuren und dem Allgäu. Wer lokal Kunden gewinnen will, wird meist konkret gesucht: nach einem Betrieb in der Nähe, mit klaren Angaben zu Leistungen und Erreichbarkeit.",
-        "Genau darauf richte ich Struktur und Inhalte Ihrer Website aus – mit eindeutigem Bezug zu Ihrer Region, verständlichen Leistungsbeschreibungen und einem Kontaktweg, der auf jedem Gerät funktioniert.",
+        "Genau darauf richte ich Struktur und Inhalte Ihrer Website aus: mit eindeutigem Bezug zu Ihrer Region, verständlichen Leistungsbeschreibungen und einem Kontaktweg, der auf jedem Gerät funktioniert.",
         "Die Zusammenarbeit läuft unkompliziert digital, ein erster Kontakt per E-Mail genügt. Auf Wunsch stimmen wir uns auch persönlich ab.",
       ],
       cardTitle: "Einzugsgebiet",
@@ -211,7 +211,7 @@ export const LANDING_PAGES = {
     },
     references: {
       title: "Eigene Projekte",
-      text: "Meine bisherigen Projekte sind eigene App-Entwicklungen – vom Rechnungsprogramm bis zur Quiz-App, keine Kundenaufträge. Sie zeigen, wie ich Oberflächen gestalte und Funktionen umsetze. Einen Überblick mit Screenshots finden Sie auf der Startseite.",
+      text: "Meine bisherigen Projekte sind eigene App-Entwicklungen, vom Rechnungsprogramm bis zur Quiz-App, keine Kundenaufträge. Sie zeigen, wie ich Oberflächen gestalte und Funktionen umsetze. Einen Überblick mit Screenshots finden Sie auf der Startseite.",
       link: "Alle Projekte ansehen",
       showApps: false,
     },
@@ -221,7 +221,7 @@ export const LANDING_PAGES = {
     },
     cta: {
       title: "Lassen Sie uns über Ihre Website sprechen",
-      text: "Schildern Sie mir kurz Ihr Vorhaben – ein paar Sätze per E-Mail genügen. Ich melde mich zeitnah mit einer ersten Einschätzung.",
+      text: "Schildern Sie mir kurz Ihr Vorhaben. Ein paar Sätze per E-Mail genügen. Ich melde mich zeitnah mit einer ersten Einschätzung.",
       cross: {
         text: "Sie brauchen mehr als eine Website?",
         to: "/app-entwicklung-kaufbeuren",
@@ -236,7 +236,7 @@ export const LANDING_PAGES = {
     hero: {
       overline: "Apps",
       title: "App-Entwicklung für Unternehmen in Kaufbeuren",
-      lead: "Eine eigene App kann Abläufe vereinfachen, Kunden enger an Ihr Unternehmen binden oder ein neues Angebot erst möglich machen. Ich entwickle individuelle Apps und Anwendungen für Unternehmen und Selbstständige in Kaufbeuren und im Allgäu – von der ersten Idee bis zur Veröffentlichung.",
+      lead: "Eine eigene App kann Abläufe vereinfachen, Kunden enger an Ihr Unternehmen binden oder ein neues Angebot erst möglich machen. Ich entwickle individuelle Apps und Anwendungen für Unternehmen und Selbstständige in Kaufbeuren und im Allgäu, von der ersten Idee bis zur Veröffentlichung.",
       chips: [
         "Native Apps für iOS & Android",
         "Web-Anwendungen",
@@ -249,7 +249,7 @@ export const LANDING_PAGES = {
     why: {
       title: "Wann sich eine eigene App lohnt",
       subtitle:
-        "Nicht jedes Unternehmen braucht eine App – aber in diesen Situationen ist sie oft die beste Lösung.",
+        "Nicht jedes Unternehmen braucht eine App, aber in diesen Situationen ist sie oft die beste Lösung.",
       items: [
         {
           Icon: SettingsSuggestRoundedIcon,
@@ -259,24 +259,24 @@ export const LANDING_PAGES = {
         {
           Icon: SmartphoneRoundedIcon,
           title: "Kunden direkt erreichen",
-          text: "Eine App bringt Ihr Angebot aufs Smartphone Ihrer Kunden – für Buchungen, Bestellungen, Statusinformationen oder ein Kundenkonto.",
+          text: "Eine App bringt Ihr Angebot aufs Smartphone Ihrer Kunden, für Buchungen, Bestellungen, Statusinformationen oder ein Kundenkonto.",
         },
         {
           Icon: LightbulbRoundedIcon,
           title: "Eine Idee umsetzen",
-          text: "Aus einem Produktkonzept oder Geschäftsmodell wird eine nutzbare Anwendung – Schritt für Schritt und mit einem ersten lauffähigen Stand, an dem sich die Idee prüfen lässt.",
+          text: "Aus einem Produktkonzept oder Geschäftsmodell wird eine nutzbare Anwendung, Schritt für Schritt und mit einem ersten lauffähigen Stand, an dem sich die Idee prüfen lässt.",
         },
       ],
     },
     offer: {
       title: "Was ich entwickle",
       subtitle:
-        "Maßgeschneiderte Software statt Standardlösungen, die nur halb passen.",
+        "Individuelle Software statt Standardlösungen, die nur halb passen.",
       items: [
         {
           Icon: PhoneIphoneRoundedIcon,
           title: "Individuelle Apps",
-          text: "Mobile Anwendungen, die genau zu Ihrem Anwendungsfall und Ihre Abläufe passen.",
+          text: "Mobile Anwendungen, die genau zu Ihrem Anwendungsfall und Ihren Abläufen passen.",
         },
         {
           Icon: BusinessRoundedIcon,
@@ -301,7 +301,7 @@ export const LANDING_PAGES = {
         {
           Icon: HubRoundedIcon,
           title: "Backend und Schnittstellen",
-          text: "Daten sauber speichern und – wo eine Schnittstelle verfügbar ist – mit Ihren bestehenden Systemen verbinden.",
+          text: "Daten sauber speichern und (wo eine Schnittstelle verfügbar ist) mit Ihren bestehenden Systemen verbinden.",
         },
         {
           Icon: LanguageRoundedIcon,
@@ -311,7 +311,7 @@ export const LANDING_PAGES = {
         {
           Icon: UpdateRoundedIcon,
           title: "Wartung und Weiterentwicklung",
-          text: "Updates, Fehlerbehebung und neue Funktionen nach dem Start – die App bleibt nutzbar und wächst mit.",
+          text: "Updates, Fehlerbehebung und neue Funktionen nach dem Start. Die App bleibt nutzbar und wächst mit.",
         },
       ],
     },
@@ -323,7 +323,7 @@ export const LANDING_PAGES = {
         {
           Icon: AppleIcon,
           title: "iOS-App",
-          text: "Native Entwicklung mit SwiftUI und Veröffentlichung im App Store – so wie bei den Apps in meinen eigenen Projekten.",
+          text: "Native Entwicklung mit SwiftUI und Veröffentlichung im App Store, so wie bei den Apps in meinen eigenen Projekten.",
         },
         {
           Icon: AndroidRoundedIcon,
@@ -339,7 +339,7 @@ export const LANDING_PAGES = {
     },
     process: {
       title: "Von der Idee zur fertigen Anwendung",
-      subtitle: "Ein klarer Ablauf – mit einem lauffähigen Stand, bevor es ins Detail geht.",
+      subtitle: "Ein klarer Ablauf, mit einem lauffähigen Stand, bevor es ins Detail geht.",
       steps: [
         {
           title: "Idee und Anforderungen",
@@ -359,7 +359,7 @@ export const LANDING_PAGES = {
         },
         {
           title: "Veröffentlichung",
-          text: "Ich begleite die Veröffentlichung – im App Store oder als Web-Anwendung.",
+          text: "Ich begleite die Veröffentlichung, im App Store oder als Web-Anwendung.",
         },
         {
           title: "Betrieb und Ausbau",
@@ -383,7 +383,7 @@ export const LANDING_PAGES = {
     },
     references: {
       title: "Eigene Projekte",
-      subtitle: "Drei eigene App-Entwicklungen aus meinem Portfolio – keine Kundenprojekte.",
+      subtitle: "Drei eigene App-Entwicklungen aus meinem Portfolio, keine Kundenprojekte.",
       link: "Alle Projekte ansehen",
       showApps: true,
     },
@@ -408,7 +408,7 @@ export const LANDING_PAGES = {
     hero: {
       overline: "KI-Automatisierung",
       title: "KI-Automatisierung für Unternehmen in Kaufbeuren",
-      lead: "Wiederkehrende Aufgaben kosten Zeit, die an anderer Stelle fehlt. Ich entwickle individuelle KI-Automatisierungen und Softwarelösungen für Unternehmen und Selbstständige in Kaufbeuren und im Allgäu – von einzelnen automatisierten Abläufen bis zur Anbindung bestehender Systeme.",
+      lead: "Wiederkehrende Aufgaben kosten Zeit, die an anderer Stelle fehlt. Ich entwickle individuelle KI-Automatisierungen und Softwarelösungen für Unternehmen und Selbstständige in Kaufbeuren und im Allgäu, von einzelnen automatisierten Abläufen bis zur Anbindung bestehender Systeme.",
       chips: [
         "KI-Automatisierung",
         "Workflow-Automatisierung",
@@ -421,7 +421,7 @@ export const LANDING_PAGES = {
     why: {
       title: "Anwendungsfälle für KI-Automatisierung",
       subtitle:
-        "Mögliche Lösungen für wiederkehrende Aufgaben in Unternehmen – je nach Ausgangslage individuell umsetzbar.",
+        "Mögliche Lösungen für wiederkehrende Aufgaben in Unternehmen, je nach Ausgangslage individuell umsetzbar.",
       items: [
         {
           Icon: MarkEmailReadRoundedIcon,
@@ -446,7 +446,7 @@ export const LANDING_PAGES = {
         {
           Icon: SettingsSuggestRoundedIcon,
           title: "Individuelle Prozessautomatisierung",
-          text: "Wenn Standardtools nicht passen, entwickle ich eine maßgeschneiderte Automatisierung für Ihren konkreten Geschäftsprozess.",
+          text: "Wenn Standardtools nicht passen, entwickle ich eine individuelle Automatisierung für Ihren konkreten Geschäftsprozess.",
         },
       ],
     },
@@ -457,7 +457,7 @@ export const LANDING_PAGES = {
         {
           Icon: AutoAwesomeRoundedIcon,
           title: "Individuelle KI-Integration",
-          text: "Einbindung von KI-Funktionen in bestehende Abläufe oder neue Anwendungen – abgestimmt auf Ihren Anwendungsfall.",
+          text: "Einbindung von KI-Funktionen in bestehende Abläufe oder neue Anwendungen, abgestimmt auf Ihren Anwendungsfall.",
         },
         {
           Icon: AccountTreeRoundedIcon,
@@ -486,7 +486,7 @@ export const LANDING_PAGES = {
         },
         {
           title: "Lösung planen",
-          text: "Ich entwerfe einen passenden technischen Ansatz – realistisch eingeschätzt, was sich automatisieren lässt und was nicht.",
+          text: "Ich entwerfe einen passenden technischen Ansatz, realistisch eingeschätzt, was sich automatisieren lässt und was nicht.",
         },
         {
           title: "Entwicklung",
@@ -506,7 +506,7 @@ export const LANDING_PAGES = {
       title: "Kaufbeuren & Allgäu",
       paragraphs: [
         "Bayar Solutions arbeitet als Einzelunternehmen für Unternehmen und Selbstständige aus Kaufbeuren und dem Allgäu. Gerade bei der Automatisierung interner Abläufe hilft es, wenn Anforderungen direkt und ohne Umwege besprochen werden können.",
-        "Ich schaue mir Ihren konkreten Ablauf an und schätze ehrlich ein, ob und wie er sich sinnvoll automatisieren lässt – auch wenn das Ergebnis manchmal ist, dass eine einfachere Lösung ausreicht.",
+        "Ich schaue mir Ihren konkreten Ablauf an und schätze ehrlich ein, ob und wie er sich sinnvoll automatisieren lässt, auch wenn das Ergebnis manchmal ist, dass eine einfachere Lösung ausreicht.",
         "Ein erster Kontakt per E-Mail genügt. Auf Wunsch stimmen wir uns auch persönlich ab.",
       ],
       cardTitle: "Direkter Draht",
@@ -518,7 +518,7 @@ export const LANDING_PAGES = {
     },
     references: {
       title: "Eigene Projekte",
-      text: "Meine bisherigen Projekte zeigen, wie ich Software konzipiere, Daten strukturiere und komplexe Abläufe technisch sauber umsetze – von einer Rechnungs-App mit automatisierten PDF-Exporten bis zum browserbasierten 3D-Raumplaner mit Kollisionserkennung. Diese Erfahrung in Softwareentwicklung und Systemintegration ist die Grundlage für individuelle KI-Automatisierungsprojekte. Einen Überblick mit Screenshots finden Sie auf der Startseite.",
+      text: "Meine bisherigen Projekte zeigen, wie ich Software konzipiere, Daten strukturiere und komplexe Abläufe technisch sauber umsetze, von einer Rechnungs-App mit automatisierten PDF-Exporten bis zum browserbasierten 3D-Raumplaner mit Kollisionserkennung. Einen Überblick mit Screenshots finden Sie auf der Startseite.",
       link: "Alle Projekte ansehen",
       showApps: false,
     },
@@ -528,7 +528,7 @@ export const LANDING_PAGES = {
     },
     cta: {
       title: "Lassen Sie uns über Ihre Automatisierung sprechen",
-      text: "Beschreiben Sie mir kurz Ihren wiederkehrenden Ablauf – ein paar Sätze per E-Mail genügen. Ich melde mich zeitnah mit einer ehrlichen Einschätzung, ob und wie sich eine Automatisierung lohnt.",
+      text: "Beschreiben Sie mir kurz Ihren wiederkehrenden Ablauf. Ein paar Sätze per E-Mail genügen. Ich melde mich zeitnah mit einer ehrlichen Einschätzung, ob und wie sich eine Automatisierung lohnt.",
       cross: {
         text: "Benötigen Sie dafür auch eine neue App oder individuelle Software?",
         to: "/app-entwicklung-kaufbeuren",

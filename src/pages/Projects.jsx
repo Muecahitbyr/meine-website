@@ -19,7 +19,7 @@ const WASH = {
 const HERO = {
   overline: "Projekte",
   title: "Meine Projekte und Software-Eigenentwicklungen",
-  lead: "Fünf eigenständig entwickelte Anwendungen zeigen, wie ich von der ersten Idee bis zur fertigen Software arbeite – als Eigenentwicklungen, nicht als Kundenaufträge. Drei native iOS-Apps und zwei browserbasierte Webanwendungen, beide mit echter Live-Demo.",
+  lead: "Fünf eigenständig entwickelte Anwendungen zeigen, wie ich von der ersten Idee bis zur fertigen Software arbeite, als Eigenentwicklungen, nicht als Kundenaufträge. Drei native iOS-Apps und zwei browserbasierte Webanwendungen, beide mit echter Live-Demo.",
   chips: ["SwiftUI", "React", "TypeScript", "Firebase", "Three.js"],
   primaryCta: "Projekt anfragen",
   secondaryCta: "Zum Kontakt",
@@ -52,7 +52,7 @@ const PROJECT_DETAILS = {
   rechno: {
     kind: "iOS-App",
     problem:
-      "Rechnungen manuell in Word oder Excel zu erstellen kostet Zeit und ist fehleranfällig. Rechno bildet den kompletten Rechnungsprozess für Kleinunternehmer in einer iOS-App ab – von der Kundenverwaltung bis zum Versand.",
+      "Rechnungen manuell in Word oder Excel zu erstellen kostet Zeit und ist fehleranfällig. Rechno bildet den kompletten Rechnungsprozess für Kleinunternehmer in einer iOS-App ab, von der Kundenverwaltung bis zum Versand.",
     features: [
       "Rechnungen mit Positionen, Mengen, Einzelpreisen und MwSt. erstellen",
       "Verwaltung von Kunden mit Adresse und Kontaktdaten",
@@ -64,7 +64,7 @@ const PROJECT_DETAILS = {
   tano: {
     kind: "iOS-App",
     problem:
-      "Tano ist eine Minispiele-App für kurze Wissens- und Reaktions-Herausforderungen zwischendurch – ohne großen Einstieg, direkt spielbar.",
+      "Tano ist eine Minispiele-App für kurze Wissens- und Reaktions-Herausforderungen zwischendurch, ohne großen Einstieg, direkt spielbar.",
     features: [
       "Neun Spielmodi, u. a. Hauptstädte, Flaggen, Kontinente, Weltkarte und Guess the Song",
       "„Höher oder Niedriger“ mit mehreren Datenkategorien, z. B. Fußball-Marktwerte, Länderflächen oder Olympia-Goldmedaillen",
@@ -89,7 +89,7 @@ const PROJECT_DETAILS = {
   mbtimer: {
     kind: "Webanwendung",
     problem:
-      "Arbeitszeiten für ein Praxisteam per Zettel oder Excel zu erfassen ist unübersichtlich und fehleranfällig. MBTimer bildet Zeiterfassung, Urlaubsverwaltung und Genehmigungen für Arzt- und Zahnarztpraxen in einer webbasierten Anwendung ab – nutzbar auf Kiosk-Tablet, PC oder Smartphone ohne Installation.",
+      "Arbeitszeiten für ein Praxisteam per Zettel oder Excel zu erfassen ist unübersichtlich und fehleranfällig. MBTimer bildet Zeiterfassung, Urlaubsverwaltung und Genehmigungen für Arzt- und Zahnarztpraxen in einer webbasierten Anwendung ab, nutzbar auf Kiosk-Tablet, PC oder Smartphone ohne Installation.",
     features: [
       "Kommen- und Gehen-Stempeln per PIN am Kiosk-Tablet oder im Browser",
       "Dashboard mit Tagesstatus, Monatssaldo und Überstundenkonto",
@@ -260,7 +260,7 @@ export default function Projects({ skipEntranceAnimation = false }) {
         <ClosingCta
           cta={{
             title: "Etwas Ähnliches für Ihr Unternehmen?",
-            text: "Diese Projekte zeigen meine Arbeitsweise – von der Konzeption bis zur technischen Umsetzung. Schildern Sie mir kurz Ihr Vorhaben, ich melde mich mit einer ersten Einschätzung.",
+            text: "Diese Projekte zeigen meine Arbeitsweise, von der Konzeption bis zur technischen Umsetzung. Schildern Sie mir kurz Ihr Vorhaben, ich melde mich mit einer ersten Einschätzung.",
             cross: {
               text: "Auf der Suche nach einer individuellen App oder Software?",
               to: "/app-entwicklung-kaufbeuren",

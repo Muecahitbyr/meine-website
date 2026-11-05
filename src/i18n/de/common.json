@@ -41,7 +41,7 @@
   "sections": {
     "about": {
       "title": "Über BAYAR-SOLUTIONS",
-      "subtitle": "Digitale Unternehmenslösungen — modern, effizient und marktorientiert."
+      "subtitle": "Digitale Lösungen für Unternehmen, modern und effizient umgesetzt."
     },
     "tech": {
       "title": "Leistungen",
@@ -50,7 +50,7 @@
     "apps": {
       "title": "Eigene Projekte & Lösungen",
       "subtitle": "Einblicke in meine eigenen App-Entwicklungen und digitalen Lösungen.",
-      "ownNote": "DriveConnect, Rechno, Tano, 3DRaum und MBTimer sind eigene Entwicklungen – keine Kundenprojekte.",
+      "ownNote": "DriveConnect, Rechno, Tano, 3DRaum und MBTimer sind eigene Entwicklungen, keine Kundenprojekte.",
       "devLink": "Mehr über App-Entwicklung in Kaufbeuren",
       "projectsLink": "Alle Projekte im Detail ansehen"
     },
@@ -73,7 +73,7 @@
 
   "about": {
     "profileTitle": "Profil",
-    "profileSubtitle": "Unternehmensorientierte Softwarelösungen — effizient, zuverlässig und marktfähig.",
+    "profileSubtitle": "Software für Unternehmen, die zuverlässig läuft und sich gut bedienen lässt.",
     "profileBody": "Meine Arbeit verwandelt Ideen in digitale Produkte, die Abläufe verbessern und Kunden begeistern.",
 
     "whatIBuild": {
@@ -123,7 +123,7 @@
     },
     "ai": {
       "title": "KI & Automatisierung",
-      "description": "Bayar Solutions entwickelt individuelle KI-Lösungen und Automatisierungen für Unternehmen. Von der Automatisierung wiederkehrender Aufgaben über intelligente Assistenten bis zur Integration von KI in bestehende Geschäftsprozesse – praxisnah, effizient und auf die Anforderungen Ihres Unternehmens abgestimmt.",
+      "description": "Bayar Solutions entwickelt individuelle KI-Lösungen und Automatisierungen für Unternehmen: von der Automatisierung wiederkehrender Aufgaben über KI-Assistenten bis zur Integration von KI in bestehende Geschäftsprozesse.",
       "linkLabel": "KI-Automatisierung in Kaufbeuren"
     }
   },
@@ -131,7 +131,7 @@
   "projects": {
     "driveconnect": {
       "title": "DriveConnect",
-      "description": "Personalisierte iOS App zur Analyse und Darstellung von Fahrzeugdaten — modern und benutzerzentriert.",
+      "description": "Personalisierte iOS-App zur Analyse und Darstellung von Fahrzeugdaten.",
       "note": "(Eigenentwicklung)"
     },
     "rechno": {
@@ -141,7 +141,7 @@
     },
     "tano": {
       "title": "Tano",
-      "description": "Minispiele-App: Flaggen, Länder und Musik erraten sowie Top-10-Ranglisten — unterhaltsame Quiz-Herausforderungen für zwischendurch.",
+      "description": "Minispiele-App: Flaggen, Länder und Musik erraten, dazu Top-10-Ranglisten für kurze Runden zwischendurch.",
       "note": "(Eigenentwicklung)"
     },
     "3draum": {
@@ -190,7 +190,7 @@
       "copyPhoneTooltip": "Telefonnummer kopieren",
       "copyPhoneAria": "Telefonnummer kopieren",
       "callAria": "Bayar Solutions anrufen",
-      "tip": "Tipp: Ein kurzer Projektüberblick genügt — ich melde mich zeitnah."
+      "tip": "Tipp: Ein kurzer Projektüberblick genügt. Ich melde mich zeitnah."
     }
   }
 }

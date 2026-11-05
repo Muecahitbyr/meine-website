@@ -46,7 +46,7 @@ export const ROUTES = {
     ],
   },
   "/webseiten-kaufbeuren": {
-    title: "Webdesign Kaufbeuren | Webseiten erstellen – Bayar Solutions",
+    title: "Webdesign Kaufbeuren | Webseiten erstellen | Bayar Solutions",
     description:
       "Professionelles Webdesign in Kaufbeuren: Bayar Solutions erstellt moderne, schnelle Webseiten für Unternehmen und Selbstständige im Allgäu. Jetzt anfragen.",
     service: {
@@ -65,7 +65,7 @@ export const ROUTES = {
   "/app-entwicklung-kaufbeuren": {
     title: "App-Entwicklung in Kaufbeuren | Bayar Solutions",
     description:
-      "Individuelle App-Entwicklung für Unternehmen und Selbstständige in Kaufbeuren und im Allgäu – von der Idee bis zur fertigen Anwendung.",
+      "Individuelle App-Entwicklung für Unternehmen und Selbstständige in Kaufbeuren und im Allgäu, von der Idee bis zur fertigen Anwendung.",
     service: {
       name: "App-Entwicklung für Unternehmen in Kaufbeuren",
       serviceType: "App-Entwicklung",
@@ -89,7 +89,7 @@ export const ROUTES = {
   "/projekte": {
     title: "Projekte & Eigenentwicklungen | Bayar Solutions",
     description:
-      "Eigenständig entwickelte Projekte von Bayar Solutions: native iOS-Apps und browserbasierte Webanwendungen wie ein 3D-Raumplaner und eine Arbeitszeiterfassung – mit echten Funktionen und Live-Demo.",
+      "Eigenständig entwickelte Projekte von Bayar Solutions: native iOS-Apps und browserbasierte Webanwendungen wie ein 3D-Raumplaner und eine Arbeitszeiterfassung, mit echten Funktionen und Live-Demo.",
     // Deliberately no `service` field: this page showcases own projects, it
     // doesn't sell a bookable service, so a Service/BreadcrumbList schema
     // here would misrepresent it. The shared ProfessionalService block
