@@ -65,7 +65,7 @@ export default function Contact() {
                     placeItems: "center",
                     backgroundColor: alpha(tt.palette.primary.main, 0.12),
                     border: `1px solid ${alpha(tt.palette.primary.main, 0.24)}`,
-                    color: "primary.main",
+                    color: "primary.textAccessible",
                     flexShrink: 0,
                     boxShadow: (th) => `0 0 16px ${alpha(th.palette.primary.main, 0.2)}`,
                   })}
@@ -115,8 +115,8 @@ export default function Contact() {
                     sx={{
                       fontWeight: 700,
                       borderRadius: 9999,
-                      borderColor: "primary.main",
-                      color: "primary.main",
+                      borderColor: "primary.textAccessible",
+                      color: "primary.textAccessible",
                     }}
                   >
                     {t("contact.card.call")}
@@ -131,8 +131,8 @@ export default function Contact() {
                     sx={{
                       fontWeight: 700,
                       borderRadius: 9999,
-                      borderColor: "primary.main",
-                      color: "primary.main",
+                      borderColor: "primary.textAccessible",
+                      color: "primary.textAccessible",
                     }}
                   >
                     {t("contact.card.toApps")}

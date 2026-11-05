@@ -40,7 +40,7 @@ const HERO_BG =
   "linear-gradient(135deg, #0A0E14 0%, #0c1628 30%, #0d2622 60%, #0a1420 100%)";
 
 const inlineLinkSx = {
-  color: "primary.dark",
+  color: "primary.textAccessible",
   fontWeight: 700,
   textDecorationColor: "rgba(22,158,146,0.4)",
   textUnderlineOffset: 3,
@@ -149,7 +149,7 @@ export function LandingHero({ hero, breadcrumb, skipEntranceAnimation = false })
               sx={{
                 display: "block",
                 mt: 3,
-                color: "primary.main",
+                color: "primary.textAccessible",
                 fontWeight: 700,
                 letterSpacing: 1.5,
                 textTransform: "uppercase",
@@ -424,7 +424,7 @@ function ProcessSteps({ steps }) {
                   placeItems: "center",
                   fontWeight: 800,
                   fontSize: 15,
-                  color: "primary.dark",
+                  color: "primary.textAccessible",
                   backgroundColor: alpha(t.palette.primary.main, 0.12),
                   border: `1px solid ${alpha(t.palette.primary.main, 0.28)}`,
                 })}
@@ -620,8 +620,8 @@ function ReferenceTeaser({ references }) {
             px: 3,
             py: 1.25,
             fontWeight: 700,
-            borderColor: "primary.main",
-            color: "primary.main",
+            borderColor: "primary.textAccessible",
+            color: "primary.textAccessible",
           }}
         >
           {references.link}
@@ -751,8 +751,8 @@ export function ClosingCta({ cta, mailSubject }) {
                 px: 3,
                 py: 1.5,
                 fontWeight: 700,
-                borderColor: "primary.main",
-                color: "primary.main",
+                borderColor: "primary.textAccessible",
+                color: "primary.textAccessible",
               }}
             >
               Weitere Kontaktmöglichkeiten

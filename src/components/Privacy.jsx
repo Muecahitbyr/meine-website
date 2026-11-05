@@ -3,7 +3,9 @@ import { Box, Typography } from "@mui/material";
 export default function Privacy() {
   return (
     <Box sx={{ display: "grid", gap: 1.5, maxWidth: 900 }}>
-      <Typography sx={{ fontWeight: 800 }}>1. Verantwortlicher</Typography>
+      <Typography component="h2" sx={{ fontWeight: 800, m: 0 }}>
+        1. Verantwortlicher
+      </Typography>
       <Typography>
         Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) ist:
         <br />
@@ -21,7 +23,7 @@ export default function Privacy() {
         E-Mail: bayar-solutions@outlook.de
       </Typography>
 
-      <Typography sx={{ fontWeight: 800, mt: 1 }}>
+      <Typography component="h2" sx={{ fontWeight: 800, m: 0, mt: 1 }}>
         2. Allgemeine Hinweise
       </Typography>
       <Typography color="text.secondary">
@@ -34,44 +36,32 @@ export default function Privacy() {
         Videos oder Karten) ein.
       </Typography>
 
-      <Typography sx={{ fontWeight: 800, mt: 1 }}>
-        3. Hosting (Vercel)
+      <Typography component="h2" sx={{ fontWeight: 800, m: 0, mt: 1 }}>
+        3. Hosting (Cloudflare)
       </Typography>
       <Typography color="text.secondary">
-        Diese Website wird bei Vercel Inc., 440 N Barranca Ave #4133, Covina,
-        CA 91723, USA, gehostet. Beim Aufruf der Website verarbeitet Vercel
-        automatisch technisch notwendige Daten in sogenannten Server-Logfiles,
-        insbesondere die IP-Adresse, Datum und Uhrzeit des Zugriffs, die
-        aufgerufene Seite bzw. Datei, den verwendeten Browser und das
-        Betriebssystem (User-Agent) sowie die Referrer-URL. Diese Daten sind
-        für die Bereitstellung, Stabilität und Sicherheit der Website
-        erforderlich. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO
-        (berechtigtes Interesse an der sicheren und zuverlässigen
-        Bereitstellung der Website). Die Logdaten werden nur so lange
-        gespeichert, wie es für diese Zwecke erforderlich ist.
+        Diese Website wird bei Cloudflare, Inc. (San Francisco, Kalifornien,
+        USA) über das Produkt „Cloudflare Workers" gehostet und ausgeliefert.
+        Beim Aufruf der Website verarbeitet Cloudflare automatisch technisch
+        notwendige Daten in sogenannten Server-Logfiles, insbesondere die
+        IP-Adresse, Datum und Uhrzeit des Zugriffs, die aufgerufene Seite bzw.
+        Datei, den verwendeten Browser und das Betriebssystem (User-Agent)
+        sowie die Referrer-URL. Diese Daten sind für die Bereitstellung,
+        Stabilität und Sicherheit der Website erforderlich. Rechtsgrundlage
+        ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der sicheren
+        und zuverlässigen Bereitstellung der Website). Die Logdaten werden nur
+        so lange gespeichert, wie es für diese Zwecke erforderlich ist.
       </Typography>
       <Typography color="text.secondary">
-        Mit Vercel wurde ein Vertrag über Auftragsverarbeitung gemäß Art. 28
-        DSGVO geschlossen. Soweit dabei Daten in die USA übermittelt werden,
-        stützt sich die Übermittlung auf die Standardvertragsklauseln der
-        EU-Kommission (Art. 46 Abs. 2 lit. c DSGVO) sowie auf das EU-US Data
-        Privacy Framework.
+        Mit Cloudflare wurde ein Vertrag über Auftragsverarbeitung gemäß
+        Art. 28 DSGVO geschlossen. Soweit dabei Daten in die USA übermittelt
+        werden, stützt sich die Übermittlung auf die Standardvertragsklauseln
+        der EU-Kommission (Art. 46 Abs. 2 lit. c DSGVO) sowie auf das EU-US
+        Data Privacy Framework, an das sich Cloudflare, Inc. unterwirft.
       </Typography>
 
-      <Typography sx={{ fontWeight: 800, mt: 1 }}>
-        4. Lokale Speicherung (Spracheinstellung)
-      </Typography>
-      <Typography color="text.secondary">
-        Diese Website speichert Ihre gewählte Spracheinstellung im lokalen
-        Speicher Ihres Browsers (localStorage). Dabei werden keine
-        personenbezogenen Daten an uns oder Dritte übermittelt; die Speicherung
-        ist technisch erforderlich, um die von Ihnen gewünschte Sprachversion
-        bereitzustellen (§ 25 Abs. 2 Nr. 2 TDDDG). Sie können diesen Eintrag
-        jederzeit über die Einstellungen Ihres Browsers löschen.
-      </Typography>
-
-      <Typography sx={{ fontWeight: 800, mt: 1 }}>
-        5. Kontaktaufnahme per E-Mail
+      <Typography component="h2" sx={{ fontWeight: 800, m: 0, mt: 1 }}>
+        4. Kontaktaufnahme per E-Mail
       </Typography>
       <Typography color="text.secondary">
         Wenn Sie uns per E-Mail kontaktieren, werden Ihre Angaben
@@ -86,8 +76,8 @@ export default function Privacy() {
         Aufbewahrungspflichten entgegenstehen.
       </Typography>
 
-      <Typography sx={{ fontWeight: 800, mt: 1 }}>
-        6. SSL-/TLS-Verschlüsselung
+      <Typography component="h2" sx={{ fontWeight: 800, m: 0, mt: 1 }}>
+        5. SSL-/TLS-Verschlüsselung
       </Typography>
       <Typography color="text.secondary">
         Diese Website nutzt aus Sicherheitsgründen eine
@@ -95,7 +85,9 @@ export default function Privacy() {
         an „https://" in der Adresszeile Ihres Browsers.
       </Typography>
 
-      <Typography sx={{ fontWeight: 800, mt: 1 }}>7. Ihre Rechte</Typography>
+      <Typography component="h2" sx={{ fontWeight: 800, m: 0, mt: 1 }}>
+        6. Ihre Rechte
+      </Typography>
       <Typography color="text.secondary">
         Sie haben gegenüber uns folgende Rechte hinsichtlich der Sie
         betreffenden personenbezogenen Daten: das Recht auf Auskunft (Art. 15
@@ -119,8 +111,8 @@ export default function Privacy() {
         oder des Orts des mutmaßlichen Verstoßes.
       </Typography>
 
-      <Typography sx={{ fontWeight: 800, mt: 1 }}>
-        8. Aktualität dieser Datenschutzerklärung
+      <Typography component="h2" sx={{ fontWeight: 800, m: 0, mt: 1 }}>
+        7. Aktualität dieser Datenschutzerklärung
       </Typography>
       <Typography color="text.secondary">
         Diese Datenschutzerklärung hat den Stand Juli 2026. Durch die

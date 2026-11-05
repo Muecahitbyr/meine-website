@@ -161,7 +161,8 @@ function ProjectCard3D({ project, delay }) {
               {/* Title + description */}
               <Box>
                 <Typography
-                  sx={{ fontWeight: 700, fontSize: 16, letterSpacing: -0.2 }}
+                  component="h3"
+                  sx={{ fontWeight: 700, fontSize: 16, letterSpacing: -0.2, m: 0 }}
                 >
                   {title}
                 </Typography>
@@ -247,7 +248,7 @@ function ProjectCard3D({ project, delay }) {
                   >
                     <Typography
                       variant="caption"
-                      color="text.disabled"
+                      color="text.secondary"
                       sx={{ fontWeight: 600 }}
                     >
                       {note ?? t("projectCard.open")}

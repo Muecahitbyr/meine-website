@@ -19,14 +19,16 @@ export default function Imprint() {
         Deutschland
       </Typography>
 
-      <Typography sx={{ fontWeight: 800, mt: 1 }}>Kontakt</Typography>
+      <Typography component="h2" sx={{ fontWeight: 800, m: 0, mt: 1 }}>
+        Kontakt
+      </Typography>
       <Typography>
         Telefon: 0157 54258305
         <br />
         E-Mail: bayar-solutions@outlook.de
       </Typography>
 
-      <Typography sx={{ fontWeight: 800, mt: 1 }}>
+      <Typography component="h2" sx={{ fontWeight: 800, m: 0, mt: 1 }}>
         Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV
       </Typography>
       <Typography>
@@ -39,7 +41,7 @@ export default function Imprint() {
         48268 Greven
       </Typography>
 
-      <Typography sx={{ fontWeight: 800, mt: 1 }}>
+      <Typography component="h2" sx={{ fontWeight: 800, m: 0, mt: 1 }}>
         Verbraucherstreitbeilegung
       </Typography>
       <Typography color="text.secondary">
@@ -48,7 +50,7 @@ export default function Imprint() {
         teilzunehmen (§ 36 VSBG).
       </Typography>
 
-      <Typography sx={{ fontWeight: 800, mt: 1 }}>
+      <Typography component="h2" sx={{ fontWeight: 800, m: 0, mt: 1 }}>
         Haftung für Inhalte
       </Typography>
       <Typography color="text.secondary">
@@ -64,7 +66,9 @@ export default function Imprint() {
         Inhalte umgehend entfernen.
       </Typography>
 
-      <Typography sx={{ fontWeight: 800, mt: 1 }}>Haftung für Links</Typography>
+      <Typography component="h2" sx={{ fontWeight: 800, m: 0, mt: 1 }}>
+        Haftung für Links
+      </Typography>
       <Typography color="text.secondary">
         Diese Website enthält ggf. Links zu externen Websites Dritter, auf
         deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese
@@ -76,7 +80,9 @@ export default function Imprint() {
         Rechtsverletzungen werden wir derartige Links umgehend entfernen.
       </Typography>
 
-      <Typography sx={{ fontWeight: 800, mt: 1 }}>Urheberrecht</Typography>
+      <Typography component="h2" sx={{ fontWeight: 800, m: 0, mt: 1 }}>
+        Urheberrecht
+      </Typography>
       <Typography color="text.secondary">
         Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen
         Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung,

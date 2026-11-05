@@ -130,7 +130,7 @@ export default function Header() {
                     component={RouterLink}
                     to={item.to}
                     sx={(theme) => ({
-                      color: isActive ? "primary.main" : "text.secondary",
+                      color: isActive ? "primary.textAccessible" : "text.secondary",
                       fontWeight: 600,
                       fontSize: 14,
                       textTransform: "none",

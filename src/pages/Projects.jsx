@@ -144,10 +144,10 @@ function ProjectShowcase({ project, idx }) {
                   fontWeight: 700,
                   borderRadius: "6px",
                   backgroundColor: alpha(th.palette.primary.main, 0.1),
-                  color: "primary.dark",
+                  color: "primary.textAccessible",
                 })}
               />
-              <Typography variant="caption" color="text.disabled" sx={{ fontWeight: 600 }}>
+              <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 600 }}>
                 {note}
               </Typography>
             </Box>

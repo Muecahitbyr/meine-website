@@ -63,10 +63,12 @@ function ServiceCard({ title, description, Icon, color, linkTo, linkLabel }) {
 
           <Box sx={{ minWidth: 0, pt: 0.5 }}>
             <Typography
+              component="h3"
               sx={{
                 fontWeight: 700,
                 fontSize: { xs: 17, md: 19 },
                 lineHeight: 1.25,
+                m: 0,
               }}
             >
               {title}

@@ -9,6 +9,9 @@ export function createAppTheme() {
         dark: "#169E92",
         light: "#4ECFC3",
         contrastText: "#0C1117",
+        // Darker brand teal for text/icons on light backgrounds — main/dark
+        // fall below WCAG 2.1 AA's 4.5:1 text contrast ratio on white.
+        textAccessible: "#0E7A70",
       },
       background: {
         default: "#F7F9F9",

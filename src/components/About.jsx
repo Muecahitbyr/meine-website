@@ -14,7 +14,9 @@ function GlassCard({ title, subtitle, children, accentColor = "#1DB8AA" }) {
       })}
     >
       <Box sx={{ p: 3 }}>
-        <Typography sx={{ fontWeight: 700, fontSize: 18 }}>{title}</Typography>
+        <Typography component="h3" sx={{ fontWeight: 700, fontSize: 18, m: 0 }}>
+          {title}
+        </Typography>
         {subtitle ? (
           <Typography color="text.secondary" sx={{ mt: 0.75, fontSize: 14 }}>
             {subtitle}
@@ -84,7 +86,7 @@ export default function About() {
           >
             <Box sx={{ display: "grid", gap: 1.5 }}>
               <Box>
-                <Typography sx={{ fontWeight: 700, fontSize: 14 }}>
+                <Typography component="h4" sx={{ fontWeight: 700, fontSize: 14, m: 0 }}>
                   {t("about.highlights.planTitle")}
                 </Typography>
                 <Typography color="text.secondary" variant="body2">
@@ -95,7 +97,7 @@ export default function About() {
               <Divider />
 
               <Box>
-                <Typography sx={{ fontWeight: 700, fontSize: 14 }}>
+                <Typography component="h4" sx={{ fontWeight: 700, fontSize: 14, m: 0 }}>
                   {t("about.highlights.buildTitle")}
                 </Typography>
                 <Typography color="text.secondary" variant="body2">
@@ -106,7 +108,7 @@ export default function About() {
               <Divider />
 
               <Box>
-                <Typography sx={{ fontWeight: 700, fontSize: 14 }}>
+                <Typography component="h4" sx={{ fontWeight: 700, fontSize: 14, m: 0 }}>
                   {t("about.highlights.finishTitle")}
                 </Typography>
                 <Typography color="text.secondary" variant="body2">

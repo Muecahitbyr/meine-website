@@ -113,7 +113,7 @@ function HomePage({ skipEntranceAnimation, resolvedComponents }) {
             component={RouterLink}
             to="/app-entwicklung-kaufbeuren"
             sx={{
-              color: "primary.dark",
+              color: "primary.textAccessible",
               fontWeight: 700,
               textDecorationColor: "rgba(22,158,146,0.4)",
               textUnderlineOffset: 3,
@@ -127,7 +127,7 @@ function HomePage({ skipEntranceAnimation, resolvedComponents }) {
             component={RouterLink}
             to="/projekte"
             sx={{
-              color: "primary.dark",
+              color: "primary.textAccessible",
               fontWeight: 700,
               textDecorationColor: "rgba(22,158,146,0.4)",
               textUnderlineOffset: 3,
