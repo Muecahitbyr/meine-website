@@ -90,11 +90,6 @@
       ]
     },
 
-    "uiPreview": {
-      "title": "UI Vorschau",
-      "subtitle": "Beispiel-Dashboard"
-    },
-
     "highlights": {
       "title": "Arbeitsweise",
       "subtitle": "So entstehen Projekte",
@@ -104,21 +99,6 @@
       "buildBody": "Saubere Komponenten, polished UI und stabile Logik.",
       "finishTitle": "3) Feinschliff",
       "finishBody": "Performance, Accessibility und Details für echtes Premium-Feeling."
-    },
-
-    "deviceMock": {
-      "dashboard": "Dashboard",
-      "primaryCardTitle": "Kundenübersicht",
-      "primaryCardSubtitle": "Aktive Nutzer • Konversionen • Umsatz",
-      "tiles": {
-        "users": "Nutzer",
-        "uptime": "Uptime",
-        "rating": "Bewertung",
-        "projects": "Projekte"
-      },
-      "demoNote": "Demodaten zur Illustration – keine echten Kennzahlen.",
-      "cleanUiTitle": "Sauberes UI",
-      "cleanUiSubtitle": "Komponenten • Animationen • Accessibility"
     }
   },
 
@@ -198,7 +178,7 @@
     "sectionTitle": "Kontakt",
     "card": {
       "title": "Schreib mir",
-      "subtitle": "Schnell per E-Mail oder QR-Code scannen.",
+      "subtitle": "Schnell per E-Mail oder Telefon.",
       "body": "Für Projektanfragen, Digitalisierungsziele oder eine erste Machbarkeitsprüfung.",
       "sendEmail": "E-Mail senden",
       "call": "Anrufen",
@@ -211,11 +191,6 @@
       "copyPhoneAria": "Telefonnummer kopieren",
       "callAria": "Bayar Solutions anrufen",
       "tip": "Tipp: Ein kurzer Projektüberblick genügt — ich melde mich zeitnah."
-    },
-    "qr": {
-      "title": "QR Code",
-      "subtitle": "Scannen zum E-Mail schreiben.",
-      "alt": "QR Code E-Mail"
     }
   }
 }

@@ -80,11 +80,6 @@
       ]
     },
 
-    "uiPreview": {
-      "title": "UI Önizleme",
-      "subtitle": "Örnek dashboard"
-    },
-
     "highlights": {
       "title": "Çalışma Şeklim",
       "subtitle": "Projeler nasıl hayata geçer",
@@ -94,20 +89,6 @@
       "buildBody": "Temiz bileşenler, özenli UI ve kararlı mantık.",
       "finishTitle": "3) Son Dokunuş",
       "finishBody": "Performans, erişilebilirlik ve premium his için detaylar."
-    },
-
-    "deviceMock": {
-      "dashboard": "Panel",
-      "primaryCardTitle": "Müşteri Genel Bakış",
-      "primaryCardSubtitle": "Aktif Kullanıcılar • Dönüşümler • Gelir",
-      "tiles": {
-        "users": "Kullanıcılar",
-        "uptime": "Çalışma Süresi",
-        "rating": "Puan",
-        "projects": "Projeler"
-      },
-      "cleanUiTitle": "Temiz UI",
-      "cleanUiSubtitle": "Bileşenler • Animasyonlar • Erişilebilirlik"
     }
   },
 
@@ -169,7 +150,7 @@
     "sectionTitle": "İletişim",
     "card": {
       "title": "Bana yaz",
-      "subtitle": "Hızlıca e-posta ile — ya da QR kodu tara.",
+      "subtitle": "Hızlıca e-posta veya telefonla.",
       "body": "Proje talepleri, dijitalleşme hedefleri veya ilk fizibilite değerlendirmesi için.",
       "sendEmail": "E-posta gönder",
       "call": "Ara",
@@ -182,11 +163,6 @@
       "copyPhoneAria": "Telefon numarasını kopyala",
       "callAria": "Bayar Solutions'ı ara",
       "tip": "İpucu: Kısa bir mesaj yeter — dönüş yaparım."
-    },
-    "qr": {
-      "title": "QR Kod",
-      "subtitle": "E-posta yazmak için tara.",
-      "alt": "QR Kod E-posta"
     }
   }
 }
