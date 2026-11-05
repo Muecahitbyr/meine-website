@@ -1,0 +1,19 @@
+# Bayar Solutions
+
+> Bayar Solutions entwickelt Webseiten, Apps und KI-Automatisierungen für Unternehmen und Selbstständige in Kaufbeuren und im Allgäu.
+
+Bayar Solutions ist ein Einzelunternehmen von Mücahit Bayar mit Sitz in Deutschland, tätig für Kundschaft in Kaufbeuren und im Allgäu. Angeboten werden drei Leistungsbereiche: die Erstellung von Unternehmenswebsites, individuelle App-Entwicklung (nativ für iOS/Android sowie Web-Anwendungen) und KI-Automatisierung zur Optimierung von Geschäftsprozessen. Alle Projekte werden direkt von Mücahit Bayar umgesetzt, ohne Zwischenstationen. Referenzen sind eigenständig entwickelte Anwendungen (u. a. eine iOS-Zeiterfassungs-App und ein browserbasierter 3D-Raumplaner), dokumentiert auf der Projekte-Seite.
+
+Kontakt ausschließlich per E-Mail: bayar-solutions@outlook.de
+
+## Leistungen
+
+- [Webseiten in Kaufbeuren](https://www.bayar-solutions.de/webseiten-kaufbeuren): Webdesign und Webentwicklung für Unternehmen und Selbstständige.
+- [App-Entwicklung in Kaufbeuren](https://www.bayar-solutions.de/app-entwicklung-kaufbeuren): Individuelle native und webbasierte Apps.
+- [KI-Automatisierung in Kaufbeuren](https://www.bayar-solutions.de/ki-automatisierung): Automatisierung von Geschäftsprozessen und Workflows.
+- [Projekte & Eigenentwicklungen](https://www.bayar-solutions.de/projekte): Eigenständig entwickelte Apps als Arbeitsproben.
+
+## Weitere Seiten
+
+- [Startseite](https://www.bayar-solutions.de/): Überblick über alle Leistungen.
+- [Impressum](https://www.bayar-solutions.de/impressum): Anbieterkennzeichnung gemäß § 5 DDG.

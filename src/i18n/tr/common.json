@@ -58,7 +58,8 @@
   },
 
   "footer": {
-    "role": "İşletmeler için dijital çözümler"
+    "role": "İşletmeler için dijital çözümler",
+    "phoneAria": "Bayar Solutions'ı ara"
   },
 
   "about": {
@@ -171,10 +172,15 @@
       "subtitle": "Hızlıca e-posta ile — ya da QR kodu tara.",
       "body": "Proje talepleri, dijitalleşme hedefleri veya ilk fizibilite değerlendirmesi için.",
       "sendEmail": "E-posta gönder",
+      "call": "Ara",
       "toApps": "Referanslara git",
       "emailLabel": "E-POSTA",
       "copyTooltip": "E-postayı kopyala",
       "copyAria": "E-postayı kopyala",
+      "phoneLabel": "TELEFON",
+      "copyPhoneTooltip": "Telefon numarasını kopyala",
+      "copyPhoneAria": "Telefon numarasını kopyala",
+      "callAria": "Bayar Solutions'ı ara",
       "tip": "İpucu: Kısa bir mesaj yeter — dönüş yaparım."
     },
     "qr": {

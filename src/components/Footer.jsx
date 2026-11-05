@@ -3,6 +3,11 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import { useTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
 
+// Kept in sync with Contact.jsx, Imprint.jsx and the telephone field in
+// index.html's ProfessionalService JSON-LD.
+const PHONE = "+4915754258305";
+const PHONE_DISPLAY = "0157 54258305";
+
 export default function Footer() {
   const { t } = useTranslation("common");
   const year = new Date().getFullYear();
@@ -102,6 +107,18 @@ export default function Footer() {
             }}
           >
             {t("footer.projectsLink")}
+          </Typography>
+          <Typography
+            component="a"
+            href={`tel:${PHONE}`}
+            variant="body2"
+            sx={{
+              color: "text.secondary",
+              textDecoration: "none",
+              "&:hover": { color: "text.primary" },
+            }}
+          >
+            {PHONE_DISPLAY}
           </Typography>
           <Typography
             component={RouterLink}

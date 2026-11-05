@@ -64,7 +64,8 @@
     "role": "Digital solutions for businesses",
     "appsLink": "Own Projects",
     "projectsLink": "Projects in detail",
-    "instagramAria": "Bayar Solutions on Instagram"
+    "instagramAria": "Bayar Solutions on Instagram",
+    "phoneAria": "Call Bayar Solutions"
   },
 
   "about": {
@@ -195,10 +196,15 @@
       "subtitle": "Quickly via email — or scan the QR code.",
       "body": "For project inquiries, digitalization goals or an initial feasibility review.",
       "sendEmail": "Send email",
+      "call": "Call",
       "toApps": "Go to references",
       "emailLabel": "EMAIL",
       "copyTooltip": "Copy email",
       "copyAria": "Copy email",
+      "phoneLabel": "PHONE",
+      "copyPhoneTooltip": "Copy phone number",
+      "copyPhoneAria": "Copy phone number",
+      "callAria": "Call Bayar Solutions",
       "tip": "Tip: A brief project summary is enough — I'll respond promptly."
     },
     "qr": {

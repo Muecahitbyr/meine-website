@@ -67,7 +67,8 @@
     "appLink": "App entwickeln lassen",
     "aiLink": "KI-Automatisierung umsetzen",
     "projectsLink": "Projekte im Detail",
-    "instagramAria": "Bayar Solutions auf Instagram"
+    "instagramAria": "Bayar Solutions auf Instagram",
+    "phoneAria": "Bayar Solutions anrufen"
   },
 
   "about": {
@@ -200,10 +201,15 @@
       "subtitle": "Schnell per E-Mail oder QR-Code scannen.",
       "body": "Für Projektanfragen, Digitalisierungsziele oder eine erste Machbarkeitsprüfung.",
       "sendEmail": "E-Mail senden",
+      "call": "Anrufen",
       "toApps": "Zu den Projekten",
       "emailLabel": "E-MAIL",
       "copyTooltip": "E-Mail kopieren",
       "copyAria": "E-Mail kopieren",
+      "phoneLabel": "TELEFON",
+      "copyPhoneTooltip": "Telefonnummer kopieren",
+      "copyPhoneAria": "Telefonnummer kopieren",
+      "callAria": "Bayar Solutions anrufen",
       "tip": "Tipp: Ein kurzer Projektüberblick genügt — ich melde mich zeitnah."
     },
     "qr": {

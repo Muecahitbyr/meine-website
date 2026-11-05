@@ -12,6 +12,7 @@ import { alpha } from "@mui/material/styles";
 import ContentCopyRoundedIcon from "@mui/icons-material/ContentCopyRounded";
 import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
 import EmailRoundedIcon from "@mui/icons-material/EmailRounded";
+import CallRoundedIcon from "@mui/icons-material/CallRounded";
 import { Link as RouterLink } from "react-router-dom";
 import Reveal from "./Reveal.jsx";
 import GlowCard from "./GlowCard.jsx";
@@ -20,10 +21,15 @@ import ScrollParallax from "./ScrollParallax.jsx";
 import { useTranslation } from "react-i18next";
 
 const EMAIL = "bayar-solutions@outlook.de";
+// Kept in sync with Footer.jsx, Imprint.jsx and the telephone field in
+// index.html's ProfessionalService JSON-LD.
+const PHONE = "+4915754258305";
+const PHONE_DISPLAY = "0157 54258305";
 
 export default function Contact() {
   const { t } = useTranslation("common");
   const [copied, setCopied] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
 
   const SUBJECT = t("contact.emailSubject");
   const BODY = t("contact.emailBody");
@@ -34,7 +40,19 @@ export default function Contact() {
       await navigator.clipboard.writeText(EMAIL);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    } catch {}
+    } catch {
+      // clipboard unavailable — fine, the tel/mailto links still work
+    }
+  };
+
+  const copyPhone = async () => {
+    try {
+      await navigator.clipboard.writeText(PHONE_DISPLAY);
+      setCopiedPhone(true);
+      setTimeout(() => setCopiedPhone(false), 2000);
+    } catch {
+      // clipboard unavailable — fine, the tel/mailto links still work
+    }
   };
 
   return (
@@ -112,6 +130,23 @@ export default function Contact() {
               <MagneticButton strength={0.3}>
                 <Button
                   variant="outlined"
+                  href={`tel:${PHONE}`}
+                  startIcon={<CallRoundedIcon />}
+                  aria-label={t("contact.card.callAria")}
+                  sx={{
+                    fontWeight: 700,
+                    borderRadius: 9999,
+                    borderColor: "primary.main",
+                    color: "primary.main",
+                  }}
+                >
+                  {t("contact.card.call")}
+                </Button>
+              </MagneticButton>
+
+              <MagneticButton strength={0.3}>
+                <Button
+                  variant="outlined"
                   component={RouterLink}
                   to="/#apps"
                   sx={{
@@ -169,6 +204,65 @@ export default function Contact() {
                   }}
                 >
                   {copied ? (
+                    <CheckRoundedIcon fontSize="small" />
+                  ) : (
+                    <ContentCopyRoundedIcon fontSize="small" />
+                  )}
+                </IconButton>
+              </Tooltip>
+            </Box>
+
+            {/* Phone display + copy */}
+            <Box
+              sx={(tt) => ({
+                mt: 1.25,
+                p: 1.75,
+                borderRadius: "10px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: 1.5,
+                border: `1px solid ${tt.palette.divider}`,
+                backgroundColor: alpha(tt.palette.background.default, 0.8),
+              })}
+            >
+              <Box>
+                <Typography
+                  variant="caption"
+                  color="text.secondary"
+                  sx={{ fontWeight: 700, letterSpacing: 0.8, display: "block" }}
+                >
+                  {t("contact.card.phoneLabel")}
+                </Typography>
+                <Typography
+                  component="a"
+                  href={`tel:${PHONE}`}
+                  sx={{
+                    fontFamily: "monospace",
+                    fontWeight: 700,
+                    fontSize: 14,
+                    color: "text.primary",
+                    textDecoration: "none",
+                  }}
+                >
+                  {PHONE_DISPLAY}
+                </Typography>
+              </Box>
+
+              <Tooltip
+                title={copiedPhone ? "✓" : t("contact.card.copyPhoneTooltip")}
+                placement="top"
+              >
+                <IconButton
+                  onClick={copyPhone}
+                  aria-label={t("contact.card.copyPhoneAria")}
+                  size="small"
+                  sx={{
+                    color: copiedPhone ? "success.main" : "text.secondary",
+                    transition: "color 200ms ease",
+                  }}
+                >
+                  {copiedPhone ? (
                     <CheckRoundedIcon fontSize="small" />
                   ) : (
                     <ContentCopyRoundedIcon fontSize="small" />

@@ -20,7 +20,11 @@ export default function Imprint() {
       </Typography>
 
       <Typography sx={{ fontWeight: 800, mt: 1 }}>Kontakt</Typography>
-      <Typography>E-Mail: bayar-solutions@outlook.de</Typography>
+      <Typography>
+        Telefon: 0157 54258305
+        <br />
+        E-Mail: bayar-solutions@outlook.de
+      </Typography>
 
       <Typography sx={{ fontWeight: 800, mt: 1 }}>
         Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV

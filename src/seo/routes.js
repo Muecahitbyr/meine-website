@@ -3,6 +3,8 @@
 //   - components/RouteSeo.jsx  → keeps them in sync on client-side navigation
 // Plain data + pure functions only (no DOM, no React) so Node can import it.
 
+import { FAQ } from "../data/faq.js";
+
 export const ORIGIN = "https://www.bayar-solutions.de";
 export const ORG_ID = `${ORIGIN}/#organization`;
 
@@ -121,11 +123,44 @@ export const SITEMAP_ROUTES = [
 
 export const urlFor = (path) => (path === "/" ? `${ORIGIN}/` : `${ORIGIN}${path}`);
 
+// A FAQ item's answer as one self-contained sentence for JSON-LD: on the
+// page itself, an item with `link` trails off into an inline <Link> (e.g.
+// "...finden Sie mehr dazu unter" → link text), which reads fine visually
+// but would be a dangling sentence fragment as plain schema.org text, so the
+// link's label is appended here to complete it.
+const faqAnswerText = (item) =>
+  item.link ? `${item.a} ${item.link.label}.` : item.a;
+
+// FAQPage schema.org entry for a route's FAQ, built from the same content
+// src/data/faq.js feeds to the rendered accordion (src/pages/LandingPage.jsx)
+// — one source of truth, so the structured data can never drift out of sync
+// with what a visitor (or an AI crawler reading the page itself) actually
+// sees. This is the single most direct way to put the site's own answers
+// into a form AI assistants can lift verbatim instead of needing to infer
+// them from prose.
+function buildFaqLd(path) {
+  const items = FAQ[path];
+  if (!items) return null;
+  return {
+    "@type": "FAQPage",
+    "@id": `${urlFor(path)}#faq`,
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faqAnswerText(item),
+      },
+    })),
+  };
+}
+
 // Service + breadcrumb data for the landing pages. Only facts that are also
 // stated on the page/site — no prices, ratings or reviews.
 export function buildServiceLd(path) {
   const { description, service } = ROUTES[path];
   const url = urlFor(path);
+  const faqLd = buildFaqLd(path);
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -154,6 +189,7 @@ export function buildServiceLd(path) {
           { "@type": "ListItem", position: 2, name: service.breadcrumb, item: url },
         ],
       },
+      ...(faqLd ? [faqLd] : []),
     ],
   };
 }
