@@ -8,6 +8,7 @@ import {
   useReducedMotion,
 } from "framer-motion";
 import { Box, Typography, Chip, Button, useMediaQuery } from "@mui/material";
+import { alpha } from "@mui/material/styles";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import { useTranslation } from "react-i18next";
 import Reveal from "./Reveal.jsx";
@@ -88,7 +89,9 @@ function ProjectCard3D({ project, delay }) {
   const href = project.storeUrl || project.link;
   const ctaLabel = project.storeUrl
     ? t("projectCard.openStore")
-    : t("projectCard.openDemo");
+    : project.embedPreview
+      ? t("projectCard.openWebsite")
+      : t("projectCard.openDemo");
 
   return (
     <Reveal delay={delay}>
@@ -160,6 +163,21 @@ function ProjectCard3D({ project, delay }) {
             >
               {/* Title + description */}
               <Box>
+                {project.badge && (
+                  <Chip
+                    label={project.badge}
+                    size="small"
+                    sx={(theme) => ({
+                      mb: 0.75,
+                      height: 20,
+                      fontSize: 10.5,
+                      fontWeight: 700,
+                      borderRadius: "6px",
+                      backgroundColor: alpha(theme.palette.primary.main, 0.12),
+                      color: "primary.textAccessible",
+                    })}
+                  />
+                )}
                 <Typography
                   component="h3"
                   sx={{ fontWeight: 700, fontSize: 16, letterSpacing: -0.2, m: 0 }}
@@ -204,14 +222,46 @@ function ProjectCard3D({ project, delay }) {
                 </Box>
               )}
 
-              {/* Screenshot — isHovered triggers image zoom inside */}
+              {/* Preview — a live iframe for client website projects
+                  (embedPreview), a screenshot gallery for own apps */}
               <Box>
-                <ScreenshotGallery
-                  title={title}
-                  screenshots={project.screenshots || []}
-                  isHovered={isHovered && !disabled}
-                  aspectRatio={project.aspectRatio}
-                />
+                {project.embedPreview ? (
+                  <Box
+                    sx={(theme) => ({
+                      position: "relative",
+                      aspectRatio: project.aspectRatio || "16/10",
+                      borderRadius: "8px",
+                      overflow: "hidden",
+                      border: `1px solid ${theme.palette.divider}`,
+                      backgroundColor: theme.palette.background.default,
+                    })}
+                  >
+                    {/* Visual-only: pointer-events disabled so hovering the
+                        card can't be hijacked by the embedded site. The CTA
+                        button below is the real, full-size link. */}
+                    <Box
+                      component="iframe"
+                      src={project.link}
+                      title={`Live-Vorschau: ${title}`}
+                      loading="lazy"
+                      referrerPolicy="no-referrer"
+                      sx={{
+                        display: "block",
+                        width: "100%",
+                        height: "100%",
+                        border: 0,
+                        pointerEvents: "none",
+                      }}
+                    />
+                  </Box>
+                ) : (
+                  <ScreenshotGallery
+                    title={title}
+                    screenshots={project.screenshots || []}
+                    isHovered={isHovered && !disabled}
+                    aspectRatio={project.aspectRatio}
+                  />
+                )}
               </Box>
 
               <Box sx={{ flex: 1 }} />

@@ -8,6 +8,7 @@ import Reveal from "../components/Reveal.jsx";
 import ScreenshotGallery from "../components/ScreenshotGallery.jsx";
 import { LandingHero, ClosingCta } from "./LandingPage.jsx";
 import { projects } from "../data/projects.js";
+import { clientProjects } from "../data/clientProjects.js";
 
 const WASH = {
   teal: "linear-gradient(180deg, rgba(29,184,170,0.05) 0%, rgba(247,249,249,0) 100%)",
@@ -100,6 +101,89 @@ const PROJECT_DETAILS = {
     ],
   },
 };
+
+function ClientProjectCard({ project }) {
+  return (
+    <Reveal>
+      <Paper
+        sx={(th) => ({
+          borderRadius: "16px",
+          border: `1px solid ${th.palette.divider}`,
+          boxShadow: "0 2px 8px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04)",
+          overflow: "hidden",
+        })}
+      >
+        <Box
+          sx={(th) => ({
+            position: "relative",
+            aspectRatio: "16/10",
+            backgroundColor: th.palette.background.default,
+            borderBottom: `1px solid ${th.palette.divider}`,
+          })}
+        >
+          {/* Visual-only: pointer-events disabled so visitors can't interact
+              with the embedded site inside this small frame. The button
+              below is the real, full-size link. */}
+          <Box
+            component="iframe"
+            src={project.link}
+            title={`Live-Vorschau: ${project.title}`}
+            loading="lazy"
+            referrerPolicy="no-referrer"
+            sx={{ display: "block", width: "100%", height: "100%", border: 0, pointerEvents: "none" }}
+          />
+        </Box>
+
+        <Box sx={{ p: { xs: 3, md: 3.5 } }}>
+          <Chip
+            label={project.badge}
+            size="small"
+            sx={(th) => ({
+              height: 24,
+              fontSize: 12,
+              fontWeight: 700,
+              borderRadius: "6px",
+              backgroundColor: alpha(th.palette.primary.main, 0.1),
+              color: "primary.textAccessible",
+            })}
+          />
+
+          <Typography
+            variant="h3"
+            sx={{ mt: 1, fontSize: { xs: 18, md: 20 }, letterSpacing: -0.3 }}
+          >
+            {project.title}
+          </Typography>
+
+          <Typography color="text.secondary" sx={{ mt: 0.75, fontSize: 14, lineHeight: 1.6 }}>
+            {project.description}
+          </Typography>
+
+          <Button
+            component="a"
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="outlined"
+            startIcon={<OpenInNewIcon sx={{ fontSize: 16 }} />}
+            sx={{
+              mt: 2,
+              borderRadius: "8px",
+              py: 0.75,
+              px: 2,
+              fontWeight: 700,
+              fontSize: 13,
+              borderColor: "primary.textAccessible",
+              color: "primary.textAccessible",
+            }}
+          >
+            Website ansehen
+          </Button>
+        </Box>
+      </Paper>
+    </Reveal>
+  );
+}
 
 function ProjectShowcase({ project, idx }) {
   const { t } = useTranslation("common");
@@ -252,6 +336,19 @@ export default function Projects({ skipEntranceAnimation = false }) {
         <Box sx={{ display: "grid", gap: { xs: 3, md: 4 } }}>
           {projects.map((project, idx) => (
             <ProjectShowcase key={project.id} project={project} idx={idx} />
+          ))}
+        </Box>
+      </Section>
+
+      <Section
+        id="client-projects"
+        title="Kundenprojekte"
+        subtitle="Websites, die ich für Kunden umgesetzt habe."
+        sx={{ background: WASH.grey }}
+      >
+        <Box sx={{ display: "grid", gap: { xs: 2, md: 3 } }}>
+          {clientProjects.map((project) => (
+            <ClientProjectCard key={project.id} project={project} />
           ))}
         </Box>
       </Section>

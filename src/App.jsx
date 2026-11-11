@@ -1,5 +1,6 @@
 import { useEffect, useLayoutEffect, useMemo, useState, Suspense } from "react";
-import { ThemeProvider, CssBaseline, Box, Typography } from "@mui/material";
+import { ThemeProvider, CssBaseline, Box, Button, Typography } from "@mui/material";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useTranslation } from "react-i18next";
 import { Routes, Route, useLocation, Link as RouterLink } from "react-router-dom";
 
@@ -10,6 +11,12 @@ import Section from "./components/Sections.jsx";
 import Hero from "./components/Hero.jsx";
 import RouteSeo from "./components/RouteSeo.jsx";
 import { projects } from "./data/projects.js";
+import { clientProjects } from "./data/clientProjects.js";
+
+// Stable module-level reference — own apps plus client website projects,
+// shown together on the homepage (see Apps.jsx's ProjectCard3D for how
+// each kind renders its preview).
+const HOMEPAGE_PROJECTS = [...projects, ...clientProjects];
 import {
   LazyAbout,
   LazyTechStack,
@@ -101,9 +108,12 @@ function HomePage({ skipEntranceAnimation, resolvedComponents }) {
         subtitle={t("sections.apps.subtitle")}
         sx={{ background: "linear-gradient(180deg, #F4F7F7 0%, rgba(247,249,249,0) 100%)" }}
       >
-        {/* DriveConnect, Rechno and Tano are my own apps, not client work —
+        {/* DriveConnect, Rechno and Tano are my own apps, not client work,
             said plainly here so the section isn't mistaken for client
-            references (it used to be titled/subtitled that way). */}
+            references (it used to be titled/subtitled that way). The grid
+            below also includes client website projects (HOMEPAGE_PROJECTS),
+            each tagged "Kundenprojekt" on its own card, so this sentence
+            only needs to cover the named own apps. */}
         <Typography
           color="text.secondary"
           sx={{ mb: { xs: 3, md: 4 }, maxWidth: 760, fontSize: { xs: 14, md: 15 }, lineHeight: 1.65 }}
@@ -122,23 +132,32 @@ function HomePage({ skipEntranceAnimation, resolvedComponents }) {
           >
             {t("sections.apps.devLink")}
           </Typography>
-          {" · "}
-          <Typography
+        </Typography>
+
+        <RouteSlot
+          resolved={resolvedComponents.Apps}
+          lazy={LazyApps}
+          projects={HOMEPAGE_PROJECTS}
+        />
+
+        <Box sx={{ display: "flex", justifyContent: "center", mt: { xs: 3, md: 4 } }}>
+          <Button
             component={RouterLink}
             to="/projekte"
+            variant="outlined"
+            endIcon={<ArrowForwardIcon />}
             sx={{
-              color: "primary.textAccessible",
+              borderRadius: 9999,
+              px: 3,
+              py: 1.25,
               fontWeight: 700,
-              textDecorationColor: "rgba(22,158,146,0.4)",
-              textUnderlineOffset: 3,
-              "&:hover": { textDecorationColor: "currentColor" },
+              borderColor: "primary.textAccessible",
+              color: "primary.textAccessible",
             }}
           >
             {t("sections.apps.projectsLink")}
-          </Typography>
-        </Typography>
-
-        <RouteSlot resolved={resolvedComponents.Apps} lazy={LazyApps} projects={projects} />
+          </Button>
+        </Box>
       </Section>
 
       {/* Contact — stronger teal tint, gives the page a warm close */}
